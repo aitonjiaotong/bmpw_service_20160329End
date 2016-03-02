@@ -3,6 +3,8 @@ package com.aiton.bmpw.Controller.FrontController.Order;
 import com.aiton.bmpw.Entity.Bmpw_Order;
 import com.aiton.bmpw.Service.OrderService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -17,6 +19,8 @@ import javax.annotation.Resource;
 public class CompleteOrderController {
     @Resource
     private OrderService orderService;
+    @RequestMapping("/order/completeorder")
+    @ResponseBody
     public Bmpw_Order execute(Integer order_id,Integer redEnvelope_id){
         Bmpw_Order order=orderService.completeOrder(order_id,redEnvelope_id);
         return order;
