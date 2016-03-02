@@ -43,7 +43,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test-mvc:1.0.0.M2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0" level="application_server_libraries" />
-    <orderEntry type="library" name="CCP_REST_SDK_JAVA_v2.7r" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.2.0.RELEASE" level="project" />
@@ -99,7 +98,8 @@
     <orderEntry type="library" name="Maven: net.sf.json-lib:json-lib:2.4" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.5" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" level="project" />
-    <orderEntry type="library" name="json-lib-2.4-jdk15" level="project" />
+    <orderEntry type="library" name="Maven: cn.com.guju:CCP_REST_SDK_JAVA_v2.7r:1.0" level="project" />
+    <orderEntry type="library" name="Maven: cn.com.json-lib:json-lib-2.4-jdk15:1.0" level="project" />
   </component>
 </module>
 

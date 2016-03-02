@@ -216,64 +216,17 @@ public class ZoneServiceImpl implements ZoneService {
 
     @Override
     public List<Zone_Web> arriveZone() {
-        List<Zone>zones=zoneReponsitory.getArriveZone();
-        List<Zone_Web>zone_webs=new ArrayList<Zone_Web>();
-        for(Zone zone:zones){
-            Zone_Web zone_web= bmpwUtils.setZonetoZone_Web(zone);
-            zone_webs.add(zone_web);
-        }
-        //镇与市关联,将镇变成集合
-        Map<Integer,List<Zone_Web>>zhenMap=new HashMap<Integer, List<Zone_Web>>();
-        for(Zone_Web zone_web:zone_webs){
-            //System.out.println(zone_web.getFullCode().length());
-            if(zone_web.getFullCode().length()==6){
-                if(zhenMap.get(zone_web.getParentZoneID())==null){
-                    List<Zone_Web>zhen=new ArrayList<Zone_Web>();
-                    zhen.add(zone_web);
-                    zhenMap.put(zone_web.getParentZoneID(),zhen);
-                }else{
-                    List<Zone_Web>zhen=zhenMap.get(zone_web.getParentZoneID());
-                    zhen.add(zone_web);
-                    zhenMap.put(zone_web.getParentZoneID(),zhen);
-                }
-            }
-        }
-        //将镇装配到市
-        List<Zone_Web>shiList=new ArrayList<Zone_Web>();
-        Map<Integer,List<Zone_Web>>shiMap=new HashMap<Integer, List<Zone_Web>>();
-        Set<Integer>shizoneIDs=zhenMap.keySet();
-        for(Integer shizoneID:shizoneIDs){
-            Zone zone=zoneReponsitory.findOne(shizoneID);
+        List<Zone>azones=zoneReponsitory.getArriveZone();
+        List<Zone_Web>zones=new ArrayList<Zone_Web>();
+        for(Zone zone:azones){
             Zone_Web zone_web=bmpwUtils.setZonetoZone_Web(zone);
-            zone_web.setSubZones(zhenMap.get(shizoneID));
-            shiList.add(zone_web);
+            zones.add(zone_web);
         }
-        //将市装配到省
-        for(Zone_Web zone_web:shiList){
-            //System.out.println(zone_web.getParentZoneID());
-            if(shiMap.get(zone_web.getParentZoneID())==null){
-                List<Zone_Web> shi=new ArrayList<Zone_Web>();
-                shi.add(zone_web);
-                shiMap.put(zone_web.getParentZoneID(),shi);
-            }else{
-                List<Zone_Web> shi=shiMap.get(zone_web.getParentZoneID());
-                shi.add(zone_web);
-                shiMap.put(zone_web.getParentZoneID(),shi);
-
-            }
-        }
-
         List<Zone_Web>sheng=new ArrayList<Zone_Web>();
-        Set<Integer>shengzoneIDs=shiMap.keySet();
-        for(Integer shengzoneID:shengzoneIDs){
-            //System.out.println(shengzoneID);
-            Zone zone=zoneReponsitory.findOne(shengzoneID);
-            Zone_Web zone_web=bmpwUtils.setZonetoZone_Web(zone);
-            zone_web.setSubZones(shiMap.get(shengzoneID));
-            sheng.add(zone_web);
+        for(Zone_Web zone_web:zones){
+
         }
-        zone_webs=null;
-        return sheng;  //To change body of implemented methods use File | Settings | File Templates.
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override

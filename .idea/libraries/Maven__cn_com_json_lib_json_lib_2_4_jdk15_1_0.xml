@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: cn.com.json-lib:json-lib-2.4-jdk15:1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/json-lib-2.4-jdk15.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
