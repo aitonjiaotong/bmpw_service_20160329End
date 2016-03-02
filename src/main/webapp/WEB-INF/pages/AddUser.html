@@ -1290,7 +1290,7 @@
 <script type="text/javascript">
     $(function(){
         $.ajax({
-            url:"http://120.24.46.15:8080/bmpw/model/loadroles",
+            url:"/bmpw/model/loadroles",
             dataType:"json",
             type:"post",
             data:{},
@@ -1309,7 +1309,7 @@
         $("#table").on("blur","#code",function(){
             var code=$("#code").val();
             $.ajax({
-                url:"http://120.24.46.15:8080/bmpw/user/findbycode",
+                url:"/bmpw/user/findbycode",
                 dataType:"json",
                 type:"post",
                 data:{"code":code},
@@ -1347,7 +1347,7 @@
                 return;
             }
             $.ajax({
-                url:"http://120.24.46.15:8080/bmpw/model/adduser",
+                url:"/bmpw/model/adduser",
                 dataType:"json",
                 type:"post",
                 data:{"code":code,"password":password1,"role_id":role_id},

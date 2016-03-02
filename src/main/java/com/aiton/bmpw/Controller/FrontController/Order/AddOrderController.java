@@ -23,8 +23,8 @@ public class AddOrderController {
     private OrderService service;
     @RequestMapping("/front/addorder")
     @ResponseBody
-    public Bmpw_Order execute(String bookLogAID, Integer account_id,Integer redEnvelope_id){
-        Bmpw_Order order=service.addOrder(bookLogAID,account_id,redEnvelope_id);
+    public Bmpw_Order execute(String bookLogAID, Integer account_id){
+        Bmpw_Order order=service.addOrder(bookLogAID,account_id);
         return order;
     }
 }

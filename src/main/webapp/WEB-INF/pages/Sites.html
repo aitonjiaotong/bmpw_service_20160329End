@@ -1240,7 +1240,7 @@
         $("#sites").dataTable({
             "serverSide":true,
             "processing": true,
-            "ajax":"http://120.24.46.15:8080/bmpw/site/loadsites",
+            "ajax":"/bmpw/site/loadsites",
             "bLengthChange": false,
             "bSort": false,
             "bInfo": false,
@@ -1288,7 +1288,7 @@
 //            alert(data.siteID);
             var siteID=data.siteID;
             $.ajax({
-                url:"http://120.24.46.15:8080/bmpw/site/updatesiteflag",
+                url:"/bmpw/site/updatesiteflag",
                 dataType:"json",
                 type:"post",
                 data:{"siteID":siteID},

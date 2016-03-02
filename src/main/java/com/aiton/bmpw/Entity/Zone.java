@@ -91,4 +91,34 @@ public class Zone {
     public void setFlag(Integer flag) {
         this.flag = flag;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Zone)) return false;
+
+        Zone zone = (Zone) o;
+
+        if (FullCode != null ? !FullCode.equals(zone.FullCode) : zone.FullCode != null) return false;
+        if (FullName != null ? !FullName.equals(zone.FullName) : zone.FullName != null) return false;
+        if (ParentZoneID != null ? !ParentZoneID.equals(zone.ParentZoneID) : zone.ParentZoneID != null) return false;
+        if (SubZones != null ? !SubZones.equals(zone.SubZones) : zone.SubZones != null) return false;
+        if (ZoneCode != null ? !ZoneCode.equals(zone.ZoneCode) : zone.ZoneCode != null) return false;
+        if (ZoneID != null ? !ZoneID.equals(zone.ZoneID) : zone.ZoneID != null) return false;
+        if (ZoneName != null ? !ZoneName.equals(zone.ZoneName) : zone.ZoneName != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = ZoneID != null ? ZoneID.hashCode() : 0;
+        result = 31 * result + (ZoneCode != null ? ZoneCode.hashCode() : 0);
+        result = 31 * result + (ZoneName != null ? ZoneName.hashCode() : 0);
+        result = 31 * result + (ParentZoneID != null ? ParentZoneID.hashCode() : 0);
+        result = 31 * result + (FullCode != null ? FullCode.hashCode() : 0);
+        result = 31 * result + (FullName != null ? FullName.hashCode() : 0);
+        result = 31 * result + (SubZones != null ? SubZones.hashCode() : 0);
+        return result;
+    }
 }

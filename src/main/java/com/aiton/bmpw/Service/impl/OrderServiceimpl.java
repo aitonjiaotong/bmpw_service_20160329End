@@ -41,19 +41,13 @@ public class OrderServiceimpl implements OrderService {
     @Resource
     private AccountReponstory accountReponstory;
     @Override
-    public Bmpw_Order addOrder(String BookLogAID, Integer account_id,Integer redEnvelope_id) {
+    public Bmpw_Order addOrder(String BookLogAID, Integer account_id) {
         Bmpw_Order order=new Bmpw_Order();
         order.setBookLogAID(BookLogAID);
         order.setAccount_id(account_id);
         Account account=accountReponstory.findOne(account_id);
         order.setPhone(account.getPhone());
-        order.setRedEnvelope_id(redEnvelope_id);
         order.setDate(new Timestamp(System.currentTimeMillis()));
-        if(redEnvelope_id!=null){
-             RedEnvelope redEnvelope=redEnvelopeReponsitory.findOne(redEnvelope_id);
-             redEnvelope.setFlag(1);
-             redEnvelopeReponsitory.saveAndFlush(redEnvelope);
-        }
         order=orderReponsitory.saveAndFlush(order);
         account=null;
         return order;  //To change body of implemented methods use File | Settings | File Templates.
@@ -106,5 +100,18 @@ public class OrderServiceimpl implements OrderService {
         }
         dataTables.setData(orders);
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public Bmpw_Order completeOrder(Integer order_id, Integer redEnvelope_id) {
+        Bmpw_Order order=orderReponsitory.findOne(order_id);
+        if(redEnvelope_id!=null){
+            RedEnvelope redEnvelope=redEnvelopeReponsitory.findOne(redEnvelope_id);
+            order.setRedEnvelope_id(redEnvelope_id);
+            redEnvelope.setFlag(1);
+            order=orderReponsitory.saveAndFlush(order);
+            redEnvelopeReponsitory.saveAndFlush(redEnvelope);
+        }
+        return order;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

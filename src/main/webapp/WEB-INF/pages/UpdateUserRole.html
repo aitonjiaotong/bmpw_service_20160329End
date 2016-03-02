@@ -57,6 +57,30 @@
     <![endif]-->
     <style type="text/css">
 
+        #updateusers label{
+            margin:2px auto;
+        }
+        #updateusers input{
+            margin:16px 16px ;
+        }
+        #updateusers{
+            color: #000;
+            margin:0 auto;
+        }
+        #updateusers h2{
+
+            width:300px;
+            margin:10px auto;
+        }
+        #table{
+            margin: 50px auto;
+            width:300px;
+
+        }
+        #updateusers p{
+            width: 300px;
+            margin: 10px auto;
+        }
     </style>
 </head>
 
@@ -1123,7 +1147,44 @@
 <!--</div>-->
 <!--</div>-->
 <div id="updateusers">
-
+    <h2>修改角色</h2>
+    <div id="table">
+        <table>
+            <tr>
+                <td>
+                    <label>用户名</label>
+                </td>
+                <td>
+                    <input type="text" readonly id="code"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>请选择角色</label>
+                </td>
+                <td>
+                    <select></select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>请输入新密码</label>
+                </td>
+                <td>
+                    <input type="password"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>请再次输入新密码</label>
+                </td>
+                <td>
+                    <input type="password"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <p><button class="btn btn-primary hidden-xs" id="update">修改</button></p>
 </div>
 <!-- End Main Page -->
 

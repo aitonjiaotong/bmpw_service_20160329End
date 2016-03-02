@@ -1244,7 +1244,7 @@
     $("#redenvelopes").dataTable({
         "serverSide":true,
         "processing": true,
-        "ajax":"http://120.24.46.15:8080/bmpw/redEnvelope/loadRedEnvelopes",
+        "ajax":"/bmpw/redEnvelope/loadRedEnvelopes",
         "bLengthChange": false,
         "bSort": false,
         "bInfo": false,
@@ -1284,7 +1284,7 @@
         var data=$("#redenvelopes").DataTable().row($(this).parents("tr")).data();
         var id=data.id;
         $.ajax({
-            url:"http://120.24.46.15:8080/model/delRedEnvelope",
+            url:"/bmpw/delRedEnvelope",
             dataType:"json",
             type:"post",
             data:{"id":id},

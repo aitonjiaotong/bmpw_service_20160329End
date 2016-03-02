@@ -17,7 +17,7 @@ public class Zone_Web {
     private Integer ParentZoneID;
     private String FullCode;
     private String FullName;
-    private Object SubZones;
+    private List<Zone_Web> SubZones;
 
     public Integer getZoneID() {
         return ZoneID;
@@ -67,11 +67,11 @@ public class Zone_Web {
         FullName = fullName;
     }
 
-    public Object getSubZones() {
+    public List<Zone_Web> getSubZones() {
         return SubZones;
     }
 
-    public void setSubZones(Object subZones) {
+    public void setSubZones(List<Zone_Web> subZones) {
         SubZones = subZones;
     }
 }

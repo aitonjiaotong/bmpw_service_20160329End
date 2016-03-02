@@ -198,4 +198,13 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
         redEnvelopeReponsitory.delete(id);
         return 0;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    @Override
+    public Integer getNumOfRedEnvelope(Integer account_id) {
+        List<RedEnvelope>list=redEnvelopeReponsitory.findRedEnvelopeByUser_id(account_id);
+        if(list==null){
+            return 0;
+        }
+        return list.size();  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }
