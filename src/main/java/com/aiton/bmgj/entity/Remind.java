@@ -9,29 +9,39 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Remind {
-    private Integer remindId;
-    private Integer siteId;
-    private Integer busId;
+    private Integer remind_id;
+    private Integer station_id;
+    private Integer car_id;
     private Integer type;
-    private Integer userId;
+    private Integer user_id;
 
     @Id
-    public Integer getRemindId() {
-        return remindId;
+    public Integer getRemind_id() {
+        return remind_id;
     }
 
-    public void setRemindId(Integer remindId) {
-        this.remindId = remindId;
+    public void setRemind_id(Integer remind_id) {
+        this.remind_id = remind_id;
     }
 
     @Column
     @Basic
-    public Integer getSiteId() {
-        return siteId;
+    public Integer getStation_id() {
+        return station_id;
     }
 
-    public void setSiteId(Integer siteId) {
-        this.siteId = siteId;
+    public void setStation_id(Integer station_id) {
+        this.station_id = station_id;
+    }
+
+    @Column
+    @Basic
+    public Integer getCar_id() {
+        return car_id;
+    }
+
+    public void setCar_id(Integer car_id) {
+        this.car_id = car_id;
     }
 
     @Column
@@ -46,21 +56,11 @@ public class Remind {
 
     @Column
     @Basic
-    public Integer getBusId() {
-        return busId;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setBusId(Integer busId) {
-        this.busId = busId;
-    }
-
-    @Column
-    @Basic
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 }
