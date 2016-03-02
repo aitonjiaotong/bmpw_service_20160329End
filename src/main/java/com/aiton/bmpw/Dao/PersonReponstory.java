@@ -1,0 +1,19 @@
+package com.aiton.bmpw.Dao;
+
+import com.aiton.bmpw.Entity.Person;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Administrator
+ * Date: 16-2-5
+ * Time: 下午5:22
+ * To change this template use File | Settings | File Templates.
+ */
+public interface PersonReponstory extends JpaRepository<Person,Integer> {
+    @Query("from Person where account_id=?")
+    List<Person> findByAccount_id(Integer account_id);
+}

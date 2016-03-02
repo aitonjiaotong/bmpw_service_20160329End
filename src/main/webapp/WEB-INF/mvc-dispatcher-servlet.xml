@@ -1,0 +1,60 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="com.aiton.bmpw"/>
+    <!--开启MVC注解扫描-->
+    <mvc:annotation-driven/>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+    <!--开启JPA注解扫描-->
+    <jpa:repositories base-package="com.aiton.bmpw"/>
+    <!--JPA相关配置-->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="defaultPersistence"/>
+    </bean>
+    <!--JPA事务配置-->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--用Spring框架来处理静态文件-->
+    <mvc:default-servlet-handler />
+    <mvc:resources mapping="/JS/**" location="/WEB-INF/pages/JS/"/>
+    <mvc:resources mapping="/pages/**" location="/WEB-INF/pages/"/>
+    <mvc:resources mapping="/assets/**" location="/WEB-INF/pages/assets/"/>
+    <mvc:resources mapping="/img/**" location="/WEB-INF/pages/img/"/>
+    <bean id="shiroRealm" class="com.aiton.bmpw.Realm.ShiroRealm"/>
+    <bean id="secruityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="shiroRealm"/>
+    </bean>
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="secruityManager"/>
+        <property name="loginUrl" value="/toLogin"/>
+        <property name="successUrl" value="/home"/>
+        <property name="unauthorizedUrl"  value="/index"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /bmpw=authc
+               /home=authc,perms[/home]
+                /index=authc
+                /user/toaddUser=authc,perms[/adduser]
+            </value>
+        </property>
+    </bean>
+</beans>
