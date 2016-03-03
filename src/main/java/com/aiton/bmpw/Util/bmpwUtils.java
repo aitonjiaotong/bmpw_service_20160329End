@@ -62,7 +62,7 @@ public class bmpwUtils {
        zone_web.setFullName(zone.getFullName());
        zone_web.setFullCode(zone.getFullCode());
        zone_web.setParentZoneID(zone.getParentZoneID());
-       zone_web.setSubZones(zone.getSubZones());
+       zone_web.setSubZones(null);
        zone_web.setZoneCode(zone.getZoneCode());
        zone_web.setZoneID(zone.getZoneID());
        return zone_web;

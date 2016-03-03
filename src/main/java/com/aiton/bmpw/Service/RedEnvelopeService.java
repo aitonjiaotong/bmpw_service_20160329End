@@ -21,4 +21,5 @@ public interface RedEnvelopeService {
     List<RedEnvelope>getUserRedEnvelope(Integer user_id);
     DataTables loadAllRedEnvelope(Integer draw,Integer start,Integer length,HttpServletRequest request);
     Integer delRedEnvelope(Integer id);
+    Integer getNumOfRedEnvelope(Integer account_id);
 }

@@ -1254,7 +1254,7 @@
         $("#username").text("欢迎，"+username);
     $(function(){
         $.ajax({
-            url:"http://120.24.46.15:8080/bmpw/zone/shengs",
+            url:"/bmpw/zone/shengs",
             dataType:"json",
             type:"post",
             data:{},
@@ -1276,7 +1276,7 @@
 
             if(parentID!=0){
             $.ajax({
-                url:"http://120.24.46.15:8080/bmpw/zone/getbyparentid",
+                url:"/bmpw/zone/getbyparentid",
                 dataType:"json",
                 type:"post",
                 data:{"parentID":parentID},
@@ -1300,7 +1300,7 @@
             var parentID=$(this).children('option:selected').val();
             if(parentID!=0){
             $.ajax({
-                url:"http://120.24.46.15:8080/bmpw/zone/getbyparentid",
+                url:"/bmpw/zone/getbyparentid",
                 dataType:"json",
                 type:"post",
                 data:{"parentID":parentID},
@@ -1324,7 +1324,7 @@
             var zoneID=$(this).children('option:selected').val();
             if(zoneID!=0){
             $.ajax({
-                url:"http://120.24.46.15:8080/bmpw/zone/getzonebyid",
+                url:"/bmpw/zone/getzonebyid",
                 dataType:"json",
                 type:"post",
                 data:{"zoneID":zoneID},
@@ -1350,7 +1350,7 @@
 //            alert(zoneID);
 //            alert(flag);
             $.ajax({
-                url:"http://120.24.46.15:8080/bmpw/zone/updatezoneflag",
+                url:"/bmpw/zone/updatezoneflag",
                 dataType:"json",
                 type:"post",
                 data:{"zoneID":zoneID,"flag":flag},

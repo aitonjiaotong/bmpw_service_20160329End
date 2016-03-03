@@ -1248,7 +1248,7 @@
         $("#users").dataTable({
             "serverSide":true,
             "processing": true,
-            "ajax":"http://120.24.46.15:8080/bmpw/users/loadusers",
+            "ajax":"/bmpw/users/loadusers",
             "bLengthChange": false,
             "bSort": false,
             "bInfo": false,
@@ -1289,7 +1289,7 @@
             if(flag){
                 var code=data.code;
                 $.ajax({
-                    url:"http://120.24.46.15:8080/bmpw/model/deluser",
+                    url:"/bmpw/model/deluser",
                     dataType:"json",
                     type:"post",
                     data:{"code":code},

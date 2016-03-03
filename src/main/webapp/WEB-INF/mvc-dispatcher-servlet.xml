@@ -39,6 +39,7 @@
     <mvc:resources mapping="/pages/**" location="/WEB-INF/pages/"/>
     <mvc:resources mapping="/assets/**" location="/WEB-INF/pages/assets/"/>
     <mvc:resources mapping="/img/**" location="/WEB-INF/pages/img/"/>
+    <mvc:resources mapping="/apk/**" location="/WEB-INF/pages/apk/"/>
     <bean id="shiroRealm" class="com.aiton.bmpw.Realm.ShiroRealm"/>
     <bean id="secruityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="shiroRealm"/>
@@ -51,7 +52,7 @@
         <property name="filterChainDefinitions">
             <value>
                 /bmpw=authc
-               /home=authc,perms[/home]
+                /home=authc,perms[/home]
                 /index=authc
                 /user/toaddUser=authc,perms[/adduser]
             </value>

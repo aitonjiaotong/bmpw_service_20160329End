@@ -18,7 +18,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface ZoneService {
-    List<Zone_Web> updateZone() throws ServiceException, RemoteException, UnsupportedEncodingException;
+    List<Zone> updateZone() throws ServiceException, RemoteException, UnsupportedEncodingException;
     List<Zone> getsheng();
     List<Zone> getByParentID(Integer parentID);
     void defaultAvailableZones() throws RemoteException, ServiceException;

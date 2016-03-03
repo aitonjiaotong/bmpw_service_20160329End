@@ -12,6 +12,7 @@ import com.aiton.bmpw.Webservice.JDTTicketSoap_PortType;
 
 import com.google.gson.reflect.TypeToken;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -36,84 +37,70 @@ public class ZoneServiceImpl implements ZoneService {
     @Resource
     private ZoneReponsitory zoneReponsitory;
     @Override
-    public List<Zone_Web> updateZone() throws UnsupportedEncodingException, ServiceException, RemoteException {
+    public List<Zone> updateZone() throws UnsupportedEncodingException, ServiceException, RemoteException {
         JDTTicketLocator jdtTicketLocator=new JDTTicketLocator();
         JDTTicketSoap_PortType jdtTicketSoap_portType=jdtTicketLocator.getJDTTicketSoap();
         String zones=jdtTicketSoap_portType.getZones();
         //System.out.println(zones);
         Type type = new TypeToken<ArrayList<Zone>>(){}.getType();
-        List<Zone_Web>list=GsonUtils.parseJSONArray(zones,type);
-        List<Zone>zones1=zoneReponsitory.findAll();
-        //System.out.println(list.size());
-        if(zones1.isEmpty()){
-            //System.out.println("zones1为null");
-            for(Zone_Web zone_web:list){
-                Zone zone=new Zone();
-                zone.setFlag(3);
-                zone.setZoneName(zone_web.getZoneName());
-                zone.setFullName(zone_web.getFullName());
-                zone.setFullCode(zone_web.getFullCode());
-                zone.setParentZoneID(zone_web.getParentZoneID());
-                zone.setSubZones(null);
-                zone.setZoneCode(zone_web.getZoneCode());
-                zone.setZoneID(zone_web.getZoneID());
-                System.out.println(zone.getZoneID());
-                zoneReponsitory.saveAndFlush(zone);
-                zone=null;
+        List<Zone>zone_web=GsonUtils.parseJSONArray(zones,type);
+        List<Zone>zone=zoneReponsitory.findAll();
+        if(zone.isEmpty()){
+            for(Zone z:zone_web){
+                Zone zone1=new Zone();
+                zone1.setFlag(3);
+                zone1.setFullName(z.getFullName());
+                zone1.setZoneCode(z.getZoneCode());
+                zone1.setZoneName(z.getZoneName());
+                zone1.setParentZoneID(z.getParentZoneID());
+                zone1.setFullCode(z.getFullCode());
+                zone1.setZoneID(zone1.getZoneID());
+                zoneReponsitory.saveAndFlush(zone1);
             }
         }else{
-            System.out.println("zones1不是0");
-           // System.out.println(zones.contains("\"ZoneID\":29"));
+            //增删改
+            //金典通删除了
+                for(Zone zone1:zone){
+                    if(!zones.contains("\"ZoneID\":"+zone1.getZoneID())){
+                        zoneReponsitory.delete(zone1);
 
-            for(Zone zone:zones1){
-                //zone_web是否删除了对象
-                if(!zones.contains("\"ZoneID\":"+zone.getZoneID())){
-                    zoneReponsitory.delete(zone);
-                    continue;
+                    }
                 }
-            }
-            //zone_web是否增改对象
-            for(Zone_Web zone_web:list){
-               Zone zone1=zoneReponsitory.findOne(zone_web.getZoneID());
-                //是否增加
-                if(zone1==null){
+           //金典通增加了
+                JSONArray jsonArray=JSONArray.fromObject(zone);
+                String o=jsonArray.toString();
+                for(Zone zone1:zone_web){
                     //增加了
-                    Zone zone=new Zone();
-                    zone.setFlag(3);
-                    zone.setZoneName(zone_web.getZoneName());
-                    zone.setFullName(zone_web.getFullName());
-                    zone.setFullCode(zone_web.getFullCode());
-                    zone.setParentZoneID(zone_web.getParentZoneID());
-                    zone.setSubZones(null);
-                    zone.setZoneCode(zone_web.getZoneCode());
-                    zone.setZoneID(zone_web.getZoneID());
-                    System.out.println(zone.getZoneID());
-                    zoneReponsitory.saveAndFlush(zone);
-                    zone=null;
+                    if(!o.contains("\"zoneID\":"+zone1.getZoneID())){
+                        Zone zone2=new Zone();
+                        zone2.setFlag(3);
+                        zone2.setFullName(zone1.getFullName());
+                        zone2.setZoneCode(zone1.getZoneCode());
+                        zone2.setZoneName(zone1.getZoneName());
+                        zone2.setParentZoneID(zone1.getParentZoneID());
+                        zone2.setFullCode(zone1.getFullCode());
+                        zone2.setZoneID(zone1.getZoneID());
+                        zoneReponsitory.saveAndFlush(zone2);
+                    }
                 }
-                //是否修改
-                if(!zone1.getFullCode().equals(zone_web.getFullCode()) ){
-                    zone1.setFullCode(zone_web.getFullCode());
+
+            for(Zone zone1:zone_web){
+                for(Zone zone2:zone){
+                    if(zone1.getZoneID()==zone2.getZoneID()){
+                         if(!zone1.equals(zone2)){
+                             zone2.setFullName(zone1.getFullName());
+                             zone2.setZoneCode(zone1.getZoneCode());
+                             zone2.setZoneName(zone1.getZoneName());
+                             zone2.setParentZoneID(zone1.getParentZoneID());
+                             zone2.setFullCode(zone1.getFullCode());
+                             zone2.setZoneID(zone1.getZoneID());
+                             zoneReponsitory.saveAndFlush(zone2);
+                         }
+                    }
                 }
-                if(!zone1.getZoneName().equals(zone_web.getZoneName())){
-                    zone1.setZoneName(zone_web.getZoneName());
-                }
-                if(!zone1.getFullName().equals(zone_web.getFullName())){
-                    zone1.setFullName(zone_web.getFullName());
-                }
-                if(!zone1.getParentZoneID().equals(zone_web.getParentZoneID())){
-                    zone1.setParentZoneID(zone_web.getParentZoneID());
-                }
-                if(!zone1.getZoneCode().equals(zone_web.getZoneCode())){
-                    zone1.setZoneCode(zone_web.getParentZoneID());
-                }
-                zoneReponsitory.saveAndFlush(zone1);
-                System.out.println(zone1.getZoneID());
             }
-
-
         }
-        return list;
+        return zone;
     }
 
     /**
@@ -220,13 +207,44 @@ public class ZoneServiceImpl implements ZoneService {
         List<Zone_Web>zones=new ArrayList<Zone_Web>();
         for(Zone zone:azones){
             Zone_Web zone_web=bmpwUtils.setZonetoZone_Web(zone);
+            List<Zone_Web>webs=new ArrayList<Zone_Web>();
+            zone_web.setSubZones(webs);
             zones.add(zone_web);
         }
         List<Zone_Web>sheng=new ArrayList<Zone_Web>();
-        for(Zone_Web zone_web:zones){
+        Iterator<Zone_Web>iterator=zones.iterator();
+        while(iterator.hasNext()){
+            Zone_Web zone_web=iterator.next();
+            if(zone_web.getParentZoneID()==-1){
+                sheng.add(zone_web);
+                iterator.remove();
+            }
 
         }
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        iterator=zones.iterator();
+        for(Zone_Web p:sheng){
+            while (iterator.hasNext()){
+                Zone_Web zone_web=iterator.next();
+                if(zone_web.getParentZoneID()==p.getZoneID()){
+                    p.getSubZones().add(zone_web);
+                    iterator.remove();
+                }
+            }
+        }
+        for(Zone_Web p:sheng){
+            List<Zone_Web> cities=p.getSubZones();
+            for(Zone_Web c:cities){
+                iterator=zones.iterator();
+                while(iterator.hasNext()){
+                    Zone_Web zone_web=iterator.next();
+                    if(zone_web.getParentZoneID()==c.getZoneID()){
+                        c.getSubZones().add(zone_web);
+                        iterator.remove();
+                    }
+                }
+            }
+        }
+        return sheng;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override

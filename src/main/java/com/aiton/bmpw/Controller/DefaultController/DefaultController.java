@@ -1,6 +1,7 @@
 package com.aiton.bmpw.Controller.DefaultController;
 
 import com.aiton.bmpw.Entity.Show.Zone_Web;
+import com.aiton.bmpw.Entity.Zone;
 import com.aiton.bmpw.Service.ZoneService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,13 +24,13 @@ import java.util.List;
 public class DefaultController {
     @Resource
     private ZoneService zoneService;
-    @RequestMapping("/test3")
+    @RequestMapping("/bmpw/test3")
     @ResponseBody
-    public List<Zone_Web> exe3() throws ServiceException, RemoteException, UnsupportedEncodingException {
-        List<Zone_Web> zone_webs=zoneService.updateZone();
+    public List<Zone> exe3() throws ServiceException, RemoteException, UnsupportedEncodingException {
+        List<Zone> zone_webs=zoneService.updateZone();
         return zone_webs;
     }
-    @RequestMapping("/test4")
+    @RequestMapping("/bmpw/test4")
     @ResponseBody
     public void exe4() throws ServiceException, RemoteException, UnsupportedEncodingException {
         zoneService.defaultAvailableZones();
