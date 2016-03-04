@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 /**
  * 站点类型：线路ID，上下行，站点序号，
- *          站点ID，站点名称；
+ *          站点ID；
  * Created by user on 2016/3/2.
  */
 @Entity
@@ -17,7 +17,6 @@ public class Station {
     /**站点序号，从1开始*/
     private Integer station_index;
     private Integer station_id;
-    private String station_name;
 
     @Id
     public Integer getBusLineId() {
@@ -58,13 +57,4 @@ public class Station {
         this.station_id = station_id;
     }
 
-    @Column
-    @Basic
-    public String getStation_name() {
-        return station_name;
-    }
-
-    public void setStation_name(String station_name) {
-        this.station_name = station_name;
-    }
 }

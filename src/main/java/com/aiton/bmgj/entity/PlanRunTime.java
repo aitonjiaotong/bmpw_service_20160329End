@@ -19,8 +19,21 @@ public class PlanRunTime {
     private String car_no;
     private Integer driver_id;
     private String driver_name;
+    /**上下行，1：上行 ；2：下行*/
+    private Integer UpDown;
+
+    @Column
+    @Basic
+    public Integer getUpDown() {
+        return UpDown;
+    }
+
+    public void setUpDown(Integer upDown) {
+        UpDown = upDown;
+    }
 
     @Id
+    @Column
     public Integer getBusline_id() {
         return busline_id;
     }
