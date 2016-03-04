@@ -154,4 +154,22 @@ public class BusLine {
     public void setPrice_all(Double price_all) {
         this.price_all = price_all;
     }
+
+    @Override
+    public String toString() {
+        return "BusLine{" +
+                "busLine_id=" + busLine_id +
+                ", busLine_no=" + busLine_no +
+                ", busline_name='" + busline_name + '\'' +
+                ", course_up=" + course_up +
+                ", course_down=" + course_down +
+                ", run_time=" + run_time +
+                ", stime_up=" + stime_up +
+                ", etime_up=" + etime_up +
+                ", stime_down=" + stime_down +
+                ", etime_down=" + etime_down +
+                ", price_base=" + price_base +
+                ", price_all=" + price_all +
+                '}';
+    }
 }
