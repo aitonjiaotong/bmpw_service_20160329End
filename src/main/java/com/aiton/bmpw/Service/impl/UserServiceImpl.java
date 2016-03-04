@@ -154,6 +154,8 @@ public class UserServiceImpl implements UserService{
             user_role=new User_Role();
             user_role.setUser_id(user.getId());
             user_role.setRole_id(role_id);
+        }else{
+            user_role.setRole_id(role_id);
         }
         userRoleReponstory.saveAndFlush(user_role);
         return 0;  //To change body of implemented methods use File | Settings | File Templates.

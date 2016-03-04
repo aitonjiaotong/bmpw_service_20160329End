@@ -1281,7 +1281,8 @@
         });
         $("#loadusers").on("click","button.edit",function(){
             var data = $("#users").DataTable().row($(this).parents("tr")).data();
-            alert("修改"+data.code);
+            //alert("修改"+data.code);
+            window.location.href="/bmpw/updateUserRole?code="+data.code;
         });
         $("#loadusers").on("click","button.del",function(){
             var data = $("#users").DataTable().row($(this).parents("tr")).data();

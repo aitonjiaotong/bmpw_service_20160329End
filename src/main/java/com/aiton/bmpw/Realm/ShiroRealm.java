@@ -53,7 +53,7 @@ public class ShiroRealm extends AuthorizingRealm {
         String username=usernamePasswordToken.getUsername();
         if(username!=null && !"".equals(username)){
             User user=service.getUserByCode(username);
-            System.out.println(user);
+            //System.out.println(user);
             if(user !=null){
                 SimpleAuthenticationInfo info=new SimpleAuthenticationInfo(user.getUser_code(),user.getUser_password(),getName());
                 return  info;

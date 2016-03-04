@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="com.aiton.bmpw"/>
+    <context:component-scan base-package="com.aiton"/>
     <!--开启MVC注解扫描-->
     <mvc:annotation-driven/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -51,10 +51,14 @@
         <property name="unauthorizedUrl"  value="/index"/>
         <property name="filterChainDefinitions">
             <value>
-                /bmpw=authc
-                /home=authc,perms[/home]
-                /index=authc
-                /user/toaddUser=authc,perms[/adduser]
+                /home=authc
+                <!--/index=authc-->
+                /user=authc,perms[/user]
+                /publish=authc
+                /RedEnvelopes=authc
+                /sites=authc
+                /zones=authc
+                /feedback=authc
             </value>
         </property>
     </bean>

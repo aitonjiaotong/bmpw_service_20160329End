@@ -219,13 +219,16 @@ public class ZoneServiceImpl implements ZoneService {
                 sheng.add(zone_web);
                 iterator.remove();
             }
-
         }
-        iterator=zones.iterator();
+
         for(Zone_Web p:sheng){
+            System.out.println(p.getZoneName());
+            System.out.println(p.getZoneID());
+            iterator=zones.iterator();
             while (iterator.hasNext()){
                 Zone_Web zone_web=iterator.next();
-                if(zone_web.getParentZoneID()==p.getZoneID()){
+                if(zone_web.getParentZoneID().equals(p.getZoneID())){
+                    System.out.println(zone_web.getZoneName());
                     p.getSubZones().add(zone_web);
                     iterator.remove();
                 }
@@ -237,7 +240,7 @@ public class ZoneServiceImpl implements ZoneService {
                 iterator=zones.iterator();
                 while(iterator.hasNext()){
                     Zone_Web zone_web=iterator.next();
-                    if(zone_web.getParentZoneID()==c.getZoneID()){
+                    if(zone_web.getParentZoneID().equals(c.getZoneID())){
                         c.getSubZones().add(zone_web);
                         iterator.remove();
                     }

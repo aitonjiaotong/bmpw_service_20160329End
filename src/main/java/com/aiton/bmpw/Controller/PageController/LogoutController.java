@@ -18,6 +18,6 @@ public class LogoutController {
     public String execute(){
         Subject userCurrect= SecurityUtils.getSubject();
         userCurrect.logout();
-        return "redirect:/bmpw";
+        return "redirect:/toLogin";
     }
 }
