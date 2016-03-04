@@ -3,6 +3,7 @@ package com.aiton.bmpw.Dao;
 import com.aiton.bmpw.Entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ import java.util.List;
 public interface PersonReponstory extends JpaRepository<Person,Integer> {
     @Query("from Person where account_id=?")
     List<Person> findByAccount_id(Integer account_id);
+    @Query("from Person where account_id=:account_id and idcard=:idcard")
+    Person findByAccountAndID(@Param("account_id")Integer account_id,@Param("idcard")String idcard);
 }

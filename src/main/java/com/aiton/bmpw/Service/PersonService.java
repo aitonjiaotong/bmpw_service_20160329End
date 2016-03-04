@@ -12,8 +12,8 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface PersonService {
-    Person addPerson(Person person);
+    Integer addPerson(Person person);
     Boolean delPerson(Integer person_id);
-    Person updatePerson(Person person);
+    Integer updatePerson(Person person);
     List<Person> findPerson(Integer account_id);
 }

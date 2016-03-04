@@ -5,6 +5,7 @@ import com.aiton.bmpw.Service.PersonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -21,6 +22,7 @@ public class DelPersonController {
     @Resource
     private PersonService personService;
     @RequestMapping("/person/delperson")
+    @ResponseBody
     public Boolean execute(Integer person_id){
         Boolean flag=personService.delPerson(person_id);
         return flag;

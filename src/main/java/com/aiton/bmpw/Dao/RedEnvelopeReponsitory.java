@@ -33,6 +33,8 @@ public interface RedEnvelopeReponsitory extends JpaRepository<RedEnvelope,Intege
      */
     @Query("from RedEnvelope where user_id=?")
     List<RedEnvelope>findRedEnvelopeByUser_id(Integer user_id);
+    @Query("from RedEnvelope where user_id=? and flag=0")
+    List<RedEnvelope>findRedEnvelopeByUser_idCanBeUse(Integer user_id);
     @Query("select distinct max(r.activity) from RedEnvelope as r")
     Object findMaxAcitvity();
     @Query("select distinct r.activity from RedEnvelope as r where user_id=?")

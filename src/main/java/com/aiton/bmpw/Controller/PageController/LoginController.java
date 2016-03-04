@@ -33,10 +33,10 @@ public class LoginController {
                 currectUser.login(token);
             }
             //验证通过
-            result="redirect:/home";
+            result="home";
         }catch(Exception e){
             //验证不通过
-            result="redirect:/toLogin";
+            result="Login";
         }
         return result;
     }

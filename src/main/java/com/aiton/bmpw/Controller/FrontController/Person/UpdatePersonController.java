@@ -23,8 +23,8 @@ public class UpdatePersonController {
     private PersonService personService;
     @RequestMapping("/person/updateperson")
     @ResponseBody
-    public Person execute(Person person){
-        Person person1=personService.updatePerson(person);
-        return person1;
+    public Integer execute(Person person){
+        Integer flag=personService.updatePerson(person);
+        return flag;
     }
 }

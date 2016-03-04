@@ -1163,23 +1163,7 @@
                     <label>请选择角色</label>
                 </td>
                 <td>
-                    <select></select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>请输入新密码</label>
-                </td>
-                <td>
-                    <input type="password"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>请再次输入新密码</label>
-                </td>
-                <td>
-                    <input type="password"/>
+                    <select id="roles"></select>
                 </td>
             </tr>
         </table>
@@ -1284,6 +1268,43 @@
     $(function(){
         var username=getCookie("code");
         $("#username").text("欢迎，"+username);
+        $.ajax({
+            url:"/bmpw/model/loadroles",
+            dataType:"json",
+            type:"post",
+            data:{},
+            success:function(data){
+                for(var i=0;i<data.length;i++){
+                    $option="<option value="+data[i].role_id+">"+data[i].role_name+"</option>";
+                    $("#roles").append($option);
+                }
+            },
+            error:function(){
+                alert("加载失败");
+            }
+        });
+        var h=window.location.href;
+        var o= h.split("=");
+        var code=o[1];
+        $("#code").val(code);
+        $("#update").click(function(){
+//            alert(data);
+            var role_id=$("#roles").val();
+//            alert(role_id);
+            $.ajax({
+                url:"/bmpw/user/updateUserRole",
+                dataType:"json",
+                type:"post",
+                data:{"code":code,"role_id":role_id},
+                success:function(data){
+                    alert("修改角色成功！");
+                    window.location.href="/bmpw/user";
+                },
+                error:function(){
+                    alert("加载失败");
+                }
+            });
+        });
     });
 </script>
 <!-- end: JavaScript-->

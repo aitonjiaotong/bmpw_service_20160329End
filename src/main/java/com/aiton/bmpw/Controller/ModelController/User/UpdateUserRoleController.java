@@ -4,6 +4,7 @@ import com.aiton.bmpw.Service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -20,6 +21,7 @@ public class UpdateUserRoleController {
     @Resource
     private UserService service;
     @RequestMapping("/user/updateUserRole")
+    @ResponseBody
     public Integer execute(String code,Integer role_id){
          Integer status=service.updateUserRole(code,role_id);
         return status;
