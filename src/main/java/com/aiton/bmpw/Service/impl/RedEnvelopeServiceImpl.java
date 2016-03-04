@@ -201,7 +201,7 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
 
     @Override
     public Integer getNumOfRedEnvelope(Integer account_id) {
-        List<RedEnvelope>list=redEnvelopeReponsitory.findRedEnvelopeByUser_id(account_id);
+        List<RedEnvelope>list=redEnvelopeReponsitory.findRedEnvelopeByUser_idCanBeUse(account_id);
         if(list==null){
             return 0;
         }

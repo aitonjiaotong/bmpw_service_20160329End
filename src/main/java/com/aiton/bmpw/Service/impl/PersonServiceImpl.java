@@ -20,9 +20,13 @@ public class PersonServiceImpl implements PersonService {
     @Resource
     private PersonReponstory personReponstory;
     @Override
-    public Person addPerson(Person person) {
-        Person person1=personReponstory.saveAndFlush(person);
-        return person1;  //To change body of implemented methods use File | Settings | File Templates.
+    public Integer addPerson(Person person) {
+        Person person1=personReponstory.findByAccountAndID(person.getAccount_id(),person.getIdcard());
+        if(person1==null){
+            personReponstory.saveAndFlush(person);
+            return 0;
+        }
+        return 1;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
@@ -32,9 +36,13 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person updatePerson(Person person) {
-        Person person1=personReponstory.saveAndFlush(person);
-        return person1;  //To change body of implemented methods use File | Settings | File Templates.
+    public Integer updatePerson(Person person) {
+        Person person1=personReponstory.findByAccountAndID(person.getAccount_id(),person.getIdcard());
+        if(person1==null){
+            personReponstory.saveAndFlush(person);
+            return 0;
+        }
+        return 1;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override

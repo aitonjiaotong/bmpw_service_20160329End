@@ -1,6 +1,6 @@
 ﻿{
-		"version": 6,
-		"feature": "1. 增加xxx功能 \r\n2. 增加xxx功能 \r\n3. 修复xxbug \r\n4. 提升了性能和稳定性",
-		"apkurl":  "http://192.168.1.122:8080/apk/upgrade.apk",
-		"filelen": 1497074
+		"version": 2,
+		"feature": "1. 更新了无法添加身份证重复的乘客 \r\n2. 优化了出发地及目的地相关UI \r\n3. 修复若干bug \r\n4. 提升了性能和稳定性",
+		"apkurl":  "http://120.55.166.203:8080/bmpw/apk/upgrade.apk",
+		"filelen": 0
 }

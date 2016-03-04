@@ -23,7 +23,7 @@ public class RedEnvelope {
     private Timestamp date;//生成时间
     private Date validity;
     private Double amount;
-    private Integer flag;//标志位 0：未用 1：已用 2：已过期
+    private Integer flag;//标志位 0：可用 1：已用 2：已过期
     private Integer activity;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
