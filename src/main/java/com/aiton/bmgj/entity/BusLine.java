@@ -14,8 +14,8 @@ import java.util.Date;
 @Entity
 @Table
 public class BusLine {
-    private Integer busLine_id;
-    private Integer busLine_no;
+    private Integer busline_id;
+    private Integer busline_no;
     private String busline_name;
     /**上行里程*/
     private Double course_up;
@@ -37,22 +37,23 @@ public class BusLine {
     private Double price_all;
 
     @Id
-    public Integer getBusLine_id() {
-        return busLine_id;
+    @Column
+    public Integer getBusline_id() {
+        return busline_id;
     }
 
-    public void setBusLine_id(Integer busLine_id) {
-        this.busLine_id = busLine_id;
+    public void setBusline_id(Integer busLine_id) {
+        this.busline_id = busLine_id;
     }
 
     @Column
     @Basic
     public Integer getBusLine_no() {
-        return busLine_no;
+        return busline_no;
     }
 
     public void setBusLine_no(Integer busLine_no) {
-        this.busLine_no = busLine_no;
+        this.busline_no = busLine_no;
     }
 
     @Column
@@ -158,8 +159,8 @@ public class BusLine {
     @Override
     public String toString() {
         return "BusLine{" +
-                "busLine_id=" + busLine_id +
-                ", busLine_no=" + busLine_no +
+                "busLine_id=" + busline_id +
+                ", busLine_no=" + busline_no +
                 ", busline_name='" + busline_name + '\'' +
                 ", course_up=" + course_up +
                 ", course_down=" + course_down +
