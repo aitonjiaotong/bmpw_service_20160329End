@@ -19,14 +19,14 @@ public interface RedEnvelopeReponsitory extends JpaRepository<RedEnvelope,Intege
      * 查找所有没过期的红包
      * @return
      */
-    @Query("from RedEnvelope where flag<>2")
+    @Query("from RedEnvelope where flag<>2 and status=0")
     List<RedEnvelope> findRedEnvelopeNotOverDue();
 
     /**
-     * 查找可以配给用户的红包
+     * 查找可以配给用户的红包(票务)
      * @return
      */
-    @Query("from RedEnvelope where flag=0 and user_id is null and activity=?")
+    @Query("from RedEnvelope where flag=0 and user_id is null and status=0 and activity=?")
     List<RedEnvelope> findRedEnvelope(Integer activity);
     /**
      * 查找用户的红包

@@ -25,14 +25,14 @@ public class AddRedEnvelopeController {
     private RedEnvelopeService service;
     @RequestMapping("/redEnvelope/addRedEnvelope")
     @ResponseBody
-    public Integer execute(Integer sum,String validity,Double max,Double min) throws ParseException {
+    public Integer execute(Integer sum,String validity,Double max,Double min,Integer status) throws ParseException {
 //        System.out.println(validity);
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Date date=new Date(sdf.parse(validity).getTime());
         if(date.getTime()<System.currentTimeMillis()){
             return 1;
         }
-        service.addRedEnvelope(sum,date,max,min);
+        service.addRedEnvelope(sum,date,max,min,status);
         return 0;
     }
 }

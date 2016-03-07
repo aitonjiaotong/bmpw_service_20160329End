@@ -25,6 +25,7 @@ public class RedEnvelope {
     private Double amount;
     private Integer flag;//标志位 0：可用 1：已用 2：已过期
     private Integer activity;
+    private Integer status;//标记位：0：票务 1：租车 2：公车
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
@@ -86,5 +87,13 @@ public class RedEnvelope {
 
     public void setActivity(Integer activity) {
         this.activity = activity;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

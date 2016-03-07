@@ -17,6 +17,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -61,7 +62,7 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
      * @param min 红包最小金额
      */
     @Override
-    public void addRedEnvelope(Integer sum, Date validity, Double max, Double min) {
+    public void addRedEnvelope(Integer sum, Date validity, Double max, Double min,Integer status) {
         Random ran=new Random();
         Integer activity=Integer.valueOf(redEnvelopeReponsitory.findMaxAcitvity().toString());
         if(activity==null){
@@ -94,9 +95,11 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
                 redEnvelope=null;
             }
         }
-        Picture picture=pictureRepostory.findOne(1);
-        picture.setUrl2("http://120.24.46.15:8080/bmpw/front/getRedEnvelope?activity="+activity);
-        pictureRepostory.saveAndFlush(picture);
+        if(status.equals(0)){
+            Picture picture=pictureRepostory.findOne(1);
+            picture.setUrl2("http://120.24.46.15:8080/bmpw/front/getRedEnvelope?activity="+activity);
+            pictureRepostory.saveAndFlush(picture);
+        }
         //To change body of implemented methods use File | Settings | File Templates.
     }
     /**

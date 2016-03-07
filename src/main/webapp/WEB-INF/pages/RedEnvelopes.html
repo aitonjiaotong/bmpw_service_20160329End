@@ -1274,7 +1274,18 @@
             "targets":-1,
             "data":null,
             "sDefaultContent":"<button class='del'>删除</button>"
-        }]
+        }],
+        "createdRow": function ( row, data, dataindex ) {
+            //alert(data.flag);
+            var date=new Date(data.date);
+            var year=date.getFullYear().toString();
+            var mouth=(date.getMonth()+1).toString();
+            var day=date.getDate().toString();
+            var hour=date.getHours().toString();
+            var min=date.getMinutes().toString();
+            var second=date.getSeconds().toString();
+            $('td', row).eq(2).text(year+"-"+mouth+"-"+day+" "+hour+":"+min+":"+second);
+        }
     });
     $("#loadredvelopes").on("click","button.del",function(){
         var flag=confirm("确定删除吗？");

@@ -1174,6 +1174,17 @@
                     <input type="text" id="min"/>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <label>红包种类</label>
+                </td>
+                <td>
+                    <select id="status">
+                        <option value="0">票务</option>
+                        <option value="1">租车</option>
+                    </select>
+                </td>
+            </tr>
         </table>
     </div>
     <p><button class="btn btn-primary hidden-xs" id="red">发布</button></p>
@@ -1287,6 +1298,7 @@
         var validity=$("#validity").val();
         var max=$("#max").val();
         var min=$("#min").val();
+        var status=$("#status").val();
         if(isNaN(sum)||sum==""){
             alert("请在数量处输入数字");
             return;
@@ -1311,7 +1323,7 @@
             url:"/bmpw/redEnvelope/addRedEnvelope",
             type:"post",
             dataType:"json",
-            data:{"sum":sum,"validity":validity,"max":max,"min":min},
+            data:{"sum":sum,"validity":validity,"max":max,"min":min,"status":status},
             success:function(data){
                 if(data==0){
                     alert("添加成功");

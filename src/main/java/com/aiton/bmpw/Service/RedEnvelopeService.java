@@ -15,7 +15,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface RedEnvelopeService {
-    void addRedEnvelope(Integer sum,Date validity,Double max,Double min);
+    void addRedEnvelope(Integer sum,Date validity,Double max,Double min,Integer status);
     void setRedEnvelopeOverdue();
     RedEnvelope getRedEnvelope(Integer user_id,Integer activity);
     List<RedEnvelope>getUserRedEnvelope(Integer user_id);
