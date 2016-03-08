@@ -40,6 +40,8 @@
     <mvc:resources mapping="/assets/**" location="/WEB-INF/pages/assets/"/>
     <mvc:resources mapping="/img/**" location="/WEB-INF/pages/img/"/>
     <mvc:resources mapping="/apk/**" location="/WEB-INF/pages/apk/"/>
+    <mvc:resources mapping="/images/**" location="/WEB-INF/pages/images/"/>
+    <mvc:resources mapping="/icon/**" location="/WEB-INF/pages/icon/"/>
     <bean id="shiroRealm" class="com.aiton.bmpw.Realm.ShiroRealm"/>
     <bean id="secruityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="shiroRealm"/>
@@ -51,7 +53,7 @@
         <property name="unauthorizedUrl"  value="/index"/>
         <property name="filterChainDefinitions">
             <value>
-                /home=authc
+                /pw_order=authc
                 <!--/index=authc-->
                 /user=authc,perms[/user]
                 /publish=authc

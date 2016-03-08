@@ -338,7 +338,7 @@
                             <i class="fa fa-envelope" aria-hidden="true"></i><span>订单管理</span>
                         </a>
                         <ul class="nav nav-children">
-                            <li><a href="/bmpw/home"><span class="text"> 订单列表</span></a></li>
+                            <li><a href="/bmpw/pw_order"><span class="text"> 订单列表</span></a></li>
                             <!--<li><a href="chart-xchart.html"><span class="text"> xChart</span></a></li>-->
                             <!--<li><a href="chart-other.html"><span class="text"> Other</span></a></li>-->
                         </ul>
@@ -1137,6 +1137,7 @@
                  <th>红包所有人</th>
                  <th>红包发布时间</th>
                  <th>红包过期时间</th>
+                 <th>红包种类</th>
                  <th>操作</th>
              </tr>
        </thead>
@@ -1268,13 +1269,31 @@
             { "data": "accountName" },
             { "data": "date"},
             { "data":"validity"},
+            {"data":"status"},
             { "data": ""}
         ],
         "columnDefs":[{
             "targets":-1,
             "data":null,
             "sDefaultContent":"<button class='del'>删除</button>"
-        }]
+        }],
+        "createdRow": function ( row, data, dataindex ) {
+            //alert(data.flag);
+            var date=new Date(data.date);
+            var year=date.getFullYear().toString();
+            var mouth=(date.getMonth()+1).toString();
+            var day=date.getDate().toString();
+            var hour=date.getHours().toString();
+            var min=date.getMinutes().toString();
+            var second=date.getSeconds().toString();
+            $('td', row).eq(2).text(year+"-"+mouth+"-"+day+" "+hour+":"+min+":"+second);
+            if(data.status==0){
+                $('td', row).eq(4).text("车票红包");
+            }
+            if(data.status==1){
+                $('td', row).eq(4).text("租车红包");
+            }
+        }
     });
     $("#loadredvelopes").on("click","button.del",function(){
         var flag=confirm("确定删除吗？");

@@ -17,6 +17,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -61,7 +62,7 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
      * @param min 红包最小金额
      */
     @Override
-    public void addRedEnvelope(Integer sum, Date validity, Double max, Double min) {
+    public void addRedEnvelope(Integer sum, Date validity, Double max, Double min,Integer status) {
         Random ran=new Random();
         Integer activity=Integer.valueOf(redEnvelopeReponsitory.findMaxAcitvity().toString());
         if(activity==null){
@@ -76,6 +77,7 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
                 redEnvelope.setAmount(max);
                 redEnvelope.setDate(new Timestamp(System.currentTimeMillis()));
                 redEnvelope.setFlag(0);
+                redEnvelope.setStatus(status);
                 redEnvelope.setActivity(activity);
                 redEnvelopeReponsitory.saveAndFlush(redEnvelope);
                 redEnvelope=null;
@@ -89,14 +91,17 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
                 Integer a=(int)(max-min);
                 Double amount=ran.nextInt(a+1)+min;
                 redEnvelope.setAmount(amount);
+                redEnvelope.setStatus(status);
                 redEnvelope.setActivity(activity);
                 redEnvelopeReponsitory.saveAndFlush(redEnvelope);
                 redEnvelope=null;
             }
         }
-        Picture picture=pictureRepostory.findOne(1);
-        picture.setUrl2("http://120.24.46.15:8080/bmpw/front/getRedEnvelope?activity="+activity);
-        pictureRepostory.saveAndFlush(picture);
+        if(status.equals(0)){
+            Picture picture=pictureRepostory.findOne(1);
+            picture.setUrl2("http://120.24.46.15:8080/bmpw/front/getRedEnvelope?activity="+activity);
+            pictureRepostory.saveAndFlush(picture);
+        }
         //To change body of implemented methods use File | Settings | File Templates.
     }
     /**
@@ -180,6 +185,7 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
             redEnvelope_show.setAmount(redEnvelope.getAmount());
             redEnvelope_show.setDate(redEnvelope.getDate());
             redEnvelope_show.setValidity(redEnvelope.getValidity());
+            redEnvelope_show.setStatus(redEnvelope.getStatus());
             redEnvelope_shows.add(redEnvelope_show);
         }
 
