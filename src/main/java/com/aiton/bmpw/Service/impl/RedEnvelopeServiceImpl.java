@@ -77,6 +77,7 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
                 redEnvelope.setAmount(max);
                 redEnvelope.setDate(new Timestamp(System.currentTimeMillis()));
                 redEnvelope.setFlag(0);
+                redEnvelope.setStatus(status);
                 redEnvelope.setActivity(activity);
                 redEnvelopeReponsitory.saveAndFlush(redEnvelope);
                 redEnvelope=null;
@@ -90,6 +91,7 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
                 Integer a=(int)(max-min);
                 Double amount=ran.nextInt(a+1)+min;
                 redEnvelope.setAmount(amount);
+                redEnvelope.setStatus(status);
                 redEnvelope.setActivity(activity);
                 redEnvelopeReponsitory.saveAndFlush(redEnvelope);
                 redEnvelope=null;
@@ -183,6 +185,7 @@ public class RedEnvelopeServiceImpl implements RedEnvelopeService {
             redEnvelope_show.setAmount(redEnvelope.getAmount());
             redEnvelope_show.setDate(redEnvelope.getDate());
             redEnvelope_show.setValidity(redEnvelope.getValidity());
+            redEnvelope_show.setStatus(redEnvelope.getStatus());
             redEnvelope_shows.add(redEnvelope_show);
         }
 

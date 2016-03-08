@@ -100,6 +100,8 @@
     <orderEntry type="library" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: cn.com.guju:CCP_REST_SDK_JAVA_v2.7r:1.0" level="project" />
     <orderEntry type="library" name="Maven: cn.com.json-lib:json-lib-2.4-jdk15:1.0" level="project" />
+    <orderEntry type="library" name="Maven: c3p0:c3p0:0.9.1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-c3p0:3.6.10.Final" level="project" />
   </component>
 </module>
 
