@@ -12,6 +12,7 @@ import java.util.Date;
 @Entity
 @Table
 public class LastGpsData {
+    private Integer id;
     private Integer busline_id;
     private Integer car_id;
     private String car_no;
@@ -29,6 +30,17 @@ public class LastGpsData {
     private Integer direct;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Column
+    @Basic
     public Integer getBusline_id() {
         return busline_id;
     }

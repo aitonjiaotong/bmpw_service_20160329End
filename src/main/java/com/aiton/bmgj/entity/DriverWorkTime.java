@@ -11,6 +11,7 @@ import java.util.Date;
 @Entity
 @Table
 public class DriverWorkTime {
+    private Integer id;
     private Integer busline_id;
     private Integer driver_id;
     private String driver_name;
@@ -21,8 +22,18 @@ public class DriverWorkTime {
     private Date login_time;
     /**签退时间，格式：YYYY-MM-DD HH24:MI:SS*/
     private Date logout_time;
-
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Column
+    @Basic
     public Integer getBusline_id() {
         return busline_id;
     }

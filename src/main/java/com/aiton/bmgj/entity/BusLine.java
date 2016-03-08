@@ -14,6 +14,7 @@ import java.util.Date;
 @Entity
 @Table
 public class BusLine {
+    private Integer id;
     private Integer busline_id;
     private Integer busline_no;
     private String busline_name;
@@ -37,7 +38,17 @@ public class BusLine {
     private Double price_all;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Column
+    @Basic
     public Integer getBusline_id() {
         return busline_id;
     }
@@ -48,11 +59,11 @@ public class BusLine {
 
     @Column
     @Basic
-    public Integer getBusLine_no() {
+    public Integer getBusline_no() {
         return busline_no;
     }
 
-    public void setBusLine_no(Integer busLine_no) {
+    public void setBusline_no(Integer busLine_no) {
         this.busline_no = busLine_no;
     }
 

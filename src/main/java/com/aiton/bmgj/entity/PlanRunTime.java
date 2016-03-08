@@ -11,6 +11,7 @@ import java.util.Date;
 @Entity
 @Table
 public class PlanRunTime {
+    private Integer id;
     private Integer busline_id;
     /**发车时间，格式：HH24:MI*/
     private Date stime;
@@ -22,6 +23,16 @@ public class PlanRunTime {
     /**上下行，1：上行 ；2：下行*/
     private Integer UpDown;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Column
     @Basic
     public Integer getUpDown() {
@@ -32,8 +43,8 @@ public class PlanRunTime {
         UpDown = upDown;
     }
 
-    @Id
     @Column
+    @Basic
     public Integer getBusline_id() {
         return busline_id;
     }

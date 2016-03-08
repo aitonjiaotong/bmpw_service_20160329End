@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table
 public class StationBase {
+    private Integer id;
     private Integer station_id;
     private String station_name;
     /**经度,乘以10的六次方*/
@@ -17,7 +18,17 @@ public class StationBase {
     private Integer lat;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Column
+    @Basic
     public Integer getStation_id() {
         return station_id;
     }

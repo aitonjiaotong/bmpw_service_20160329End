@@ -11,4 +11,5 @@ import java.util.List;
 public interface BusServiceImpl {
     Bus findBusById(Integer id);
     List<Bus> findBusAll();
+    Bus findBusByBusLineId(Integer busLineId);
 }

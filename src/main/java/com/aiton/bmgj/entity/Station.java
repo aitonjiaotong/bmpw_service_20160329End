@@ -18,7 +18,8 @@ public class Station {
     private Integer station_index;
     private Integer station_id;
 
-    @Id
+    @Column
+    @Basic
     public Integer getBusLineId() {
         return busLineId;
     }
@@ -47,8 +48,8 @@ public class Station {
         this.station_index = station_index;
     }
 
+    @Id
     @Column
-    @Basic
     public Integer getStation_id() {
         return station_id;
     }
