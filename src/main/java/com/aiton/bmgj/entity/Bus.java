@@ -39,7 +39,7 @@ public class Bus {
         this.busline_id = busline_id;
     }
 
-    @Column
+    @Column(unique = true)
     @Basic
     public Integer getCar_id() {
         return car_id;

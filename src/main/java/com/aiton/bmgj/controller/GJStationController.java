@@ -36,10 +36,10 @@ public class GJStationController {
         return list;
     }
 
-    @RequestMapping("/getStation")
+    @RequestMapping("/getStationById")
     @ResponseBody
     public Station getBase(Integer stationId){
-        System.out.println("In getStation()");
+        //System.out.println("In getStation()");
         Station station = stationService.findStationById(stationId);
         if(station == null){
             System.out.println("空的对象。。。。");

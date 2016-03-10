@@ -169,8 +169,8 @@ public class BusLine {
 
     @Override
     public String toString() {
-        return "BusLine{" +
-                "busLine_id=" + busline_id +
+        return "BusLine{" + "id=" + id +
+                ",busLine_id=" + busline_id +
                 ", busLine_no=" + busline_no +
                 ", busline_name='" + busline_name + '\'' +
                 ", course_up=" + course_up +

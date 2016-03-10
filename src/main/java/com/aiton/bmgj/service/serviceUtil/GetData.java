@@ -40,14 +40,30 @@ import java.util.Date;
 @Component("getData")
 public class GetData {
 
-      /* 静态数据接口    218.5.80.24 3061
+      /*
+       *静态数据接口    218.5.80.24 3061
        *  实时数据接口    218.5.80.18 6607
        *  用户：test_ty  密码：1234
        *        test_at       1234
        *  线路信息：https://{部署地址}/api/Busline/Get
+       *
+       *
+       *  另外的账号和接口
+       *  https://218.5.80.19:9110/";
+       * "gps_sgapi";
+       * "sgapi";
+       *
+       *
        */
+
     private static final String username = "test_at";
     private static final String password = "1234";
+
+
+    //private static final String username = "gps_sgapi";
+    //private static final String password = "sgapi";
+    //private static final String getBusLine_url = "https://218.5.80.19:9110/api/Busline/Get";
+
 
     private static final String getBusLine_url = "https://218.5.80.24:3061/api/Busline/Get";
     private static final String getStation_url = "https://218.5.80.24:3061/api/Station/GetLineStation";
@@ -135,6 +151,7 @@ public class GetData {
         }
       //  s.setContentType("application/x-www-form-urlencoded");
         s.setContentEncoding("utf-8");
+        s.setContentType("application/json");
         System.out.println(jsonObject.toString());
         return getData(getDriverWorkTime_url,s);
     }
@@ -227,8 +244,8 @@ public class GetData {
             System.out.println("返回正常的结果！请求成功！");
         }
 
-        System.out.println("返回如下结果：");
-        System.out.println(strResult);
+        //System.out.println("返回如下结果：");
+       // System.out.println(strResult);
 
         return strResult;
 
