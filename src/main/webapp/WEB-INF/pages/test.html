@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>测试上传</title>
+    <link href="upload/uploadify.css" rel="stylesheet" type="text/css">
+    <script src="JS/jquery-1.12.0.js"></script>
+    <script src="upload/jquery.uploadify.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#uploadify").uploadify({
+                uploader:"/bmpw/image",
+                swf:"upload/uploadify.swf",
+                width:100,
+                'cancelImg' : 'upload/uploadify-cancel.png',
+                auto:true,
+                method:'Post',
+                buttonText:"选择上传图片",
+                'onUploadSuccess' : function(file, data, response) {
+                   $("#img").attr("src","cars/"+data);
+                }
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <input type="file" name="uploadify" id="uploadify" accept="image/*">
+    <p>
+       <img id="img"/>
+    </p>
+</body>
+</html>
