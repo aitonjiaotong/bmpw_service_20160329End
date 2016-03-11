@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Bus {
+    private Integer id;
     /**线路ID*/
     private Integer busline_id;
     /**车辆ID*/
@@ -19,6 +20,17 @@ public class Bus {
     private String dev_id;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Column
+    @Basic
     public Integer getBusline_id() {
         return busline_id;
     }
@@ -27,7 +39,7 @@ public class Bus {
         this.busline_id = busline_id;
     }
 
-    @Column
+    @Column(unique = true)
     @Basic
     public Integer getCar_id() {
         return car_id;

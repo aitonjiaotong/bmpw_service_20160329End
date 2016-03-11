@@ -16,6 +16,11 @@ public class BusService implements BusServiceImpl{
     private BusRepostory busRepostory;
 
     @Override
+    public Bus findBusByBusLineId(Integer busLineId) {
+        return null;
+    }
+
+    @Override
     public Bus findBusById(Integer id) {
 
         return null;

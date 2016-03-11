@@ -2,10 +2,10 @@ package com.aiton.bmgj.service.serviceUtil;
 
 
 
-
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Component;
 import sun.misc.BASE64Encoder;
-import ytx.org.apache.http.HttpResponse;
+import ytx.org.apache.http.*;
 import ytx.org.apache.http.client.HttpClient;
 import ytx.org.apache.http.client.methods.HttpPost;
 import ytx.org.apache.http.conn.ClientConnectionManager;
@@ -15,6 +15,8 @@ import ytx.org.apache.http.conn.ssl.SSLSocketFactory;
 import ytx.org.apache.http.entity.StringEntity;
 import ytx.org.apache.http.impl.client.DefaultHttpClient;
 import ytx.org.apache.http.impl.conn.PoolingClientConnectionManager;
+import ytx.org.apache.http.message.BasicHeader;
+import ytx.org.apache.http.protocol.HTTP;
 import ytx.org.apache.http.util.EntityUtils;
 
 
@@ -24,6 +26,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.*;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
@@ -37,14 +40,30 @@ import java.util.Date;
 @Component("getData")
 public class GetData {
 
-      /* 静态数据接口    218.5.80.24 3061
+      /*
+       *静态数据接口    218.5.80.24 3061
        *  实时数据接口    218.5.80.18 6607
        *  用户：test_ty  密码：1234
        *        test_at       1234
        *  线路信息：https://{部署地址}/api/Busline/Get
+       *
+       *
+       *  另外的账号和接口
+       *  https://218.5.80.19:9110/";
+       * "gps_sgapi";
+       * "sgapi";
+       *
+       *
        */
+
     private static final String username = "test_at";
     private static final String password = "1234";
+
+
+    //private static final String username = "gps_sgapi";
+    //private static final String password = "sgapi";
+    //private static final String getBusLine_url = "https://218.5.80.19:9110/api/Busline/Get";
+
 
     private static final String getBusLine_url = "https://218.5.80.24:3061/api/Busline/Get";
     private static final String getStation_url = "https://218.5.80.24:3061/api/Station/GetLineStation";
@@ -92,8 +111,17 @@ public class GetData {
         /*参数格式：{“run_date”:”2015-12-14”}*/
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String datestr = sdf.format(date);
-        datestr = "{\"run_date\":\""+ datestr +"\"}";
-        StringEntity stringEntity = new StringEntity(datestr);
+        //{"run_date":"2016-03-07"}
+      //  datestr = "{\"run_date\":\""+ datestr +"\"}";
+      //  datestr = "{\"run_date\":\"2016-3-8\"}";
+      //  System.out.println(datestr);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("run_date","2016-03-07");
+        String ss = jsonObject.toString();
+        StringEntity stringEntity = new StringEntity(ss,"utf-8");
+        System.out.println(ss);
+        stringEntity.setContentType("application/json");
+        stringEntity.setContentEncoding("utf-8");
         return getData(getPlanRunTime_url,stringEntity);
     }
 
@@ -101,7 +129,31 @@ public class GetData {
      * 返回json字符串
      */
     public String getDriverWorkTime(){
-        return getData(getDriverWorkTime_url,null);
+        /*
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String s = sdf.format(new Date());
+        s = "{\"run_time\":\""+ s +"\"}";
+        System.out.println(s);
+        StringEntity stringEntity = null;
+        try {
+            stringEntity = new StringEntity(s,"utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        */
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("run_date","2016-03-08");
+        StringEntity s = null;
+        try {
+            s = new StringEntity(jsonObject.toString(),"utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+      //  s.setContentType("application/x-www-form-urlencoded");
+        s.setContentEncoding("utf-8");
+        s.setContentType("application/json");
+        System.out.println(jsonObject.toString());
+        return getData(getDriverWorkTime_url,s);
     }
 
     /**获取最新的GPS数据
@@ -123,13 +175,7 @@ public class GetData {
     /**获取所有数据的私有方法
      * 返回：json字符串
      * */
-    private  String getData (String url,StringEntity stringEntity ) {
-        /* 静态数据接口    218.5.80.24 3061
-        *  实时数据接口    218.5.80.18 6607
-        *  用户：test_ty  密码：1234
-        *        test_at       1234
-        *  线路信息：https://{部署地址}/api/Busline/Get
-        */
+    private  String getData (String url,StringEntity se) {
         String s = null;
         try {
              s = new String((username+":"+password).getBytes(),"utf-8");
@@ -138,18 +184,38 @@ public class GetData {
              } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
             }
-
         HttpClient httpClient = new DefaultHttpClient();
         try {
             httpClient = WebClientDevWrapper.wrapClient(httpClient);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(url);
         final HttpPost post = new HttpPost(url);
-        if(stringEntity!=null){
-            post.setEntity(stringEntity);
-        }
+        //                             application/x-www-form-urlencoded
+        post.setHeader("Content-Type","application/json");
         post.addHeader("Authorization","Basic "+ s );
+        if(se!=null){
+            System.out.println("参数对象不为空！现在添加进请求头！！");
+            //post.removeHeaders("Content-Type");
+            post.setEntity(se);
+            try {
+                System.out.println("*************************");
+                System.out.println(EntityUtils.toString(post.getEntity(), "utf-8"));
+                System.out.println(post.getEntity().getContentType().toString());
+
+                System.out.println("*************************");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("参数对象为空！");
+        }
+        Header[] headers = post.getAllHeaders();
+        for(Header h : headers){
+            System.out.println("输出 request 的 header:");
+            System.out.println(h.toString());
+        }
         HttpResponse response = null;
         try {
             response = httpClient.execute(post);
@@ -162,17 +228,24 @@ public class GetData {
         System.out.println("返回的状态码：");
         System.out.println(response.getStatusLine().getStatusCode());
         System.out.println(response.getStatusLine().toString());
-
+        System.out.println(response.getProtocolVersion());
+        System.out.println(response.getLocale());
+        Header[] headers1 = response.getAllHeaders();
+        for(Header hh : headers1) {
+            System.out.println("输出 response 的header:");
+            System.out.println(hh.toString());
+        }
+        try {
+            strResult = EntityUtils.toString(response.getEntity(),"utf-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if(response.getStatusLine().getStatusCode()==200){
-            try {
-                strResult = EntityUtils.toString(response.getEntity(),"utf-8");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println("返回正常的结果！请求成功！");
         }
 
-        System.out.println("返回如下结果：");
-        System.out.println(strResult);
+        //System.out.println("返回如下结果：");
+       // System.out.println(strResult);
 
         return strResult;
 

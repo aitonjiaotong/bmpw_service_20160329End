@@ -16,6 +16,7 @@ public class Remind {
     private Integer user_id;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getRemind_id() {
         return remind_id;
     }

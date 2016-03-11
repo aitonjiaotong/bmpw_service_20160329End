@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Driver {
+    private Integer id;
     private Integer busline_id;
     private Integer driver_id;
     private String driver_name;
@@ -20,6 +21,17 @@ public class Driver {
     private String card_no;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Column
+    @Basic
     public Integer getBusline_id() {
         return busline_id;
     }
@@ -28,7 +40,7 @@ public class Driver {
         this.busline_id = busline_id;
     }
 
-    @Column
+    @Column(unique=true)
     @Basic
     public Integer getDriver_id() {
         return driver_id;

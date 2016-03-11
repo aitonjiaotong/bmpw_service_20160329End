@@ -3,28 +3,41 @@ package com.aiton.bmgj.entity;
 import javax.persistence.*;
 
 /**
- * 站点类型：线路ID，上下行，站点序号，
+ * 线路站点类型：线路ID，上下行，站点序号，
  *          站点ID；
+ * 注意：这个类是线路和站点绑定不重复，单独是可重复的！
  * Created by user on 2016/3/2.
  */
 @Entity
 @Table
 public class Station {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    private Integer id;
     /**线路ID*/
-    private Integer busLineId;
+    private Integer busline_id;
     /**上下行：1=上行，2=下行*/
     private Integer up_down;
     /**站点序号，从1开始*/
     private Integer station_index;
     private Integer station_id;
 
-    @Id
-    public Integer getBusLineId() {
-        return busLineId;
+    @Column
+    @Basic
+    public Integer getBusline_id() {
+        return busline_id;
     }
 
-    public void setBusLineId(Integer busLineId) {
-        this.busLineId = busLineId;
+    public void setBusline_id(Integer busline_id) {
+        this.busline_id = busline_id;
     }
 
     @Column
@@ -46,6 +59,7 @@ public class Station {
     public void setStation_index(Integer station_index) {
         this.station_index = station_index;
     }
+
 
     @Column
     @Basic
