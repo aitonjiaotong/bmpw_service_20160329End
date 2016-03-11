@@ -31,6 +31,11 @@ public class BusLineService implements BusLineServiceImpl{
     }
 
     @Override
+    public List<BusLine> findBusLinesByStationId(Integer station_id) {
+        return null;
+    }
+
+    @Override
     public BusLine findBusLineByNo(Integer no) {
         BusLine busLine = busLineRepository.findBusLineByNO(no);
         return busLine;

@@ -45,7 +45,7 @@ public class StationService implements StationServiceImpl{
 
     @Override
     public List<Station> findStationByBusLineId(Integer busLineId) {
-        List<Station> list = stationRepository.findStationByBusLineId(busLineId);
+        List<Station> list = stationRepository.findStationByBusLineId(busLineId,null);
         return list;
     }
 

@@ -1,6 +1,5 @@
 package com.aiton.bmgj.entity;
 
-import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -9,10 +8,7 @@ import java.util.Date;
  *                  高度，速度，方向；
  * Created by user on 2016/3/2.
  */
-@Entity
-@Table
 public class LastGpsData {
-    private Integer id;
     private Integer busline_id;
     private Integer car_id;
     private String car_no;
@@ -29,18 +25,21 @@ public class LastGpsData {
     /**方向，乘于10的2次方*/
     private Integer direct;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getId() {
-        return id;
+    public LastGpsData(){}
+
+    public LastGpsData(Integer busline_id, Integer car_id, String car_no, Date gps_time, Integer lng, Integer lat, Integer hight, Integer speed, Integer direct) {
+        this.busline_id = busline_id;
+        this.car_id = car_id;
+        this.car_no = car_no;
+        this.gps_time = gps_time;
+        this.lng = lng;
+        this.lat = lat;
+        this.hight = hight;
+        this.speed = speed;
+        this.direct = direct;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
-    @Column
-    @Basic
     public Integer getBusline_id() {
         return busline_id;
     }
@@ -49,8 +48,7 @@ public class LastGpsData {
         this.busline_id = busline_id;
     }
 
-    @Column
-    @Basic
+
     public Integer getCar_id() {
         return car_id;
     }
@@ -59,8 +57,7 @@ public class LastGpsData {
         this.car_id = car_id;
     }
 
-    @Column
-    @Basic
+
     public String getCar_no() {
         return car_no;
     }
@@ -69,8 +66,7 @@ public class LastGpsData {
         this.car_no = car_no;
     }
 
-    @Column
-    @Basic
+
     public Date getGps_time() {
         return gps_time;
     }
@@ -79,8 +75,7 @@ public class LastGpsData {
         this.gps_time = gps_time;
     }
 
-    @Column
-    @Basic
+
     public Integer getLng() {
         return lng;
     }
@@ -89,8 +84,7 @@ public class LastGpsData {
         this.lng = lng;
     }
 
-    @Column
-    @Basic
+
     public Integer getLat() {
         return lat;
     }
@@ -99,8 +93,7 @@ public class LastGpsData {
         this.lat = lat;
     }
 
-    @Column
-    @Basic
+
     public Integer getHight() {
         return hight;
     }
@@ -109,8 +102,7 @@ public class LastGpsData {
         this.hight = hight;
     }
 
-    @Column
-    @Basic
+
     public Integer getSpeed() {
         return speed;
     }
@@ -119,8 +111,7 @@ public class LastGpsData {
         this.speed = speed;
     }
 
-    @Column
-    @Basic
+
     public Integer getDirect() {
         return direct;
     }

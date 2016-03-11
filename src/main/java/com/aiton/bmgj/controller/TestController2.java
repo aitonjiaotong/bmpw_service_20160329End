@@ -45,7 +45,7 @@ public class TestController2 {
     @RequestMapping("/toTest")
     @ResponseBody
     public String getDataTest() throws UnsupportedEncodingException {
-        String jsonstr = getData.getStationBase();
+        String jsonstr = getData.getLastGpsData();
         if(jsonstr == null){
            System.out.println("返回的数据是空的！~~~");
             return "json is empty!!!";
