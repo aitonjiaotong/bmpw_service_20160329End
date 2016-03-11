@@ -31,8 +31,13 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Boolean delPerson(Integer person_id) {
-        personReponstory.delete(person_id);
-        return true;  //To change body of implemented methods use File | Settings | File Templates.
+        try{
+            personReponstory.delete(person_id);
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }//To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override

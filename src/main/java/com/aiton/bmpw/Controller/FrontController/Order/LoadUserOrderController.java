@@ -1,6 +1,7 @@
 package com.aiton.bmpw.Controller.FrontController.Order;
 
 import com.aiton.bmpw.Entity.Bmpw_Order;
+import com.aiton.bmpw.Entity.Show.pw_Order_show;
 import com.aiton.bmpw.Service.OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +23,8 @@ public class LoadUserOrderController {
     private OrderService service;
     @RequestMapping("/front/ladorderbyuser")
     @ResponseBody
-    public List<Bmpw_Order> execute(Integer account_id){
-         List<Bmpw_Order>orders=service.loadOrderByUserId(account_id);
+    public pw_Order_show execute(Integer account_id,Integer page){
+         pw_Order_show orders=service.loadOrderByUserId(account_id,page);
          return orders;
     }
 }

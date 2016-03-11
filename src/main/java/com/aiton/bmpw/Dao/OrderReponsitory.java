@@ -16,8 +16,10 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface OrderReponsitory extends JpaRepository<Bmpw_Order,Integer>{
-    @Query("from Bmpw_Order where account_id=?")
-    List<Bmpw_Order> findByUserId(Integer account_id);
+    @Query("select o from Bmpw_Order as o where account_id=?")
+    Page<Bmpw_Order> findByUserId(Integer account_id,Pageable pageable);
+    @Query("select count(o) from Bmpw_Order as o where o.account_id=?")
+    Object CountByAccount(Integer account_id);
     @Query("select count(o) from Bmpw_Order as o where o.phone like ?")
     Object CountPhoneLike(String phone);
     @Query("select o from Bmpw_Order as o where o.phone like ?")

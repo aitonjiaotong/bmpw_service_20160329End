@@ -2,6 +2,7 @@ package com.aiton.bmpw.Service;
 
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmpw.Entity.Bmpw_Order;
+import com.aiton.bmpw.Entity.Show.pw_Order_show;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.rpc.ServiceException;
@@ -17,7 +18,7 @@ import java.util.List;
  */
 public interface OrderService {
     Bmpw_Order addOrder(String BookLogAID,Integer account_id);
-    List<Bmpw_Order> loadOrderByUserId(Integer user_id);
+    pw_Order_show loadOrderByUserId(Integer account_id,Integer page);
     DataTables loadOrders(Integer draw,Integer start,Integer length,HttpServletRequest request) throws ServiceException, RemoteException;
     Bmpw_Order completeOrder(Integer order_id,Integer redEnvelope_id);
 }

@@ -73,4 +73,8 @@ public class TestController {
         List<Zone>zones=zoneReponsitory.getByParent(16);
         return zones;
     }
+    @RequestMapping("/testpage")
+    public String exe9(){
+        return "test";
+    }
 }

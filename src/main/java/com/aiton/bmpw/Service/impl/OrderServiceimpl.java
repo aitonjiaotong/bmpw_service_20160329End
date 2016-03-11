@@ -8,6 +8,7 @@ import com.aiton.bmpw.Entity.Bmpw_Order;
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmpw.Entity.RedEnvelope;
 import com.aiton.bmpw.Entity.Show.Order_show;
+import com.aiton.bmpw.Entity.Show.pw_Order_show;
 import com.aiton.bmpw.Service.OrderService;
 import com.aiton.bmpw.Util.GsonUtils;
 import com.aiton.bmpw.Webservice.JDTTicketLocator;
@@ -54,9 +55,14 @@ public class OrderServiceimpl implements OrderService {
     }
 
     @Override
-    public List<Bmpw_Order> loadOrderByUserId(Integer user_id) {
-        List<Bmpw_Order>orders=orderReponsitory.findByUserId(user_id);
-        return orders;  //To change body of implemented methods use File | Settings | File Templates.
+    public pw_Order_show loadOrderByUserId(Integer account_id,Integer page) {
+        List<Bmpw_Order>orders=orderReponsitory.findByUserId(account_id,new PageRequest(page,8,new Sort(Sort.Direction.DESC,"date"))).getContent();
+        double sum=Double.valueOf(orderReponsitory.CountByAccount(account_id).toString());
+        int pages=(int) StrictMath.ceil(sum/8);
+        pw_Order_show order_show=new pw_Order_show();
+        order_show.setOrders(orders);
+        order_show.setPages(pages);
+        return order_show;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
