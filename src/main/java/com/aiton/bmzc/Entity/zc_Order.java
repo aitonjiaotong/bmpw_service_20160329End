@@ -20,9 +20,8 @@ public class zc_Order {
     private Timestamp huancheDate; //还车时间
     private Timestamp planReturnDate;//计划还车时间
     private Double limitMileage;//限制里程数
-    private Integer userId;//租车人id
+    private Integer accountId;//租车人id
     private Integer guarantorId;//担保人id
-    private Integer account_id;//如果是手机租车加此条
     private Double beforeMileage;//开始里程数
     private Double afterMileage;//结束里程数
     private Integer jijiatime;//计价时间
@@ -38,6 +37,7 @@ public class zc_Order {
     private Integer hasDriver;//是否带司机 0:带司机 1：不带司机
     private Integer getCar;//取车地点
     private Integer returnCar;//还车地点
+    private Double advancePayment;//预付款
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -104,13 +104,14 @@ public class zc_Order {
     }
     @Basic
     @Column
-    public Integer getUserId() {
-        return userId;
+    public Integer getAccountId() {
+        return accountId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
     }
+
     @Basic
     @Column
     public Double getBeforeMileage() {
@@ -165,7 +166,8 @@ public class zc_Order {
     public void setShouyajin(Double shouyajin) {
         this.shouyajin = shouyajin;
     }
-
+    @Basic
+    @Column
     public Double getPrice() {
         return price;
     }
@@ -173,7 +175,8 @@ public class zc_Order {
     public void setPrice(Double price) {
         this.price = price;
     }
-
+    @Basic
+    @Column
     public String getNote() {
         return note;
     }
@@ -181,22 +184,14 @@ public class zc_Order {
     public void setNote(String note) {
         this.note = note;
     }
-
+    @Basic
+    @Column
     public Integer getFlag() {
         return flag;
     }
 
     public void setFlag(Integer flag) {
         this.flag = flag;
-    }
-    @Basic
-    @Column
-    public Integer getAccount_id() {
-        return account_id;
-    }
-
-    public void setAccount_id(Integer account_id) {
-        this.account_id = account_id;
     }
     @Basic
     @Column
@@ -235,7 +230,8 @@ public class zc_Order {
     public void setHasDriver(Integer hasDriver) {
         this.hasDriver = hasDriver;
     }
-
+    @Basic
+    @Column
     public Integer getGetCar() {
         return getCar;
     }
@@ -243,7 +239,8 @@ public class zc_Order {
     public void setGetCar(Integer getCar) {
         this.getCar = getCar;
     }
-
+    @Basic
+    @Column
     public Integer getReturnCar() {
         return returnCar;
     }
@@ -251,12 +248,22 @@ public class zc_Order {
     public void setReturnCar(Integer returnCar) {
         this.returnCar = returnCar;
     }
-
+    @Basic
+    @Column
     public Double getOutTimePrice() {
         return outTimePrice;
     }
 
     public void setOutTimePrice(Double outTimePrice) {
         this.outTimePrice = outTimePrice;
+    }
+    @Basic
+    @Column
+    public Double getAdvancePayment() {
+        return advancePayment;
+    }
+
+    public void setAdvancePayment(Double advancePayment) {
+        this.advancePayment = advancePayment;
     }
 }

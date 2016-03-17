@@ -44,8 +44,15 @@ public class PersonServiceImpl implements PersonService {
     public Integer updatePerson(Person person) {
         Person person1=personReponstory.findByAccountAndID(person.getAccount_id(),person.getIdcard());
         if(person1==null){
+            //身份证不重复
             personReponstory.saveAndFlush(person);
             return 0;
+        }else{
+           if(person.getId().equals(person1.getId())){
+              personReponstory.saveAndFlush(person);
+              return 0;
+           }
+
         }
         return 1;  //To change body of implemented methods use File | Settings | File Templates.
     }

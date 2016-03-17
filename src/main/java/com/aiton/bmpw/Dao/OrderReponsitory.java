@@ -24,4 +24,12 @@ public interface OrderReponsitory extends JpaRepository<Bmpw_Order,Integer>{
     Object CountPhoneLike(String phone);
     @Query("select o from Bmpw_Order as o where o.phone like ?")
     Page<Bmpw_Order> findPhoneLike(String phone,Pageable pageable);
+    @Query("from Bmpw_Order where bookLogAID=?")
+    Bmpw_Order findOrderByBookLogAID(String bookLogAID);
+    @Query("select o from Bmpw_Order as o where flag is not null order by date")
+    Page<Bmpw_Order> findExceptionOrders(Pageable pageable);
+    @Query("select count(o) from Bmpw_Order as o where o.phone like ? and flag is not null")
+    Object CountExceptionPhoneLike(String phone);
+    @Query("select o from Bmpw_Order as o where o.phone like ? and flag is not null order by o.date")
+    Page<Bmpw_Order> findExceptionPhoneLike(String phone,Pageable pageable);
 }

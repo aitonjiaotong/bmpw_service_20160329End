@@ -13,8 +13,11 @@ import javax.persistence.*;
 @Table
 public class zc_Car {
     private String licensePlate;//牌号
-    private String model;
-    private String type;
+    private String model;//品牌
+    private String box;//厢数
+    private String pailiang;//排量
+    private Integer seat;//乘客数量
+    private Integer zidong;//0:自动 1:手动
     private String color;
     private String engineCode;//发动机编号
     private Double mileage;
@@ -22,7 +25,7 @@ public class zc_Car {
     private Integer status;//0:空闲 1：出租 2：停租
     private Double deposit;//押金
     private String buyDate;//购买时间
-    private String inspection;
+    private String inspection; //年检日期
     private String image;
     private String note;
     private Integer planId;
@@ -44,15 +47,42 @@ public class zc_Car {
     public void setModel(String model) {
         this.model = model;
     }
-    @Column
     @Basic
-    public String getType() {
-        return type;
+    @Column
+    public String getBox() {
+        return box;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setBox(String box) {
+        this.box = box;
     }
+
+    public String getPailiang() {
+        return pailiang;
+    }
+
+    public void setPailiang(String pailiang) {
+        this.pailiang = pailiang;
+    }
+    @Basic
+    @Column
+    public Integer getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Integer seat) {
+        this.seat = seat;
+    }
+    @Basic
+    @Column
+    public Integer getZidong() {
+        return zidong;
+    }
+
+    public void setZidong(Integer zidong) {
+        this.zidong = zidong;
+    }
+
     @Basic
     @Column
     public String getColor() {

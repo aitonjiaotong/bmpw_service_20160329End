@@ -3,6 +3,7 @@ package com.aiton.bmzc.Service;
 import com.aiton.bmzc.Entity.zc_Order;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,4 +18,6 @@ public interface zc_OrderService {
     Boolean cancelOrder(Integer order_id);
     zc_Order loadOrder(Integer order_id,Timestamp huancheDate,Double afterMileage,Double shouyajin);
     zc_Order completeOrder(Integer order_id,Double price,Double shouyajin);
+    List<zc_Order> loadorderByaccount(Integer accountId);
+    List<zc_Order>loadCanCompleteOrder();
 }

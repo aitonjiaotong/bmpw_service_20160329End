@@ -17,7 +17,7 @@ public class Zc_Store {
     private String address;
     private String city;
     private String phone;
-    private String head;
+    private String head; //联系人
     private Double longitude;//经度
     private Double latitude;//纬度
     @Id

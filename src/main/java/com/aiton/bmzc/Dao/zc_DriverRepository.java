@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Time: 下午3:49
  * To change this template use File | Settings | File Templates.
  */
-public interface Zc_DriverRepository extends JpaRepository<zc_Driver,Integer>{
+public interface zc_DriverRepository extends JpaRepository<zc_Driver,Integer>{
 }

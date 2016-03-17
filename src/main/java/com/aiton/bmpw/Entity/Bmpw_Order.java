@@ -28,16 +28,16 @@ public class Bmpw_Order {
     private Integer account_id;
     private Integer redEnvelope_id;
     private String phone;
-//    private Integer flag;//订单标记位 0：未确认 1：已确认 2：已撤销 3：已取票
-//    @Basic
-//    @Column
-//    public Integer getFlag() {
-//        return flag;
-//    }
-//
-//    public void setFlag(Integer flag) {
-//        this.flag = flag;
-//    }
+    private Integer flag;//支付异常订单标记位 null；正常 0：异常 1;处理完毕
+    @Basic
+    @Column
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
