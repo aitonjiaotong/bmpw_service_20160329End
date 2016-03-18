@@ -1,8 +1,7 @@
 package com.aiton.bmzc.Service.Impl;
-
-import com.aiton.bmzc.Dao.Zc_CarRespository;
-import com.aiton.bmzc.Dao.Zc_OrderRepository;
-import com.aiton.bmzc.Dao.Zc_PlanRepository;
+import com.aiton.bmzc.Dao.zc_CarRespository;
+import com.aiton.bmzc.Dao.zc_OrderRepository;
+import com.aiton.bmzc.Dao.zc_PlanRepository;
 import com.aiton.bmzc.Entity.zc_Car;
 import com.aiton.bmzc.Entity.zc_Order;
 import com.aiton.bmzc.Entity.zc_plan;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,15 +23,32 @@ import java.util.Calendar;
 @Service
 public class zc_OrderServiceImpl implements zc_OrderService {
     @Resource
-    private Zc_OrderRepository orderRepository;
+    private zc_OrderRepository orderRepository;
     @Resource
-    private Zc_PlanRepository planRepository;
+    private zc_PlanRepository planRepository;
     @Resource
-    private Zc_CarRespository carRespository;
+    private zc_CarRespository carRespository;
     @Override
     public zc_Order addOrder(zc_Order order) {
         zc_Car car=carRespository.findOne(order.getLicensePlate());
         order.setPlanId(car.getPlanId());
+        zc_plan plan=planRepository.findOne(car.getPlanId());
+        if(plan.getUnit()==0){//日租
+            //计价时间（天）
+            Long time=order.getPlanReturnDate().getTime()-order.getZuchuDate().getTime();
+            order.setJijiatime((int)StrictMath.ceil(time/86400000));//计价时间按天数显示
+        }
+        if(plan.getUnit()==1){//月租
+            //计价时间(月)
+            Calendar c1=Calendar.getInstance();
+            Calendar c2=Calendar.getInstance();
+            c1.setTime(order.getPlanReturnDate());
+            c2.setTime(order.getZuchuDate());
+            int result=c1.get(Calendar.MONTH)-c2.get(Calendar.MONTH);
+            order.setJijiatime(result==0?1:StrictMath.abs(result));//计价时间按月份显示
+        }
+        order.setLimitMileage(plan.getUnitMileage()*order.getJijiatime());
+        order.setFlag(0);//订单进行中
         order=orderRepository.saveAndFlush(order);
         return order;  //To change body of implemented methods use File | Settings | File Templates.
     }
@@ -122,5 +139,17 @@ public class zc_OrderServiceImpl implements zc_OrderService {
         order.setFlag(1);//订单完成
         orderRepository.saveAndFlush(order);
         return order;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public List<zc_Order> loadorderByaccount(Integer accountId) {
+        List<zc_Order>orders=orderRepository.findOrderByAccountId(accountId);
+        return orders;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public List<zc_Order> loadCanCompleteOrder() {
+        List<zc_Order>orders=orderRepository.findIngOrder();
+        return orders;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

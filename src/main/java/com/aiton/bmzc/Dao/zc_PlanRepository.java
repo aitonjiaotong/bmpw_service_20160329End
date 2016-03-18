@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Time: 下午3:45
  * To change this template use File | Settings | File Templates.
  */
-public interface Zc_PlanRepository extends JpaRepository<zc_plan,Integer> {
+public interface zc_PlanRepository extends JpaRepository<zc_plan,Integer> {
 }

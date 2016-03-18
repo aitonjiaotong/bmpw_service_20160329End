@@ -1,8 +1,6 @@
 ﻿{
-		"version": 5,
-		"feature": "1. 修改了订单详情页面 \r\n2. 修复了若干bug \r\n3. 在主页面添加了登录注销功能",
-		"apkurl":  "http://120.55.166.203:8080/bmpw/apk/upgrade1.0.4.apk",
+		"version": 9,
+		"feature": "1. 解决提交订单后闪退的bug \r\n2. 关闭微信支付 ",
+		"apkurl":  "http://120.55.166.203:8080/bmpw/apk/upgrade1.0.8.apk",
 		"filelen": 0
 }
-
-

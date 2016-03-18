@@ -1,6 +1,6 @@
 package com.aiton.bmzc.Service.Impl;
 
-import com.aiton.bmzc.Dao.Zc_PlanRepository;
+import com.aiton.bmzc.Dao.zc_PlanRepository;
 import com.aiton.bmzc.Entity.zc_plan;
 import com.aiton.bmzc.Service.Zc_PlanService;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 @Service
 public class Zc_PlanServiceImpl implements Zc_PlanService {
     @Resource
-    private Zc_PlanRepository planRepository;
+    private zc_PlanRepository planRepository;
     @Override
     public zc_plan addPlan(zc_plan plan) {
         plan.setFlag(0);

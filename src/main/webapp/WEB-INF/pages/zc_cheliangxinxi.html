@@ -4,6 +4,7 @@
     <title>八闽租车系统</title>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" href="assets/ico/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="JS/jquery.dataTables.css" type="text/css">
     <style>
         html,body{
             margin: 0;
@@ -44,7 +45,7 @@
          .mainpage{
             width: 79.9%;
             float: right;
-
+            height: 10px;
         }
         .icon{
 
@@ -101,13 +102,105 @@
             margin: 10px;
             float: left;
         }
+        #loadcars,#others{
+            width: 98%;
+            margin: 0 auto;
+        }
+        #others table{
+            margin: 0;
+        }
+        #others input{
+            margin-right: 59px;
+            margin-bottom: 10px;
+        }
+        input,textarea{
+            border-radius:5px;
+        }
+        textarea{
+            width: 92%;
+            clear:left;
+            height: 70px;
+        }
+        #notetitle{
+            float: left;
+            margin-right: 30px;
+        }
+        #btns{
+            text-align: center;
+        }
+        #btns button{
+            margin-right:50px ;
+        }
     </style>
 </head>
 <body>
    <div class="top1">租车行</div>
    <div class="top2"></div>
    <div class="top3"><div><p><img src="images/chelianxinxi.png">车辆信息</p></div></div>
-   <div class="mainpage"></div>
+   <div class="mainpage">
+       <div id="loadcars">
+           <p>车辆状态</p>
+           <table id="cars">
+               <thead>
+                    <tr>
+                        <th>车辆</th>
+                        <th>状态</th>
+                        <th>品牌</th>
+                        <th>押金标准</th>
+                        <th>当前里程</th>
+                    </tr>
+               </thead>
+           </table>
+       </div>
+       <div id="others">
+
+           <table>
+               <tr>
+                   <td colspan="5"><h4>基本信息|照片|保险及缴费信息</h4></td>
+               </tr>
+               <tr>
+                   <td>车辆编号(车牌号)</td>
+                   <td><input type="text"/></td>
+                   <td>颜色</td>
+                   <td><input type="text"/></td>
+                   <td>年检日期</td>
+                   <td><input type="text"/></td>
+               </tr>
+               <tr>
+                   <td>车辆状态</td>
+                   <td><input type="text"/></td>
+                   <td>发动机编号</td>
+                   <td><input type="text"/></td>
+               </tr>
+               <tr>
+                   <td>车型</td>
+                   <td><input type="text"/></td>
+                   <td>当前里程数</td>
+                   <td><input type="text"/></td>
+               </tr>
+               <tr>
+                   <td>押金标准</td>
+                   <td><input type="text"/></td>
+                   <td>保养里程数</td>
+                   <td><input type="text"/></td>
+               </tr>
+               <tr>
+                   <td>品牌</td>
+                   <td><input type="text"/></td>
+                   <td>购买日期</td>
+                   <td><input type="text"/></td>
+               </tr>
+               <tr>
+                   <td colspan="6"><span id="notetitle">备注</span><textarea></textarea></td>
+               </tr>
+           </table>
+           <div id="btns">
+                   <button>修改</button>
+                   <button>车辆删除</button>
+                   <button>违章查询</button>
+           </div>
+       </div>
+   </div>
    <div class="lan1">
        <div class="icon">
            <div>
@@ -127,6 +220,33 @@
            <p><img class="check" src="images/check.png"><a href="#"><img src="images/yudingdengji.png"/>预定登记</a></p>
        </div>
    </div>
+   <script src="JS/jquery-1.12.0.js"></script>
+   <script src="JS/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#cars").dataTable({
+                "scrollY": "200px",
+                "scrollCollapse": "true",
+                "bFilter":false,
+                "bSort":false,
+                "bLengthChange":false,
+                "bInfo":false,
+                "oLanguage": {
+                    "sLengthMenu": "每页显示 _MENU_ 条记录",
+                    "sZeroRecords": "抱歉， 没有找到",
+                    "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                    "sInfoEmpty": "没有数据",
+                    "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "前一页",
+                        "sNext": "后一页",
+                        "sLast": "尾页"
+                    }
 
+                }
+            });
+        });
+    </script>
 </body>
 </html>

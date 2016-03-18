@@ -6,6 +6,8 @@ import com.aiton.bmpw.Entity.Show.pw_Order_show;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.rpc.ServiceException;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.rmi.RemoteException;
 import java.util.List;
 
@@ -21,4 +23,7 @@ public interface OrderService {
     pw_Order_show loadOrderByUserId(Integer account_id,Integer page);
     DataTables loadOrders(Integer draw,Integer start,Integer length,HttpServletRequest request) throws ServiceException, RemoteException;
     Bmpw_Order completeOrder(Integer order_id,Integer redEnvelope_id);
+    Bmpw_Order exceptionOrder(Integer order_id,Integer flag);
+    Boolean checkOrder(Integer order_id);//确认订单
+    DataTables loadExceptionOrders(Integer draw,Integer start,Integer length,HttpServletRequest request);//列出有异常的订单
 }

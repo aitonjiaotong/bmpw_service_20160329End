@@ -13,6 +13,7 @@ import javax.persistence.*;
 @Table
 public class zc_plan {
     private Integer id;
+    private String name;//方案名称
     private Double price;//单价
     private Integer unit;//计价方式 0：天 1：月
     private Double unitMileage;//单位里程数
@@ -81,5 +82,14 @@ public class zc_plan {
 
     public void setFlag(Integer flag) {
         this.flag = flag;
+    }
+    @Column
+    @Basic
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
