@@ -56,8 +56,8 @@ public class ImageController {
                 if(name.lastIndexOf(".")>=0){
                     extName=name.substring(name.lastIndexOf("."));
                 }
-                File file1=new File(savepath+name+extName);
                 name="car";
+                File file1=new File(savepath+name+extName);
                 if(!file1.exists()){
                     file1.createNewFile();
                 }

@@ -1,6 +1,8 @@
 package com.aiton.bmzc.Dao;
 
 import com.aiton.bmzc.Entity.zc_Order;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -15,7 +17,11 @@ import java.util.List;
  */
 public interface zc_OrderRepository extends JpaRepository<zc_Order,Integer> {
     @Query("from zc_Order where accountId=?")
-    List<zc_Order> findOrderByAccountId(Integer accountId);
+    Page<zc_Order> findOrderByAccountId(Integer accountId,Pageable pageable);
     @Query("from zc_Order where flag=0")
-    List<zc_Order> findIngOrder();
+    Page<zc_Order> findIngOrder(Pageable pageable);
+    @Query("select count(o) from zc_Order as o where flag=0")
+    Object CountIngOrder();
+    @Query("from zc_Order where hasDriver=0")
+    List<zc_Order> findOrdershouldHasDriver();
 }

@@ -1,5 +1,6 @@
 package com.aiton.bmzc.Service;
 
+import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Entity.zc_Order;
 
 import java.sql.Timestamp;
@@ -17,7 +18,7 @@ public interface zc_OrderService {
     zc_Order addOrder(zc_Order order);
     Boolean cancelOrder(Integer order_id);
     zc_Order loadOrder(Integer order_id,Timestamp huancheDate,Double afterMileage,Double shouyajin);
-    zc_Order completeOrder(Integer order_id,Double price,Double shouyajin);
-    List<zc_Order> loadorderByaccount(Integer accountId);
-    List<zc_Order>loadCanCompleteOrder();
+    zc_Order completeOrder(Integer order_id,Double price,Double shouyajin,String note,String sale);
+    List<zc_Order> loadorderByaccount(Integer accountId,Integer page);
+    DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length);
 }

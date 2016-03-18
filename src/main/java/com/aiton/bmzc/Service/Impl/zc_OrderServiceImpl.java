@@ -1,4 +1,5 @@
 package com.aiton.bmzc.Service.Impl;
+import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Dao.zc_CarRespository;
 import com.aiton.bmzc.Dao.zc_OrderRepository;
 import com.aiton.bmzc.Dao.zc_PlanRepository;
@@ -6,6 +7,8 @@ import com.aiton.bmzc.Entity.zc_Car;
 import com.aiton.bmzc.Entity.zc_Order;
 import com.aiton.bmzc.Entity.zc_plan;
 import com.aiton.bmzc.Service.zc_OrderService;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -31,46 +34,56 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     @Override
     public zc_Order addOrder(zc_Order order) {
         zc_Car car=carRespository.findOne(order.getLicensePlate());
-        order.setPlanId(car.getPlanId());
-        zc_plan plan=planRepository.findOne(car.getPlanId());
-        if(plan.getUnit()==0){//日租
-            //计价时间（天）
-            Long time=order.getPlanReturnDate().getTime()-order.getZuchuDate().getTime();
-            order.setJijiatime((int)StrictMath.ceil(time/86400000));//计价时间按天数显示
+        if(order.getPlanId()==null){
+           order.setPlanId(car.getPlanId());
         }
-        if(plan.getUnit()==1){//月租
-            //计价时间(月)
-            Calendar c1=Calendar.getInstance();
-            Calendar c2=Calendar.getInstance();
-            c1.setTime(order.getPlanReturnDate());
-            c2.setTime(order.getZuchuDate());
-            int result=c1.get(Calendar.MONTH)-c2.get(Calendar.MONTH);
-            order.setJijiatime(result==0?1:StrictMath.abs(result));//计价时间按月份显示
-        }
-        order.setLimitMileage(plan.getUnitMileage()*order.getJijiatime());
+        car.setStatus(1);
+//        zc_plan plan=planRepository.findOne(order.getPlanId());
+//        Long time=order.getPlanReturnDate().getTime()-order.getZuchuDate().getTime();
+//        order.setJijiatime((int)StrictMath.ceil(time/86400000));//计价时间按天数显示
+//        order.setLimitMileage(plan.getUnitMileage()*order.getJijiatime());
         order.setFlag(0);//订单进行中
+        order.setDate(new Timestamp(System.currentTimeMillis()));
         order=orderRepository.saveAndFlush(order);
         return order;  //To change body of implemented methods use File | Settings | File Templates.
     }
     //取消订单
     @Override
     public Boolean cancelOrder(Integer order_id) {
-        zc_Order order=orderRepository.findOne(order_id);
-        if(order==null){
-           return false;
+        try{
+            zc_Order order=orderRepository.findOne(order_id);
+            if(order==null){
+                return false;
+            }
+            order.setFlag(2);//订单取消
+            return true;
+        }catch (Exception e){
+            return false;
         }
-        order.setFlag(2);//订单取消
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+          //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
     public zc_Order addDriver(Integer order_id,Integer driver_id) {
-        zc_Order order=orderRepository.findOne(order_id);
-        order.setDriverId(driver_id);
-        orderRepository.saveAndFlush(order);
-        return order;  //To change body of implemented methods use File | Settings | File Templates.
+        try{
+            zc_Order order=orderRepository.findOne(order_id);
+            order.setDriverId(driver_id);
+            orderRepository.saveAndFlush(order);
+            return order;
+        }catch(Exception e){
+            return null;
+        }
+         //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    /**
+     * 还车时加载订单
+     * @param order_id
+     * @param huancheDate
+     * @param afterMileage
+     * @param shouyajin
+     * @return
+     */
     @Override
     public zc_Order loadOrder(Integer order_id, Timestamp huancheDate, Double afterMileage, Double shouyajin) {
         zc_Order order=orderRepository.findOne(order_id);
@@ -84,56 +97,41 @@ public class zc_OrderServiceImpl implements zc_OrderService {
         order.setHuancheDate(huancheDate);
         zc_plan plan=planRepository.findOne(order.getPlanId());
         //计时应收租金&计价时间
-        if(plan.getUnit()==0){//日租
-           //计价时间（天）
-            Long time=huancheDate.getTime()-order.getZuchuDate().getTime();
-            order.setJijiatime((int)StrictMath.ceil(time/86400000));//计价时间按天数显示
-            //计时应收租金
-            Long t=order.getPlanReturnDate().getTime()-order.getZuchuDate().getTime();
-            order.setTimePrice(StrictMath.ceil(t/86400000)*plan.getPrice());
-        }
-        if(plan.getUnit()==1){//月租
-           //计价时间(月)
-            Calendar c1=Calendar.getInstance();
-            Calendar c2=Calendar.getInstance();
-            c1.setTime(huancheDate);
-            c2.setTime(order.getZuchuDate());
-            int result=c1.get(Calendar.MONTH)-c2.get(Calendar.MONTH);
-            order.setJijiatime(result==0?1:StrictMath.abs(result));//计价时间按月份显示
-            //计时应收租金
-            Calendar c3=Calendar.getInstance();
-            c3.setTime(order.getPlanReturnDate());
-            int m=c3.get(Calendar.MONTH)-c2.get(Calendar.MONTH);
-            int mouth=m==0?1:StrictMath.abs(m);
-            order.setTimePrice(mouth*plan.getPrice());
-        }
+        //计价时间（天）
+        Long time=huancheDate.getTime()-order.getZuchuDate().getTime();
+        order.setJijiatime((int)StrictMath.ceil(time/86400000));//计价时间按天数显示
+        //计时应收租金
+        Long t=order.getPlanReturnDate().getTime()-order.getZuchuDate().getTime();
+        order.setTimePrice(StrictMath.ceil(t/86400000)*plan.getPrice());
         //限制里程数
         order.setLimitMileage(plan.getUnitMileage()*order.getJijiatime());
         //超里程数
         double m=afterMileage-order.getBeforeMileage();
         //超里程价格
-        order.setOutMileagePrice(m*plan.getOutMileage());
+        if(m>order.getLimitMileage()){
+            order.setOutMileagePrice((m-order.getLimitMileage())*plan.getOutMileage());
+        }
         //超时价格
         //超时时间
         if(huancheDate.getTime()>order.getPlanReturnDate().getTime()){//超时
-            Long time=huancheDate.getTime()-order.getPlanReturnDate().getTime();
+            time=huancheDate.getTime()-order.getPlanReturnDate().getTime();
             Integer hour=((int)StrictMath.ceil(time/3600000));//超时小时数
-            order.setOutTimePrice(hour*plan.getOutTime());
+            order.setOutTimePrice(hour*plan.getOutTime()*order.getSum());
         }
         orderRepository.saveAndFlush(order);
         //汽车置空闲
-
-
         carRespository.saveAndFlush(car);
         return order;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public zc_Order completeOrder(Integer order_id, Double price,Double shouyajin) {
+    public zc_Order completeOrder(Integer order_id, Double price,Double shouyajin,String note,String sale) {
         zc_Order order=orderRepository.findOne(order_id);
         if(order==null){
             return null;
         }
+        order.setSale(sale);
+        order.setNote(note);
         order.setPrice(price);
         order.setShouyajin(shouyajin);
         order.setFlag(1);//订单完成
@@ -142,14 +140,23 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     }
 
     @Override
-    public List<zc_Order> loadorderByaccount(Integer accountId) {
-        List<zc_Order>orders=orderRepository.findOrderByAccountId(accountId);
+    public List<zc_Order> loadorderByaccount(Integer accountId,Integer page) {
+        List<zc_Order>orders=orderRepository.findOrderByAccountId(accountId,new PageRequest(page,8,new Sort(Sort.Direction.DESC,"date"))).getContent();
         return orders;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    /**
+     * 加载正在进行的订单
+     * @return
+     */
     @Override
-    public List<zc_Order> loadCanCompleteOrder() {
-        List<zc_Order>orders=orderRepository.findIngOrder();
-        return orders;  //To change body of implemented methods use File | Settings | File Templates.
+    public DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length) {
+        Integer page=start/length;
+        List<zc_Order>orders=orderRepository.findIngOrder(new PageRequest(page,length,new Sort(Sort.Direction.ASC,"planReturnDate"))).getContent();
+        DataTables dataTables=new DataTables();
+        dataTables.setDraw(draw);
+
+        dataTables.setRecordsTotal(Long.valueOf(orderRepository.CountIngOrder().toString()));
+        return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

@@ -1,8 +1,12 @@
 package com.aiton.bmzc.Service;
 
 import com.aiton.bmzc.Entity.zc_Car;
+import com.aiton.bmzc.Entity.zc_car_plan;
+import com.aiton.bmzc.Entity.zc_plan;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,6 +17,6 @@ import java.util.List;
  */
 public interface Zc_CarService {
     List<zc_Car> loadCars();
-    zc_Car addCar(zc_Car car);
-    List<zc_Car> loadCanuseCar();
+    zc_Car addCar(zc_Car car,HttpServletRequest request);
+    List<zc_car_plan> loadCanuseCar(Integer page);
 }

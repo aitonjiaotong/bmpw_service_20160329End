@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 public class zc_Order {
     private Integer id;
     private String licensePlate;//车牌号
-    private Integer planId;     //租赁计划id(防止车辆绑定plan更改)
+    private Integer planId;     //租赁计划id(防止车辆绑定plan更改,或者不使用车辆绑定plan)
     private Timestamp zuchuDate; //租出时间
     private Timestamp huancheDate; //还车时间
     private Timestamp planReturnDate;//计划还车时间
@@ -38,7 +38,11 @@ public class zc_Order {
     private Integer getCar;//取车地点
     private Integer returnCar;//还车地点
     private Double advancePayment;//预付款
-
+    private Timestamp date;//下单时间
+    private Integer status;//0：企业租车 1；个人租车
+    private Double insurance;//保险金额
+    private Integer sum;//租车数量
+    private String sale;//收款人账号
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
@@ -265,5 +269,51 @@ public class zc_Order {
 
     public void setAdvancePayment(Double advancePayment) {
         this.advancePayment = advancePayment;
+    }
+    @Column
+    @Basic
+
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
+    @Column
+    @Basic
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+    @Basic
+    @Column
+    public Double getInsurance() {
+        return insurance;
+    }
+
+    public void setInsurance(Double insurance) {
+        this.insurance = insurance;
+    }
+    @Basic
+    @Column
+    public Integer getSum() {
+        return sum;
+    }
+
+    public void setSum(Integer sum) {
+        this.sum = sum;
+    }
+    @Basic
+    @Column
+    public String getSale() {
+        return sale;
+    }
+
+    public void setSale(String sale) {
+        this.sale = sale;
     }
 }

@@ -15,7 +15,6 @@ public class zc_plan {
     private Integer id;
     private String name;//方案名称
     private Double price;//单价
-    private Integer unit;//计价方式 0：天 1：月
     private Double unitMileage;//单位里程数
     private Double outMileage;//超里程价格
     private Double outTime;//超时小时价
@@ -37,15 +36,6 @@ public class zc_plan {
 
     public void setPrice(Double price) {
         this.price = price;
-    }
-    @Basic
-    @Column
-    public Integer getUnit() {
-        return unit;
-    }
-
-    public void setUnit(Integer unit) {
-        this.unit = unit;
     }
     @Basic
     @Column

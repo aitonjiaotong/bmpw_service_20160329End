@@ -14,14 +14,15 @@ import javax.persistence.*;
 public class zc_Car {
     private String licensePlate;//牌号
     private String model;//品牌
+    private String type;//型号
     private String box;//厢数
     private String pailiang;//排量
     private Integer seat;//乘客数量
     private Integer zidong;//0:自动 1:手动
     private String color;
     private String engineCode;//发动机编号
-    private Double mileage;
-    private Double maintenanceMileage;
+    private Double mileage;//里程
+    private Double maintenanceMileage;//保养里程
     private Integer status;//0:空闲 1：出租 2：停租
     private Double deposit;//押金
     private String buyDate;//购买时间
@@ -181,5 +182,14 @@ public class zc_Car {
 
     public void setPlanId(Integer planId) {
         this.planId = planId;
+    }
+    @Basic
+    @Column
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
