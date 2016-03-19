@@ -1,6 +1,7 @@
 package com.aiton.bmzc.Controller.Order;
 
 import com.aiton.bmzc.Entity.zc_Order;
+import com.aiton.bmzc.Entity.zc_order_request;
 import com.aiton.bmzc.Service.zc_OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +19,8 @@ public class zc_AddOrderController {
     private zc_OrderService orderService;
     @RequestMapping("/zc/order/addorder")
     @ResponseBody
-    public zc_Order execute(zc_Order order){
-        order=orderService.addOrder(order);
+    public zc_Order execute(zc_order_request order_request){
+        zc_Order order=orderService.addOrder(order_request);
         return order;
     }
 }

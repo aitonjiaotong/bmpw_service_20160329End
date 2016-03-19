@@ -41,7 +41,6 @@ public class zc_Order {
     private Timestamp date;//下单时间
     private Integer status;//0：企业租车 1；个人租车
     private Double insurance;//保险金额
-    private Integer sum;//租车数量
     private String sale;//收款人账号
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -297,15 +296,6 @@ public class zc_Order {
 
     public void setInsurance(Double insurance) {
         this.insurance = insurance;
-    }
-    @Basic
-    @Column
-    public Integer getSum() {
-        return sum;
-    }
-
-    public void setSum(Integer sum) {
-        this.sum = sum;
     }
     @Basic
     @Column
