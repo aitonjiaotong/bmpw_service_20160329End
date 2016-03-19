@@ -10,7 +10,13 @@ import java.sql.Timestamp;
  * To change this template use File | Settings | File Templates.
  */
 public class zc_order_request {
-    private zc_car_plan car_plan;//车辆品牌&计划的集合
+    private String model;//品牌
+    private String type;//型号
+    private String box;//厢数
+    private String pailiang;//排量
+    private Integer seat;//乘客数量
+    private Integer zidong;//0:自动 1:手动
+    private Integer plan_id;
     private Timestamp zuchuDate; //租出时间
     private Timestamp planReturnDate;//计划还车时间
     private Double price;//总价
@@ -18,13 +24,62 @@ public class zc_order_request {
     private Double insurance;//保险金额
     private Integer getCar;//取车地点
     private Integer returnCar;//还车地点
+    private Integer hasDriver;//0:带 1：不带
 
-    public zc_car_plan getCar_plan() {
-        return car_plan;
+    public String getModel() {
+        return model;
     }
 
-    public void setCar_plan(zc_car_plan car_plan) {
-        this.car_plan = car_plan;
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getBox() {
+        return box;
+    }
+
+    public void setBox(String box) {
+        this.box = box;
+    }
+
+    public String getPailiang() {
+        return pailiang;
+    }
+
+    public void setPailiang(String pailiang) {
+        this.pailiang = pailiang;
+    }
+
+    public Integer getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Integer seat) {
+        this.seat = seat;
+    }
+
+    public Integer getZidong() {
+        return zidong;
+    }
+
+    public void setZidong(Integer zidong) {
+        this.zidong = zidong;
+    }
+
+    public Integer getPlan_id() {
+        return plan_id;
+    }
+
+    public void setPlan_id(Integer plan_id) {
+        this.plan_id = plan_id;
     }
 
     public Timestamp getZuchuDate() {
@@ -81,5 +136,13 @@ public class zc_order_request {
 
     public void setReturnCar(Integer returnCar) {
         this.returnCar = returnCar;
+    }
+
+    public Integer getHasDriver() {
+        return hasDriver;
+    }
+
+    public void setHasDriver(Integer hasDriver) {
+        this.hasDriver = hasDriver;
     }
 }

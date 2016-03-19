@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -41,7 +40,7 @@ public class zc_OrderServiceImpl implements zc_OrderService {
         order.setPrice(order_request.getPrice());
         order.setInsurance(order_request.getInsurance());
         order.setHasDriver(order_request.getHasDriver());
-        List<zc_Car>cars=carRespository.find(order_request.getModel(),order_request.getType(),order_request.getBox(),order_request.getPailiang(),order_request.getSeat(),order_request.getPlan_id());
+        List<zc_Car>cars=carRespository.find(order_request.getModel(), order_request.getType(), order_request.getBox(), order_request.getPailiang(), order_request.getSeat(), order_request.getPlan_id());
         if(cars.isEmpty()){
            return null;
         }
@@ -150,9 +149,13 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     }
 
     @Override
-    public List<zc_Order> loadorderByaccount(Integer accountId,Integer page) {
+    public Zc_Contains_num loadorderByaccount(Integer accountId,Integer page) {
         List<zc_Order>orders=orderRepository.findOrderByAccountId(accountId,new PageRequest(page,8,new Sort(Sort.Direction.DESC,"date"))).getContent();
-        return orders;  //To change body of implemented methods use File | Settings | File Templates.
+        Zc_Contains_num contains_num=new Zc_Contains_num();
+        contains_num.setContains(orders);
+        Integer pageAll=(int)Math.ceil(Double.valueOf(orderRepository.countOrderByAccountId(accountId).toString())/8);
+        contains_num.setNum(pageAll);
+        return contains_num;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     /**
