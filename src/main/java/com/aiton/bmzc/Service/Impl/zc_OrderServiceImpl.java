@@ -29,18 +29,19 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     private zc_PlanRepository planRepository;
     @Resource
     private zc_CarRespository carRespository;
+
     @Override
     public zc_Order addOrder(zc_order_request order_request) {
         zc_Order order=new zc_Order();
-        zc_car_plan car_plan=order_request.getCar_plan();
-        order.setPlanId(car_plan.getPlan_id());
+        order.setPlanId(order_request.getPlan_id());
         order.setGetCar(order_request.getGetCar());
         order.setReturnCar(order_request.getReturnCar());
         order.setZuchuDate(order_request.getZuchuDate());
         order.setPlanReturnDate(order_request.getPlanReturnDate());
         order.setPrice(order_request.getPrice());
         order.setInsurance(order_request.getInsurance());
-        List<zc_Car>cars=carRespository.find(car_plan.getModel(),car_plan.getType(),car_plan.getBox(),car_plan.getPailiang(),car_plan.getSeat(),car_plan.getPlan_id());
+        order.setHasDriver(order_request.getHasDriver());
+        List<zc_Car>cars=carRespository.find(order_request.getModel(),order_request.getType(),order_request.getBox(),order_request.getPailiang(),order_request.getSeat(),order_request.getPlan_id());
         if(cars.isEmpty()){
            return null;
         }

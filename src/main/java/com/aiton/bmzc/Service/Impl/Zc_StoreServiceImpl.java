@@ -44,6 +44,12 @@ public class Zc_StoreServiceImpl implements Zc_StoreService {
     }
 
     @Override
+    public List<Zc_Store> loadStore(String city) {
+        List<Zc_Store>stores=storeRepository.loadStore(city);
+        return stores;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
     public Zc_Store loadStore(Integer store_id) {
         Zc_Store z = storeRepository.findOne(store_id);
         return z;

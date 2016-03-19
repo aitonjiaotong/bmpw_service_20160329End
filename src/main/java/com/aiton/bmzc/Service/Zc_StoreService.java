@@ -16,4 +16,5 @@ public interface Zc_StoreService {
     Boolean delStore(Integer sotre_id);
     List<Object> loadCity(Integer page);
     Zc_Store loadStore(Integer store_id);
+    List<Zc_Store> loadStore(String city);
 }

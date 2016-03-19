@@ -17,4 +17,6 @@ import java.util.List;
 public interface zc_StoreRepository extends JpaRepository<Zc_Store,Integer> {
     @Query("select distinct s.city from Zc_Store as s")
     List<Object> loadCity(Pageable pageable);
+    @Query("from Zc_Store where city=?")
+    List<Zc_Store> loadStore(String city);
 }
