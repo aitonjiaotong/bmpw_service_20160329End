@@ -1,5 +1,6 @@
 package com.aiton.bmzc.Controller.Car;
 
+import com.aiton.bmzc.Entity.Zc_contains_num;
 import com.aiton.bmzc.Entity.zc_Car;
 import com.aiton.bmzc.Entity.zc_car_plan;
 import com.aiton.bmzc.Entity.zc_plan;
@@ -26,8 +27,8 @@ public class zc_FreeCarController {
     private Zc_CarService carService;
     @RequestMapping("/zc/car/loadcanusecar")
     @ResponseBody
-    public List<zc_car_plan> execute(Integer page){
-        List<zc_car_plan>cars=carService.loadCanuseCar(page);
+    public Zc_contains_num execute(Integer page){
+        Zc_contains_num cars=carService.loadCanuseCar(page);
         return cars;
     }
 }
