@@ -57,4 +57,10 @@ public class zc_InstitutionsServiceImpl implements zc_InstitutionsService {
         }
 
     }
+
+    @Override
+    public zc_Institutions loadInstitutions(String code) {
+        zc_Institutions zc_institutions = institutionsRepository.findOne(code);
+        return null;
+    }
 }

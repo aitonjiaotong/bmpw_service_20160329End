@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class Zc_CheliangxinxiController {
-    @RequestMapping("/tozc_cheliangxinxi")
+    @RequestMapping("/toZC_Cheliangxinxi")
     public String execute(){
         return "zc_cheliangxinxi";
     }

@@ -1,6 +1,5 @@
 package com.aiton.bmzc.Service;
 
-import com.aiton.bmzc.Entity.Zc_contains_num;
 import com.aiton.bmzc.Entity.zc_Car;
 import com.aiton.bmzc.Entity.zc_car_plan;
 import com.aiton.bmzc.Entity.zc_plan;
@@ -19,5 +18,5 @@ import java.util.Map;
 public interface Zc_CarService {
     List<zc_Car> loadCars();
     zc_Car addCar(zc_Car car,HttpServletRequest request);
-    Zc_contains_num loadCanuseCar(Integer page);
+    List<zc_car_plan> loadCanuseCar(Integer page);
 }

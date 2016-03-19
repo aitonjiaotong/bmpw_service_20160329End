@@ -40,4 +40,10 @@ public class Zc_PlanServiceImpl implements Zc_PlanService {
         planRepository.saveAndFlush(plan);
         return true;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    @Override
+    public zc_plan loadPlan(Integer plan_id) {
+        zc_plan zcPlan = planRepository.findOne(plan_id);
+        return zcPlan;
+    }
 }
