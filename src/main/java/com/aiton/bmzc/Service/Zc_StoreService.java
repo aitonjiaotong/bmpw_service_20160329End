@@ -1,8 +1,7 @@
 package com.aiton.bmzc.Service;
 
+import com.aiton.bmzc.Entity.Zc_Contains_num;
 import com.aiton.bmzc.Entity.Zc_Store;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,6 +13,6 @@ import java.util.List;
 public interface Zc_StoreService {
     Zc_Store addStore(Zc_Store store);
     Boolean delStore(Integer sotre_id);
-    List<Object> loadCity(Integer page);
-    List<Zc_Store> loadStore(String city);
+    Zc_Contains_num loadCity(Integer page);
+    Zc_Contains_num loadStore(String city,Integer page);
 }
