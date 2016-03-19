@@ -18,4 +18,5 @@ public interface Zc_CarService {
     zc_Car addCar(zc_Car car,HttpServletRequest request);
     List<zc_car_plan> loadCanuseCar(Integer page);
     boolean updateCar(zc_Car car);
+    zc_Car loadCar(String car_id);
 }
