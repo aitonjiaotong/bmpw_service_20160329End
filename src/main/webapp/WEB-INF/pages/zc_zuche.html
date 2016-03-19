@@ -4,6 +4,7 @@
     <title>八闽租车系统</title>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" href="assets/ico/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="JS/jquery.dataTables.css" type="text/css"/>
     <style>
         html,body{
             margin: 0;
@@ -125,7 +126,22 @@
     <p><button id="chuzu">车辆出租</button>|<button id="driver">指派司机</button></p>
     <div id="a">
         <p>可租空闲车辆</p>
-
+        <div>
+            <table id="freecars">
+                <thead>
+                    <tr>
+                        <th>车辆</th>
+                        <th>品牌</th>
+                        <th>排量</th>
+                        <th>座驾</th>
+                        <th>厢轿</th>
+                        <th>押金标准</th>
+                        <th>保养里程</th>
+                        <th>当前里程</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
     <div id="b" class="hid">
           b
@@ -151,6 +167,7 @@
     </div>
 </div>
 <script src="JS/jquery-1.12.0.js"></script>
+<script src="JS/jquery.dataTables.js"></script>
 <script>
    $(function(){
        $("#chuzu").click(function(){
@@ -160,6 +177,26 @@
        $("#driver").click(function(){
            $("#b").removeClass("hid");
            $("#a").addClass("hid");
+       });
+       $("#freecars").dataTable({
+           "bSort":false,
+           "bLengthChange":false,
+           "bInfo":false,
+           "oLanguage": {
+               "sLengthMenu": "每页显示 _MENU_ 条记录",
+               "sZeroRecords": "抱歉， 没有找到",
+               "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+               "sInfoEmpty": "没有数据",
+               "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+               "oPaginate": {
+                   "sFirst": "首页",
+                   "sPrevious": "前一页",
+                   "sNext": "后一页",
+                   "sLast": "尾页"
+               },
+               "sSearch":"根据联系人名/电话查询"
+
+           }
        });
    });
 </script>
