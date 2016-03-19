@@ -13,4 +13,5 @@ public interface zc_InstitutionsService {
     zc_Institutions addInstitutions(zc_Institutions institutions);
     zc_Institutions updateInstitutions(zc_Institutions institutions);
     Boolean check(String code,String password);
+    zc_Institutions loadInstitutions(String code);
 }

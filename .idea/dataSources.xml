@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2135609749">
-    <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.7.11-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )" uuid="77a545ac-30c8-4d35-b1e9-f83a57e0b07b">
-      <extra-name-characters>#@</extra-name-characters>
-      <identifier-quote-string>`</identifier-quote-string>
+  <component name="DataSourceManagerImpl" format="xml" hash="2631138490">
+    <data-source source="LOCAL" name="Data Source" uuid="77a545ac-30c8-4d35-b1e9-f83a57e0b07b">
+      <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://120.24.46.15:3306/bmcxtickets</jdbc-url>
@@ -12,6 +11,18 @@
       <libraries>
         <library>
           <url>jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar!/</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="defaultPersistence" uuid="6b142430-cb0a-4932-bbf5-41c00d4c7260">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://120.24.46.15:3306/bmcxtickets</jdbc-url>
+      <user-name>bmcx</user-name>
+      <user-password>dfc8dfc7dfc9dfd2</user-password>
+      <libraries>
+        <library>
+          <url>file://C:\Users\user\.m2\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar</url>
         </library>
       </libraries>
     </data-source>

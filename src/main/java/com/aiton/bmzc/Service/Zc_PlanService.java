@@ -12,4 +12,5 @@ import com.aiton.bmzc.Entity.zc_plan;
 public interface Zc_PlanService {
     zc_plan addPlan(zc_plan plan);
     Boolean delPlan(Integer plan_id);
+    zc_plan loadPlan(Integer plan_id);
 }

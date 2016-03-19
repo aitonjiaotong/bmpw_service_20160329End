@@ -6,18 +6,14 @@ import com.aiton.bmzc.Entity.zc_Car;
 import com.aiton.bmzc.Entity.zc_car_plan;
 import com.aiton.bmzc.Entity.zc_plan;
 import com.aiton.bmzc.Service.Zc_CarService;
-import net.sf.json.JSONArray;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -73,4 +69,17 @@ public class Zc_CarServiceImpl implements Zc_CarService {
         }
         return cars;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    @Override
+    /**更新车辆信息*/
+    public boolean updateCar(zc_Car car) {
+        try {
+            carRespository.saveAndFlush(car);
+        }catch(Exception e){
+            return false;
+        }
+        return true;
+    }
+
+
 }
