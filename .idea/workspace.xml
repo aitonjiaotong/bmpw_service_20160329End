@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/Zc_CarServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/Zc_CarServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bmpw.iws" />
@@ -99,8 +98,8 @@
       <file leaf-file-name="Zc_CarServiceImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/Zc_CarServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49827784" vertical-offset="1038" max-vertical-offset="1932">
-              <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.52468425" vertical-offset="1038" max-vertical-offset="1932">
+              <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -1099,7 +1098,7 @@
       <workItem from="1458347343324" duration="1498000" />
       <workItem from="1458349059793" duration="2202000" />
       <workItem from="1458351271488" duration="4070000" />
-      <workItem from="1458355422801" duration="455000" />
+      <workItem from="1458355422801" duration="493000" />
     </task>
     <task id="LOCAL-00001" summary="杀杀杀">
       <created>1456880106727</created>
@@ -1153,11 +1152,15 @@
       <created>1458355846769</created>
       <updated>1458355846769</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="2016/3/7">
+      <created>1458355883654</created>
+      <updated>1458355883654</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47609000" />
+    <option name="totallyTimeSpent" value="47647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1606,8 +1609,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/Zc_CarServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49827784" vertical-offset="1038" max-vertical-offset="1932">
-          <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.52468425" vertical-offset="1038" max-vertical-offset="1932">
+          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
           <folding />
         </state>
       </provider>
