@@ -2,6 +2,7 @@ package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmzc.Dao.zc_CarRespository;
 import com.aiton.bmzc.Dao.zc_PlanRepository;
+import com.aiton.bmzc.Entity.Zc_contains_num;
 import com.aiton.bmzc.Entity.zc_Car;
 import com.aiton.bmzc.Entity.zc_car_plan;
 import com.aiton.bmzc.Entity.zc_plan;
@@ -62,7 +63,7 @@ public class Zc_CarServiceImpl implements Zc_CarService {
     }
     //查找可以出租的车辆
     @Override
-    public  List<zc_car_plan> loadCanuseCar(Integer page) {
+    public Zc_contains_num loadCanuseCar(Integer page) {
         List<zc_car_plan>cars=carRespository.findCanUseCar(new PageRequest(page,8));
 //        for(int i=0;i<cars.size();i++){
 //
@@ -71,6 +72,10 @@ public class Zc_CarServiceImpl implements Zc_CarService {
             zc_plan plan=planRepository.findOne(car.getPlan_id());
             car.setPlan(plan);
         }
-        return cars;  //To change body of implemented methods use File | Settings | File Templates.
+        Zc_contains_num contains_num=new Zc_contains_num();
+        contains_num.setContains(cars);
+        List<zc_car_plan>car_plans=carRespository.CountCanUseCar();
+        contains_num.setNum((int)Math.ceil((double)car_plans.size()/8));
+        return contains_num;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }
