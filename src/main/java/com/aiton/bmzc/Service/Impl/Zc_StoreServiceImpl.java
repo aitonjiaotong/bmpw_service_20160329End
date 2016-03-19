@@ -42,4 +42,10 @@ public class Zc_StoreServiceImpl implements Zc_StoreService {
         List<Object>cities=storeRepository.loadCity(new PageRequest(page,8));
         return cities;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    @Override
+    public List<Zc_Store> loadStore(String city) {
+        List<Zc_Store>stores=storeRepository.loadStore(city);
+        return stores;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }
