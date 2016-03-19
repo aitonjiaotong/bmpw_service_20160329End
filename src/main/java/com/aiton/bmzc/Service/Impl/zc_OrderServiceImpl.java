@@ -3,9 +3,7 @@ import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Dao.zc_CarRespository;
 import com.aiton.bmzc.Dao.zc_OrderRepository;
 import com.aiton.bmzc.Dao.zc_PlanRepository;
-import com.aiton.bmzc.Entity.zc_Car;
-import com.aiton.bmzc.Entity.zc_Order;
-import com.aiton.bmzc.Entity.zc_plan;
+import com.aiton.bmzc.Entity.*;
 import com.aiton.bmzc.Service.zc_OrderService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -32,12 +30,23 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     @Resource
     private zc_CarRespository carRespository;
     @Override
-    public zc_Order addOrder(zc_Order order) {
-        zc_Car car=carRespository.findOne(order.getLicensePlate());
-        if(order.getPlanId()==null){
-           order.setPlanId(car.getPlanId());
+    public zc_Order addOrder(zc_order_request order_request) {
+        zc_Order order=new zc_Order();
+        zc_car_plan car_plan=order_request.getCar_plan();
+        order.setPlanId(car_plan.getPlan_id());
+        order.setGetCar(order_request.getGetCar());
+        order.setReturnCar(order_request.getReturnCar());
+        order.setZuchuDate(order_request.getZuchuDate());
+        order.setPlanReturnDate(order_request.getPlanReturnDate());
+        order.setPrice(order_request.getPrice());
+        order.setInsurance(order_request.getInsurance());
+        List<zc_Car>cars=carRespository.find(car_plan.getModel(),car_plan.getType(),car_plan.getBox(),car_plan.getPailiang(),car_plan.getSeat(),car_plan.getPlan_id());
+        if(cars.isEmpty()){
+           return null;
         }
-        car.setStatus(1);
+        zc_Car car=cars.get(0);
+        car.setStatus(1);//车辆被租出
+        order.setLicensePlate(car.getLicensePlate());
 //        zc_plan plan=planRepository.findOne(order.getPlanId());
 //        Long time=order.getPlanReturnDate().getTime()-order.getZuchuDate().getTime();
 //        order.setJijiatime((int)StrictMath.ceil(time/86400000));//计价时间按天数显示
@@ -116,7 +125,7 @@ public class zc_OrderServiceImpl implements zc_OrderService {
         if(huancheDate.getTime()>order.getPlanReturnDate().getTime()){//超时
             time=huancheDate.getTime()-order.getPlanReturnDate().getTime();
             Integer hour=((int)StrictMath.ceil(time/3600000));//超时小时数
-            order.setOutTimePrice(hour*plan.getOutTime()*order.getSum());
+            order.setOutTimePrice(hour*plan.getOutTime());
         }
         orderRepository.saveAndFlush(order);
         //汽车置空闲

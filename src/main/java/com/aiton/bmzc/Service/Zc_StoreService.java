@@ -2,6 +2,8 @@ package com.aiton.bmzc.Service;
 
 import com.aiton.bmzc.Entity.Zc_Store;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
@@ -12,4 +14,5 @@ import com.aiton.bmzc.Entity.Zc_Store;
 public interface Zc_StoreService {
     Zc_Store addStore(Zc_Store store);
     Boolean delStore(Integer sotre_id);
+    List<Object> loadCity(Integer page);
 }

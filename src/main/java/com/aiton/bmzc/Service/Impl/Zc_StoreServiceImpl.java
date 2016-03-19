@@ -3,9 +3,11 @@ package com.aiton.bmzc.Service.Impl;
 import com.aiton.bmzc.Dao.zc_StoreRepository;
 import com.aiton.bmzc.Entity.Zc_Store;
 import com.aiton.bmzc.Service.Zc_StoreService;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,5 +35,11 @@ public class Zc_StoreServiceImpl implements Zc_StoreService {
             return false;
         }
           //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public List<Object> loadCity(Integer page) {
+        List<Object>cities=storeRepository.loadCity(new PageRequest(page,8));
+        return cities;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

@@ -14,18 +14,16 @@ public class zc_car_plan {
     private String pailiang;//排量
     private Integer seat;//乘客数量
     private Integer zidong;//0:自动 1:手动
-    private String color;
     private Integer plan_id;
     private String image;
     private zc_plan plan;
-    public zc_car_plan(String model, String type, String box, String pailiang, Integer seat, Integer zidong, String color, Integer plan_id, String image) {
+    public zc_car_plan(String model, String type, String box, String pailiang, Integer seat, Integer zidong, Integer plan_id, String image) {
         this.model = model;
         this.type = type;
         this.box = box;
         this.pailiang = pailiang;
         this.seat = seat;
         this.zidong = zidong;
-        this.color = color;
         this.plan_id = plan_id;
         this.image = image;
     }
@@ -87,14 +85,6 @@ public class zc_car_plan {
 
     public void setZidong(Integer zidong) {
         this.zidong = zidong;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public Integer getPlan_id() {
