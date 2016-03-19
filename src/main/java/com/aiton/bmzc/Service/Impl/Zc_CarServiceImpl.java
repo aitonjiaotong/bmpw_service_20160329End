@@ -84,7 +84,7 @@ public class Zc_CarServiceImpl implements Zc_CarService {
     @Override
     public zc_Car loadCar(String licensePlate) {
         zc_Car car = carRespository.findOne(licensePlate);
-        return null;
+        return car;
     }
 
 
