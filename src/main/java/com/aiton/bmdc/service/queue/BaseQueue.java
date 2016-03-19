@@ -1,10 +1,11 @@
-package com.aiton.bmdc.service;
+package com.aiton.bmdc.service.queue;
 
 import com.aiton.bmdc.entity.DCOrder;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
+ * 订单队列基类：封装了一个队列
  * Created by user on 2016/3/18.
  */
 public class BaseQueue {
