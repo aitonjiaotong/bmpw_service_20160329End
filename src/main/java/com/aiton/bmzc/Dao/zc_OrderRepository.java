@@ -18,6 +18,8 @@ import java.util.List;
 public interface zc_OrderRepository extends JpaRepository<zc_Order,Integer> {
     @Query("from zc_Order where accountId=?")
     Page<zc_Order> findOrderByAccountId(Integer accountId,Pageable pageable);
+    @Query("select count(o) from zc_Order as o where accountId=?")
+    Object countOrderByAccountId(Integer accountId);
     @Query("from zc_Order where flag=0")
     Page<zc_Order> findIngOrder(Pageable pageable);
     @Query("select count(o) from zc_Order as o where flag=0")
