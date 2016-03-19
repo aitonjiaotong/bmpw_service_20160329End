@@ -1,7 +1,7 @@
 package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmzc.Dao.zc_StoreRepository;
-import com.aiton.bmzc.Entity.Zc_Contains_num;
+import com.aiton.bmzc.Entity.Zc_contains_num;
 import com.aiton.bmzc.Entity.Zc_Store;
 import com.aiton.bmzc.Service.Zc_StoreService;
 import org.springframework.data.domain.PageRequest;
@@ -39,10 +39,10 @@ public class Zc_StoreServiceImpl implements Zc_StoreService {
     }
 
     @Override
-    public Zc_Contains_num loadCity(Integer page) {
+    public Zc_contains_num loadCity(Integer page) {
         List<Object>cities=storeRepository.loadCity(new PageRequest(page,8));
         List<Object>s=storeRepository.countCity();
-        Zc_Contains_num contains_num=new Zc_Contains_num();
+        Zc_contains_num contains_num=new Zc_contains_num();
         contains_num.setContains(cities);
         System.out.println(s.size());
         Integer pageAll=(int)Math.ceil((double)s.size()/8);
@@ -51,8 +51,8 @@ public class Zc_StoreServiceImpl implements Zc_StoreService {
     }
 
     @Override
-    public Zc_Contains_num loadStore(String city,Integer page) {
-        Zc_Contains_num contains_num=new Zc_Contains_num();
+    public Zc_contains_num loadStore(String city,Integer page) {
+        Zc_contains_num contains_num=new Zc_contains_num();
         List<Zc_Store>stores=storeRepository.loadStore(city,new PageRequest(page,8));
         Object s=storeRepository.countStore(city);
         contains_num.setNum((int)Math.ceil(Double.valueOf(s.toString())/8));

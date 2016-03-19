@@ -149,9 +149,9 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     }
 
     @Override
-    public Zc_Contains_num loadorderByaccount(Integer accountId,Integer page) {
+    public Zc_contains_num loadorderByaccount(Integer accountId,Integer page) {
         List<zc_Order>orders=orderRepository.findOrderByAccountId(accountId,new PageRequest(page,8,new Sort(Sort.Direction.DESC,"date"))).getContent();
-        Zc_Contains_num contains_num=new Zc_Contains_num();
+        Zc_contains_num contains_num=new Zc_contains_num();
         contains_num.setContains(orders);
         Integer pageAll=(int)Math.ceil(Double.valueOf(orderRepository.countOrderByAccountId(accountId).toString())/8);
         contains_num.setNum(pageAll);
