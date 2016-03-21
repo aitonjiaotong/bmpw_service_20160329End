@@ -5,14 +5,11 @@ import com.aiton.bmpw.Dao.UserReponstory;
 import com.aiton.bmpw.Dao.ZoneReponsitory;
 import com.aiton.bmpw.Entity.Account;
 import com.aiton.bmpw.Entity.Model.User;
-import com.aiton.bmpw.Entity.Show.Zone_Web;
 import com.aiton.bmpw.Entity.Site;
 import com.aiton.bmpw.Entity.Zone;
 import com.aiton.bmpw.Service.SiteService;
 import com.aiton.bmpw.Service.ZoneService;
-import com.aiton.bmzc.Entity.Zc_Store;
-import com.aiton.bmzc.Entity.zc_Order;
-import com.aiton.bmzc.Service.zc_OrderService;
+import com.aiton.bmzc.Service.ZcOrderService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -21,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.xml.rpc.ServiceException;
-import java.io.UnsupportedEncodingException;
 import java.rmi.RemoteException;
 import java.util.List;
 
@@ -45,7 +41,7 @@ public class TestController {
     @Resource
     private SiteService siteService;
     @Resource
-    private zc_OrderService orderService;
+    private ZcOrderService orderService;
     @RequestMapping("/test1")
     @ResponseBody
     public List<Account> exe1(){
