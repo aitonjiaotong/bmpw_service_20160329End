@@ -17,4 +17,6 @@ import java.util.List;
 public interface ZcPlanRepository extends JpaRepository<ZcPlan,Integer> {
     @Query("from ZcPlan where flag=0")
     List<ZcPlan> loadplans(Pageable pageable);
+    @Query("from ZcPlan where flag=0")
+    List<ZcPlan> loadplan();
 }

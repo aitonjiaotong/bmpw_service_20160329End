@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -52,5 +53,11 @@ public class ZcPlanServiceImpl implements ZcPlanService {
         dataTables.setData(planRepository.loadplans(new PageRequest(page,length)));
         dataTables.setRecordsFiltered(planRepository.count());
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public List<ZcPlan> loadPlan() {
+        List<ZcPlan>plans=planRepository.loadplan();
+        return plans;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,10 +30,39 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     private ZcPlanRepository planRepository;
     @Resource
     private ZcCarRespository carRespository;
-
+    //机构租车添加订单
     @Override
-    public ZcOrder addOrder(ZcOrderRequest order_request) {
+    public ZcOrder addOrder1(ZcOrderRequest order_request) {
         ZcOrder order=new ZcOrder();
+        order.setStatus(0);
+        order.setPlanId(order_request.getPlan_id());
+        order.setGetCar(order_request.getGetCar());
+        order.setReturnCar(order_request.getReturnCar());
+        order.setZuchuDate(order_request.getZuchuDate());
+        order.setPlanReturnDate(order_request.getPlanReturnDate());
+        order.setPrice(order_request.getPrice());
+        order.setInsurance(order_request.getInsurance());
+        order.setHasDriver(order_request.getHasDriver());
+        List<ZcCar>cars=carRespository.findCar(order_request.getLei());
+        if(cars.isEmpty()){
+           return null;
+        }
+        Random ran=new Random();
+        int s = ran.nextInt(cars.size());
+        ZcCar car=cars.get(s);
+        order.setBeforeMileage(car.getMileage());
+        car.setStatus(1);//车辆被租出
+        order.setLicensePlate(car.getLicensePlate());
+        order.setFlag(0);//订单进行中
+        order.setDate(new Timestamp(System.currentTimeMillis()));
+        order=orderRepository.saveAndFlush(order);
+        return order;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+    //个人租车添加订单
+    @Override
+    public ZcOrder addOrder2(ZcOrderRequest order_request) {
+        ZcOrder order=new ZcOrder();
+        order.setStatus(1);
         order.setPlanId(order_request.getPlan_id());
         order.setGetCar(order_request.getGetCar());
         order.setReturnCar(order_request.getReturnCar());
@@ -43,9 +73,12 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         order.setHasDriver(order_request.getHasDriver());
         List<ZcCar>cars=carRespository.find(order_request.getModel(), order_request.getType(), order_request.getBox(), order_request.getPailiang(), order_request.getSeat(), order_request.getPlan_id());
         if(cars.isEmpty()){
-           return null;
+            return null;
         }
-        ZcCar car=cars.get(0);
+        Random ran=new Random();
+        int s = ran.nextInt(cars.size());
+        ZcCar car=cars.get(s);
+        order.setBeforeMileage(car.getMileage());
         car.setStatus(1);//车辆被租出
         order.setLicensePlate(car.getLicensePlate());
         order.setFlag(0);//订单进行中
@@ -149,7 +182,14 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     public ZcContainsNum loadorderByaccount(Integer accountId,Integer page) {
         List<ZcOrder>orders=orderRepository.findOrderByAccountId(accountId,new PageRequest(page,8,new Sort(Sort.Direction.DESC,"date"))).getContent();
         ZcContainsNum contains_num=new ZcContainsNum();
-        contains_num.setContains(orders);
+        List<ZcOrderCar>list=new ArrayList<ZcOrderCar>();
+        for(ZcOrder order:orders){
+            ZcOrderCar orderCar=new ZcOrderCar();
+            orderCar.setOrder(order);
+            orderCar.setCar(carRespository.findOne(order.getLicensePlate()));
+            list.add(orderCar);
+        }
+        contains_num.setContains(list);
         Integer pageAll=(int)Math.ceil(Double.valueOf(orderRepository.countOrderByAccountId(accountId).toString())/8);
         contains_num.setNum(pageAll);
         return contains_num;  //To change body of implemented methods use File | Settings | File Templates.
