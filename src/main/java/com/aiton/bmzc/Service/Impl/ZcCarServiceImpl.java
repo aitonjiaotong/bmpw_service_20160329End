@@ -1,8 +1,8 @@
 package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Dao.zc_CarRespository;
-import com.aiton.bmzc.Dao.zc_PlanRepository;
+import com.aiton.bmzc.Dao.ZcCarRespository;
+import com.aiton.bmzc.Dao.ZcPlanRepository;
 import com.aiton.bmzc.Entity.ZcCar;
 import com.aiton.bmzc.Entity.ZcCarPlan;
 import com.aiton.bmzc.Entity.ZcContainsNum;
@@ -27,9 +27,9 @@ import java.util.List;
 @Service
 public class ZcCarServiceImpl implements ZcCarService {
     @Resource
-    private zc_CarRespository carRespository;
+    private ZcCarRespository carRespository;
     @Resource
-    private zc_PlanRepository planRepository;
+    private ZcPlanRepository planRepository;
     /**
      * 占位，后期利用DataTables的
      * @return

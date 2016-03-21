@@ -1,6 +1,6 @@
 package com.aiton.bmzc.Service.Impl;
 
-import com.aiton.bmzc.Dao.zc_StoreRepository;
+import com.aiton.bmzc.Dao.ZcStoreRepository;
 import com.aiton.bmzc.Entity.ZcContainsNum;
 import com.aiton.bmzc.Entity.ZcStore;
 import com.aiton.bmzc.Service.ZcStoreService;
@@ -20,7 +20,7 @@ import java.util.List;
 @Service
 public class ZcStoreServiceImpl implements ZcStoreService {
     @Resource
-    private zc_StoreRepository storeRepository;
+    private ZcStoreRepository storeRepository;
     @Override
     public ZcStore addStore(ZcStore store) {
         ZcStore store1=storeRepository.saveAndFlush(store);

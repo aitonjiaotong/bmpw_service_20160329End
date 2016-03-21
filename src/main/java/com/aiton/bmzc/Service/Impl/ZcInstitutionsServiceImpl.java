@@ -1,7 +1,7 @@
 package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmpw.Util.bmpwUtils;
-import com.aiton.bmzc.Dao.zc_InstitutionsRepository;
+import com.aiton.bmzc.Dao.ZcInstitutionsRepository;
 import com.aiton.bmzc.Entity.ZcInstitutions;
 import com.aiton.bmzc.Service.ZcInstitutionsService;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 @Service
 public class ZcInstitutionsServiceImpl implements ZcInstitutionsService {
     @Resource
-    private zc_InstitutionsRepository institutionsRepository;
+    private ZcInstitutionsRepository institutionsRepository;
     @Override
     public ZcInstitutions addInstitutions(ZcInstitutions institutions) {
         Long time=System.currentTimeMillis();

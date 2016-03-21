@@ -1,7 +1,7 @@
 package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Dao.zc_PlanRepository;
+import com.aiton.bmzc.Dao.ZcPlanRepository;
 import com.aiton.bmzc.Entity.ZcPlan;
 import com.aiton.bmzc.Service.ZcPlanService;
 import org.springframework.data.domain.PageRequest;
@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 @Service
 public class ZcPlanServiceImpl implements ZcPlanService {
     @Resource
-    private zc_PlanRepository planRepository;
+    private ZcPlanRepository planRepository;
     @Override
     public ZcPlan addPlan(ZcPlan plan) {
         plan.setFlag(0);

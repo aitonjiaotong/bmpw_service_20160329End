@@ -1,6 +1,6 @@
 package com.aiton.bmzc.Dao;
 
-import com.aiton.bmzc.Entity.zc_plan;
+import com.aiton.bmzc.Entity.ZcPlan;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +14,7 @@ import java.util.List;
  * Time: 下午3:45
  * To change this template use File | Settings | File Templates.
  */
-public interface zc_PlanRepository extends JpaRepository<zc_plan,Integer> {
-    @Query("from zc_plan where flag=0")
-    List<zc_plan> loadplans(Pageable pageable);
+public interface ZcPlanRepository extends JpaRepository<ZcPlan,Integer> {
+    @Query("from ZcPlan where flag=0")
+    List<ZcPlan> loadplans(Pageable pageable);
 }

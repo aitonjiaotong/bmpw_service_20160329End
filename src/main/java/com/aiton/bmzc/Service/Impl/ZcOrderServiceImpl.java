@@ -1,8 +1,8 @@
 package com.aiton.bmzc.Service.Impl;
 import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Dao.zc_CarRespository;
-import com.aiton.bmzc.Dao.zc_OrderRepository;
-import com.aiton.bmzc.Dao.zc_PlanRepository;
+import com.aiton.bmzc.Dao.ZcCarRespository;
+import com.aiton.bmzc.Dao.ZcOrderRepository;
+import com.aiton.bmzc.Dao.ZcPlanRepository;
 import com.aiton.bmzc.Entity.*;
 import com.aiton.bmzc.Service.ZcOrderService;
 import org.springframework.data.domain.PageRequest;
@@ -24,11 +24,11 @@ import java.util.List;
 @Service
 public class ZcOrderServiceImpl implements ZcOrderService {
     @Resource
-    private zc_OrderRepository orderRepository;
+    private ZcOrderRepository orderRepository;
     @Resource
-    private zc_PlanRepository planRepository;
+    private ZcPlanRepository planRepository;
     @Resource
-    private zc_CarRespository carRespository;
+    private ZcCarRespository carRespository;
 
     @Override
     public ZcOrder addOrder(ZcOrderRequest order_request) {

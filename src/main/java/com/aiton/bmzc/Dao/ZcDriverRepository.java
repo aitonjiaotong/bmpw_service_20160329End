@@ -1,6 +1,6 @@
 package com.aiton.bmzc.Dao;
 
-import com.aiton.bmzc.Entity.zc_Driver;
+import com.aiton.bmzc.Entity.ZcDriver;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Time: 下午3:49
  * To change this template use File | Settings | File Templates.
  */
-public interface zc_DriverRepository extends JpaRepository<zc_Driver,Integer>{
+public interface ZcDriverRepository extends JpaRepository<ZcDriver,Integer>{
 }
