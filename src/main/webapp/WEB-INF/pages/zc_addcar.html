@@ -150,17 +150,32 @@
 	  padding: 20px;
 	  margin:10px;
 	}
+    #file{
+        width:50%;
+        height:20px;
+    }
     </style>
+    <script src="JS/jquery-1.12.0.js"></script>
+    <script>
+    $(function (){
+        $("#submit").click(function(){
+            /*这里可以进行内容的验证*/
+            alert("开始提交表单");
+            $("#form").submit();
+        });
+    });
+    </script>
 </head>
 <body>
    <div class="top1">租车行</div>
    <div class="top2"></div>
    <div class="top3"><div><p><img src="images/chelianxinzeng.png">车辆新增</p></div></div>
    <div class="mainpage">
+       <form id="form" action="/bmpw/zc/car/addCar" method="post" enctype="multipart/form-data">
    	<table class="mainTable">
 		<tr>
 			<td>车辆编号（车牌号）</td><td><input type="text" name="licensePlate"/></td><td>当前里程</td>
-			<td><input type="text" name="mileage"/></td><td rowspan="6" valign="bottom">
+			<td><input type="text" name="mileage"/></td><td rowspan="7" valign="bottom">
 				<input id="photo" type="text" readOnly="true"/></td>
 		</tr>
 		<tr>
@@ -171,6 +186,12 @@
 			<td>车型</td><td><input type="text" name="type"/></td><td>车辆状态</td>
 			<td><input type="text" name="status"/></td>
 		</tr>
+        <tr>
+            <td>厢数</td><td><input/></td><td>排量</td><td><input/></td>
+        </tr>
+        <tr>
+            <td>乘客数量</td><td><input/></td><td>自手动：</td><td><input/></td>
+        </tr>
 		<tr>
 			<td>颜色</td><td><input type="text" name="color"/></td><td>押金标准</td>
 			<td><input type="text" name="deposit"/></td>
@@ -180,22 +201,24 @@
 			<td><input type="text" name="buyDate"/></td>
 		</tr>
 		<tr>
-			<td>年检日期</td><td><input type="text" name="inspection"/></td><td></td>
-			<td></td>
+			<td>年检日期</td><td><input type="text" name="inspection"/></td><td>
+            <input style="width:100%;" type="button" value="选择租车方案"/></td>
+			<td><input type="text" readonly="true"/></td>
 		</tr>
 		<tr>
 			<td valign="top">备注</td><td colspan="3"><textarea id="drs" name="note"></textarea></td>
-			<td valign="top">照片	<input type="file"/>
+			<td valign="top">照片	<input id="file" type="file"/>
 		      	<input class="button" type="button" value="浏览"/>
 				<input class="button" type="button" value="清除"/></td>
 		</tr>
 	</table>
 	<table><tr>
-	   	<td class="td2"><input class="button2" type="button" value="保存"/></td>
-	 	<td class="td2"><input class="button2" type="button" value="保存退出"/></td>
-		<td class="td2"><input class="button2" type="button" value="退出"/></td>
+	   	<td class="td2"><input id="submit" class="button2" type="submit" value="保存"/></td>
+	 	<td class="td2"><input id="submitAndExit" class="button2" type="button" value="保存退出"/></td>
+		<td class="td2"><input id="Exit" class="button2" type="button" value="退出"/></td>
 	       </tr>
 	</table>
+       </form>
    </div>
    <div class="lan1">
        <div class="icon">
