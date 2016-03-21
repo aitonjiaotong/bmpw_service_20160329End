@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by user on 2016/3/19.
  */
 @Controller
-public class Zc_ZucheController {
+public class ZcZucheController {
     @RequestMapping("/toZC_Zuche")
     public String execute(){
         return "zc_zuche";
