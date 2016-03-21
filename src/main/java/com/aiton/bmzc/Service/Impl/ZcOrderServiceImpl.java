@@ -131,6 +131,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         }
         ZcCar car=carRespository.findOne(order.getLicensePlate());
         car.setStatus(0);
+        car.setStore_id(order.getReturnCar());
         order.setAfterMileage(afterMileage);
         order.setShouyajin(shouyajin);
         order.setHuancheDate(huancheDate);
@@ -157,6 +158,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
             Integer hour=((int)StrictMath.ceil(time/3600000));//超时小时数
             order.setOutTimePrice(hour*plan.getOutTime());
         }
+        order.setFlag(3);
         orderRepository.saveAndFlush(order);
         //汽车置空闲
         carRespository.saveAndFlush(car);
