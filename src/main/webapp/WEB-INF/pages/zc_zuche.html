@@ -3,8 +3,7 @@
 <head>
     <title>八闽租车系统</title>
     <meta charset="utf-8"/>
-    <link rel="shortcut icon" href="assets/ico/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="JS/jquery.dataTables.css" type="text/css"/>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
     <style>
         html,body{
             margin: 0;
@@ -108,7 +107,7 @@
 	}
 	#table1{
 	    font-size:15px;
-	    width:95%;
+	    width:70%;
 	    border-collapse: collapse;/* 边框合并属性  */
 	    margin-left:20px;
 	    margin-bottom:20px;
@@ -152,14 +151,56 @@
 	.table3{
 	    margin-left:20px;
 	}
+	.childwindow{
+	    margin-left:20px;
+            
+	    display:none;  
+	    width:40%;
+	    height:30%;
+	    background-color:#f0f0f0;
+	    position:absolute;
+	    z-index:5;
+	}
+	.tableChild{
+	   width:100%;
+	}
+	.addclass{
+	 left:790px;
+	 top:650px;
+	}
+	.thead{
+	 background-color:#c0c0c0;
+	}
     </style>
+    <script src="JS/jquery-1.12.0.js"></script>
+    <script src="JS/jquery.dataTables.js"></script>
     <script type="text/javascript">
-	window.onload = function () { 
-	/* code */
+	var flag = 0; 
+	window.onload = function flush() {
+	/* code */  
 	 var obj1 = document.getElementById("lan");
 	 var obj2 = document.getElementById("main");
 	 obj1.style.height = obj2.offsetHeight + 70+'px';
 	 };
+	function choosePlan(){
+	 $("#child1").toggle();
+	 var x = $("#choose").offset().left;
+	 var y = $("#choose").offset().top;
+	 $("#child1").css({'left':x-20+'px','top':y+25+'px'});
+	}
+    function chooseClient1(){
+        $("#child2").toggle();
+        var x = $("#chooseClient1").offset().left;
+        var y = $("#chooseClient1").offset().top;
+        $("#child2").css({'left':x-20+'px','top':y-300+'px'});
+    }
+    function chooseClient2(){
+        $("#child3").toggle();
+        var x = $("#chooseClient2").offset().left;
+        var y = $("#chooseClient2").offset().top;
+        $("#child3").css({'left':x-20+'px','top':y-300+'px'});
+        flush();
+    }
     </script>
 </head>
 <body>
@@ -172,6 +213,36 @@
 	<table id="table1">
 	  <thead><th>车辆</th><th>车型</th><th>品牌</th><th>押金标准</th>
 	  <th>保养里程</th><th>当前里程</th></thead>
+	  <tr>
+	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	  </tr>
+	   <tr>
+	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	  </tr>
+	   <tr>
+	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	  </tr>
+	   <tr>
+	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	  </tr>
+	   <tr>
+	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	  </tr>
+	  <tr>
+	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	  </tr>
+	   <tr>
+	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	  </tr>
+	   <tr>
+	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	  </tr>
+	   <tr>
+	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	  </tr>
+	   <tr>
+	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	  </tr>
 	</table>
 	<table class="table2">
 	<tr>
@@ -183,7 +254,15 @@
 	</table>
 	<p class="p1">出租计费</p>
 	<div>
-	<p>选择预定租借计费方案<input/><input type="button" value="选择方案"/></p>
+	<p>选择预定租借计费方案<input/>
+	<input id="choose" type="button" value="选择方案" onclick="choosePlan();"/></p>
+	 	<div id="child1" class="childwindow">
+		   <table class="tableChild">
+	  		<thead class="thead"><th>方案名称</th><th>单价</th>
+		  	<th>单位里程数</th><th>超里程价格</th>
+	  	  	<th>超时小时价</th><th>标志</th></thead>
+	  	   </table>
+		</div>
 	<table class="table3">
 	 	<tr>
 	<td>时间单位</td><td><input/></td>
@@ -203,7 +282,7 @@
 	<table class="table3">
 	<tr>
 	    <td>客户证件号</td><td><input/></td><td>银行卡号</td><td><input/></td>
-	    <td><input type="button" value="查询客户"/>
+	    <td><input id="chooseClient1" type="button" value="查询客户" onclick="chooseClient1();"/>
 	        <input type="button" value="新客户档案"/></td>
 	</tr>
 	<tr>
@@ -211,11 +290,18 @@
 	    <td colspan="2">住址<input/></td>
 	</tr>
 	</table>
+    <div id="child2" class="childwindow">
+        <table class="tableChild">
+            <thead class="thead"><th>方案名称</th><th>单价</th>
+            <th>单位里程数</th><th>超里程价格</th>
+            <th>超时小时价</th><th>标志</th></thead>
+        </table>
+    </div>
 	<p class="p1">担保人信息</p>
 	<table class="table3">
 	<tr>
 	    <td>担保客户证件号</td><td><input/></td><td>担保客户名称</td><td><input/></td>
-	    <td><input type="button" value="查询担保客户"/>
+	    <td><input id="chooseClient2" type="button" value="查询担保客户" onclick="chooseClient2();"/>
 	        <input type="button" value="新担保客户档案"/></td>
 	</tr>
 	<tr>
@@ -223,6 +309,13 @@
 	    
 	</tr>
 	</table>
+    <div id="child3" class="childwindow">
+        <table class="tableChild">
+            <thead class="thead"><th>方案名称</th><th>单价</th>
+            <th>单位里程数</th><th>超里程价格</th>
+            <th>超时小时价</th><th>标志</th></thead>
+        </table>
+    </div>
 	<table>
 		<tr>
 		<td><input type="button" value="租出"/></td>
@@ -240,41 +333,15 @@
         </div>
     </div>
     <div class="op">
-        <p><img class="check" src="images/check.png"><a href="#"><img src="images/chelianxinxi.png">车辆信息</a></p>
-        <p><img class="check" src="images/check.png"><a href="#"><img src="images/chelianxinzeng.png"/>车辆新增</a></p>
-        <p><img class="check" src="images/check.png"><a href="#"><img src="images/zulenfangan.png">租赁方案</a></p>
+        <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Cheliangxinxi"><img src="images/chelianxinxi.png">车辆信息</a></p>
+        <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_AddCar"><img src="images/chelianxinzeng.png"/>车辆新增</a></p>
+        <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Plans"><img src="images/zulenfangan.png">租赁方案</a></p>
         <p class="c"><img class="check show" src="images/check.png"><a href="#"><img src="images/zuche.png">租车</a></p>
-        <p><img class="check" src="images/check.png"><a href="#"><img src="images/huanche.png"/>还车</a></p>
+        <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_ReturnCar"><img src="images/huanche.png"/>还车</a></p>
         <p><img class="check" src="images/check.png"><a href="#"><img src="images/jiesuan.png"/>结算</a></p>
-        <p><img class="check" src="images/check.png"><a href="#"><img src="images/kehu.png"/>客户</a></p>
-        <p><img class="check" src="images/check.png"><a href="#"><img src="images/yudingdengji.png"/>预定登记</a></p>
+        <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Account"><img src="images/kehu.png"/>客户</a></p>
+        <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Appointment"><img src="images/yudingdengji.png"/>预定登记</a></p>
     </div>
 </div>
-<script src="JS/jquery-1.12.0.js"></script>
-<script src="JS/jquery.dataTables.js"></script>
-<script>
-    $(function(){
-        $("#table1").dataTable({
-            "bSort":false,
-            "bLengthChange":false,
-            "bInfo":false,
-            "oLanguage": {
-                "sLengthMenu": "每页显示 _MENU_ 条记录",
-                "sZeroRecords": "抱歉， 没有找到",
-                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
-                "sInfoEmpty": "没有数据",
-                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
-                "oPaginate": {
-                    "sFirst": "首页",
-                    "sPrevious": "前一页",
-                    "sNext": "后一页",
-                    "sLast": "尾页"
-                },
-                "sSearch":"根据电话查询"
-
-            }
-        });
-    });
-</script>
 </body>
 </html>
