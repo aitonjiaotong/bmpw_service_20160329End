@@ -159,33 +159,33 @@
    <div class="mainpage">
    	<table class="mainTable">
 		<tr>
-			<td>车辆编号（车牌号）</td><td><input type="text"/></td><td>当前里程</td>
-			<td><input type="text"/></td><td rowspan="6" valign="bottom">
+			<td>车辆编号（车牌号）</td><td><input type="text" name="licensePlate"/></td><td>当前里程</td>
+			<td><input type="text" name="mileage"/></td><td rowspan="6" valign="bottom">
 				<input id="photo" type="text" readOnly="true"/></td>
 		</tr>
 		<tr>
-			<td>发动机编号</td><td><input type="text"/></td><td>保养里程</td>
-			<td><input type="text"/></td>
+			<td>发动机编号</td><td><input type="text" name="engineCode"/></td><td>保养里程</td>
+			<td><input type="text" name="maintenanceMileage"/></td>
 		</tr>
 		<tr>
-			<td>车型</td><td><input type="text"/></td><td>车辆状态</td>
-			<td><input type="text"/></td>
+			<td>车型</td><td><input type="text" name="type"/></td><td>车辆状态</td>
+			<td><input type="text" name="status"/></td>
 		</tr>
 		<tr>
-			<td>颜色</td><td><input type="text"/></td><td>押金标准</td>
-			<td><input type="text"/></td>
+			<td>颜色</td><td><input type="text" name="color"/></td><td>押金标准</td>
+			<td><input type="text" name="deposit"/></td>
 		</tr>
 		<tr>
-			<td>品牌</td><td><input type="text"/></td><td>购买日期</td>
-			<td><input type="text"/></td>
+			<td>品牌</td><td><input type="text" name="model"/></td><td>购买日期</td>
+			<td><input type="text" name="buyDate"/></td>
 		</tr>
 		<tr>
-			<td>年检日期</td><td><input type="text"/></td><td></td>
+			<td>年检日期</td><td><input type="text" name="inspection"/></td><td></td>
 			<td></td>
 		</tr>
 		<tr>
-			<td valign="top">备注</td><td colspan="3"><textarea id="drs"></textarea></td>
-			<td valign="top">照片	<input/>
+			<td valign="top">备注</td><td colspan="3"><textarea id="drs" name="note"></textarea></td>
+			<td valign="top">照片	<input type="file"/>
 		      	<input class="button" type="button" value="浏览"/>
 				<input class="button" type="button" value="清除"/></td>
 		</tr>

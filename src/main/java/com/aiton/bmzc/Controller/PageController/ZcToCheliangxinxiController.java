@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-public class ZcCheliangxinxiController {
+public class ZcToCheliangxinxiController {
     @RequestMapping("/toZC_Cheliangxinxi")
     public String execute(){
         return "zc_cheliangxinxi";
