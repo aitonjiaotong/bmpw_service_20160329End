@@ -131,6 +131,9 @@
         #btns button{
             margin-right:50px ;
         }
+        #cars td,th{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -225,6 +228,9 @@
     <script type="text/javascript">
         $(function(){
             $("#cars").dataTable({
+                "serverSide":true,
+                "processing": true,
+                "ajax":"/bmpw/zc/car/loadcars",
                 "scrollY": "200px",
                 "scrollCollapse": "true",
                 "bFilter":false,
@@ -244,7 +250,14 @@
                         "sLast": "尾页"
                     }
 
-                }
+                },
+                "columns":[
+                    { "data": "licensePlate" },
+                    { "data": "status" },
+                    { "data": "model"},
+                    { "data": "deposit"},
+                    { "data": "mileage"}
+                ]
             });
         });
     </script>

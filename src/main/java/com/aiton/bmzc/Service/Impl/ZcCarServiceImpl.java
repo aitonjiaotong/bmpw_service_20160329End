@@ -35,9 +35,17 @@ public class ZcCarServiceImpl implements ZcCarService {
      * @return
      */
     @Override
-    public List<ZcCar> loadCars() {
-        List<ZcCar>cars=carRespository.findAll();
-        return cars;  //To change body of implemented methods use File | Settings | File Templates.
+    public DataTables loadCars(Integer draw,Integer start,Integer length,HttpServletRequest request) {
+        Integer page=start/length;
+        String search=request.getParameter("search[value]");
+        DataTables dataTables=new DataTables();
+        dataTables.setDraw(draw);
+        dataTables.setRecordsFiltered(carRespository.count());
+        if(search==null||"".equals(search)){
+            dataTables.setData(carRespository.findAll(new PageRequest(page,length)).getContent());
+            dataTables.setRecordsFiltered(carRespository.count());
+        }
+        return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override

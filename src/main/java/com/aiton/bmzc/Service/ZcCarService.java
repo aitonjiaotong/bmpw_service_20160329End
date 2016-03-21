@@ -15,7 +15,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface ZcCarService {
-    List<ZcCar> loadCars();
+    DataTables loadCars(Integer draw,Integer start,Integer length,HttpServletRequest request);
     ZcCar addCar(ZcCar car,HttpServletRequest request);
     ZcContainsNum loadCanuseCar(Integer page);
     Boolean updateCar(ZcCar car);
