@@ -2,8 +2,8 @@ package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Dao.zc_PlanRepository;
-import com.aiton.bmzc.Entity.zc_plan;
-import com.aiton.bmzc.Service.Zc_PlanService;
+import com.aiton.bmzc.Entity.ZcPlan;
+import com.aiton.bmzc.Service.ZcPlanService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +17,11 @@ import javax.annotation.Resource;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-public class Zc_PlanServiceImpl implements Zc_PlanService {
+public class ZcPlanServiceImpl implements ZcPlanService {
     @Resource
     private zc_PlanRepository planRepository;
     @Override
-    public zc_plan addPlan(zc_plan plan) {
+    public ZcPlan addPlan(ZcPlan plan) {
         plan.setFlag(0);
         plan=planRepository.saveAndFlush(plan);
         return plan;  //To change body of implemented methods use File | Settings | File Templates.
@@ -29,7 +29,7 @@ public class Zc_PlanServiceImpl implements Zc_PlanService {
 
     @Override
     public Boolean delPlan(Integer plan_id) {
-        zc_plan plan=null;
+        ZcPlan plan=null;
         try{
             plan=planRepository.findOne(plan_id);
         }catch (Exception e){

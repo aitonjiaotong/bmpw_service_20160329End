@@ -11,6 +11,6 @@ import javax.servlet.http.HttpServletRequest;
  * Time: 下午2:42
  * To change this template use File | Settings | File Templates.
  */
-public interface Zc_AccountService {
+public interface ZcAccountService {
     DataTables loadAccounts(Integer draw,Integer start,Integer length,HttpServletRequest request);
 }

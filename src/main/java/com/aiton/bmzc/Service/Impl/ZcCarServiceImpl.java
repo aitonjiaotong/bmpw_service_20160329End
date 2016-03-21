@@ -1,12 +1,13 @@
 package com.aiton.bmzc.Service.Impl;
 
+import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Dao.zc_CarRespository;
 import com.aiton.bmzc.Dao.zc_PlanRepository;
-import com.aiton.bmzc.Entity.zc_contains_num;
-import com.aiton.bmzc.Entity.zc_Car;
-import com.aiton.bmzc.Entity.zc_car_plan;
-import com.aiton.bmzc.Entity.zc_plan;
-import com.aiton.bmzc.Service.Zc_CarService;
+import com.aiton.bmzc.Entity.ZcCar;
+import com.aiton.bmzc.Entity.ZcCarPlan;
+import com.aiton.bmzc.Entity.ZcContainsNum;
+import com.aiton.bmzc.Entity.ZcPlan;
+import com.aiton.bmzc.Service.ZcCarService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-public class Zc_CarServiceImpl implements Zc_CarService {
+public class ZcCarServiceImpl implements ZcCarService {
     @Resource
     private zc_CarRespository carRespository;
     @Resource
@@ -34,13 +35,13 @@ public class Zc_CarServiceImpl implements Zc_CarService {
      * @return
      */
     @Override
-    public List<zc_Car> loadCars() {
-        List<zc_Car>cars=carRespository.findAll();
+    public List<ZcCar> loadCars() {
+        List<ZcCar>cars=carRespository.findAll();
         return cars;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public zc_Car addCar(zc_Car car,HttpServletRequest request) {
+    public ZcCar addCar(ZcCar car,HttpServletRequest request) {
         if(carRespository.findOne(car.getLicensePlate())!=null){
             return null;
         }
@@ -66,25 +67,25 @@ public class Zc_CarServiceImpl implements Zc_CarService {
     }
     //查找可以出租的车辆
     @Override
-    public zc_contains_num loadCanuseCar(Integer page) {
-        List<zc_car_plan>cars=carRespository.findCanUseCar(new PageRequest(page,8));
+    public ZcContainsNum loadCanuseCar(Integer page) {
+        List<ZcCarPlan>cars=carRespository.findCanUseCar(new PageRequest(page,8));
 //        for(int i=0;i<cars.size();i++){
 //
 //        }
-        for(zc_car_plan car:cars){
-            zc_plan plan=planRepository.findOne(car.getPlan_id());
+        for(ZcCarPlan car:cars){
+            ZcPlan plan=planRepository.findOne(car.getPlan_id());
             car.setPlan(plan);
         }
-        zc_contains_num contains_num=new zc_contains_num();
+        ZcContainsNum contains_num=new ZcContainsNum();
         contains_num.setContains(cars);
-        List<zc_car_plan>car_plans=carRespository.CountCanUseCar();
+        List<ZcCarPlan>car_plans=carRespository.CountCanUseCar();
         contains_num.setNum((int)Math.ceil((double)car_plans.size()/8));
         return contains_num;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
     /**更新车辆信息*/
-    public Boolean updateCar(zc_Car car) {
+    public Boolean updateCar(ZcCar car) {
         try {
             carRespository.saveAndFlush(car);
         }catch(Exception e){
@@ -94,10 +95,21 @@ public class Zc_CarServiceImpl implements Zc_CarService {
     }
 
     @Override
-    public zc_Car loadCar(String licensePlate) {
-        zc_Car car = carRespository.findOne(licensePlate);
+    public ZcCar loadCar(String licensePlate) {
+        ZcCar car = carRespository.findOne(licensePlate);
         return car;
     }
 
-
+    @Override
+    public DataTables loadCanuseCars(Integer draw, Integer start, Integer length, String search) {
+        DataTables dataTables=new DataTables();
+        dataTables.setDraw(draw);
+        List<ZcCarPlan>car_plans=carRespository.CountCanUseCar();
+        dataTables.setRecordsTotal((long)car_plans.size());
+        if(search==null||"".equals(search)){
+            dataTables.setRecordsFiltered((long)car_plans.size());
+            dataTables.setData(carRespository.findCanUseCar(new PageRequest(start,length)));
+        }
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

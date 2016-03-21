@@ -1,9 +1,9 @@
 package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmzc.Dao.zc_StoreRepository;
-import com.aiton.bmzc.Entity.Zc_Store;
-import com.aiton.bmzc.Entity.zc_contains_num;
-import com.aiton.bmzc.Service.Zc_StoreService;
+import com.aiton.bmzc.Entity.ZcContainsNum;
+import com.aiton.bmzc.Entity.ZcStore;
+import com.aiton.bmzc.Service.ZcStoreService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +18,12 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-public class Zc_StoreServiceImpl implements Zc_StoreService {
+public class ZcStoreServiceImpl implements ZcStoreService {
     @Resource
     private zc_StoreRepository storeRepository;
     @Override
-    public Zc_Store addStore(Zc_Store store) {
-        Zc_Store store1=storeRepository.saveAndFlush(store);
+    public ZcStore addStore(ZcStore store) {
+        ZcStore store1=storeRepository.saveAndFlush(store);
         return store1;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
@@ -39,10 +39,10 @@ public class Zc_StoreServiceImpl implements Zc_StoreService {
     }
 
     @Override
-    public zc_contains_num loadCity(Integer page) {
+    public ZcContainsNum loadCity(Integer page) {
         List<Object>cities=storeRepository.loadCity(new PageRequest(page,8));
         List<Object>s=storeRepository.countCity();
-        zc_contains_num contains_num=new zc_contains_num();
+        ZcContainsNum contains_num=new ZcContainsNum();
         contains_num.setContains(cities);
         System.out.println(s.size());
         Integer pageAll=(int)Math.ceil((double)s.size()/8);
@@ -51,9 +51,9 @@ public class Zc_StoreServiceImpl implements Zc_StoreService {
     }
 
     @Override
-    public zc_contains_num loadStore(String city,Integer page) {
-        zc_contains_num contains_num=new zc_contains_num();
-        List<Zc_Store>stores=storeRepository.loadStore(city,new PageRequest(page,8));
+    public ZcContainsNum loadStore(String city,Integer page) {
+        ZcContainsNum contains_num=new ZcContainsNum();
+        List<ZcStore>stores=storeRepository.loadStore(city,new PageRequest(page,8));
         Object s=storeRepository.countStore(city);
         contains_num.setNum((int)Math.ceil(Double.valueOf(s.toString())/8));
         contains_num.setContains(stores);

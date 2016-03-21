@@ -4,7 +4,7 @@ import com.aiton.bmzc.Dao.zc_CarRespository;
 import com.aiton.bmzc.Dao.zc_OrderRepository;
 import com.aiton.bmzc.Dao.zc_PlanRepository;
 import com.aiton.bmzc.Entity.*;
-import com.aiton.bmzc.Service.zc_OrderService;
+import com.aiton.bmzc.Service.ZcOrderService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-public class zc_OrderServiceImpl implements zc_OrderService {
+public class ZcOrderServiceImpl implements ZcOrderService {
     @Resource
     private zc_OrderRepository orderRepository;
     @Resource
@@ -31,8 +31,8 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     private zc_CarRespository carRespository;
 
     @Override
-    public zc_Order addOrder(zc_order_request order_request) {
-        zc_Order order=new zc_Order();
+    public ZcOrder addOrder(ZcOrderRequest order_request) {
+        ZcOrder order=new ZcOrder();
         order.setPlanId(order_request.getPlan_id());
         order.setGetCar(order_request.getGetCar());
         order.setReturnCar(order_request.getReturnCar());
@@ -41,17 +41,13 @@ public class zc_OrderServiceImpl implements zc_OrderService {
         order.setPrice(order_request.getPrice());
         order.setInsurance(order_request.getInsurance());
         order.setHasDriver(order_request.getHasDriver());
-        List<zc_Car>cars=carRespository.find(order_request.getModel(), order_request.getType(), order_request.getBox(), order_request.getPailiang(), order_request.getSeat(), order_request.getPlan_id());
+        List<ZcCar>cars=carRespository.find(order_request.getModel(), order_request.getType(), order_request.getBox(), order_request.getPailiang(), order_request.getSeat(), order_request.getPlan_id());
         if(cars.isEmpty()){
            return null;
         }
-        zc_Car car=cars.get(0);
+        ZcCar car=cars.get(0);
         car.setStatus(1);//车辆被租出
         order.setLicensePlate(car.getLicensePlate());
-//        zc_plan plan=planRepository.findOne(order.getPlanId());
-//        Long time=order.getPlanReturnDate().getTime()-order.getZuchuDate().getTime();
-//        order.setJijiatime((int)StrictMath.ceil(time/86400000));//计价时间按天数显示
-//        order.setLimitMileage(plan.getUnitMileage()*order.getJijiatime());
         order.setFlag(0);//订单进行中
         order.setDate(new Timestamp(System.currentTimeMillis()));
         order=orderRepository.saveAndFlush(order);
@@ -61,7 +57,7 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     @Override
     public Boolean cancelOrder(Integer order_id) {
         try{
-            zc_Order order=orderRepository.findOne(order_id);
+            ZcOrder order=orderRepository.findOne(order_id);
             if(order==null){
                 return false;
             }
@@ -74,9 +70,9 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     }
 
     @Override
-    public zc_Order addDriver(Integer order_id,Integer driver_id) {
+    public ZcOrder addDriver(Integer order_id,Integer driver_id) {
         try{
-            zc_Order order=orderRepository.findOne(order_id);
+            ZcOrder order=orderRepository.findOne(order_id);
             order.setDriverId(driver_id);
             orderRepository.saveAndFlush(order);
             return order;
@@ -95,17 +91,17 @@ public class zc_OrderServiceImpl implements zc_OrderService {
      * @return
      */
     @Override
-    public zc_Order loadOrder(Integer order_id, Timestamp huancheDate, Double afterMileage, Double shouyajin) {
-        zc_Order order=orderRepository.findOne(order_id);
+    public ZcOrder loadOrder(Integer order_id, Timestamp huancheDate, Double afterMileage, Double shouyajin) {
+        ZcOrder order=orderRepository.findOne(order_id);
         if(order==null){
            return null;
         }
-        zc_Car car=carRespository.findOne(order.getLicensePlate());
+        ZcCar car=carRespository.findOne(order.getLicensePlate());
         car.setStatus(0);
         order.setAfterMileage(afterMileage);
         order.setShouyajin(shouyajin);
         order.setHuancheDate(huancheDate);
-        zc_plan plan=planRepository.findOne(order.getPlanId());
+        ZcPlan plan=planRepository.findOne(order.getPlanId());
         //计时应收租金&计价时间
         //计价时间（天）
         Long time=huancheDate.getTime()-order.getZuchuDate().getTime();
@@ -135,8 +131,8 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     }
 
     @Override
-    public zc_Order completeOrder(Integer order_id, Double price,Double shouyajin,String note,String sale) {
-        zc_Order order=orderRepository.findOne(order_id);
+    public ZcOrder completeOrder(Integer order_id, Double price,Double shouyajin,String note,String sale) {
+        ZcOrder order=orderRepository.findOne(order_id);
         if(order==null){
             return null;
         }
@@ -150,9 +146,9 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     }
 
     @Override
-    public zc_contains_num loadorderByaccount(Integer accountId,Integer page) {
-        List<zc_Order>orders=orderRepository.findOrderByAccountId(accountId,new PageRequest(page,8,new Sort(Sort.Direction.DESC,"date"))).getContent();
-        zc_contains_num contains_num=new zc_contains_num();
+    public ZcContainsNum loadorderByaccount(Integer accountId,Integer page) {
+        List<ZcOrder>orders=orderRepository.findOrderByAccountId(accountId,new PageRequest(page,8,new Sort(Sort.Direction.DESC,"date"))).getContent();
+        ZcContainsNum contains_num=new ZcContainsNum();
         contains_num.setContains(orders);
         Integer pageAll=(int)Math.ceil(Double.valueOf(orderRepository.countOrderByAccountId(accountId).toString())/8);
         contains_num.setNum(pageAll);
@@ -169,7 +165,7 @@ public class zc_OrderServiceImpl implements zc_OrderService {
         DataTables dataTables=new DataTables();
         dataTables.setDraw(draw);
         dataTables.setRecordsTotal(Long.valueOf(orderRepository.CountIngOrder().toString()));
-        List<zc_Order>orders=new ArrayList<zc_Order>();
+        List<ZcOrder>orders=new ArrayList<ZcOrder>();
         if("".equals(search)||search==null){
             dataTables.setRecordsFiltered(orderRepository.count());
             orders=orderRepository.findIngOrder(new PageRequest(page,length,new Sort(Sort.Direction.ASC,"planReturnDate"))).getContent();

@@ -2,7 +2,7 @@ package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmpw.Dao.AccountReponstory;
 import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Service.Zc_AccountService;
+import com.aiton.bmzc.Service.ZcAccountService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-public class Zc_AccountServiceImpl implements Zc_AccountService {
+public class ZcAccountServiceImpl implements ZcAccountService {
     @Resource
     private AccountReponstory accountReponstory;
     @Override
