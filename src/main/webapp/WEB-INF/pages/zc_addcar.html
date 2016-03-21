@@ -154,21 +154,49 @@
         width:50%;
         height:20px;
     }
+    .top2 a{
+        float:right;
+        color:#fff;
+        margin-top:20px;
+        margin-right:20px;
+    }
+        .tableChild{
+            width:100%;
+        }
+    .childwindow{
+            margin-left:20px;
+            display:none;
+            width:40%;
+            height:30%;
+            background-color:#f0f0f0;
+            position:absolute;
+            z-index:5;
+    }
+    .thead{
+            background-color:#c0c0c0;
+    }
     </style>
     <script src="JS/jquery-1.12.0.js"></script>
+    <script src="JS/jquery.dataTables.js"></script>
     <script>
     $(function (){
         $("#submit").click(function(){
             /*这里可以进行内容的验证*/
-            alert("开始提交表单");
+          /*  alert("开始提交表单"); */
             $("#form").submit();
         });
     });
+    function choosePlan(){
+        $("#child1").toggle();
+        var x = $("#choose").offset().left;
+        var y = $("#choose").offset().top;
+        $("#child1").css({'left':x-22+'px','top':y+30+'px'});
+    }
     </script>
 </head>
 <body>
    <div class="top1">租车行</div>
-   <div class="top2"></div>
+   <div class="top2"> <a href="/bmpw/Logout">退出登录</a></div>
    <div class="top3"><div><p><img src="images/chelianxinzeng.png">车辆新增</p></div></div>
    <div class="mainpage">
        <form id="form" action="/bmpw/zc/car/addCar" method="post" enctype="multipart/form-data">
@@ -183,14 +211,16 @@
 			<td><input type="text" name="maintenanceMileage"/></td>
 		</tr>
 		<tr>
-			<td>车型</td><td><input type="text" name="type"/></td><td>车辆状态</td>
-			<td><input type="text" name="status"/></td>
+			<td>车型</td><td><input type="text" name="type"/></td><td>价位类型</td>
+			<td>经济型:<input type="radio" value="0" name="lei"> 商务型:</input><input type="radio" value="1" name="lei"> 豪华型:</input><input type="radio" value="2" name="lei"></td>
 		</tr>
         <tr>
-            <td>厢数</td><td><input/></td><td>排量</td><td><input/></td>
+            <td>厢数</td><td><input type="text" name="box"/></td>
+            <td>排量</td><td><input type="text" name="pailiang"/></td>
         </tr>
         <tr>
-            <td>乘客数量</td><td><input/></td><td>自手动：</td><td><input/></td>
+            <td>乘客数量</td><td><input type="text" name="seat"/></td>
+            <td>档位类型</td><td>自动:<input type="radio" value="0" name="zidong"> 手动:</input><input type="radio" value="1" name="zidong"></td>
         </tr>
 		<tr>
 			<td>颜色</td><td><input type="text" name="color"/></td><td>押金标准</td>
@@ -202,23 +232,25 @@
 		</tr>
 		<tr>
 			<td>年检日期</td><td><input type="text" name="inspection"/></td><td>
-            <input style="width:100%;" type="button" value="选择租车方案"/></td>
+            <input id="choose" style="width:100%;" type="button" value="选择租车方案" onclick="choosePlan();"/></td>
 			<td><input type="text" readonly="true"/></td>
 		</tr>
-        <tr>
-            <td>价位类型</td><td><input name="lei"/></td>
-        </tr>
 		<tr>
 			<td valign="top">备注</td><td colspan="3"><textarea id="drs" name="note"></textarea></td>
-			<td valign="top">照片	<input id="file" type="file"/>
+			<td valign="top">照片	<input id="file" type="file" name="image"/>
 		      	<input class="button" type="button" value="浏览"/>
-				<input class="button" type="button" value="清除"/></td>
+				<input class="button" type="text" value="清除" name="text"/></td>
 		</tr>
 	</table>
+           <div id="child1" class="childwindow">
+               <table class="tableChild">
+                   <thead class="thead"><th>方案名称</th><th>单价</th>
+                   <th>单位里程数</th><th>超里程价格</th>
+                   <th>超时小时价</th><th>标志</th></thead>
+               </table>
+           </div>
 	<table><tr>
 	   	<td class="td2"><input id="submit" class="button2" type="submit" value="保存"/></td>
-	 	<td class="td2"><input id="submitAndExit" class="button2" type="button" value="保存退出"/></td>
-		<td class="td2"><input id="Exit" class="button2" type="button" value="退出"/></td>
 	       </tr>
 	</table>
        </form>
