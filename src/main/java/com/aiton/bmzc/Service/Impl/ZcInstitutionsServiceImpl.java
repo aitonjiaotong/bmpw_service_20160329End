@@ -1,9 +1,9 @@
 package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmpw.Util.bmpwUtils;
-import com.aiton.bmzc.Dao.zc_InstitutionsRepository;
-import com.aiton.bmzc.Entity.zc_Institutions;
-import com.aiton.bmzc.Service.zc_InstitutionsService;
+import com.aiton.bmzc.Dao.ZcInstitutionsRepository;
+import com.aiton.bmzc.Entity.ZcInstitutions;
+import com.aiton.bmzc.Service.ZcInstitutionsService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,11 +16,11 @@ import javax.annotation.Resource;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-public class zc_InstitutionsServiceImpl implements zc_InstitutionsService {
+public class ZcInstitutionsServiceImpl implements ZcInstitutionsService {
     @Resource
-    private zc_InstitutionsRepository institutionsRepository;
+    private ZcInstitutionsRepository institutionsRepository;
     @Override
-    public zc_Institutions addInstitutions(zc_Institutions institutions) {
+    public ZcInstitutions addInstitutions(ZcInstitutions institutions) {
         Long time=System.currentTimeMillis();
         institutions.setCode(time.toString());
         String password=institutions.getPassword();
@@ -31,7 +31,7 @@ public class zc_InstitutionsServiceImpl implements zc_InstitutionsService {
     }
 
     @Override
-    public zc_Institutions updateInstitutions(zc_Institutions institutions) {
+    public ZcInstitutions updateInstitutions(ZcInstitutions institutions) {
         institutions=institutionsRepository.saveAndFlush(institutions);
         return institutions;  //To change body of implemented methods use File | Settings | File Templates.
     }
@@ -43,7 +43,7 @@ public class zc_InstitutionsServiceImpl implements zc_InstitutionsService {
         }
         password=bmpwUtils.StringMD5(password);
         try{
-            zc_Institutions institutions=institutionsRepository.findOne(code);
+            ZcInstitutions institutions=institutionsRepository.findOne(code);
             if(institutions==null){
                 return false;
             }
@@ -59,8 +59,8 @@ public class zc_InstitutionsServiceImpl implements zc_InstitutionsService {
     }
 
     @Override
-    public zc_Institutions loadInstitutions(String code) {
-        zc_Institutions zc_institutions = institutionsRepository.findOne(code);
+    public ZcInstitutions loadInstitutions(String code) {
+        ZcInstitutions zc_institutions = institutionsRepository.findOne(code);
         return null;
     }
 }

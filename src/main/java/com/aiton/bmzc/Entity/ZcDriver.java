@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table
-public class zc_Driver {
+public class ZcDriver {
     private Integer id;
     private String name;
     private String phone;

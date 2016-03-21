@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table
-public class Zc_Store {
+public class ZcStore {
     private Integer id;
     private String name;
     private String address;

@@ -1,6 +1,7 @@
 package com.aiton.bmzc.Service;
 
-import com.aiton.bmzc.Entity.zc_plan;
+import com.aiton.bmpw.Entity.DataTables;
+import com.aiton.bmzc.Entity.ZcPlan;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,8 +10,8 @@ import com.aiton.bmzc.Entity.zc_plan;
  * Time: 下午3:00
  * To change this template use File | Settings | File Templates.
  */
-public interface Zc_PlanService {
-    zc_plan addPlan(zc_plan plan);
+public interface ZcPlanService {
+    ZcPlan addPlan(ZcPlan plan);
     Boolean delPlan(Integer plan_id);
-    zc_plan loadPlan(Integer plan_id);
+    DataTables loadPlans(Integer draw,Integer start,Integer length);
 }

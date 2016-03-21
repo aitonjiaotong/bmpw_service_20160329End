@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table
-public class zc_plan {
+public class ZcPlan {
     private Integer id;
     private String name;//方案名称
     private Double price;//单价
