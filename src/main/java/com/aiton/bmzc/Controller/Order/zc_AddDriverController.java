@@ -3,6 +3,7 @@ package com.aiton.bmzc.Controller.Order;
 import com.aiton.bmzc.Entity.zc_Order;
 import com.aiton.bmzc.Service.zc_OrderService;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
+@Transactional
 public class zc_AddDriverController {
     @Resource
     private zc_OrderService orderService;

@@ -2,7 +2,7 @@ package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmzc.Dao.zc_CarRespository;
 import com.aiton.bmzc.Dao.zc_PlanRepository;
-import com.aiton.bmzc.Entity.Zc_contains_num;
+import com.aiton.bmzc.Entity.zc_contains_num;
 import com.aiton.bmzc.Entity.zc_Car;
 import com.aiton.bmzc.Entity.zc_car_plan;
 import com.aiton.bmzc.Entity.zc_plan;
@@ -41,6 +41,9 @@ public class Zc_CarServiceImpl implements Zc_CarService {
 
     @Override
     public zc_Car addCar(zc_Car car,HttpServletRequest request) {
+        if(carRespository.findOne(car.getLicensePlate())!=null){
+            return null;
+        }
         ServletContext context=request.getServletContext();
         car.setStatus(0);
         String str=context.getRealPath("/");
@@ -54,12 +57,16 @@ public class Zc_CarServiceImpl implements Zc_CarService {
                car.setImage("http://120.55.166.203:8080/bmpw/cars/"+name);
            }
         }
-        car=carRespository.saveAndFlush(car);
+        try{
+            car=carRespository.saveAndFlush(car);
+        }catch(Exception e){
+            return null;
+        }
         return car;  //To change body of implemented methods use File | Settings | File Templates.
     }
     //查找可以出租的车辆
     @Override
-    public Zc_contains_num loadCanuseCar(Integer page) {
+    public zc_contains_num loadCanuseCar(Integer page) {
         List<zc_car_plan>cars=carRespository.findCanUseCar(new PageRequest(page,8));
 //        for(int i=0;i<cars.size();i++){
 //
@@ -68,7 +75,7 @@ public class Zc_CarServiceImpl implements Zc_CarService {
             zc_plan plan=planRepository.findOne(car.getPlan_id());
             car.setPlan(plan);
         }
-        Zc_contains_num contains_num=new Zc_contains_num();
+        zc_contains_num contains_num=new zc_contains_num();
         contains_num.setContains(cars);
         List<zc_car_plan>car_plans=carRespository.CountCanUseCar();
         contains_num.setNum((int)Math.ceil((double)car_plans.size()/8));
@@ -77,7 +84,7 @@ public class Zc_CarServiceImpl implements Zc_CarService {
 
     @Override
     /**更新车辆信息*/
-    public boolean updateCar(zc_Car car) {
+    public Boolean updateCar(zc_Car car) {
         try {
             carRespository.saveAndFlush(car);
         }catch(Exception e){

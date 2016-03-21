@@ -4,6 +4,7 @@ import com.aiton.bmzc.Entity.zc_Order;
 import com.aiton.bmzc.Entity.zc_order_request;
 import com.aiton.bmzc.Service.zc_OrderService;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
+@Transactional
 public class zc_AddOrderController {
     private zc_OrderService orderService;
     @RequestMapping("/zc/order/addorder")

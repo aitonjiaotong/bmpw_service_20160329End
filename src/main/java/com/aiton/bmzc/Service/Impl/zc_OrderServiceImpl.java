@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -149,9 +150,9 @@ public class zc_OrderServiceImpl implements zc_OrderService {
     }
 
     @Override
-    public Zc_contains_num loadorderByaccount(Integer accountId,Integer page) {
+    public zc_contains_num loadorderByaccount(Integer accountId,Integer page) {
         List<zc_Order>orders=orderRepository.findOrderByAccountId(accountId,new PageRequest(page,8,new Sort(Sort.Direction.DESC,"date"))).getContent();
-        Zc_contains_num contains_num=new Zc_contains_num();
+        zc_contains_num contains_num=new zc_contains_num();
         contains_num.setContains(orders);
         Integer pageAll=(int)Math.ceil(Double.valueOf(orderRepository.countOrderByAccountId(accountId).toString())/8);
         contains_num.setNum(pageAll);
@@ -163,13 +164,18 @@ public class zc_OrderServiceImpl implements zc_OrderService {
      * @return
      */
     @Override
-    public DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length) {
+    public DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length,String search) {
         Integer page=start/length;
-        List<zc_Order>orders=orderRepository.findIngOrder(new PageRequest(page,length,new Sort(Sort.Direction.ASC,"planReturnDate"))).getContent();
         DataTables dataTables=new DataTables();
         dataTables.setDraw(draw);
-
         dataTables.setRecordsTotal(Long.valueOf(orderRepository.CountIngOrder().toString()));
+        List<zc_Order>orders=new ArrayList<zc_Order>();
+        if("".equals(search)||search==null){
+            dataTables.setRecordsFiltered(orderRepository.count());
+            orders=orderRepository.findIngOrder(new PageRequest(page,length,new Sort(Sort.Direction.ASC,"planReturnDate"))).getContent();
+        }else{
+            search="%"+search+"%";
+        }
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

@@ -1,8 +1,10 @@
 package com.aiton.bmzc.Service.Impl;
 
+import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Dao.zc_PlanRepository;
 import com.aiton.bmzc.Entity.zc_plan;
 import com.aiton.bmzc.Service.Zc_PlanService;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -42,8 +44,13 @@ public class Zc_PlanServiceImpl implements Zc_PlanService {
     }
 
     @Override
-    public zc_plan loadPlan(Integer plan_id) {
-        zc_plan zcPlan = planRepository.findOne(plan_id);
-        return zcPlan;
+    public DataTables loadPlans(Integer draw, Integer start, Integer length) {
+        Integer page=start/length;
+        DataTables dataTables=new DataTables();
+        dataTables.setDraw(draw);
+        dataTables.setRecordsTotal(planRepository.count());
+        dataTables.setData(planRepository.loadplans(new PageRequest(page,length)));
+        dataTables.setRecordsFiltered(planRepository.count());
+        return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

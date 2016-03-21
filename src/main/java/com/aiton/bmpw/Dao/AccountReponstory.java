@@ -1,6 +1,7 @@
 package com.aiton.bmpw.Dao;
 
 import com.aiton.bmpw.Entity.Account;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -20,4 +21,8 @@ public interface AccountReponstory extends JpaRepository<Account,Integer>{
     Account findByName(String name);
     @Query("select distinct a.id from Account as a where a.name like ?")
     List<Object> findByNameLike(String name);
+    @Query("from Account where phone like ?")
+    List<Account> findByPhoneLike(String phone,Pageable pageable);
+    @Query("select count(a) from Account as a where a.phone like ?")
+    Object CountByPhoneLike(String phone);
 }

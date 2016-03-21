@@ -1,6 +1,6 @@
 package com.aiton.bmzc.Controller.Store;
 
-import com.aiton.bmzc.Entity.Zc_contains_num;
+import com.aiton.bmzc.Entity.zc_contains_num;
 import com.aiton.bmzc.Service.Zc_StoreService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +21,8 @@ public class zc_LoadStoreController {
     private Zc_StoreService storeService;
     @RequestMapping("/zc/store/loadstorebycity")
     @ResponseBody
-    public Zc_contains_num execute(String city,Integer page){
-        Zc_contains_num stores=storeService.loadStore(city,page);
+    public zc_contains_num execute(String city,Integer page){
+        zc_contains_num stores=storeService.loadStore(city,page);
         return stores;
     }
 }
