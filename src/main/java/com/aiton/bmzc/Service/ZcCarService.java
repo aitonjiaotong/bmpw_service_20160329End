@@ -19,6 +19,6 @@ public interface ZcCarService {
     ZcCar addCar(ZcCar car,HttpServletRequest request);
     ZcContainsNum loadCanuseCar(Integer page);
     Boolean updateCar(ZcCar car);
-    ZcCar loadCar(String licensePlate);
+    ZcCar loadCar(Integer id);
     DataTables loadCanuseCars(Integer draw,Integer start,Integer length,String search);
 }

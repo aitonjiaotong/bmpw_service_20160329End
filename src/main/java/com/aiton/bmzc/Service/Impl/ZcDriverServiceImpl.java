@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Service
 public class ZcDriverServiceImpl implements ZcDriverService {
-    @Resource
+    @Resource(name = "zcDriverRepository")
     private ZcDriverRepository driverRepository;
     @Override
     public ZcContainsNum loadDriver(Integer page) {

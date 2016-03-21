@@ -15,7 +15,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface ZcDriverRepository extends JpaRepository<ZcDriver,Integer>{
-    @Query("from ZcDriver where status=1")
+    @Query("select d from ZcDriver as d where status=1")
     List<ZcDriver> loadFreeDriver(Pageable pageable);
     @Query("select count(d) from ZcDriver as d where status=1")
     Object countFreeDriver();

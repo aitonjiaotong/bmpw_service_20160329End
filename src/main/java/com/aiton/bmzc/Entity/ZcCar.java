@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table
 public class ZcCar {
+    private Integer id;
     private String licensePlate;//牌号
     private String model;//品牌
     private String type;//型号
@@ -33,7 +34,15 @@ public class ZcCar {
     private Integer lei;//车辆类型，0：经济型 1：舒适型 2：豪华型
     private Integer store_id;//车辆所在门店id
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getLicensePlate() {
         return licensePlate;
     }

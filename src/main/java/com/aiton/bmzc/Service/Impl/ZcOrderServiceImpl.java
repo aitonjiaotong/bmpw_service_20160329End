@@ -31,7 +31,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     private ZcPlanRepository planRepository;
     @Resource
     private ZcCarRespository carRespository;
-    @Resource
+    @Resource(name = "zcDriverRepository")
     private ZcDriverRepository driverRepository;
     //机构租车添加订单
     @Override
@@ -55,7 +55,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         ZcCar car=cars.get(s);
         order.setBeforeMileage(car.getMileage());
         car.setStatus(1);//车辆被租出
-        order.setLicensePlate(car.getLicensePlate());
+        order.setCarId(car.getId());
         order.setFlag(0);//订单进行中
         order.setDate(new Timestamp(System.currentTimeMillis()));
         if(order_request.getHasDriver().equals(0)){
@@ -93,7 +93,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         ZcCar car=cars.get(s);
         order.setBeforeMileage(car.getMileage());
         car.setStatus(1);//车辆被租出
-        order.setLicensePlate(car.getLicensePlate());
+        order.setCarId(car.getId());
         order.setFlag(0);//订单进行中
         if(order_request.getHasDriver().equals(0)){
            ZcOrder order1=orderRepository.checkDriver(order.getDriverId());
@@ -158,7 +158,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         if(order==null){
            return null;
         }
-        ZcCar car=carRespository.findOne(order.getLicensePlate());
+        ZcCar car=carRespository.findOne(order.getCarId());
         car.setStatus(0);
         car.setStore_id(order.getReturnCar());
         order.setAfterMileage(afterMileage);
@@ -222,7 +222,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         for(ZcOrder order:orders){
             ZcOrderCar orderCar=new ZcOrderCar();
             orderCar.setOrder(order);
-            orderCar.setCar(carRespository.findOne(order.getLicensePlate()));
+            orderCar.setCar(carRespository.findOne(order.getCarId()));
             list.add(orderCar);
         }
         contains_num.setContains(list);
