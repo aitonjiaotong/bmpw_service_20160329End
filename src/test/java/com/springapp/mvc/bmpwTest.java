@@ -14,6 +14,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * Created with IntelliJ IDEA.
@@ -59,6 +60,8 @@ public class bmpwTest {
 ////        System.out.println(zone.getZoneID()+"--"+zone1.getZoneID());
 //       System.out.println(zone.equals(zone1));
 //        Long time=System.currentTimeMillis();
-        System.out.println(StrictMath.ceil(((double)5/2)));
+//        System.out.println(StrictMath.ceil(((double)5/2)));
+//        UUID uuid=UUID.randomUUID();
+        System.out.println(System.currentTimeMillis());
     }
 }

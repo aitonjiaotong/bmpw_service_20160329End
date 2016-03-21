@@ -1,7 +1,7 @@
 package com.aiton.bmzc.Controller.Order;
 
-import com.aiton.bmzc.Entity.zc_Order;
-import com.aiton.bmzc.Service.zc_OrderService;
+import com.aiton.bmzc.Entity.ZcOrder;
+import com.aiton.bmzc.Service.ZcOrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,12 +17,12 @@ import javax.annotation.Resource;
  */
 @Controller
 @Transactional
-public class zc_AddDriverController {
+public class ZcAddDriverController {
     @Resource
-    private zc_OrderService orderService;
+    private ZcOrderService orderService;
     @RequestMapping("/zc/order/adddriver")
-    public zc_Order execute(Integer order_id,Integer driver_id){
-        zc_Order order=orderService.addDriver(order_id,driver_id);
+    public ZcOrder execute(Integer order_id,Integer driver_id){
+        ZcOrder order=orderService.addDriver(order_id,driver_id);
         return order;
     }
 }

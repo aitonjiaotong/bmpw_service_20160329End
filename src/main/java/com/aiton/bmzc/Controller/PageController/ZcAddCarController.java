@@ -4,13 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 租车跳转页面
+ * 增加车辆页面跳转
  * Created by user on 2016/3/19.
  */
 @Controller
-public class Zc_ZucheController {
-    @RequestMapping("/toZC_Zuche")
+public class ZcAddCarController {
+    @RequestMapping("/toZC_AddCar")
     public String execute(){
-        return "zc_zuche";
+        return "zc_addcar";
     }
 }

@@ -4,13 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 还车页面跳转
  * Created by user on 2016/3/19.
  */
 @Controller
-public class Zc_ReturnCarController {
-    @RequestMapping("/toZC_ReturnCar")
+public class ZcAccountController {
+    @RequestMapping("/toZC_Account")
     public String execute(){
-        return "zc_returncar";
+        return "zc_account";
     }
 }

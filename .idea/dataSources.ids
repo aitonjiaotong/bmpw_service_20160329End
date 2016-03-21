@@ -3884,6 +3884,7 @@
       <column name="redEnvelope_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="account_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="flag" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="bus" schema="" catalog="bmcxtickets" type="TABLE">
@@ -3910,6 +3911,52 @@
       <column name="stime_down" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="stime_up" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="dcdriver" schema="" catalog="bmcxtickets" type="TABLE">
+      <column name="driver_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="alipay" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="car_no" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="car_no_image" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="driver_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="drivingLicense_image" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="idCard_image" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="idCard_no" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="latitude" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="license_image" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="longitude" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="driver_id"/>
+    </table>
+    <table name="dcevaluate" schema="" catalog="bmcxtickets" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="account_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="driver_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="evaluate" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="satisfaction" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="dcorder" schema="" catalog="bmcxtickets" type="TABLE">
+      <column name="order_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="account_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="beginExecuteDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="beginExecuteLatitude" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="beginExecuteLongitude" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="driver_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="endExecuteDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="endExecuteLatitude" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="endExecuteLongitude" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="exception_describe" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="exception_status" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="is_notice" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="order_begin_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="order_cancle_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="order_complate_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="order_from_address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="order_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="order_to_address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="user_phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="order_id"/>
     </table>
     <table name="driver" schema="" catalog="bmcxtickets" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -3987,6 +4034,16 @@
       <column name="upDown" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
+    <table name="pw_refund" schema="" catalog="bmcxtickets" type="TABLE">
+      <column name="bookLogAID" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="clsj" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="flag" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="redfund" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="orderNum" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="bookLogAID"/>
+    </table>
     <table name="redenvelope" schema="" catalog="bmcxtickets" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="amount" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
@@ -4058,6 +4115,15 @@
       <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
+    <table name="zc_appointment" schema="" catalog="bmcxtickets" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="appointmenttime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="flag" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="note" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="planzuche" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="user" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
     <table name="zc_car" schema="" catalog="bmcxtickets" type="TABLE">
       <column name="licensePlate" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="buyDate" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
@@ -4065,21 +4131,19 @@
       <column name="deposit" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="engineCode" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="image" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="inspection" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="maintenanceMileage" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="mileage" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="model" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="note" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="status" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="planId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="box" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pailiang" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="seat" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="zidong" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="licensePlate"/>
-    </table>
-    <table name="zc_car_plan" schema="" catalog="bmcxtickets" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="licensePlate" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="planId" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="zc_driver" schema="" catalog="bmcxtickets" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -4088,25 +4152,32 @@
       <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
+    <table name="zc_institutions" schema="" catalog="bmcxtickets" type="TABLE">
+      <column name="code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="head" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="code"/>
+    </table>
     <table name="zc_order" schema="" catalog="bmcxtickets" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="account_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="afterMileage" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="beforeMileage" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="flag" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="huancheDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="huancheDate" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="jijiatime" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="licensePlate" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="limitMileage" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="note" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="outMileagePrice" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
-      <column name="planReturnDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="planReturnDate" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="shouyajin" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="timePrice" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
-      <column name="userId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="accountId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="zuPrice" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
-      <column name="zuchuDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="zuchuDate" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="driverId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="guarantorId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="hasDriver" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
@@ -4114,6 +4185,12 @@
       <column name="returnCar" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="outTimePrice" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="planId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="advancePayment" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="insurance" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="sale" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sum" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="zc_plan" schema="" catalog="bmcxtickets" type="TABLE">
@@ -4121,9 +4198,9 @@
       <column name="outMileage" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="outTime" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
-      <column name="unit" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="unitMileage" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="flag" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="zc_store" schema="" catalog="bmcxtickets" type="TABLE">
@@ -4136,17 +4213,6 @@
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-    </table>
-    <table name="zc_user" schema="" catalog="bmcxtickets" type="TABLE">
-      <column name="idCard" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="bankCard" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="cardStatus" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="image" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="note" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="idCard"/>
     </table>
     <table name="zone" schema="" catalog="bmcxtickets" type="TABLE">
       <column name="ZoneID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>

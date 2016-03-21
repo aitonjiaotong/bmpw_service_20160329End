@@ -1,7 +1,7 @@
 package com.aiton.bmzc.Controller.account;
 
 import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Service.Zc_AccountService;
+import com.aiton.bmzc.Service.ZcAccountService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class ZcLoadAccountsController {
     @Resource
-    private Zc_AccountService accountService;
+    private ZcAccountService accountService;
     @RequestMapping("/zc/account/loadaccounts")
     @ResponseBody
     public DataTables execute(Integer draw,Integer start,Integer length,HttpServletRequest request){

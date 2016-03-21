@@ -4,13 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 增加车辆页面跳转
+ * 预约页面跳转
  * Created by user on 2016/3/19.
  */
 @Controller
-public class Zc_AddCarController {
-    @RequestMapping("/toZC_AddCar")
+public class ZcAppointmentController {
+    @RequestMapping("/toZC_Appointment")
     public String execute(){
-        return "zc_addcar";
+        return "zc_appointment";
     }
 }

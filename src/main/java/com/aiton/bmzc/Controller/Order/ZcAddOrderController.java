@@ -1,8 +1,8 @@
 package com.aiton.bmzc.Controller.Order;
 
-import com.aiton.bmzc.Entity.zc_Order;
-import com.aiton.bmzc.Entity.zc_order_request;
-import com.aiton.bmzc.Service.zc_OrderService;
+import com.aiton.bmzc.Entity.ZcOrder;
+import com.aiton.bmzc.Entity.ZcOrderRequest;
+import com.aiton.bmzc.Service.ZcOrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @Transactional
-public class zc_AddOrderController {
-    private zc_OrderService orderService;
+public class ZcAddOrderController {
+    private ZcOrderService orderService;
     @RequestMapping("/zc/order/addorder")
     @ResponseBody
-    public zc_Order execute(zc_order_request order_request){
-        zc_Order order=orderService.addOrder(order_request);
+    public ZcOrder execute(ZcOrderRequest order_request){
+        ZcOrder order=orderService.addOrder(order_request);
         return order;
     }
 }

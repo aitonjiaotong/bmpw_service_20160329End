@@ -1,7 +1,6 @@
 package com.aiton.bmzc.Controller.Institutions;
 
-import com.aiton.bmzc.Entity.zc_Institutions;
-import com.aiton.bmzc.Service.zc_InstitutionsService;
+import com.aiton.bmzc.Service.ZcInstitutionsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,9 +15,9 @@ import javax.annotation.Resource;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-public class zc_CheckInstitutionsController {
+public class ZcCheckInstitutionsController {
     @Resource
-    private zc_InstitutionsService institutionsService;
+    private ZcInstitutionsService institutionsService;
     @RequestMapping("/zc/institutions/checkinstitutions")
     @ResponseBody
     public Boolean execute(String code,String password){
