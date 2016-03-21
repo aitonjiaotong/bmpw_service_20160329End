@@ -16,6 +16,11 @@ public class ZcDriver {
     private String name;
     private String phone;
     private String idcard;
+    private String sex;
+    private Integer drivingYear;
+    private String image;
+    private Double star;
+    private Integer status;//0：出车 1：空闲
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
@@ -51,5 +56,51 @@ public class ZcDriver {
 
     public void setIdcard(String idcard) {
         this.idcard = idcard;
+    }
+    @Basic
+    @Column
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+    @Basic
+    @Column
+    public Integer getDrivingYear() {
+        return drivingYear;
+    }
+
+    public void setDrivingYear(Integer drivingYear) {
+        this.drivingYear = drivingYear;
+    }
+    @Basic
+    @Column
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    @Basic
+    @Column
+    public Double getStar() {
+        return star;
+    }
+
+    public void setStar(Double star) {
+        this.star = star;
+    }
+
+    @Basic
+    @Column
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

@@ -42,7 +42,7 @@ public class ZcCarServiceImpl implements ZcCarService {
 
     @Override
     public ZcCar addCar(ZcCar car,HttpServletRequest request) {
-        if(carRespository.findOne(car.getLicensePlate())!=null){
+        if(carRespository.findOne(car.getId())!=null){
             return null;
         }
         ServletContext context=request.getServletContext();
@@ -54,7 +54,7 @@ public class ZcCarServiceImpl implements ZcCarService {
         for(File f:files){
            String name=f.getName();
            String extName=name.substring(name.lastIndexOf("."));
-           if(name.equals(car.getLicensePlate()+extName)){
+           if(name.equals(car.getId()+extName)){
                car.setImage("http://120.55.166.203:8080/bmpw/cars/"+name);
            }
         }
@@ -95,20 +95,21 @@ public class ZcCarServiceImpl implements ZcCarService {
     }
 
     @Override
-    public ZcCar loadCar(String licensePlate) {
-        ZcCar car = carRespository.findOne(licensePlate);
+    public ZcCar loadCar(Integer id) {
+        ZcCar car = carRespository.findOne(id);
         return car;
     }
 
     @Override
     public DataTables loadCanuseCars(Integer draw, Integer start, Integer length, String search) {
+        Integer page=start/length;
         DataTables dataTables=new DataTables();
         dataTables.setDraw(draw);
         List<ZcCarPlan>car_plans=carRespository.CountCanUseCar();
         dataTables.setRecordsTotal((long)car_plans.size());
         if(search==null||"".equals(search)){
             dataTables.setRecordsFiltered((long)car_plans.size());
-            dataTables.setData(carRespository.findCanUseCar(new PageRequest(start,length)));
+            dataTables.setData(carRespository.findCanUseCar(new PageRequest(page,length)));
         }
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }

@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @Table
 public class ZcOrder {
     private Integer id;
-    private String licensePlate;//车牌号
+    private Integer carId;//车辆编号
     private Integer planId;     //租赁计划id(防止车辆绑定plan更改,或者不使用车辆绑定plan)
     private Timestamp zuchuDate; //租出时间
     private Timestamp huancheDate; //还车时间
@@ -51,15 +51,16 @@ public class ZcOrder {
     public void setId(Integer id) {
         this.id = id;
     }
-    @Column
     @Basic
-    public String getLicensePlate() {
-        return licensePlate;
+    @Column
+    public Integer getCarId() {
+        return carId;
     }
 
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
+    public void setCarId(Integer carId) {
+        this.carId = carId;
     }
+
     @Column
     @Basic
     public Integer getPlanId() {
