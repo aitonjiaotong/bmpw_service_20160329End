@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @Transactional
-public class ZcAddOrderController {
+public class ZcAddInstitutionsOrderController {
     private ZcOrderService orderService;
-    @RequestMapping("/zc/order/addorder")
+    @RequestMapping("/zc/order/institutions/addorder")
     @ResponseBody
     public ZcOrder execute(ZcOrderRequest order_request){
-        ZcOrder order=orderService.addOrder(order_request);
+        ZcOrder order=orderService.addOrder1(order_request);
         return order;
     }
 }

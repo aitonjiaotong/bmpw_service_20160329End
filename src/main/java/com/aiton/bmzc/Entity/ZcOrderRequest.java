@@ -16,7 +16,7 @@ public class ZcOrderRequest {
     private String pailiang;//排量
     private Integer seat;//乘客数量
     private Integer zidong;//0:自动 1:手动
-    private Integer plan_id;
+    private Integer plan_id;//租赁计划id
     private Timestamp zuchuDate; //租出时间
     private Timestamp planReturnDate;//计划还车时间
     private Double price;//总价
@@ -25,6 +25,15 @@ public class ZcOrderRequest {
     private Integer getCar;//取车地点
     private Integer returnCar;//还车地点
     private Integer hasDriver;//0:带 1：不带
+    private Integer lei; //车辆类型，0：公务一型 1：公务二型 2：商务型
+
+    public Integer getLei() {
+        return lei;
+    }
+
+    public void setLei(Integer lei) {
+        this.lei = lei;
+    }
 
     public String getModel() {
         return model;

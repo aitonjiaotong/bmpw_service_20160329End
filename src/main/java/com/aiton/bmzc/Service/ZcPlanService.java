@@ -3,6 +3,8 @@ package com.aiton.bmzc.Service;
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Entity.ZcPlan;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
@@ -14,4 +16,5 @@ public interface ZcPlanService {
     ZcPlan addPlan(ZcPlan plan);
     Boolean delPlan(Integer plan_id);
     DataTables loadPlans(Integer draw,Integer start,Integer length);
+    List<ZcPlan>loadPlan();
 }
