@@ -19,6 +19,7 @@ public class ZcEvaluation {
     private Integer id;
     private Integer driverId;
     private String contains;
+    private Integer star;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
@@ -45,5 +46,13 @@ public class ZcEvaluation {
 
     public void setContains(String contains) {
         this.contains = contains;
+    }
+
+    public Integer getStar() {
+        return star;
+    }
+
+    public void setStar(Integer star) {
+        this.star = star;
     }
 }

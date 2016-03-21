@@ -26,4 +26,6 @@ public interface ZcOrderRepository extends JpaRepository<ZcOrder,Integer> {
     Object CountIngOrder();
     @Query("from ZcOrder where hasDriver=0")
     List<ZcOrder> findOrdershouldHasDriver();
+    @Query("from ZcOrder where flag=0 and driverId=?")
+    ZcOrder checkDriver(Integer driverId);
 }

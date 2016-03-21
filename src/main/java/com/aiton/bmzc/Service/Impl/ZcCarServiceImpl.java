@@ -102,13 +102,14 @@ public class ZcCarServiceImpl implements ZcCarService {
 
     @Override
     public DataTables loadCanuseCars(Integer draw, Integer start, Integer length, String search) {
+        Integer page=start/length;
         DataTables dataTables=new DataTables();
         dataTables.setDraw(draw);
         List<ZcCarPlan>car_plans=carRespository.CountCanUseCar();
         dataTables.setRecordsTotal((long)car_plans.size());
         if(search==null||"".equals(search)){
             dataTables.setRecordsFiltered((long)car_plans.size());
-            dataTables.setData(carRespository.findCanUseCar(new PageRequest(start,length)));
+            dataTables.setData(carRespository.findCanUseCar(new PageRequest(page,length)));
         }
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }
