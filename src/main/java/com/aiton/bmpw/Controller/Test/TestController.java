@@ -10,6 +10,9 @@ import com.aiton.bmpw.Entity.Site;
 import com.aiton.bmpw.Entity.Zone;
 import com.aiton.bmpw.Service.SiteService;
 import com.aiton.bmpw.Service.ZoneService;
+import com.aiton.bmzc.Entity.Zc_Store;
+import com.aiton.bmzc.Entity.zc_Order;
+import com.aiton.bmzc.Service.zc_OrderService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -41,6 +44,8 @@ public class TestController {
     private ZoneReponsitory zoneReponsitory;
     @Resource
     private SiteService siteService;
+    @Resource
+    private zc_OrderService orderService;
     @RequestMapping("/test1")
     @ResponseBody
     public List<Account> exe1(){
