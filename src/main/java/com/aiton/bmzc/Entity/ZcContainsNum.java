@@ -7,7 +7,7 @@ package com.aiton.bmzc.Entity;
  * Time: 上午11:09
  * To change this template use File | Settings | File Templates.
  */
-public class zc_contains_num {
+public class ZcContainsNum {
     private Object contains;
     private Integer num;
 

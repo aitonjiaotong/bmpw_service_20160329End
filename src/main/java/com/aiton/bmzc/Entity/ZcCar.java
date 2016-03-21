@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table
-public class zc_Car {
+public class ZcCar {
     private String licensePlate;//牌号
     private String model;//品牌
     private String type;//型号

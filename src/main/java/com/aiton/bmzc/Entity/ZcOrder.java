@@ -12,7 +12,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table
-public class zc_Order {
+public class ZcOrder {
     private Integer id;
     private String licensePlate;//车牌号
     private Integer planId;     //租赁计划id(防止车辆绑定plan更改,或者不使用车辆绑定plan)

@@ -15,7 +15,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table
-public class zc_Institutions {
+public class ZcInstitutions {
     private String name;//机构名称
     private String head;//机构联系人
     private String phone;//机构电话

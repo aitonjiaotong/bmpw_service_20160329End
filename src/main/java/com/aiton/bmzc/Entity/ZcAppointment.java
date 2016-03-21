@@ -15,7 +15,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table
-public class zc_Appointment {
+public class ZcAppointment {
     private Integer id;
     private String user;//预约人（预约电话）
     private Timestamp planzuche;//预约租车时间

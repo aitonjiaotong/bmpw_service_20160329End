@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  * Time: 上午8:40
  * To change this template use File | Settings | File Templates.
  */
-public class zc_order_request {
+public class ZcOrderRequest {
     private String model;//品牌
     private String type;//型号
     private String box;//厢数
