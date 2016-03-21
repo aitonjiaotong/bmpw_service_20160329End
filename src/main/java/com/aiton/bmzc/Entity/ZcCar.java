@@ -28,7 +28,7 @@ public class ZcCar {
     private String buyDate;//购买时间
     private String inspection; //年检日期
     private String image;
-    private String note;
+    private String note;//备注
     private Integer planId;
     @Id
     @Column
