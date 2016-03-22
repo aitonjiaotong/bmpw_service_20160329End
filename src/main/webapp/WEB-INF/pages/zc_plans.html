@@ -198,28 +198,27 @@
     <div id="child">
         <div class="headDiv"><p>新增租赁方案</p></div>
         <div>
-            <form>
+            <form id="addPlan" action="/bmpw/zc/plan/addPlan" method="post">
             <table class="childTable">
              <tr>
-                 <td>方案名称</td><td><input style="width:300px;" type="text"/></td>
+                 <td>方案名称</td><td><input style="width:300px;" type="text" name="name"/></td>
              </tr>
             </table>
-
             <fieldset>
                 <legend>计价单位</legend>
                     <table class="childTable">
                         <tr>
-                    <td><input type="radio" name="jijia" checked="checked"/><label>按天</label></td>
-            <!--    <td><input type="radio" name="jijia"/>包月</td>
-                    <td><input type="radio" name="jijia"/>计时</td>     -->
+                    <td><input type="radio" name="jijia" checked="checked" value="0"/><label>按天</label></td>
+            <!--    <td><input type="radio" name="jijia" value="2"/>包月</td>
+                    <td><input type="radio" name="jijia" value="1"/>计时</td>     -->
                         </tr>
                     </table>
             </fieldset>
                 <table class="childTable" style="margin-bottom: 50px;">
-                    <tr><td>价格（元）</td><td><input type="text"/></td></tr>
-                    <tr><td>单位时间内限里程</td><td><input type="text"/></td></tr>
-                    <tr><td>超程基价</td><td><input type="text"/></td></tr>
-                    <tr><td>超时小时价（元/小时）</td><td><input type="text"/></td></tr>
+                    <tr><td>价格（元）</td><td><input type="text" name="price"/></td></tr>
+                    <tr><td>单位时间内限里程</td><td><input type="text" name="unitMileage"/></td></tr>
+                    <tr><td>超程基价</td><td><input type="text" name="outMileage"/></td></tr>
+                    <tr><td>超时小时价（元/小时）</td><td><input type="text" name="outTime"/></td></tr>
                 </table>
                 <table class="childTable">
                     <tr style="padding: 20px;margin: 20px;">
@@ -284,9 +283,17 @@
         $("#mengban").show();
         $("#child").show();
     }
-    function hideDiv() {
-        $("#mengban").hide();
-        $("#child").hide();
+    function hideDiv(i) {
+        if(i==1){
+            $('#addPlan').get(0).reset();
+            $("#mengban").hide();
+            $("#child").hide();
+            return;
+        }else if(i==0){
+            $("#mengban").hide();
+            $("#child").hide();
+            $("#addPlan").submit();
+        }
     }
     </script>
 </body>
