@@ -4,6 +4,7 @@
     <title>八闽租车系统</title>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="JS/jquery-ui.css">
     <style>
         html,body{
             margin: 0;
@@ -170,11 +171,33 @@
 	.thead{
 	 background-color:#c0c0c0;
 	}
+    select{
+            border-radius:3px;border:1px solid #000;
+            width: 100px;
+            height: 30px;
+    }
     </style>
+    <script src="JS/jquery-1.11.3.js"></script>
+    <script src="JS/jquery-ui.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
     <script src="JS/jquery-1.12.0.js"></script>
     <script src="JS/jquery.dataTables.js"></script>
+    <script src="JS/jquery-1.11.3.js"></script>
+    <script src="JS/jquery-ui.js"></script>
+   <script src="JS/jquery/jquery-ui-timepicker-addon.js"></script>
+    <script src="JS/jquery/jquery-ui-timepicker-zh-CN.js"></script>
     <script type="text/javascript">
 	window.onload = function flush() {
+        $( "#datepicker1" ).datetimepicker({
+            regional:"zh-CN",
+            dateFormat:"yy-mm-dd",
+            timeFormat: "hh:mm:ss"
+        });
+        $( "#datepicker2" ).datetimepicker({
+            regional:"zh-CN",
+            dateFormat:"yy-mm-dd",
+            timeFormat: "hh:mm:ss"
+        });
 	/* code */  
 	 var obj1 = document.getElementById("lan");
 	 var obj2 = document.getElementById("main");
@@ -247,7 +270,19 @@
 	 	<td>出租时间</td><td>计划归还时间</td><td>借出时里程数</td>
 	</tr>
 	<tr>
-	 	<td><input/><input/></td><td><input/><input/></td><td><input/></td>
+	 	<td><input type="text" id="datepicker1" style="width:150px;">
+            <!--<select>
+                <option name="hour" value ="8">8:00:00</option>
+                <option name="hour" value ="9">9:00:00</option>
+                <option name="hour" value="10">10:00:00</option>
+                <option name="hour" value="11">11:00:00</option>
+                <option name="hour" value="14">14:00:00</option>
+                <option name="hour" value="15">15:00:00</option>
+                <option name="hour" value="16">16:00:00</option>
+                <option name="hour" value="17">17:00:00</option>
+            </select><label>时</label>  -->
+        </td>
+        <td><input type="text" id="datepicker2" style="width:150px;"></td><td><input/></td>
 	</tr>
 	</table>
 	<p class="p1">出租计费</p>
