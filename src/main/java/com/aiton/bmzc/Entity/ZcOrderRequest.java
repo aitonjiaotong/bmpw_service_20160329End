@@ -25,8 +25,25 @@ public class ZcOrderRequest {
     private Integer getCar;//取车地点
     private Integer returnCar;//还车地点
     private Integer hasDriver;//0:带 1：不带
-    private Integer lei; //车辆类型，0：公务一型 1：公务二型 2：商务型
     private Integer driverId;
+    private Integer carId;
+    private String institutionsCode;
+
+    public String getInstitutionsCode() {
+        return institutionsCode;
+    }
+
+    public void setInstitutionsCode(String institutionsCode) {
+        this.institutionsCode = institutionsCode;
+    }
+
+    public Integer getCarId() {
+        return carId;
+    }
+
+    public void setCarId(Integer carId) {
+        this.carId = carId;
+    }
 
     public Integer getDriverId() {
         return driverId;
@@ -34,14 +51,6 @@ public class ZcOrderRequest {
 
     public void setDriverId(Integer driverId) {
         this.driverId = driverId;
-    }
-
-    public Integer getLei() {
-        return lei;
-    }
-
-    public void setLei(Integer lei) {
-        this.lei = lei;
     }
 
     public String getModel() {

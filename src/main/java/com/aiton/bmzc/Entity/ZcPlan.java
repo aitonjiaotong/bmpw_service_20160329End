@@ -19,6 +19,16 @@ public class ZcPlan {
     private Double outMileage;//超里程价格
     private Double outTime;//超时小时价
     private Integer flag;//0：可用 1：删除
+    private Integer jijia;//计价方式 0：天 1：小时 2：月
+
+    public Integer getJijia() {
+        return jijia;
+    }
+
+    public void setJijia(Integer jijia) {
+        this.jijia = jijia;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {

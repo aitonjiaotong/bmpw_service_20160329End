@@ -33,6 +33,7 @@ public class ZcCar {
     private Integer planId;
     private Integer lei;//车辆类型，0：经济型 1：舒适型 2：豪华型
     private Integer store_id;//车辆所在门店id
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {

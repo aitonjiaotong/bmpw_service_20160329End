@@ -38,6 +38,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     public ZcOrder addOrder1(ZcOrderRequest order_request) {
         ZcOrder order=new ZcOrder();
         order.setStatus(0);
+        order.setInstitutionsCode(order_request.getInstitutionsCode());
         order.setPlanId(order_request.getPlan_id());
         order.setGetCar(order_request.getGetCar());
         order.setReturnCar(order_request.getReturnCar());
@@ -46,13 +47,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         order.setPrice(order_request.getPrice());
         order.setInsurance(order_request.getInsurance());
         order.setHasDriver(order_request.getHasDriver());
-        List<ZcCar>cars=carRespository.findCar(order_request.getLei());
-        if(cars.isEmpty()){
-           return null;
-        }
-        Random ran=new Random();
-        int s = ran.nextInt(cars.size());
-        ZcCar car=cars.get(s);
+        ZcCar car=carRespository.findOne(order_request.getCarId());
         order.setBeforeMileage(car.getMileage());
         car.setStatus(1);//车辆被租出
         order.setCarId(car.getId());
@@ -249,5 +244,21 @@ public class ZcOrderServiceImpl implements ZcOrderService {
             search="%"+search+"%";
         }
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public ZcCarAndPlan beforeOrder(Integer lei) {
+        List<ZcCar>cars=carRespository.findCar(lei);
+        if(cars.isEmpty()){
+            return null;
+        }
+        Random ran=new Random();
+        int s = ran.nextInt(cars.size());
+        ZcCar car=cars.get(s);
+        ZcPlan plan=planRepository.findOne(car.getPlanId());
+        ZcCarAndPlan carPlan=new ZcCarAndPlan();
+        carPlan.setCar(car);
+        carPlan.setPlan(plan);
+        return carPlan;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }
