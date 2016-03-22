@@ -110,7 +110,8 @@
         #btns button{
             width:100px;
             height:25px;
-            border-radius:3px;border:1px solid #000;
+            border-radius:3px;
+            border:1px solid #000;
             margin: 10px;
         }
         #child{
@@ -170,7 +171,10 @@
         legend{
             text-align:center;
         }
-
+        #plans{
+            text-align: center;
+            border:1px solid #000000;
+        }
     </style>
 </head>
 <body>
@@ -178,7 +182,7 @@
 <div class="top2"></div>
 <div class="top3"><div><p><img src="images/zulenfangan.png">租赁方案</p></div></div>
 <div class="mainpage">
-   <div>
+   <div id="loadplans">
        <table id="plans">
            <thead>
             <tr>
@@ -187,6 +191,8 @@
                <th>单位时间限里程</th>
                <th>超程基价（元/公里）</th>
                <th>超时小时价（元/小时）</th>
+               <th>方案状态</th>
+                <th></th>
             </tr>
            </thead>
        </table>
@@ -256,6 +262,9 @@
 <script>
     $(function(){
         $("#plans").dataTable({
+            "serverSide":true,
+            "processing": true,
+            "ajax":"/bmpw/zc/plan/loadplan",
             "bSort":false,
             "bLengthChange":false,
             "bInfo":false,
@@ -271,9 +280,52 @@
                     "sNext": "后一页",
                     "sLast": "尾页"
                 },
-                "sSearch":"根据联系人名/电话查询"
-
+                "sSearch":"根据方案名查询"
+            },
+            "columns":[
+                { "data": "name" },
+                { "data": "price" },
+                { "data": "unitMileage"},
+                { "data": "outMileage"},
+                { "data": "outTime"},
+                { "data": "flag"},
+                { "data": ""}
+            ],
+                "createdRow": function ( row, data, dataindex ) {
+            if(data.flag==0){
+                $('td', row).eq(5).text("方案使用中");
             }
+            if(data.flag==1){
+                $('td', row).eq(5).text("方案已删除");
+                $('td', row).eq(6).text("");
+            }
+        },
+            "columnDefs":[{
+                "targets":-1,
+                "data":null,
+                "sDefaultContent":"<button style='border-radius: 3px;border:1px solid #000000'>删除</button>"
+            }]
+        });
+        $("#loadplans").on("click","button",function(){
+            var data = $("#plans").DataTable().row($(this).parents("tr")).data();
+            var id=data.id;
+            $.ajax({
+                url:"/bmpw/zc/plan/delplan",
+                dataType:"json",
+                type:"post",
+                data:{"planId":id},
+                success:function(data){
+                    if(data){
+                        alert("删除成功！");
+                        window.location.reload();
+                    }else{
+                        alert("删除失败");
+                    }
+                },
+                error:function(){
+                    alert("修改失败");
+                }
+            });
         });
     });
     function showChild() {
