@@ -92,4 +92,18 @@ public class ZcPlan {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "ZcPlan{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", unitMileage=" + unitMileage +
+                ", outMileage=" + outMileage +
+                ", outTime=" + outTime +
+                ", flag=" + flag +
+                ", jijia=" + jijia +
+                '}';
+    }
 }

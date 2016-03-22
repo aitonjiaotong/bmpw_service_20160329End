@@ -67,7 +67,7 @@ public class GetData {
 
     private static final String getBusLine_url = "https://218.5.80.24:3061/api/Busline/Get";
     private static final String getStation_url = "https://218.5.80.24:3061/api/Station/GetLineStation";
-    private static final String getBus_url = "https://218.5.80.24:3061/api/Car/Get";
+    private static final String getBus_url = "https://218.5.80.24:3061/api/car/Get";
     private static final String getDriver_url = "https://218.5.80.24:3061/api/Driver/Get";
     private static final String getPlanRunTime_url = "https://218.5.80.24:3061/api/run/GetPlanRunTime";
     private static final String getDriverWorkTime_url = "https://218.5.80.24:3061/api/run/GetDriverWorkTime";

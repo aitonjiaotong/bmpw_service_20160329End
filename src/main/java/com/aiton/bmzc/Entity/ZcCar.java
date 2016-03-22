@@ -31,7 +31,7 @@ public class ZcCar {
     private String image;
     private String note;//备注
     private Integer planId;
-    private Integer lei;//车辆类型，0：经济型 1：舒适型 2：豪华型
+    private Integer lei;//价位类型，0：经济型 1：舒适型 2：豪华型
     private Integer store_id;//车辆所在门店id
 
     @Id
@@ -221,5 +221,31 @@ public class ZcCar {
 
     public void setStore_id(Integer store_id) {
         this.store_id = store_id;
+    }
+
+    @Override
+    public String toString() {
+        return "ZcCar{" +
+                "licensePlate='" + licensePlate + '\'' +
+                ", model='" + model + '\'' +
+                ", type='" + type + '\'' +
+                ", box='" + box + '\'' +
+                ", pailiang='" + pailiang + '\'' +
+                ", seat=" + seat +
+                ", zidong=" + zidong +
+                ", color='" + color + '\'' +
+                ", engineCode='" + engineCode + '\'' +
+                ", mileage=" + mileage +
+                ", maintenanceMileage=" + maintenanceMileage +
+                ", status=" + status +
+                ", deposit=" + deposit +
+                ", buyDate='" + buyDate + '\'' +
+                ", inspection='" + inspection + '\'' +
+                ", image='" + image + '\'' +
+                ", note='" + note + '\'' +
+                ", planId=" + planId +
+                ", lei=" + lei +
+                ", store_id=" + store_id +
+                '}';
     }
 }
