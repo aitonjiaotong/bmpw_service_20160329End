@@ -1,6 +1,6 @@
 ﻿{
-		"version": 10,
-		"feature": "1. 上线快递查询功能 \r\n2. 上线旅游旅行功能 \r\n3.解决若干BUG",
-		"apkurl":  "http://120.55.166.203:8080/bmpw/apk/upgrade1.0.9.apk",
+		"version": 11,
+		"feature": "1. 将长途客票《我的》页面改为《更多》页面 \r\n2. 快递增加条形码扫描输入功能 \r\n3.解决若干BUG",
+		"apkurl":  "http://120.55.166.203:8080/bmpw/apk/upgrade1.1.0.apk",
 		"filelen": 0
 }
