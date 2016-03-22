@@ -176,7 +176,7 @@
            </table>
        </div>
        <div id="others">
-
+            <form id="updateCar" action="/bmpw/zc/car/updateCar" method="post">
            <table>
                <tr>
                    <td colspan="5"><h4>基本信息|照片|保险及缴费信息</h4></td>
@@ -218,10 +218,12 @@
                </tr>
            </table>
            <div id="btns">
-                    <input type="button" value="修改">
-                    <input type="button" value="车辆删除">
-                    <input type="button" value="违章查询">
+                    <input type="button" value="修改" onclick="updateCar();">
+                    <input type="button" value="车辆删除" onclick="deteleCar();">
+                    <input type="button" value="违章查询" onclick="loadPeccancy();">
            </div>
+                <input type="hidden" name="id"/>
+            </form>
        </div>
    </div>
    <div class="lan1">
@@ -310,8 +312,19 @@
                 $(":input[name=maintenanceMileage]").val(data.maintenanceMileage);
                 $(":input[name=buyDate]").val(data.buyDate);
                 $(":input[name=note]").val(data.note);
+                $(":input[name=id]").val(data.id);
             });
         });
+        function updateCar(){
+            $("#updateCar").submit();
+        }
+        function deteleCar(){
+            var carId = $(":input[name=id]").val();
+            window.location.href = "/bmpw/zc/car/deleteCar?id="+carId;
+        }
+        function loadPeccancy(){
+            window.location.href = "#";
+        }
     </script>
 </body>
 </html>
