@@ -131,8 +131,18 @@
         #btns button{
             margin-right:50px ;
         }
+        #cars{
+           border-collapse: collapse;
+        }
         #cars td,th{
             text-align: center;
+            border:1px solid #000000;
+        }
+        .light{
+            color: red;
+        }
+        .oo{
+            background-color: #cccccc;
         }
     </style>
 </head>
@@ -233,7 +243,7 @@
                 "ajax":"/bmpw/zc/car/loadcars",
                 "scrollY": "200px",
                 "scrollCollapse": "true",
-                "bFilter":false,
+                "bFilter":true,
                 "bSort":false,
                 "bLengthChange":false,
                 "bInfo":false,
@@ -248,7 +258,8 @@
                         "sPrevious": "前一页",
                         "sNext": "后一页",
                         "sLast": "尾页"
-                    }
+                    },
+                    "sSearch":"搜索车牌号"
 
                 },
                 "columns":[
@@ -257,7 +268,27 @@
                     { "data": "model"},
                     { "data": "deposit"},
                     { "data": "mileage"}
-                ]
+                ],
+                "createdRow": function ( row, data, dataindex ) {
+                    if(data.status==0){
+                        $('td', row).eq(1).text("车辆空闲");
+                    }
+                    if(data.status==1){
+                        $('td', row).eq(1).text("车辆已出租");
+                    }
+                    if(data.status==2){
+                        $('td', row).eq(1).text("车辆停租");
+                    }
+                }
+            });
+            $("#loadcars").on("click","td",function(){
+                $("tr.light").removeClass("light");
+                $($(this).parent("tr")).addClass("light");
+                $("td.oo").removeClass("oo");
+                $(this).addClass("oo");
+                $(this).siblings().addClass("oo");
+                var data = $("#cars").DataTable().row($(this).parents("tr")).data();
+//                alert(data.status);
             });
         });
     </script>
