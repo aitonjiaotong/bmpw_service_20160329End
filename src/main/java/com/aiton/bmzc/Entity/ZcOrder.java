@@ -42,6 +42,7 @@ public class ZcOrder {
     private Integer status;//0：企业租车 1；个人租车
     private Double insurance;//保险金额
     private String sale;//收款人账号
+    private String institutionsCode;//企业账号
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
@@ -306,5 +307,14 @@ public class ZcOrder {
 
     public void setSale(String sale) {
         this.sale = sale;
+    }
+    @Basic
+    @Column
+    public String getInstitutionsCode() {
+        return institutionsCode;
+    }
+
+    public void setInstitutionsCode(String institutionsCode) {
+        this.institutionsCode = institutionsCode;
     }
 }

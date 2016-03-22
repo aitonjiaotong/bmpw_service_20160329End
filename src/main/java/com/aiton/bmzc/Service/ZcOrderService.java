@@ -1,9 +1,7 @@
 package com.aiton.bmzc.Service;
 
 import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Entity.ZcContainsNum;
-import com.aiton.bmzc.Entity.ZcOrder;
-import com.aiton.bmzc.Entity.ZcOrderRequest;
+import com.aiton.bmzc.Entity.*;
 
 import java.sql.Timestamp;
 
@@ -23,4 +21,5 @@ public interface ZcOrderService {
     ZcContainsNum loadorderByaccount(Integer accountId,Integer page);
     DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length,String search);
     ZcOrder addOrder2(ZcOrderRequest order_request);
+    ZcCarAndPlan beforeOrder(Integer lei);
 }
