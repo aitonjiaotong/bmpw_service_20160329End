@@ -109,9 +109,13 @@
         #others table{
             margin: 0;
         }
-        #others input{
+        #others input[type=text]{
             margin-right: 59px;
             margin-bottom: 10px;
+            border-radius:3px;
+            border:1px solid #000;
+            height: 25px;
+            width: 130px;
         }
         input,textarea{
             border-radius:5px;
@@ -128,8 +132,13 @@
         #btns{
             text-align: center;
         }
-        #btns button{
+        #btns input[type=button]{
+            margin-top: 20px;
             margin-right:50px ;
+            border-radius:3px;
+            border:1px solid #000;
+            height: 25px;
+            width: 100px;
         }
         #cars{
            border-collapse: collapse;
@@ -144,6 +153,7 @@
         .oo{
             background-color: #cccccc;
         }
+
     </style>
 </head>
 <body>
@@ -166,52 +176,54 @@
            </table>
        </div>
        <div id="others">
-
+            <form id="updateCar" action="/bmpw/zc/car/updateCar" method="post">
            <table>
                <tr>
                    <td colspan="5"><h4>基本信息|照片|保险及缴费信息</h4></td>
                </tr>
                <tr>
                    <td>车辆编号(车牌号)</td>
-                   <td><input type="text"/></td>
+                   <td><input type="text" name="licensePlate"/></td>
                    <td>颜色</td>
-                   <td><input type="text"/></td>
+                   <td><input type="text" name="color"/></td>
                    <td>年检日期</td>
-                   <td><input type="text"/></td>
+                   <td><input type="text" name="inspection"/></td>
                </tr>
                <tr>
                    <td>车辆状态</td>
-                   <td><input type="text"/></td>
+                   <td><input type="radio" value="0" name="status"/>空闲<input type="radio" value="1" name="status">出租</td>
                    <td>发动机编号</td>
-                   <td><input type="text"/></td>
+                   <td><input type="text" name="engineCode"/></td>
                </tr>
                <tr>
                    <td>车型</td>
-                   <td><input type="text"/></td>
+                   <td><input type="text" name="type"/></td>
                    <td>当前里程数</td>
-                   <td><input type="text"/></td>
+                   <td><input type="text" name="mileage"/></td>
                </tr>
                <tr>
                    <td>押金标准</td>
-                   <td><input type="text"/></td>
+                   <td><input type="text" name="deposit"/></td>
                    <td>保养里程数</td>
-                   <td><input type="text"/></td>
+                   <td><input type="text" name="maintenanceMileage"/></td>
                </tr>
                <tr>
                    <td>品牌</td>
-                   <td><input type="text"/></td>
+                   <td><input type="text" name="model"/></td>
                    <td>购买日期</td>
-                   <td><input type="text"/></td>
+                   <td><input type="text" name="buyDate"/></td>
                </tr>
                <tr>
-                   <td colspan="6"><span id="notetitle">备注</span><textarea></textarea></td>
+                   <td colspan="6"><span id="notetitle">备注</span><textarea name="note"></textarea></td>
                </tr>
            </table>
            <div id="btns">
-                   <button>修改</button>
-                   <button>车辆删除</button>
-                   <button>违章查询</button>
+                    <input type="button" value="修改" onclick="updateCar();">
+                    <input type="button" value="车辆删除" onclick="deteleCar();">
+                    <input type="button" value="违章查询" onclick="loadPeccancy();">
            </div>
+                <input type="hidden" name="id"/>
+            </form>
        </div>
    </div>
    <div class="lan1">
@@ -288,12 +300,31 @@
                 $(this).addClass("oo");
                 $(this).siblings().addClass("oo");
                 var data = $("#cars").DataTable().row($(this).parents("tr")).data();
-//                alert(data.status);
-            });
-            $("#cars tr").click( function (e){
-                alert("aa");
+                $(":input[name=licensePlate]").val(data.licensePlate);
+                $(":input[name=color]").val(data.color);
+                $(":input[name=model]").val(data.model);
+                $(":input[name=type]").val(data.type);
+                $(":input[name=inspection]").val(data.inspection);
+                $(":input[name=status]").attr("checked",data.status);
+                $(":input[name=engineCode]").val(data.engineCode);
+                $(":input[name=mileage]").val(data.mileage);
+                $(":input[name=deposit]").val(data.deposit);
+                $(":input[name=maintenanceMileage]").val(data.maintenanceMileage);
+                $(":input[name=buyDate]").val(data.buyDate);
+                $(":input[name=note]").val(data.note);
+                $(":input[name=id]").val(data.id);
             });
         });
+        function updateCar(){
+            $("#updateCar").submit();
+        }
+        function deteleCar(){
+            var carId = $(":input[name=id]").val();
+            window.location.href = "/bmpw/zc/car/deleteCar?id="+carId;
+        }
+        function loadPeccancy(){
+            window.location.href = "#";
+        }
     </script>
 </body>
 </html>
