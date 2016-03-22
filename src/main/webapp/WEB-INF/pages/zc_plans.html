@@ -113,33 +113,65 @@
             border-radius:3px;border:1px solid #000;
             margin: 10px;
         }
+        #child{
+            left:40%;
+            display: none;
+            background-color:#fff;
+            width : 700px;
+            height : 550px;
+            margin-left : 500;
+            border : 1px solid #000;
+            z-index : 999;
+            position: absolute;
+            font-size: 20px;
+        }
+        #mengban {
+            width : 100%;
+            height: 100%;
+            position : absolute;
+            z-index : 998;
+            background-color:#999;
+            filter:alpha(Opacity=80);
+            -moz-opacity:0.5;
+            opacity: 0.5;
+        }
+        #child input[type=text]{
+            width:200px;
+            height:30px;
+            border-radius:3px;border:1px solid #000;
+            margin: 10px;
+        }
+        #child input[type=button]{
+            border-radius:3px;border:1px solid #000;
+            margin: 10px;
+            width:150px;
+            height: 30px;
+        }
+        #child input[type=radio]{
+            margin: 10px;
+            height: 20px;
+        }
+        #child .headDiv{
+            padding-left:20px ;
+            background-color: #1f5377;
+            height: 50px;
+            line-height: 50px;
+            color:#fff;
+        }
+        .childTable{
+            margin-left:10px;
+            width:100%;
+            text-align:center;
+        }
+        fieldset{
+            margin: 20px;
+            border-radius:3px;border:1px solid #aaa;
+        }
+        legend{
+            text-align:center;
+        }
+
     </style>
-    <script src="JS/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <script src="JS/liger/ligerUI/js/core/base.js" type="text/javascript"></script>
-    <script src="JS/liger/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
-    <script src="JS/liger/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
-    <script src="JS/liger/ligerUI/js/ligerui.all.js" type="text/javascript"></script>
-    <script>
-    function f_open()
-    {
-        $.ligerDialog.open({
-        height:600,
-        width: 800,
-        title : '打开窗口提示',
-        url: 'dialogContent.htm',
-        showMax: false,
-        showToggle: true,
-        showMin: false,
-        isResize: true,
-        slide: false,
-        data: {
-            name: "aaa"
-        },
-        //自定义参数
-        myDataName: "bbb"
-        });
-    }
-    </script>
 </head>
 <body>
 <div class="top1">租车行</div>
@@ -160,9 +192,43 @@
        </table>
    </div>
     <div id="btns">
-        <input onclick="f_open()" type="button" value="open window with button">
-        <button>新增</button>
+        <button onclick="showChild()">新增</button>
         <button>退出</button>
+    </div>
+    <div id="child">
+        <div class="headDiv"><p>新增租赁方案</p></div>
+        <div>
+            <form>
+            <table class="childTable">
+             <tr>
+                 <td>方案名称</td><td><input style="width:300px;" type="text"/></td>
+             </tr>
+            </table>
+
+            <fieldset>
+                <legend>计价单位</legend>
+                    <table class="childTable">
+                        <tr>
+                    <td><input type="radio" name="jijia" checked="checked"/><label>按天</label></td>
+            <!--    <td><input type="radio" name="jijia"/>包月</td>
+                    <td><input type="radio" name="jijia"/>计时</td>     -->
+                        </tr>
+                    </table>
+            </fieldset>
+                <table class="childTable" style="margin-bottom: 50px;">
+                    <tr><td>价格（元）</td><td><input type="text"/></td></tr>
+                    <tr><td>单位时间内限里程</td><td><input type="text"/></td></tr>
+                    <tr><td>超程基价</td><td><input type="text"/></td></tr>
+                    <tr><td>超时小时价（元/小时）</td><td><input type="text"/></td></tr>
+                </table>
+                <table class="childTable">
+                    <tr style="padding: 20px;margin: 20px;">
+                        <td><input style="margin-left:120px;" type="button" value="确定" onclick="hideDiv(0)"/></td>
+                        <td><input style="margin-right:120px;" type="button"  value="取消" onclick="hideDiv(1)"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
 </div>
 <div class="lan1">
@@ -183,6 +249,8 @@
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Account"><img src="images/kehu.png"/>客户</a></p>
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Appointment"><img src="images/yudingdengji.png"/>预定登记</a></p>
     </div>
+</div>
+<div id="mengban" style="display:none"><!--这是蒙板--></div>
 </div>
 <script src="JS/jquery-1.12.0.js"></script>
 <script src="JS/jquery.dataTables.js"></script>
@@ -209,6 +277,17 @@
             }
         });
     });
-</script>
+    function showChild() {
+        var x = $("body").offset().left;
+        var y = $("body").offset().top;
+        $("#mengban").css({'left':x+'px','top':y+'px'});
+        $("#mengban").show();
+        $("#child").show();
+    }
+    function hideDiv() {
+        $("#mengban").hide();
+        $("#child").hide();
+    }
+    </script>
 </body>
 </html>
