@@ -47,9 +47,13 @@ public class ZcCarServiceImpl implements ZcCarService {
         }else{
             search="%"+search+"%";
             dataTables.setData(carRespository.findCarsLicensePlateLike(search,new PageRequest(page,length)));
-            Long l=Long.valueOf(carRespository.countCarsLicensePlateLike(search).toString());
-            dataTables.setRecordsFiltered(l);
-//            System.out.println("长度为"+l);
+            Object o=carRespository.countCarsLicensePlateLike(search);
+            if(o==null){
+                dataTables.setRecordsFiltered(0l);
+            }else{
+                dataTables.setRecordsFiltered(Long.valueOf(o.toString()));
+            }
+
         }
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }
