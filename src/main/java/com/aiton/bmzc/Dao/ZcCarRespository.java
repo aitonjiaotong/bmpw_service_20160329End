@@ -25,4 +25,8 @@ public interface ZcCarRespository extends JpaRepository<ZcCar,Integer>{
     List<ZcCar>find(@Param("model")String model,@Param("ctype")String ctype,@Param("box")String box,@Param("pailiang")String pailiang,@Param("seat")Integer seat,@Param("planId")Integer planId);
     @Query("from ZcCar where lei=?")
     List<ZcCar> findCar(Integer lei);
+    @Query("select c from ZcCar as c where licensePlate like ?")
+    List<ZcCar> findCarsLicensePlateLike(String licensePlate,Pageable pageable);
+    @Query("select count(c) from ZcCar as c where licensePlate like ?")
+    Object countCarsLicensePlateLike(String licensePlate);
 }
