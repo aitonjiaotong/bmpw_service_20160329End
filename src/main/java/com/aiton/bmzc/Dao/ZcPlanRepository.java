@@ -1,6 +1,7 @@
 package com.aiton.bmzc.Dao;
 
 import com.aiton.bmzc.Entity.ZcPlan;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,7 +17,9 @@ import java.util.List;
  */
 public interface ZcPlanRepository extends JpaRepository<ZcPlan,Integer> {
     @Query("from ZcPlan where flag=0")
-    List<ZcPlan> loadplans(Pageable pageable);
-    @Query("from ZcPlan where flag=0")
     List<ZcPlan> loadplan();
+    @Query("select p from ZcPlan as p where p.name like ?")
+    Page<ZcPlan> loadPlansByNameLike(String name,Pageable pageable);
+    @Query("select count(p) from ZcPlan p where p.name like ?")
+    Object countByNameLike(String name);
 }

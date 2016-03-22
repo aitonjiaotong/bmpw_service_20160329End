@@ -5,9 +5,12 @@ import com.aiton.bmzc.Dao.ZcPlanRepository;
 import com.aiton.bmzc.Entity.ZcPlan;
 import com.aiton.bmzc.Service.ZcPlanService;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -45,13 +48,28 @@ public class ZcPlanServiceImpl implements ZcPlanService {
     }
 
     @Override
-    public DataTables loadPlans(Integer draw, Integer start, Integer length) {
+    public DataTables loadPlans(Integer draw, Integer start, Integer length,HttpServletRequest request) throws UnsupportedEncodingException {
+        String search=request.getParameter("search[value]");
         Integer page=start/length;
         DataTables dataTables=new DataTables();
         dataTables.setDraw(draw);
         dataTables.setRecordsTotal(planRepository.count());
-        dataTables.setData(planRepository.loadplans(new PageRequest(page,length)));
-        dataTables.setRecordsFiltered(planRepository.count());
+        if(search==null||"".equals(search)){
+            dataTables.setData(planRepository.findAll(new PageRequest(page, length, new Sort(Sort.Direction.ASC,"flag"))).getContent());
+            dataTables.setRecordsFiltered(planRepository.count());
+        }else{
+            String str=new String(search.getBytes("ISO-8859-1"),"utf-8");
+            //System.out.println(str);
+            str="%"+str+"%";
+            Object o=planRepository.countByNameLike(str);
+            dataTables.setData(planRepository.loadPlansByNameLike(str,new PageRequest(page,length,new Sort(Sort.Direction.ASC,"flag"))).getContent());
+            if(o==null){
+                dataTables.setRecordsFiltered(0l);
+            }else{
+                dataTables.setRecordsFiltered(Long.valueOf(o.toString()));
+            }
+
+        }
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }
 

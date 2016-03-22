@@ -3,6 +3,8 @@ package com.aiton.bmzc.Service;
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Entity.ZcPlan;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -15,6 +17,6 @@ import java.util.List;
 public interface ZcPlanService {
     ZcPlan addPlan(ZcPlan plan);
     Boolean delPlan(Integer plan_id);
-    DataTables loadPlans(Integer draw,Integer start,Integer length);
+    DataTables loadPlans(Integer draw,Integer start,Integer length,HttpServletRequest request) throws UnsupportedEncodingException;
     List<ZcPlan>loadPlan();
 }

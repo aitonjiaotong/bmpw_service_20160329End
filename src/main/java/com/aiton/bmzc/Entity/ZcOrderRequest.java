@@ -27,7 +27,16 @@ public class ZcOrderRequest {
     private Integer hasDriver;//0:带 1：不带
     private Integer driverId;
     private Integer carId;
+    private Integer lei;
     private String institutionsCode;
+
+    public Integer getLei() {
+        return lei;
+    }
+
+    public void setLei(Integer lei) {
+        this.lei = lei;
+    }
 
     public String getInstitutionsCode() {
         return institutionsCode;
