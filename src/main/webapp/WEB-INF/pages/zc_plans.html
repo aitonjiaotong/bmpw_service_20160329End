@@ -5,6 +5,8 @@
     <meta charset="utf-8"/>
     <link rel="shortcut icon" href="assets/ico/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="JS/jquery.dataTables.css" type="text/css"/>
+    <link href="JS/liger/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css">
+    <link href="JS/liger/ligerUI/skins/ligerui-icons.css" rel="stylesheet" type="text/css">
     <style>
         html,body{
             margin: 0;
@@ -105,8 +107,39 @@
         #btns{
             text-align: center;
         }
-
+        #btns button{
+            width:100px;
+            height:25px;
+            border-radius:3px;border:1px solid #000;
+            margin: 10px;
+        }
     </style>
+    <script src="JS/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="JS/liger/ligerUI/js/core/base.js" type="text/javascript"></script>
+    <script src="JS/liger/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
+    <script src="JS/liger/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
+    <script src="JS/liger/ligerUI/js/ligerui.all.js" type="text/javascript"></script>
+    <script>
+    function f_open()
+    {
+        $.ligerDialog.open({
+        height:600,
+        width: 800,
+        title : '打开窗口提示',
+        url: 'dialogContent.htm',
+        showMax: false,
+        showToggle: true,
+        showMin: false,
+        isResize: true,
+        slide: false,
+        data: {
+            name: "aaa"
+        },
+        //自定义参数
+        myDataName: "bbb"
+        });
+    }
+    </script>
 </head>
 <body>
 <div class="top1">租车行</div>
@@ -127,6 +160,7 @@
        </table>
    </div>
     <div id="btns">
+        <input onclick="f_open()" type="button" value="open window with button">
         <button>新增</button>
         <button>退出</button>
     </div>
