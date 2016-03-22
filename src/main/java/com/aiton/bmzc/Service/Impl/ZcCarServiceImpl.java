@@ -60,7 +60,7 @@ public class ZcCarServiceImpl implements ZcCarService {
 
     @Override
     public ZcCar addCar(ZcCar car,HttpServletRequest request) {
-        if(carRespository.findOne(car.getId())!=null){
+        if(car.getId()!=null){
             return null;
         }
         ServletContext context=request.getServletContext();
