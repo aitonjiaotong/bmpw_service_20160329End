@@ -17,7 +17,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface ZcCarRespository extends JpaRepository<ZcCar,Integer>{
-    @Query("select distinct new com.aiton.bmzc.Entity.ZcCarPlan(c.model,c.type,c.box,c.pailiang,c.seat,c.zidong,c.planId,c.image) from ZcCar as c where status=0")
+    @Query("select c  from ZcCar as c where status=0")
     List<ZcCarPlan> findCanUseCar(Pageable pageable);
     @Query("select distinct new com.aiton.bmzc.Entity.ZcCarPlan(c.model,c.type,c.box,c.pailiang,c.seat,c.zidong,c.planId,c.image) from ZcCar as c where status=0")
     List<ZcCarPlan> CountCanUseCar();
