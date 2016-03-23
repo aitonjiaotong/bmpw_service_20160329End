@@ -92,7 +92,7 @@ public class ZcPlanServiceImpl implements ZcPlanService {
             dataTables.setRecordsTotal(Long.valueOf(planRepository.CountCanUsePlan().toString()));
             dataTables.setRecordsFiltered(Long.valueOf(planRepository.CountCanUsePlan().toString()));
         }
-        dataTables.setData(planRepository.loadCanUsePlan(new PageRequest(page,length)));
+        dataTables.setData(planRepository.loadCanUsePlan(new PageRequest(page,length)).getContent());
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }
