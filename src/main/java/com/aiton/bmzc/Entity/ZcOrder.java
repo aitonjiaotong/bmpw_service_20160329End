@@ -317,4 +317,40 @@ public class ZcOrder {
     public void setInstitutionsCode(String institutionsCode) {
         this.institutionsCode = institutionsCode;
     }
+
+    @Override
+    public String toString() {
+        return "ZcOrder{" +
+                "id=" + id +
+                ", carId=" + carId +
+                ", planId=" + planId +
+                ", zuchuDate=" + zuchuDate +
+                ", huancheDate=" + huancheDate +
+                ", planReturnDate=" + planReturnDate +
+                ", limitMileage=" + limitMileage +
+                ", accountId=" + accountId +
+                ", guarantorId=" + guarantorId +
+                ", beforeMileage=" + beforeMileage +
+                ", afterMileage=" + afterMileage +
+                ", jijiatime=" + jijiatime +
+                ", timePrice=" + timePrice +
+                ", outMileagePrice=" + outMileagePrice +
+                ", outTimePrice=" + outTimePrice +
+                ", zuPrice=" + zuPrice +
+                ", shouyajin=" + shouyajin +
+                ", price=" + price +
+                ", note='" + note + '\'' +
+                ", flag=" + flag +
+                ", driverId=" + driverId +
+                ", hasDriver=" + hasDriver +
+                ", getCar=" + getCar +
+                ", returnCar=" + returnCar +
+                ", advancePayment=" + advancePayment +
+                ", date=" + date +
+                ", status=" + status +
+                ", insurance=" + insurance +
+                ", sale='" + sale + '\'' +
+                ", institutionsCode='" + institutionsCode + '\'' +
+                '}';
+    }
 }
