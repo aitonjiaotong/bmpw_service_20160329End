@@ -233,10 +233,11 @@
             var data = $("#planTable").DataTable().row($(this).parents("tr")).data();
             $(":input[name=planName]").val(data.name);
             $(":input[name=planId]").val(data.id);
+            alert(data.jijia);
             if(data.jijia == 0){
                 $(":input[type=radio][value=\"0\"]").attr("checked",true);
             }
-            if(data.jijia == 1){
+            if(data.jijia ==1){
                 $(":input[type=radio][value=\"1\"]").attr("checked",true);
             }
             if(data.jijia == 2){
@@ -293,6 +294,42 @@
             $(":input[name=carId]").val(data.carId);
         });
         /*上面的代码是为了捆绑事件*/
+
+        /*下面开始获取客户信息*/
+        $("#countTable").dataTable({
+            "serverSide":true,
+            "processing": true,
+            "ajax":"/bmpw/zc/account/loadaccounts",
+            "scrollY": "200px",
+            "scrollCollapse": "true",
+            "bFilter":false,
+            "bSort":false,
+            "bLengthChange":false,
+            "bInfo":false,
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+                "sSearch":"搜索车牌号"
+            },
+            "columns":[
+                { "data": "name" },
+                { "data": "login_id" },
+                { "data": "idCard"},
+                { "data": "bankCard"},
+                { "data": "phone"},
+                { "data": "address"}
+            ]
+        });
+
 
         var obj1 = document.getElementById("lan");
         var obj2 = document.getElementById("main");
@@ -412,10 +449,15 @@
 	</tr>
 	</table>
     <div id="child2" class="childwindow">
-        <table class="tableChild">
-            <thead class="thead"><th>方案名称</th><th>单价</th>
-            <th>单位里程数</th><th>超里程价格</th>
-            <th>超时小时价</th><th>标志</th></thead>
+        <table id="countTable" class="tableChild">
+            <thead class="thead">
+                <th>客户名称</th>
+                <th>登陆名</th>
+                <th>证件号</th>
+                <th>银行卡号</th>
+                <th>电话号码</th>
+                <th>地址</th>
+            </thead>
         </table>
     </div>
 	<p class="p1">担保人信息</p>
