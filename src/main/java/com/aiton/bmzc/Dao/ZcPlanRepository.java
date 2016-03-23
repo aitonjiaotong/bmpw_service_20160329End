@@ -22,4 +22,8 @@ public interface ZcPlanRepository extends JpaRepository<ZcPlan,Integer> {
     Page<ZcPlan> loadPlansByNameLike(String name,Pageable pageable);
     @Query("select count(p) from ZcPlan p where p.name like ?")
     Object countByNameLike(String name);
+    @Query("select p from ZcPlan as p where flag=0")
+    Page<ZcPlan> loadCanUsePlan(Pageable pageable);
+    @Query("select count(p) from ZcPlan p where flag=0")
+    Object CountCanUsePlan();
 }

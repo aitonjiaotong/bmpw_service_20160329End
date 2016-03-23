@@ -78,4 +78,21 @@ public class ZcPlanServiceImpl implements ZcPlanService {
         List<ZcPlan>plans=planRepository.loadplan();
         return plans;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    @Override
+    public DataTables loadCanUsePlan(Integer draw, Integer start, Integer length) {
+        DataTables dataTables=new DataTables();
+        Integer page=start/length;
+        dataTables.setDraw(draw);
+        Object o=planRepository.CountCanUsePlan();
+        if(o==null){
+            dataTables.setRecordsFiltered(0l);
+            dataTables.setRecordsTotal(0l);
+        }else{
+            dataTables.setRecordsTotal(Long.valueOf(planRepository.CountCanUsePlan().toString()));
+            dataTables.setRecordsFiltered(Long.valueOf(planRepository.CountCanUsePlan().toString()));
+        }
+        dataTables.setData(planRepository.loadCanUsePlan(new PageRequest(page,length)));
+        return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

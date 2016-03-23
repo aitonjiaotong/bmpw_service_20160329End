@@ -19,4 +19,5 @@ public interface ZcPlanService {
     Boolean delPlan(Integer plan_id);
     DataTables loadPlans(Integer draw,Integer start,Integer length,HttpServletRequest request) throws UnsupportedEncodingException;
     List<ZcPlan>loadPlan();
+    DataTables loadCanUsePlan(Integer draw,Integer start,Integer length);
 }
