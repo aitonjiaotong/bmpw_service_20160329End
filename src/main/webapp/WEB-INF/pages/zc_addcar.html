@@ -161,13 +161,14 @@
         margin-right:20px;
     }
         .tableChild{
+            clear:left;
             width:100%;
         }
     .childwindow{
             margin-left:20px;
             display:none;
-            width:40%;
-            height:30%;
+       /*     width:43%;
+            height:23%; */
             background-color:#f0f0f0;
             position:absolute;
             z-index:5;
@@ -175,11 +176,86 @@
     .thead{
             background-color:#c0c0c0;
     }
+        #childTable{
+            width:100%;
+            overflow:hidden;
+            border-collapse: collapse;/* 边框合并属性  */
+
+        }
+        .childwindow table td,th{
+            height: 30px;
+            text-align: center;
+            border:1px solid #000000;
+        }
+        #childTable tr{
+            height: 30px;
+        }
+        .light{
+            color: red;
+        }
+        .oo{
+            background-color: #cccccc;
+        }
     </style>
     <script src="JS/jquery-1.12.0.js"></script>
     <script src="JS/jquery.dataTables.js"></script>
     <script>
     $(function (){
+            $("#childTable").dataTable({
+                "searching":false,
+                "serverSide": true,
+                "processing": true,
+                "ajax": "/bmpw/zc/plan/loadplan",
+                "bSort": false,
+                "bLengthChange": false,
+                "bInfo": false,
+                "oLanguage": {
+                    "sLengthMenu": "每页显示 _MENU_ 条记录",
+                    "sZeroRecords": "抱歉， 没有找到",
+                    "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                    "sInfoEmpty": "没有数据",
+                    "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "前一页",
+                        "sNext": "后一页",
+                        "sLast": "尾页"
+                    }
+                },
+                "columns": [
+                    { "data": "name" },
+                    { "data": "price" },
+                    { "data": "unitMileage"},
+                    { "data": "outMileage"},
+                    { "data": "outTime"},
+                ],
+                "createdRow": function (row, data, dataindex) {
+                    if (data.flag == 0) {
+                        $('td', row).eq(5).text("方案使用中");
+                    }
+                    if (data.flag == 1) {
+                        $('td', row).eq(5).text("方案已删除");
+                        $('td', row).eq(6).text("");
+                    }
+                },
+                "columnDefs": [
+                    {
+                        "targets": -1,
+                        "data": null,
+                        "sDefaultContent": "<button style='border-radius: 3px;border:1px solid #000000'>删除</button>"
+                    }
+                ]
+            });
+        $("#child1").on("click","td",function(){
+            $("tr.light").removeClass("light");
+            $($(this).parent("tr")).addClass("light");
+            $("td.oo").removeClass("oo");
+            $(this).addClass("oo");
+            $(this).siblings().addClass("oo");
+            var data = $("#childTable").DataTable().row($(this).parents("tr")).data();
+            $(":input[name=planName]").val(data.name);
+            $(":input[name=planId]").val(data.id);
+        });
         $("#submit").click(function(){
             /*这里可以进行内容的验证*/
           /*  alert("开始提交表单"); */
@@ -233,7 +309,7 @@
 		<tr>
 			<td>年检日期</td><td><input type="text" name="inspection"/></td><td>
             <input id="choose" style="width:100%;" type="button" value="选择租车方案" onclick="choosePlan();"/></td>
-			<td><input type="text" readonly="true"/></td>
+			<td><input type="text" readonly="true" name="planName"/></td>
 		</tr>
 		<tr>
 			<td valign="top">备注</td><td colspan="3"><textarea id="drs" name="note"></textarea></td>
@@ -243,16 +319,23 @@
 		</tr>
 	</table>
            <div id="child1" class="childwindow">
-               <table class="tableChild">
-                   <thead class="thead"><th>方案名称</th><th>单价</th>
-                   <th>单位里程数</th><th>超里程价格</th>
-                   <th>超时小时价</th><th>标志</th></thead>
+               <table id="childTable" class="tableChild">
+                   <thead class="thead">
+                   <tr>
+                       <th>方案名称</th>
+                       <th>价格（单价）</th>
+                       <th>单位时间限里程</th>
+                       <th>超程基价（元/公里）</th>
+                       <th>超时小时价（元/小时）</th>
+                   </tr>
+                   </thead>
                </table>
            </div>
 	<table><tr>
 	   	<td class="td2"><input id="submit" class="button2" type="submit" value="保存"/></td>
 	       </tr>
 	</table>
+           <input type="hidden" name="planId"/>
        </form>
    </div>
    <div class="lan1">
