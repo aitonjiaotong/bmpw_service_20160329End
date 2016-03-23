@@ -227,7 +227,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     }
 
     /**
-     * 加载正在进行的订单
+     * 加载正在进行的订单，未还车
      * @return
      */
     @Override
