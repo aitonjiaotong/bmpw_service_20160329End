@@ -2,13 +2,96 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/HttpClientUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/MD5Util.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_15.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_6_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom_2_0_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_7_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_6_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/OrderUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/RamCharsUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/service/WxConnection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/controller/WxGetPrepayIdController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/controller/WxNotifyController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/XMLUtil.java" />
+      <change type="DELETED" beforePath="E:\o\bmpw\src\main\java\com\aiton\weixinapliy\ApliyUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\o\bmpw\src\main\java\com\aiton\weixinapliy\Service\apliService.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\o\bmpw\src\main\java\com\aiton\weixinapliy\WeixinController.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/ZcCarServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/ZcCarServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bmpw.iml" afterPath="$PROJECT_DIR$/bmpw.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/bmpwTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/bmpwTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/bmpw_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/bmpw_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_zuche.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_zuche.html" />
+      <change type="MOVED" beforePath="E:\o\bmpw\src\main\java\com\aiton\weixinapliy\Entity\WeixinapliyRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/entity/WxRequest.java" />
     </list>
     <list id="6b1da410-5610-477d-88f3-39a4c058c37c" name="Failed commit: Default" comment="类修正" />
-    <list id="abde8f7a-9fb4-4f59-abae-1b455fe05a51" name="Failed commit: Default (2)" comment="3.21" />
+    <list id="dce6827b-7a15-4c37-8996-f69b0fe26c7f" name="Failed commit: Default (2)" comment="机构租车和个人租车逻辑分离" />
     <ignored path="bmpw.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458699319424" ignored="false" />
+    <file path="/ZcCar.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458621516045" ignored="false" />
+    <file path="/ZcPlanRepository.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458630929767" ignored="false" />
+    <file path="/ZcPlanService.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458625677496" ignored="false" />
+    <file path="/ZcPlanServiceImpl.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458632226389" ignored="false" />
+    <file path="/ZcFrontLoadPlanController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458524866126" ignored="false" />
+    <file path="/ZcOrderRequest.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458622161105" ignored="false" />
+    <file path="/ZcOrderServiceImpl.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458638899237" ignored="false" />
+    <file path="/ZcCarRespository.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458698242455" ignored="false" />
+    <file path="/bmpwTest.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458646929641" ignored="false" />
+    <file path="/ZcCarPlan.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458525752295" ignored="false" />
+    <file path="/ZcCarServiceImpl.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458631664164" ignored="false" />
+    <file path="/ZcLoadCanUseCarController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458527102103" ignored="false" />
+    <file path="/ZcOrderCar.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458527975044" ignored="false" />
+    <file path="/ZcAddPersonOrderController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458528452428" ignored="false" />
+    <file path="/ZcEvaluation.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458551021951" ignored="false" />
+    <file path="/ZcOrder.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458621335118" ignored="false" />
+    <file path="/ZcCarPlanShow.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458546607422" ignored="false" />
+    <file path="/ZcAppointmentRespository.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458550200751" ignored="false" />
+    <file path="/ZcAppointmentService.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458549539841" ignored="false" />
+    <file path="/ZcAppointmentServiceImpl.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458550599497" ignored="false" />
+    <file path="/ZcDriver.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458552288295" ignored="false" />
+    <file path="/ZcDriverService.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458553216205" ignored="false" />
+    <file path="/ZcDriverServiceImpl.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458555902726" ignored="false" />
+    <file path="/ZcDriverRepository.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458556203734" ignored="false" />
+    <file path="/ZcOrderRepository.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458552545915" ignored="false" />
+    <file path="/ZcLoadFreeDriverController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458553883753" ignored="false" />
+    <file path="/ZcCarService.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458559199642" ignored="false" />
+    <file path="/ZcLoadCarsController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458559733258" ignored="false" />
+    <file path="/zc_cheliangxinxi.html" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458610083156" ignored="false" />
+    <file path="/WeixinapliyRequest.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458612706498" ignored="false" />
+    <file path="/apliService.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458613260612" ignored="false" />
+    <file path="/ApliService.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458615272932" ignored="false" />
+    <file path="/RandomStringUtil.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458619335093" ignored="false" />
+    <file path="/ApliyUtil.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458633929917" ignored="false" />
+    <file path="/WeiXinApliService.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458627778358" ignored="false" />
+    <file path="/ZcOrderService.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458620365936" ignored="false" />
+    <file path="/ZcCarAndPlan.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458620349288" ignored="false" />
+    <file path="/ZcLoadCarByLeiController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458638819797" ignored="false" />
+    <file path="/WeixinController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458636679553" ignored="false" />
+    <file path="/ZcPlan.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458625755760" ignored="false" />
+    <file path="/ZcLoadPlansController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458625835989" ignored="false" />
+    <file path="/zc_plans.html" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458630123650" ignored="false" />
+    <file path="/ZcDelPlanController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458629894422" ignored="false" />
+    <file path="/WeChatPayUtil.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458635736007" ignored="false" />
+    <file path="/pom.xml" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458643230588" ignored="false" />
+    <file path="/WxConnectionService.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458646218522" ignored="false" />
+    <file path="/WxConnection.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458646898313" ignored="false" />
+    <file path="/WxRequest.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458644523612" ignored="false" />
+    <file path="/fragment.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458695358635" ignored="false" />
+    <file path="/RamCharsUtil.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458646038662" ignored="false" />
+    <file path="E:/微信支付/wxpay/wxpay/wxpay/src/main/java/org/oms/app/util/HttpClientUtil.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458647967413" ignored="false" />
+    <file path="/WxGetProIdController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458694651346" ignored="false" />
+    <file path="/OrderUtil.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458695466588" ignored="false" />
+    <file path="/WxGetPrepayIdController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458698520722" ignored="false" />
+    <file path="/WxNotifyController.java" changelist="9fddcd09-43ad-4935-a2eb-ea4ff406f48e" time="1458696189569" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +116,7 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
         <option name="NOTIFY_UNCAUGHT" value="true" />
@@ -72,6 +155,9 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
     <ui_properties converted="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules />
+    <ui_properties />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -79,21 +165,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ZcAddCarController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/ZcAddCarController.java">
+      <file leaf-file-name="ZcCarServiceImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/ZcCarServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="437">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state line="129" column="53" selection-start="4676" selection-end="4676" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZcAppointmentController.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/ZcAppointmentController.java">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2254902" vertical-offset="0" max-vertical-offset="918">
-              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+            <state line="200" column="21" selection-start="6965" selection-end="6965" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZcCarRespository.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Dao/ZcCarRespository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="76" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WxConnection.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/service/WxConnection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="81" column="78" selection-start="3071" selection-end="3127" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WxGetPrepayIdController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/controller/WxGetPrepayIdController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="30" selection-start="836" selection-end="845" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1332#1348#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZcLoadCitiesController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/Store/ZcLoadCitiesController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="13" selection-start="527" selection-end="527" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZcLoadStoreController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/Store/ZcLoadStoreController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="46" selection-start="627" selection-end="652" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WxNotifyController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/controller/WxNotifyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="31" selection-start="627" selection-end="637" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WxRequest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/entity/WxRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="36" selection-start="224" selection-end="575" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,6 +266,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
@@ -117,57 +277,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmpw/Controller/PageController/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/entity/WxRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/ZcCarServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/MD5Util.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/RamCharsUtil.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/springapp/mvc/bmpwTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/XMLUtil.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/Login.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_addcar.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Entity/zc_Order.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Entity/Zc_Store.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/DCUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/global/Record.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/global/BMWallet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/global/DCDriver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/DCAddress.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/DCEvaluate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/global/SpenDetail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/global/RechargeDetail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/global/SpendDetail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/DCDriver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/DCDriverRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/DCEvaluateRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/DCOrderRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/global/BMWalletRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/global/RechargeDetailRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/global/SpendDetail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/global/SpendDetailRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/DCOrder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/zc_OrderServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/BaseQueue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/WaitOrderQueue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/ExecutingOrderQueue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/NullExecuteOrderQueue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/queue/BaseQueue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/inter/OrderInter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Entity/zc_car_plan.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/zc_InstitutionsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/zc_InstitutionsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Zc_PlanService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/Zc_PlanServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Zc_StoreService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/Zc_StoreServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Zc_CarService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/Zc_CarServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/Zc_CheliangxinxiController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/Zc_addStoreController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/Zc_AccountController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/Zc_ZucheController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/Zc_addCarController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/Zc_appointmentController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/Zc_returnCarController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/Zc_plansController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/HttpClientUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/controller/WxGetProIdController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/MD5.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/OrderUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/controller/WxNotifyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/service/WxConnection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Dao/ZcCarRespository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/controller/WxGetPrepayIdController.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -198,8 +323,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1305" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -264,7 +389,7 @@
     </ignored-problems>
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -276,6 +401,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -283,15 +409,9 @@
               <option name="myItemId" value="bmpw" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -301,55 +421,33 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -359,31 +457,291 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="aiton" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxApliy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aiton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxApliy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aiton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxApliy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aiton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxApliy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aiton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bmzc" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -393,35 +751,39 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="aiton" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bmzc" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="Service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -431,39 +793,31 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="aiton" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bmzc" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageController" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -473,27 +827,65 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bmpw" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="aiton" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmzc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aiton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bmzc" />
@@ -690,6 +1082,20 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmpw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -698,16 +1104,16 @@
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="251" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="263" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="263" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="255" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="255" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="E:/八闽票务/支付宝钱包支付接口开发包2.0标准版(20160120)/DEMO/服务端demo/JAVA-UTF-8" />
+    <property name="last_opened_file_path" value="E:/微信支付/wxpay/wxpay/wxpay" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="263" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1055" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1056" />
@@ -722,31 +1128,30 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="options.lastSelected" value="preferences.pluginManager" />
-    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.aiton.wxApliy.util" />
       <recent name="com.aiton.bmpw.Webservice" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\user\IdeaProjects\bmpw\src\main\webapp\WEB-INF\pages\JS\jquery" />
-      <recent name="C:\Users\user\IdeaProjects\bmpw\src\main\webapp\WEB-INF\pages\JS\liger\ligerUI\js\plugins" />
-      <recent name="E:\o\bmpw\src\main\webapp\WEB-INF\pages\images" />
-      <recent name="E:\o\bmpw\src\main\webapp\WEB-INF\pages\icon" />
-      <recent name="E:\o\bmpw\src\main\webapp\WEB-INF\pages\apk" />
-      <recent name="E:\o\bmpw\src\main\webapp\WEB-INF\lib" />
-      <recent name="E:\o\bmpw\src\main\webapp\WEB-INF\pages\assets\img" />
+      <recent name="E:\o\bmpw\src\main\java\com\aiton\weiXinPay" />
+      <recent name="E:\o\bmpw\src\main\java\com\aiton\weiXinPay\service" />
+      <recent name="E:\o\bmpw\src\main\java\com\aiton" />
+      <recent name="E:\o\bmpw\src\main\webapp\WEB-INF\pages\img" />
+      <recent name="E:\o\bmpw\src\main\webapp\WEB-INF\pages\JS\liger" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.aiton.bmpw.Entity.Show" />
@@ -812,9 +1217,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="XSLT" factoryName="XSLT">
       <option name="myOutputFile" />
       <option name="myOpenOutputFile" value="false" />
@@ -872,6 +1274,13 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -909,9 +1318,8 @@
       <option name="launchUrl" value="false" />
       <option name="launcherParameters">
         <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="browserFamily" value="FIREFOX" />
           <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
           <option name="playerPath" value="FlashPlayerDebugger.exe" />
         </LauncherParameters>
       </option>
@@ -928,7 +1336,7 @@
       <option name="usbDebugPort" value="7936" />
       <method />
     </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
       <deployment />
       <server-settings />
       <predefined_log_file id="Tomcat" enabled="true" />
@@ -947,7 +1355,6 @@
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -956,17 +1363,14 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" output_log_level="null" package_name="" scope="Class">
       <option name="BCName" value="" />
       <option name="launcherParameters">
         <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="browserFamily" value="FIREFOX" />
           <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
           <option name="playerPath" value="FlashPlayerDebugger.exe" />
         </LauncherParameters>
       </option>
@@ -976,10 +1380,7 @@
     </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
       <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -1008,14 +1409,19 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -1024,8 +1430,6 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
@@ -1034,16 +1438,7 @@
       <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
-    <configuration default="false" name="Tomcat 7.0" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0" ALTERNATIVE_JRE_ENABLED="false">
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Tomcat 7.0" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/bmpw/toZC_AddCar" />
-      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+    <configuration default="false" name="Tomcat 7.0" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0">
       <deployment>
         <artifact name="bmpw:war exploded">
           <settings>
@@ -1151,16 +1546,6 @@
       <workItem from="1458349059793" duration="2202000" />
       <workItem from="1458351271488" duration="4070000" />
       <workItem from="1458355422801" duration="3753000" />
-      <workItem from="1458523346854" duration="221000" />
-      <workItem from="1458523346854" duration="8826000" />
-      <workItem from="1458532473919" duration="3710000" />
-      <workItem from="1458536396682" duration="1105000" />
-      <workItem from="1458537524546" duration="4760000" />
-      <workItem from="1458542328331" duration="10555000" />
-      <workItem from="1458553423502" duration="7889000" />
-      <workItem from="1458606997688" duration="15032000" />
-      <workItem from="1458623307311" duration="25361000" />
-      <workItem from="1458692666692" duration="5820000" />
     </task>
     <task id="LOCAL-00001" summary="杀杀杀">
       <created>1456880106727</created>
@@ -1226,146 +1611,111 @@
       <created>1458359173191</created>
       <updated>1458359173191</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
-    <task id="LOCAL-00017" summary="页面跳转Controller改名">
-      <created>1458523602939</created>
-      <updated>1458523602939</updated>
+    <task id="LOCAL-00017" summary="Merge branch 'master' of https://git.oschina.net/aiton/bmpw&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/aiton/bmzc/Controller/Order/ZcloadOrderByAccountController.java&#10;">
+      <created>1458522893652</created>
+      <updated>1458522893652</updated>
     </task>
-    <task id="LOCAL-00018" summary="页面跳转Controller改名">
-      <created>1458528000035</created>
-      <updated>1458528000035</updated>
+    <task id="LOCAL-00018" summary="类补齐">
+      <created>1458522974904</created>
+      <updated>1458522974904</updated>
     </task>
-    <task id="LOCAL-00019" summary="租车页面改动">
-      <created>1458542275576</created>
-      <updated>1458542275576</updated>
+    <task id="LOCAL-00019" summary="机构租车和个人租车逻辑分离">
+      <created>1458530433168</created>
+      <updated>1458530433168</updated>
     </task>
-    <task id="LOCAL-00020" summary="addCar页面">
-      <created>1458558471067</created>
-      <updated>1458558471067</updated>
+    <task id="LOCAL-00020" summary="添加评价表">
+      <created>1458536074425</created>
+      <updated>1458536074425</updated>
     </task>
-    <task id="LOCAL-00021" summary="3.21">
-      <created>1458558654438</created>
-      <updated>1458558654438</updated>
+    <task id="LOCAL-00021" summary="车辆表添加所在门店字段方便管理">
+      <created>1458540712113</created>
+      <updated>1458540712113</updated>
     </task>
-    <task id="LOCAL-00022" summary="account修改">
-      <created>1458608804867</created>
-      <updated>1458608804867</updated>
+    <task id="LOCAL-00022" summary="JqueryLiger">
+      <created>1458543836405</created>
+      <updated>1458543836405</updated>
     </task>
-    <task id="LOCAL-00023" summary="appointment修改">
-      <created>1458609344377</created>
-      <updated>1458609344377</updated>
+    <task id="LOCAL-00023" summary="自助选择司机功能添加">
+      <created>1458553969532</created>
+      <updated>1458553969532</updated>
     </task>
-    <task id="LOCAL-00024" summary="return修改">
-      <created>1458610987255</created>
-      <updated>1458610987255</updated>
+    <task id="LOCAL-00024" summary="修改Car的主键">
+      <created>1458557632561</created>
+      <updated>1458557632561</updated>
     </task>
-    <task id="LOCAL-00025" summary="111">
-      <created>1458611024367</created>
-      <updated>1458611024367</updated>
+    <task id="LOCAL-00025" summary="添加车辆信息DataTables">
+      <created>1458560304322</created>
+      <updated>1458560304322</updated>
     </task>
-    <task id="LOCAL-00026" summary="111">
-      <created>1458614599206</created>
-      <updated>1458614599206</updated>
+    <task id="LOCAL-00026" summary="机构租车和个人租车逻辑分离">
+      <created>1458611242881</created>
+      <updated>1458611242881</updated>
     </task>
-    <task id="LOCAL-00027" summary="111">
-      <created>1458623472825</created>
-      <updated>1458623472825</updated>
+    <task id="LOCAL-00027" summary="……">
+      <created>1458621607095</created>
+      <updated>1458621607095</updated>
     </task>
-    <task id="LOCAL-00028" summary="111">
-      <created>1458625679315</created>
-      <updated>1458625679315</updated>
+    <task id="LOCAL-00028" summary="租赁方案列表显示及查询">
+      <created>1458632415737</created>
+      <updated>1458632415737</updated>
     </task>
-    <task id="LOCAL-00029" summary="车辆信息修改">
-      <created>1458630704468</created>
-      <updated>1458630704468</updated>
+    <task id="LOCAL-00029" summary="好像没传上去的东西">
+      <created>1458632522560</created>
+      <updated>1458632522560</updated>
     </task>
-    <task id="LOCAL-00030" summary="111111">
-      <created>1458631736235</created>
-      <updated>1458631736235</updated>
+    <task id="LOCAL-00030" summary="租赁方案页面">
+      <created>1458632553354</created>
+      <updated>1458632553354</updated>
     </task>
-    <task id="LOCAL-00031" summary="方案页面修改">
-      <created>1458634325676</created>
-      <updated>1458634325676</updated>
+    <task id="LOCAL-00031" summary="机构租车和个人租车逻辑分离">
+      <created>1458632886263</created>
+      <updated>1458632886263</updated>
     </task>
-    <task id="LOCAL-00032" summary="方案页面修改">
-      <created>1458634538447</created>
-      <updated>1458634538447</updated>
+    <task id="LOCAL-00032" summary="Dao修正">
+      <created>1458698267881</created>
+      <updated>1458698267881</updated>
     </task>
-    <task id="LOCAL-00033" summary="方案页面修改">
-      <created>1458635072966</created>
-      <updated>1458635072966</updated>
-    </task>
-    <task id="LOCAL-00034" summary="页面修改">
-      <created>1458645549412</created>
-      <updated>1458645549412</updated>
-    </task>
-    <task id="LOCAL-00035" summary="页面修改20:18">
-      <created>1458649110376</created>
-      <updated>1458649110376</updated>
-    </task>
-    <task id="LOCAL-00036" summary="页面修改20:18">
-      <created>1458649150804</created>
-      <updated>1458649150804</updated>
-    </task>
-    <task id="LOCAL-00037" summary="10:00">
-      <created>1458698493457</created>
-      <updated>1458698493457</updated>
-    </task>
-    <option name="localTasksCounter" value="38" />
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51128000" />
-    <option name="totallyTimeSpent" value="133965000" />
+    <option name="totallyTimeSpent" value="50907000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="false" />
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1305" height="784" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497979" sideWeight="0.28663447" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983023" sideWeight="0.6489533" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497979" sideWeight="0.6489533" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4090177" sideWeight="0.4995958" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5438226" sideWeight="0.44895834" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.109820485" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0813094" sideWeight="0.4995958" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31145832" sideWeight="0.37882096" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38486314" sideWeight="0.12691997" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17951426" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36714977" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21095008" sideWeight="0.4995958" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983023" sideWeight="0.6489533" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.290625" sideWeight="0.81964576" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40971488" sideWeight="0.87308" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31145832" sideWeight="0.6200873" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39809927" sideWeight="0.55104166" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29102668" sideWeight="0.7890499" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3768116" sideWeight="0.87308" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23671497" sideWeight="0.4995958" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268921" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1381,33 +1731,81 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
     <option name="myTodoPanelSettings">
-      <TodoPanelSettings />
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
     </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="杀杀杀" />
     <MESSAGE value="2016/3/2" />
     <MESSAGE value="2016/3/4" />
     <MESSAGE value="打车模块数据结构" />
     <MESSAGE value="2016/3/7" />
     <MESSAGE value="租车静态页面跳转" />
-    <option name="LAST_COMMIT_MESSAGE" value="类修正" />
-    <MESSAGE value="页面跳转Controller改名" />
-    <MESSAGE value="租车页面改动" />
-    <MESSAGE value="addCar页面" />
-    <MESSAGE value="3.21" />
-    <MESSAGE value="account修改" />
-    <MESSAGE value="appointment修改" />
-    <MESSAGE value="return修改" />
-    <MESSAGE value="车辆信息修改" />
-    <MESSAGE value="111" />
-    <MESSAGE value="111111" />
-    <MESSAGE value="更新车辆的Controller" />
-    <MESSAGE value="删除类" />
-    <MESSAGE value="方案页面修改" />
-    <MESSAGE value="页面修改" />
-    <MESSAGE value="页面修改20:18" />
-    <MESSAGE value="10:00" />
-    <option name="LAST_COMMIT_MESSAGE" value="10:00" />
+    <MESSAGE value="类修正" />
+    <MESSAGE value="Merge branch 'master' of https://git.oschina.net/aiton/bmpw&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/aiton/bmzc/Controller/Order/ZcloadOrderByAccountController.java&#10;" />
+    <MESSAGE value="类补齐" />
+    <MESSAGE value="添加评价表" />
+    <MESSAGE value="车辆表添加所在门店字段方便管理" />
+    <MESSAGE value="JqueryLiger" />
+    <MESSAGE value="自助选择四级功能添加" />
+    <MESSAGE value="自助选择司机功能添加" />
+    <MESSAGE value="修改Car的主键" />
+    <MESSAGE value="添加车辆信息DataTables" />
+    <MESSAGE value="……" />
+    <MESSAGE value="租赁方案列表显示及查询" />
+    <MESSAGE value="好像没传上去的东西" />
+    <MESSAGE value="租赁方案页面" />
+    <MESSAGE value="机构租车和个人租车逻辑分离" />
+    <MESSAGE value="Dao修正" />
+    <MESSAGE value="workspace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1417,478 +1815,119 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/global/SpendDetail.java">
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1.jar!/org/apache/commons/fileupload/servlet/ServletFileUpload.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/RamCharsUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3925104" vertical-offset="0" max-vertical-offset="2070">
-          <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
-        <state vertical-scroll-proportion="0.5104022" vertical-offset="0" max-vertical-offset="721">
-          <caret line="17" column="56" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/DCDriver.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmpw/Controller/PageController/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.7754235" vertical-offset="0" max-vertical-offset="3726">
-          <caret line="147" column="10" selection-start-line="147" selection-start-column="10" selection-end-line="147" selection-end-column="10" />
-        <state vertical-scroll-proportion="0.0" vertical-offset="227" max-vertical-offset="1012">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state line="21" column="29" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmgj/dao/BusLineRepository.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmpw/Controller/PageController/LogoutController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/HttpClientUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17988826" vertical-offset="0" max-vertical-offset="895">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="598">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="28" />
+        <state line="22" column="13" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/DCDriverRepository.java">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/FeedBack.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/XMLUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2055866" vertical-offset="0" max-vertical-offset="895">
-          <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
-        <state vertical-scroll-proportion="0.45019922" vertical-offset="28181" max-vertical-offset="29624">
-          <caret line="1240" column="28" selection-start-line="1240" selection-start-column="28" selection-end-line="1240" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/DCEvaluateRepository.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmpw/Entity/DataTables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2055866" vertical-offset="0" max-vertical-offset="895">
-          <caret line="8" column="80" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
-        <state vertical-scroll-proportion="0.8122449" vertical-offset="16" max-vertical-offset="1058">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/DCOrderRepository.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmpw/Controller/ModelController/Refund/pw_loadRefundsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2055866" vertical-offset="0" max-vertical-offset="895">
-          <caret line="8" column="75" selection-start-line="8" selection-start-column="75" selection-end-line="8" selection-end-column="75" />
-        <state vertical-scroll-proportion="0.0" vertical-offset="142" max-vertical-offset="644">
-          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmpw/Service/pw_RefundService.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/global/BMWalletRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="506">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        <state vertical-scroll-proportion="0.2055866" vertical-offset="0" max-vertical-offset="895">
-          <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/global/RechargeDetailRepository.java">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/qupiaoxuzhi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15418994" vertical-offset="0" max-vertical-offset="895">
-          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="529">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmpw/Controller/PageController/ToLoginController.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/dao/global/SpendDetailRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="506">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        <state vertical-scroll-proportion="0.17988826" vertical-offset="0" max-vertical-offset="895">
-          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmpw/Controller/PageController/toRefundController.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/global/BMWallet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="506">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding />
-        <state vertical-scroll-proportion="0.35977653" vertical-offset="0" max-vertical-offset="895">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/DCAddress.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmpw/Service/impl/pw_RefundServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15418994" vertical-offset="0" max-vertical-offset="895">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        <state vertical-scroll-proportion="0.0" vertical-offset="598" max-vertical-offset="1426">
-          <caret line="57" column="33" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/entity/DCOrder.java">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3705" max-vertical-offset="4669">
-          <caret line="267" column="42" selection-start-line="267" selection-start-column="42" selection-end-line="267" selection-end-column="42" />
-        <state vertical-scroll-proportion="0.0" vertical-offset="2384" max-vertical-offset="5313">
-          <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_20/src.zip!/java/util/concurrent/LinkedBlockingQueue.java">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_appointment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4368715" vertical-offset="138" max-vertical-offset="22862">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
-        <state vertical-scroll-proportion="0.0" vertical-offset="1121" max-vertical-offset="5566">
-          <caret line="71" column="27" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/ImageController.java">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/refunds.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30666667" vertical-offset="0" max-vertical-offset="1587">
-          <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
-        <state vertical-scroll-proportion="0.25980392" vertical-offset="28262" max-vertical-offset="30199">
-          <caret line="1238" column="46" selection-start-line="1238" selection-start-column="46" selection-end-line="1238" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_addcar.html">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/JS/liger/ligerUI/js/plugins/ligerDialog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2645" max-vertical-offset="5175">
-          <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
-        <state vertical-scroll-proportion="-0.5219365" vertical-offset="345" max-vertical-offset="24012">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/queue/WaitOrderQueue.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Entity/ZcCarPlan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="805">
-          <caret line="12" column="25" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="25" />
-        <state vertical-scroll-proportion="0.32857144" vertical-offset="0" max-vertical-offset="1725">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/queue/ExecutingOrderQueue.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/PageController/ZcToCheliangxinxiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="805">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-        <state vertical-scroll-proportion="0.43841642" vertical-offset="0" max-vertical-offset="682">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/queue/NullExecuteOrderQueue.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/PageController/ZcToPlansController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="851">
-          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="437">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/queue/BaseQueue.java">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_returncar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1748">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        <state vertical-scroll-proportion="-9.59375" vertical-offset="3074" max-vertical-offset="6279">
-          <caret line="147" column="33" selection-start-line="147" selection-start-column="33" selection-end-line="147" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/realize/OrderService.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/plan/ZcAddPlanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-        <state vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="713">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/plan/ZcDelPlanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="644">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/JS/liger/ligerUI/skins/Aqua/css/ligerui-all.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="299">
-          <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/JS/liger/ligerUI/skins/Aqua/css/ligerui-common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33295193" vertical-offset="1365" max-vertical-offset="4025">
-          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/JS/jquery.ui.datepicker-zh-cn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="863">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmdc/service/inter/OrderInter.java">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/JS/jquery/jquery-1.11.2.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34586465" vertical-offset="0" max-vertical-offset="798">
-          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_appointment.html">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/JS/jquery-ui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="28313">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/RedEnvelopes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26894864" vertical-offset="29841" max-vertical-offset="30659">
-          <caret line="1307" column="24" selection-start-line="1307" selection-start-column="24" selection-end-line="1307" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/ZcAccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2852311" vertical-offset="0" max-vertical-offset="887">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/plan/ZcFrontLoadPlanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="644">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Entity/ZcPlan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5007776" vertical-offset="23" max-vertical-offset="1909">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/ZcPlanServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5201939" vertical-offset="644" max-vertical-offset="1748">
-          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/ZcAddCarController.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/ZcPlanService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="437">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        <state vertical-scroll-proportion="0.5201939" vertical-offset="0" max-vertical-offset="619">
-          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/plan/ZcLoadPlansController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="644">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_plans.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.03125" vertical-offset="5042" max-vertical-offset="8372">
-          <caret line="229" column="24" selection-start-line="229" selection-start-column="24" selection-end-line="229" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/assets/js/pages/form-x-editable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9814528" vertical-offset="351" max-vertical-offset="3956">
-          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/JS/jquery/jquery-ui-timepicker-addon.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="29601">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Entity/ZcOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3329114" vertical-offset="36" max-vertical-offset="4715">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29774436" vertical-offset="17029" max-vertical-offset="21551">
-          <caret line="749" column="2" selection-start-line="749" selection-start-column="2" selection-end-line="749" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/ZcPlansController.java">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/JS/jquery.dataTables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27559912" vertical-offset="0" max-vertical-offset="918">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        <state vertical-scroll-proportion="0.33282208" vertical-offset="345335" max-vertical-offset="349968">
-          <caret line="15026" column="4" selection-start-line="15026" selection-start-column="4" selection-end-line="15026" selection-end-column="4" />
-          <folding>
-            <marker date="1456884654596" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/car/ZcUpdateCarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25698325" vertical-offset="0" max-vertical-offset="716">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/ZcReturnCarController.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/car/ZcLoadCarsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32570806" vertical-offset="0" max-vertical-offset="918">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        <state vertical-scroll-proportion="0.5982659" vertical-offset="0" max-vertical-offset="692">
-          <caret line="25" column="80" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Controller/PageController/ZcAppointmentController.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/car/ZcLoadCanUseCarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2254902" vertical-offset="0" max-vertical-offset="918">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-        <state vertical-scroll-proportion="0.0" vertical-offset="52" max-vertical-offset="644">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_addcar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.8516043" vertical-offset="4777" max-vertical-offset="8418">
-          <caret line="180" column="28" selection-start-line="180" selection-start-column="28" selection-end-line="180" selection-end-column="28" />
-          <folding>
-            <marker date="1458644151189" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/car/ZcAddCarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3588">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_cheliangxinxi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.21875" vertical-offset="6348" max-vertical-offset="7705">
-          <caret line="293" column="17" selection-start-line="293" selection-start-column="17" selection-end-line="293" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Entity/ZcCar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="3979">
-          <caret line="15" column="27" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/zc_zuche.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.1875" vertical-offset="4526" max-vertical-offset="9108">
-          <caret line="236" column="13" selection-start-line="236" selection-start-column="13" selection-end-line="236" selection-end-column="13" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#p#1;n#div#1;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/car/ZcLoadCanUseCarToPageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="138" max-vertical-offset="713">
-          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+        <state line="26" column="28" selection-start="473" selection-end="486" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/ZcCarService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Entity/ZcCar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="575">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        <state line="13" column="13" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/bmpwTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="10" selection-start="895" selection-end="895" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/util/OrderUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="55" selection-start="1148" selection-end="1148" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/Store/ZcLoadCitiesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="13" selection-start="527" selection-end="527" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/controller/Store/ZcLoadStoreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="46" selection-start="627" selection-end="652" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Service/Impl/ZcCarServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1981" max-vertical-offset="2875">
-          <caret line="124" column="33" selection-start-line="124" selection-start-column="33" selection-end-line="124" selection-end-column="33" />
+        <state line="129" column="53" selection-start="4676" selection-end="4676" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/bmzc/Dao/ZcCarRespository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49602723" vertical-offset="0" max-vertical-offset="881">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        <state line="24" column="76" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/service/WxConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="78" selection-start="3071" selection-end="3127" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="200" column="21" selection-start="6965" selection-end="6965" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/controller/WxNotifyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="31" selection-start="627" selection-end="637" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/entity/WxRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="36" selection-start="224" selection-end="575" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/aiton/wxApliy/controller/WxGetPrepayIdController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="30" selection-start="836" selection-end="845" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1332#1348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

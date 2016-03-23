@@ -5,10 +5,8 @@ import com.aiton.bmpw.Util.GsonUtils;
 import com.aiton.bmpw.Util.bmpwUtils;
 import com.aiton.bmpw.Webservice.JDTTicketLocator;
 import com.aiton.bmpw.Webservice.JDTTicketSoap_PortType;
-import com.aiton.weixinapliy.ApliyUtil;
-import com.aiton.weixinapliy.entity.WeixinapliyRequest;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
+import com.aiton.wxApliy.entity.WxRequest;
+import com.aiton.wxApliy.service.WxConnection;
 import org.junit.Test;
 
 import javax.xml.rpc.ServiceException;
@@ -30,18 +28,8 @@ import java.util.UUID;
 public class bmpwTest {
     @Test
     public void test1() throws ServiceException, RemoteException {
-        WeixinapliyRequest req=new WeixinapliyRequest();
-        req.setBody("你好");
-//        JSONObject jsonObject=JSONObject.fromObject(req);
-//        System.out.println(jsonObject.toString());
-        String str= null;
-        try {
-            str = ApliyUtil.getSign(req);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-        System.out.println(str);
+        WxConnection c=new WxConnection();
+        WxRequest request=new WxRequest();
+        System.out.println(c.reqOrder(request));
     }
 }
