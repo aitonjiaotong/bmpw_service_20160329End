@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="JS/jquery-ui.css">
-    <link rel="stylesheet" href="JS/jquery.dataTables.css" type="text/css">
+   <link rel="stylesheet" href="JS/jquery.dataTables.css" type="text/css">
     <style>
         html,body{
             margin: 0;
@@ -161,11 +161,18 @@
 	    z-index:5;
 	}
 	.tableChild{
-	   width:100%;
+
        overflow:hidden;
-	}
+       word-break: keep-all;
+       white-space:nowrap;
+
+    }
+    .tableChild th{
+        width:120px;
+    }
 	.thead{
-	 background-color:#c0c0c0;
+	    background-color:#c0c0c0;
+        overflow:hidden;
 	}
     select{
             border-radius:3px;border:1px solid #000;
@@ -233,7 +240,6 @@
             var data = $("#planTable").DataTable().row($(this).parents("tr")).data();
             $(":input[name=planName]").val(data.name);
             $(":input[name=planId]").val(data.id);
-            alert(data.jijia);
             if(data.jijia == 0){
                 $(":input[type=radio][value=\"0\"]").attr("checked",true);
             }
@@ -297,6 +303,7 @@
 
         /*下面开始获取客户信息*/
         $("#countTable").dataTable({
+            "bAutoWidth":false,
             "serverSide":true,
             "processing": true,
             "ajax":"/bmpw/zc/account/loadaccounts",
@@ -322,14 +329,77 @@
             },
             "columns":[
                 { "data": "name" },
-                { "data": "login_id" },
+                { "data": "idCard"},
+                { "data": "bankCard"},
+                { "data": "phone"},
+               { "data": "address"}
+            ]
+        });
+        /*给客户控件赋值*/
+        $("#child2").on("click","td",function(){
+            $("tr.light").removeClass("light");
+            $($(this).parent("tr")).addClass("light");
+            $("td.oo").removeClass("oo");
+            $(this).addClass("oo");
+            $(this).siblings().addClass("oo");
+            var data = $("#countTable").DataTable().row($(this).parents("tr")).data();
+            $(":input[name=idCard]").val(data.idCard);
+            $(":input[name=bankCard]").val(data.bankCard);
+            $(":input[name=name]").val(data.name);
+            $(":input[name=phone]").val(data.phone);
+            $(":input[name=address]").val(data.address);
+            $(":input[name=accountId]").val(data.id);
+        });
+
+        /*下面开始获取担保客户信息*/
+        $("#guarantorTable").dataTable({
+            "bAutoWidth":false,
+            "serverSide":true,
+            "processing": true,
+            "ajax":"/bmpw/zc/account/loadaccounts",
+            "scrollY": "200px",
+            "scrollCollapse": "true",
+            "bFilter":false,
+            "bSort":false,
+            "bLengthChange":false,
+            "bInfo":false,
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+                "sSearch":"搜索车牌号"
+            },
+            "columns":[
+                { "data": "name" },
                 { "data": "idCard"},
                 { "data": "bankCard"},
                 { "data": "phone"},
                 { "data": "address"}
             ]
         });
-
+        /*给担保客户控件赋值*/
+        $("#child3").on("click","td",function(){
+            $("tr.light").removeClass("light");
+            $($(this).parent("tr")).addClass("light");
+            $("td.oo").removeClass("oo");
+            $(this).addClass("oo");
+            $(this).siblings().addClass("oo");
+            var data = $("#guarantorTable").DataTable().row($(this).parents("tr")).data();
+            $(":input[name=guarantorIdCard]").val(data.idCard);
+            $(":input[name=bankCard]").val(data.bankCard);
+            $(":input[name=guarantorName]").val(data.name);
+            $(":input[name=guarantorPhone]").val(data.phone);
+            $(":input[name=guarantorAddress]").val(data.address);
+            $(":input[name=guarantorId]").val(data.id);
+        });
 
         var obj1 = document.getElementById("lan");
         var obj2 = document.getElementById("main");
@@ -365,6 +435,10 @@
         var x = $("#chooseClient2").offset().left;
         var y = $("#chooseClient2").offset().top;
         $("#child3").css({'left':x-20+'px','top':y-300+'px'});
+    }
+    function sendOrder(i){
+        if(i==0)
+        $("#zucheForm").submit();
     }
     </script>
 </head>
@@ -439,20 +513,22 @@
 	<p class="p1">客户信息</p>
 	<table class="table3">
 	<tr>
-	    <td>客户证件号</td><td><input/></td><td>银行卡号</td><td><input/></td>
+	    <td>客户证件号</td><td><input name="idCard"/></td>
+        <td>银行卡号</td><td><input name="bankCard"/></td>
 	    <td><input id="chooseClient1" type="button" value="查询客户" onclick="choose1()"/>
 	        <input type="button" value="新客户档案"/></td>
 	</tr>
 	<tr>
-	    <td>客户名称</td><td><input/></td><td>联系方式</td><td><input /></td>
-	    <td colspan="2">住址<input/></td>
+	    <td>客户名称</td><td><input name="name"/></td>
+        <td>电话号码</td><td><input name="phone"/></td>
+	    <td colspan="2">住址<input name="address"/></td>
 	</tr>
 	</table>
+        <input type="hidden" name="accountId"/>
     <div id="child2" class="childwindow">
         <table id="countTable" class="tableChild">
             <thead class="thead">
                 <th>客户名称</th>
-                <th>登陆名</th>
                 <th>证件号</th>
                 <th>银行卡号</th>
                 <th>电话号码</th>
@@ -463,27 +539,33 @@
 	<p class="p1">担保人信息</p>
 	<table class="table3">
 	<tr>
-	    <td>担保客户证件号</td><td><input/></td><td>担保客户名称</td><td><input/></td>
+	    <td>担保客户证件号</td><td><input name="guarantorIdCard"/></td>
+        <td>担保客户名称</td><td><input name="guarantorName"/></td>
 	    <td><input id="chooseClient2" type="button" value="查询担保客户" onclick="choose2()"/>
 	        <input type="button" value="新担保客户档案"/></td>
 	</tr>
 	<tr>
-	    <td>担保客户联系方式</td><td><input/></td><td>担保客户地址</td><td><input/></td>
-	    
+	    <td>担保客户电话号码</td><td><input name="guarantorPhone"/></td>
+        <td>担保客户地址</td><td><input name="guarantorAddress"/></td>
 	</tr>
 	</table>
+        <input type="hidden" name="guarantorId"/>
     <div id="child3" class="childwindow">
-        <table class="tableChild">
-            <thead class="thead"><th>方案名称</th><th>单价</th>
-            <th>单位里程数</th><th>超里程价格</th>
-            <th>超时小时价</th><th>标志</th></thead>
+        <table id="guarantorTable" class="tableChild">
+            <thead class="thead">
+                <th>客户名称</th>
+                <th>证件号</th>
+                <th>银行卡号</th>
+                <th>电话号码</th>
+                <th>地址</th>
+            </thead>
         </table>
     </div>
 	<table>
 		<tr>
-		<td><input type="button" value="租出"/></td>
-		<td><input type="button" value="租出并打印租单"/></td>
-		<td><input type="button" value="退出"/></td>
+		<td><input type="button" value="租出" onclick="sendOrder(0);"/></td>
+		<td><input type="button" value="租出并打印租单" onclick="sendOrder(1);"/></td>
+		<td><input type="button" value="退出" onclick="exitPage();"/></td>
 		</tr>
 	</table>
     </form>
