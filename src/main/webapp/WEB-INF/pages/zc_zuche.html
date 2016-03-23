@@ -156,14 +156,13 @@
 	.childwindow{
 	    margin-left:20px;
 	    display:none;
-	    width:40%;
-	    height:30%;
 	    background-color:#f0f0f0;
 	    position:absolute;
 	    z-index:5;
 	}
 	.tableChild{
 	   width:100%;
+       overflow:hidden;
 	}
 	.thead{
 	 background-color:#c0c0c0;
@@ -179,37 +178,85 @@
     .oo{
             background-color: #cccccc;
     }
+        input[type=radio]{
+            margin:0;
+            width:15%;
+            height:13px;
+        }
     </style>
-    <link rel="stylesheet" href="assets/css/style.css">
+   <!-- <link rel="stylesheet" href="assets/css/style.css">  -->
+  <!-- <script src="JS/jquery-1.11.3.js"></script> -->
     <script src="JS/jquery-1.12.0.js"></script>
-    <script src="JS/jquery.dataTables.js"></script>
-   <!-- <script src="JS/jquery-1.11.3.js"></script>  -->
     <script src="JS/jquery-ui.js"></script>
+    <script src="JS/jquery.dataTables.js"></script>
    <script src="JS/jquery/jquery-ui-timepicker-addon.js"></script>
     <script src="JS/jquery/jquery-ui-timepicker-zh-CN.js"></script>
     <script type="text/javascript">
 	window.onload = function flush() {
-        $( "#datepicker1" ).datetimepicker({
-            regional:"zh-CN",
-            dateFormat:"yy-mm-dd",
-            timeFormat: "hh:mm:ss"
+
+        /*获取租车方案数据*/
+        $("#planTable").dataTable({
+            "searching":false,
+            "serverSide": true,
+            "processing": true,
+            "ajax": "/bmpw/zc/plan/loadCanUsePlan",
+            "bSort": false,
+            "bLengthChange": false,
+            "bInfo": false,
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                }
+            },
+            "columns": [
+                { "data": "name" },
+                { "data": "price" },
+                { "data": "unitMileage"},
+                { "data": "outMileage"},
+                { "data": "outTime"}
+            ]
         });
-        $( "#datepicker2" ).datetimepicker({
-            regional:"zh-CN",
-            dateFormat:"yy-mm-dd",
-            timeFormat: "hh:mm:ss"
+        $("#child1").on("click","td",function(){
+            $("tr.light").removeClass("light");
+            $($(this).parent("tr")).addClass("light");
+            $("td.oo").removeClass("oo");
+            $(this).addClass("oo");
+            $(this).siblings().addClass("oo");
+            var data = $("#planTable").DataTable().row($(this).parents("tr")).data();
+            $(":input[name=planName]").val(data.name);
+            $(":input[name=planId]").val(data.id);
+            if(data.jijia == 0){
+                $(":input[type=radio][value=\"0\"]").attr("checked",true);
+            }
+            if(data.jijia == 1){
+                $(":input[type=radio][value=\"1\"]").attr("checked",true);
+            }
+            if(data.jijia == 2){
+                $(":input[type=radio][value=\"2\"]").attr("checked",true);
+            }
+            $(":input[type=radio][value='"+ data.jijia +"']").attr("checked",true);
+            $(":input[name=unitMileage]").val(data.unitMileage);
+            $(":input[name=outTime]").val(data.outTime);
+            $(":input[name=price]").val(data.price);
+            $(":input[name=outMileage]").val(data.outMileage);
         });
-	/* code */  
-	 var obj1 = document.getElementById("lan");
-	 var obj2 = document.getElementById("main");
-	 obj1.style.height = obj2.offsetHeight + 70+'px';
+        /*上面的代码是为了捆绑事件--方案子窗口*/
+
         $("#table1").dataTable({
             "serverSide":true,
             "processing": true,
             "ajax":"/bmpw/zc/car/loadCanUseCars",
             "scrollY": "200px",
             "scrollCollapse": "true",
-            "bFilter":true,
+            "bFilter":false,
             "bSort":false,
             "bLengthChange":false,
             "bInfo":false,
@@ -236,34 +283,51 @@
                 { "data": "mileage"}
             ]
         });
+        $("#carTableDiv").on("click","td",function(){
+            $("tr.light").removeClass("light");
+            $($(this).parent("tr")).addClass("light");
+            $("td.oo").removeClass("oo");
+            $(this).addClass("oo");
+            $(this).siblings().addClass("oo");
+            var data = $("#table1").DataTable().row($(this).parents("tr")).data();
+            $(":input[name=carId]").val(data.carId);
+        });
+        /*上面的代码是为了捆绑事件*/
+
+        var obj1 = document.getElementById("lan");
+        var obj2 = document.getElementById("main");
+        obj1.style.height = obj2.offsetHeight + 280+'px';
+        /*上面的代码是为了对齐菜单栏*/
+
+        $( "#datepicker1" ).datetimepicker({
+            regional:"zh-CN",
+            dateFormat:"yy-mm-dd",
+            timeFormat: "hh:mm:ss"
+        });
+        $( "#datepicker2" ).datetimepicker({
+            regional:"zh-CN",
+            dateFormat:"yy-mm-dd",
+            timeFormat: "hh:mm:ss"
+        });
+
 	 };
-    $("#carTableDiv").on("click","td",function(){
-        $("tr.light").removeClass("light");
-        $($(this).parent("tr")).addClass("light");
-        $("td.oo").removeClass("oo");
-        $(this).addClass("oo");
-        $(this).siblings().addClass("oo");
-        var data = $("#table1").DataTable().row($(this).parents("tr")).data();
-        $(":input[name=carId]").var(data.carId);
-    });
 	function choosePlan(){
 	 $("#child1").toggle();
 	 var x = $("#choose").offset().left;
 	 var y = $("#choose").offset().top;
 	 $("#child1").css({'left':x-20+'px','top':y+25+'px'});
 	}
-    function chooseClient1(){
+    function choose1(){
         $("#child2").toggle();
         var x = $("#chooseClient1").offset().left;
         var y = $("#chooseClient1").offset().top;
         $("#child2").css({'left':x-20+'px','top':y-300+'px'});
     }
-    function chooseClient2(){
+    function choose2(){
         $("#child3").toggle();
         var x = $("#chooseClient2").offset().left;
         var y = $("#chooseClient2").offset().top;
         $("#child3").css({'left':x-20+'px','top':y-300+'px'});
-        flush();
     }
     </script>
 </head>
@@ -278,8 +342,14 @@
 	<p class="p1">可租空闲车辆</p>
     <div id="carTableDiv">
 	<table id="table1">
-	  <thead><th>车辆</th><th>车型</th><th>品牌</th><th>押金标准</th>
-	  <th>保养里程</th><th>当前里程</th></thead>
+	  <thead>
+             <th>车辆</th>
+             <th>车型</th>
+             <th>品牌</th>
+             <th>押金标准</th>
+	         <th>保养里程</th>
+             <th>当前里程</th>
+      </thead>
 	</table>
     </div>
 	<table class="table2">
@@ -297,39 +367,47 @@
 	</table>
 	<p class="p1">出租计费</p>
 	<div>
-	<p>选择预定租借计费方案<input/>
+	<p>选择预定租借计费方案<input name="planName"/>
 	<input id="choose" type="button" value="选择方案" onclick="choosePlan();"/></p>
+        <!-- 隐藏的方案ID -->
+        <input type="hidden" name="planId"/>
 	 	<div id="child1" class="childwindow">
-		   <table class="tableChild">
-	  		<thead class="thead"><th>方案名称</th><th>单价</th>
-		  	<th>单位里程数</th><th>超里程价格</th>
-	  	  	<th>超时小时价</th><th>标志</th></thead>
+		   <table id="planTable" class="tableChild">
+	  		    <thead class="thead">
+                    <th>方案名称</th>
+                    <th>单价</th>
+		  	        <th>单位里程数</th>
+                    <th>超里程价格</th>
+	  	  	        <th>超时小时价</th>
+                </thead>
 	  	   </table>
 		</div>
 	<table class="table3">
 	 	<tr>
-	<td>时间单位</td><td><input/></td>
-	<td>每月限程</td><td><input/></td>
-	<td>超时小时价</td><td><input/></td>
-	<td>收押金</td><td><input/></td>
-		</tr>
+	<td>计价方式</td><td><input type="radio" name="jijia" value="0"/>天
+            <input type="radio" name="jijia" value="1"/>小时
+            <input type="radio" name="jijia" value="2"/>月</td>
+	<td>单位里程（公里）</td><td><input name="unitMileage"/></td>
+	<td>超时小时价</td><td><input name="outTime"/></td>
+	<td>收押金</td><td><input name="shouyajin"/></td>
+        </tr>
 		<tr>
-	<td>每月租金（元）</td><td><input/></td>
-	<td>超限程基价</td><td><input/></td>
-	<td>预收租费</td><td><input/></td>
+	<td>单位租金（元）</td><td><input name="price"/></td>
+	<td>超限程基价（每公里）</td><td><input name="outMileage"/></td>
+	<td>预收租费</td><td><input name="advancePayment"/></td>
 		</tr>
 	</table>
-	<p>备注<input style="margin-left:20px;width:50%" /></p>
+	<p>备注<input style="margin-left:20px;width:50%" name="note"/></p>
 	</div>
 	<p class="p1">客户信息</p>
 	<table class="table3">
 	<tr>
 	    <td>客户证件号</td><td><input/></td><td>银行卡号</td><td><input/></td>
-	    <td><input id="chooseClient1" type="button" value="查询客户" onclick="chooseClient1();"/>
+	    <td><input id="chooseClient1" type="button" value="查询客户" onclick="choose1()"/>
 	        <input type="button" value="新客户档案"/></td>
 	</tr>
 	<tr>
-	    <td>客户名称</td><td><input/></td><td>联系方式</td><td><input/></td>
+	    <td>客户名称</td><td><input/></td><td>联系方式</td><td><input /></td>
 	    <td colspan="2">住址<input/></td>
 	</tr>
 	</table>
@@ -344,7 +422,7 @@
 	<table class="table3">
 	<tr>
 	    <td>担保客户证件号</td><td><input/></td><td>担保客户名称</td><td><input/></td>
-	    <td><input id="chooseClient2" type="button" value="查询担保客户" onclick="chooseClient2();"/>
+	    <td><input id="chooseClient2" type="button" value="查询担保客户" onclick="choose2()"/>
 	        <input type="button" value="新担保客户档案"/></td>
 	</tr>
 	<tr>
