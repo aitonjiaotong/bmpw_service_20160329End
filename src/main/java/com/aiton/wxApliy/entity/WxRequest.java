@@ -1,23 +1,24 @@
-package com.aiton.weixinapliy.entity;
+package com.aiton.wxApliy.entity;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
  * Date: 16-3-22
- * Time: 上午10:07
+ * Time: 下午6:59
  * To change this template use File | Settings | File Templates.
  */
-public class WeixinapliyRequest {
-    private String appid;
-    private String mch_id;
-    private String nonce_str;
-    private String sign;
-    private String body;
-    private String out_trade_no;
-    private Integer total_fee;
-    private String spbill_create_ip;
-    private String notify_url;
-    private String trade_type;
+public class WxRequest {
+    private String appid;//应用ID
+    private String mach_id;//商户号
+    private String nonce_str;//随机字符串
+    private String sign;//签名
+    private String body;//商品描述
+    private String out_trade_no;//商户订单号
+    private Integer total_fee;//总金额
+    private String spbill_create_ip;//用户端IP
+    private String notify_url;//通知地址
+    private String trade_type;//支付类型
+
     public String getAppid() {
         return appid;
     }
@@ -26,12 +27,12 @@ public class WeixinapliyRequest {
         this.appid = appid;
     }
 
-    public String getMch_id() {
-        return mch_id;
+    public String getMach_id() {
+        return mach_id;
     }
 
-    public void setMch_id(String mch_id) {
-        this.mch_id = mch_id;
+    public void setMach_id(String mach_id) {
+        this.mach_id = mach_id;
     }
 
     public String getNonce_str() {
