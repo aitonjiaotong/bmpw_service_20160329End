@@ -5,6 +5,7 @@
     <meta charset="utf-8"/>
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="JS/jquery-ui.css">
+    <link rel="stylesheet" href="JS/jquery.dataTables.css" type="text/css">
     <style>
         html,body{
             margin: 0;
@@ -164,10 +165,6 @@
 	.tableChild{
 	   width:100%;
 	}
-	.addclass{
-	 left:790px;
-	 top:650px;
-	}
 	.thead{
 	 background-color:#c0c0c0;
 	}
@@ -176,13 +173,17 @@
             width: 100px;
             height: 30px;
     }
+    .light{
+            color: red;
+    }
+    .oo{
+            background-color: #cccccc;
+    }
     </style>
-    <script src="JS/jquery-1.11.3.js"></script>
-    <script src="JS/jquery-ui.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="JS/jquery-1.12.0.js"></script>
     <script src="JS/jquery.dataTables.js"></script>
-    <script src="JS/jquery-1.11.3.js"></script>
+   <!-- <script src="JS/jquery-1.11.3.js"></script>  -->
     <script src="JS/jquery-ui.js"></script>
    <script src="JS/jquery/jquery-ui-timepicker-addon.js"></script>
     <script src="JS/jquery/jquery-ui-timepicker-zh-CN.js"></script>
@@ -202,7 +203,49 @@
 	 var obj1 = document.getElementById("lan");
 	 var obj2 = document.getElementById("main");
 	 obj1.style.height = obj2.offsetHeight + 70+'px';
+        $("#table1").dataTable({
+            "serverSide":true,
+            "processing": true,
+            "ajax":"/bmpw/zc/car/loadCanUseCars",
+            "scrollY": "200px",
+            "scrollCollapse": "true",
+            "bFilter":true,
+            "bSort":false,
+            "bLengthChange":false,
+            "bInfo":false,
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+                "sSearch":"搜索车牌号"
+            },
+            "columns":[
+                { "data": "licensePlate" },
+                { "data": "type" },
+                { "data": "model"},
+                { "data": "deposit"},
+                { "data":"maintenanceMileage"},
+                { "data": "mileage"}
+            ]
+        });
 	 };
+    $("#carTableDiv").on("click","td",function(){
+        $("tr.light").removeClass("light");
+        $($(this).parent("tr")).addClass("light");
+        $("td.oo").removeClass("oo");
+        $(this).addClass("oo");
+        $(this).siblings().addClass("oo");
+        var data = $("#table1").DataTable().row($(this).parents("tr")).data();
+        $(":input[name=carId]").var(data.carId);
+    });
 	function choosePlan(){
 	 $("#child1").toggle();
 	 var x = $("#choose").offset().left;
@@ -230,59 +273,26 @@
 <div class="top3"><div><p><img src="images/zuche.png">租车</p></div></div>
 <div id="main" class="mainpage">
 	<p class="p1">车辆出租 | 出租信息修改</p>
+    <form action="" method="post" id="zucheForm">
+        <input type="hidden" name="carId"/>
 	<p class="p1">可租空闲车辆</p>
+    <div id="carTableDiv">
 	<table id="table1">
 	  <thead><th>车辆</th><th>车型</th><th>品牌</th><th>押金标准</th>
 	  <th>保养里程</th><th>当前里程</th></thead>
-	  <tr>
-	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-	  </tr>
-	   <tr>
-	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-	  </tr>
-	   <tr>
-	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-	  </tr>
-	   <tr>
-	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-	  </tr>
-	   <tr>
-	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-	  </tr>
-	  <tr>
-	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-	  </tr>
-	   <tr>
-	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-	  </tr>
-	   <tr>
-	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-	  </tr>
-	   <tr>
-	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-	  </tr>
-	   <tr>
-	    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-	  </tr>
 	</table>
+    </div>
 	<table class="table2">
 	<tr>
 	 	<td>出租时间</td><td>计划归还时间</td><td>借出时里程数</td>
 	</tr>
 	<tr>
 	 	<td><input type="text" id="datepicker1" style="width:150px;">
-            <!--<select>
-                <option name="hour" value ="8">8:00:00</option>
-                <option name="hour" value ="9">9:00:00</option>
-                <option name="hour" value="10">10:00:00</option>
-                <option name="hour" value="11">11:00:00</option>
-                <option name="hour" value="14">14:00:00</option>
-                <option name="hour" value="15">15:00:00</option>
-                <option name="hour" value="16">16:00:00</option>
-                <option name="hour" value="17">17:00:00</option>
-            </select><label>时</label>  -->
         </td>
-        <td><input type="text" id="datepicker2" style="width:150px;"></td><td><input/></td>
+        <td><input type="text" id="datepicker2" style="width:150px;">
+        </td>
+        <td><input/>
+        </td>
 	</tr>
 	</table>
 	<p class="p1">出租计费</p>
@@ -356,6 +366,7 @@
 		<td><input type="button" value="退出"/></td>
 		</tr>
 	</table>
+    </form>
 </div>
 <div id="lan" class="lan1">
     <div class="icon">
