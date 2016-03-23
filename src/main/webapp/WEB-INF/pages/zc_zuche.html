@@ -196,12 +196,12 @@
     <script src="JS/jquery-1.12.0.js"></script>
     <script src="JS/jquery-ui.js"></script>
     <script src="JS/jquery.dataTables.js"></script>
-   <script src="JS/jquery/jquery-ui-timepicker-addon.js"></script>
+    <script src="JS/jquery/jquery-ui-timepicker-addon.js"></script>
     <script src="JS/jquery/jquery-ui-timepicker-zh-CN.js"></script>
     <script type="text/javascript">
 	window.onload = function flush() {
 
-        /*获取租车方案数据*/
+        /*获取方案数据*/
         $("#planTable").dataTable({
             "searching":false,
             "serverSide": true,
@@ -298,6 +298,7 @@
             $(this).siblings().addClass("oo");
             var data = $("#table1").DataTable().row($(this).parents("tr")).data();
             $(":input[name=carId]").val(data.carId);
+            $(":input[name=beforeMileage]").val(data.mileage);
         });
         /*上面的代码是为了捆绑事件*/
 
@@ -448,7 +449,7 @@
 <div class="top3"><div><p><img src="images/zuche.png">租车</p></div></div>
 <div id="main" class="mainpage">
 	<p class="p1">车辆出租 | 出租信息修改</p>
-    <form action="" method="post" id="zucheForm">
+    <form action="/bmpw/zc/order/addOrderFromPage" method="post" id="zucheForm">
         <input type="hidden" name="carId"/>
 	<p class="p1">可租空闲车辆</p>
     <div id="carTableDiv">
@@ -468,11 +469,11 @@
 	 	<td>出租时间</td><td>计划归还时间</td><td>借出时里程数</td>
 	</tr>
 	<tr>
-	 	<td><input type="text" id="datepicker1" style="width:150px;">
+	 	<td><input type="text" id="datepicker1" style="width:150px;" name="zuchuDate">
         </td>
-        <td><input type="text" id="datepicker2" style="width:150px;">
+        <td><input type="text" id="datepicker2" style="width:150px;" name="planReturnDate">
         </td>
-        <td><input/>
+        <td><input name="beforeMileage"/>
         </td>
 	</tr>
 	</table>
