@@ -5,7 +5,6 @@ import com.aiton.bmzc.Entity.ZcCar;
 import com.aiton.bmzc.Entity.ZcContainsNum;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
