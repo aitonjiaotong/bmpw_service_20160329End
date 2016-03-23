@@ -28,7 +28,7 @@ public class ZcAccountServiceImpl implements ZcAccountService {
         dataTables.setRecordsTotal(accountReponstory.count());
         dataTables.setDraw(draw);
         if("".equals(search)||search==null){
-            dataTables.setData(accountReponstory.findAll(new PageRequest(page,length)));
+            dataTables.setData(accountReponstory.findAll(new PageRequest(page,length)).getContent());
             dataTables.setRecordsFiltered(accountReponstory.count());
         }else{
             search="%"+search+"%";
