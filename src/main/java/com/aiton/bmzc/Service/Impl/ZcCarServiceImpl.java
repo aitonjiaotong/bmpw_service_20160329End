@@ -127,7 +127,7 @@ public class ZcCarServiceImpl implements ZcCarService {
         dataTables.setRecordsTotal((long)car_plans.size());
         if(search==null||"".equals(search)){
             dataTables.setRecordsFiltered((long)car_plans.size());
-            dataTables.setData(carRespository.findCanUseCar(new PageRequest(page,length)));
+            dataTables.setData(carRespository.findCanUseCars(new PageRequest(page,length)));
         }
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }
