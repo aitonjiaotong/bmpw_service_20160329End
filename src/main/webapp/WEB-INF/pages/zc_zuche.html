@@ -297,7 +297,7 @@
             $(this).addClass("oo");
             $(this).siblings().addClass("oo");
             var data = $("#table1").DataTable().row($(this).parents("tr")).data();
-            $(":input[name=carId]").val(data.carId);
+            $(":input[name=carId]").val(data.id);
             $(":input[name=beforeMileage]").val(data.mileage);
         });
         /*上面的代码是为了捆绑事件*/
@@ -418,6 +418,35 @@
             timeFormat: "hh:mm:ss"
         });
 
+        $(":input[name=status]").change(function(){
+            var va = $(":input[name=status]:checked").val();
+            if(va==1){
+                $(":input[name=institutionsCode]").val("");
+                $(":input[name=password]").val("");
+                $(":input[name=institutionsCode]").attr("disabled",true);
+                $(":input[name=password]").attr("disabled",true);
+                $(":input[name=checkInstitution]").attr("disabled",true);
+            }
+            if(va==0){
+                $(":input[name=institutionsCode]").attr("disabled",false);
+                $(":input[name=password]").attr("disabled",false);
+                $(":input[name=checkInstitution]").removeAttr("disabled");
+            }
+        });
+        $(":input[name=hasDriver]").change(function(){
+            var va = $(":input[name=hasDriver]:checked").val();
+            if(va == 0){
+                $(":input[name=driverName]").attr("disabled",false);
+                $(":input[name=chooseDriver]").attr("disabled",false);
+            }
+            if(va == 1){
+                $(":input[name=driverName]").val("");
+                $(":input[name=diiverId]").val("");
+                $(":input[name=driverName]").attr("disabled",true);
+                $(":input[name=chooseDriver]").attr("disabled",true);
+            }
+        });
+
 	 };
 	function choosePlan(){
 	 $("#child1").toggle();
@@ -464,6 +493,54 @@
       </thead>
 	</table>
     </div>
+    <div>
+        <table style="width: 30%;margin: 20px;">
+            <tr>
+            <td><input type="radio" name="status" checked="checked" value="1"/>个人租车</td><td><input type="radio" name="status" value="0"/>机构用车</td>
+            </tr>
+        </table>
+        <tabel style="width: 70%;margin: 40px;">
+            <tr>
+                <td>企业机构号</td><td><input name="institutionsCode" disabled="true"/></td><td>登陆密码</td>
+                <td><input type="password" name="password" disabled="true"/></td>
+                <td><input value="验证" type="button" name="checkInstitution" disabled="true"/></td>
+                <td><label id="checkInstitutionMessage">登陆失败！！！！</label></td>
+            </tr>
+        </tabel>
+    </div>
+        <div>
+            <table style="width: 30%;margin: 20px;">
+                <tr>
+                    <td><input type="radio" name="hasDriver" checked="checked" value="1"/>不带司机</td>
+                    <td><input type="radio" name="hasDriver" value="0"/>带司机</td>
+                </tr>
+            </table>
+            <tabel style="width: 70%;margin: 40px;">
+                <tr>
+                    <td>选择司机</td><td><input name="driverName" disabled="true"/></td>
+                    <td><input value="查找司机" type="button" name="chooseDriver" disabled="true"/></td>
+                </tr>
+            </tabel>
+            <!-- ****司机ID隐藏域**** -->
+            <input type="hidden" name="driverId"/>
+        </div>
+        <br>
+        <table class="table2">
+            <tr>
+                <td>取车地点</td><td>还车地点</td><td>保险费用</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" style="width:150px;" name="getCar">
+                </td>
+                <td>
+                    <input type="text" style="width:150px;" name="returnCar">
+                </td>
+                <td><input/><input type="button" value="选择保险类型"/></td>
+
+            </tr>
+        </table>
+
 	<table class="table2">
 	<tr>
 	 	<td>出租时间</td><td>计划归还时间</td><td>借出时里程数</td>
@@ -475,6 +552,7 @@
         </td>
         <td><input name="beforeMileage"/>
         </td>
+
 	</tr>
 	</table>
 	<p class="p1">出租计费</p>
