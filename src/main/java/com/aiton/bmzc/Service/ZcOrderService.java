@@ -3,6 +3,7 @@ package com.aiton.bmzc.Service;
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Entity.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 
 /**
@@ -19,7 +20,7 @@ public interface ZcOrderService {
     ZcOrder loadOrder(Integer order_id,Timestamp huancheDate,Double afterMileage,Double shouyajin);
     ZcOrder completeOrder(Integer order_id,Double price,Double shouyajin,String note,String sale);
     ZcContainsNum loadorderByaccount(Integer accountId,Integer page);
-    DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length,String search);
+    DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length,HttpServletRequest request);
     ZcOrder addOrder2(ZcOrderRequest order_request);
     ZcCarAndPlan beforeOrder(Integer lei);
     ZcOrder addOrderFromPage(ZcOrder zcOrder);

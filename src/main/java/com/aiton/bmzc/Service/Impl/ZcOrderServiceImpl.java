@@ -1,4 +1,6 @@
 package com.aiton.bmzc.Service.Impl;
+import com.aiton.bmpw.Dao.AccountReponstory;
+import com.aiton.bmpw.Entity.Account;
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Dao.ZcCarRespository;
 import com.aiton.bmzc.Dao.ZcDriverRepository;
@@ -11,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +36,8 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     private ZcCarRespository carRespository;
     @Resource(name = "zcDriverRepository")
     private ZcDriverRepository driverRepository;
+    @Resource
+    private AccountReponstory accountReponstory;
     //机构租车添加订单
     @Override
     public ZcOrder addOrder1(ZcOrderRequest order_request) {
@@ -231,17 +236,49 @@ public class ZcOrderServiceImpl implements ZcOrderService {
      * @return
      */
     @Override
-    public DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length,String search) {
+    public DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length,HttpServletRequest request) {
+        String search=request.getParameter("search[value]");
         Integer page=start/length;
         DataTables dataTables=new DataTables();
         dataTables.setDraw(draw);
-        dataTables.setRecordsTotal(Long.valueOf(orderRepository.CountIngOrder().toString()));
+        Object l=orderRepository.CountIngOrder();
+        List<ZcCarPlanOrderAccount> list=new ArrayList<ZcCarPlanOrderAccount>();
+        if(l==null){
+            dataTables.setRecordsTotal(0l);
+            dataTables.setRecordsFiltered(0l);
+            dataTables.setData(list);
+            return dataTables;
+        }
+        dataTables.setRecordsTotal(Long.valueOf(l.toString()));
         List<ZcOrder>orders=new ArrayList<ZcOrder>();
         if("".equals(search)||search==null){
-            dataTables.setRecordsFiltered(orderRepository.count());
+            dataTables.setRecordsFiltered(Long.valueOf(l.toString()));
             orders=orderRepository.findIngOrder(new PageRequest(page,length,new Sort(Sort.Direction.ASC,"planReturnDate"))).getContent();
+            for(ZcOrder order:orders){
+                ZcPlan plan=planRepository.findOne(order.getPlanId());
+                ZcCar car=carRespository.findOne(order.getCarId());
+                Account account=accountReponstory.findOne(order.getAccountId());
+                ZcCarPlanOrderAccount carPlanOrderAccount=new ZcCarPlanOrderAccount(car,plan,order,account);
+                list.add(carPlanOrderAccount);
+            }
         }else{
             search="%"+search+"%";
+            List<Object>accounts=accountReponstory.findByPhoneLike(search);
+            orders=orderRepository.findIngOrderByAccount(accounts,new PageRequest(page,length,new Sort(Sort.Direction.ASC,"planReturnDate"))).getContent();
+            for(ZcOrder order:orders){
+                ZcPlan plan=planRepository.findOne(order.getPlanId());
+                ZcCar car=carRespository.findOne(order.getCarId());
+                Account account=accountReponstory.findOne(order.getAccountId());
+                ZcCarPlanOrderAccount carPlanOrderAccount=new ZcCarPlanOrderAccount(car,plan,order,account);
+                list.add(carPlanOrderAccount);
+            }
+            dataTables.setData(list);
+            Object o=orderRepository.countIngOrderByAccount(accounts);
+            if(o==null){
+               dataTables.setRecordsFiltered(0l);
+            }else{
+               dataTables.setRecordsFiltered(Long.valueOf(o.toString()));
+            }
         }
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
     }
