@@ -494,6 +494,7 @@
 	</table>
     </div>
     <div>
+
         <table style="width: 30%;margin: 20px;">
             <tr>
             <td><input type="radio" name="status" checked="checked" value="1"/>个人租车</td><td><input type="radio" name="status" value="0"/>机构用车</td>
@@ -521,23 +522,30 @@
                     <td><input value="查找司机" type="button" name="chooseDriver" disabled="true"/></td>
                 </tr>
             </tabel>
+
             <!-- ****司机ID隐藏域**** -->
+
             <input type="hidden" name="driverId"/>
+
         </div>
         <br>
-        <table class="table2">
-            <tr>
+        <table style="width:80%;margin-left:20px;margin-bottom:20px;">
+            <tr style="font-weight:bold;">
                 <td>取车地点</td><td>还车地点</td><td>保险费用</td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" style="width:150px;" name="getCar">
+                    <input type="text" style="width:150px;" name="getCarStoreName"/>
+                    <input type="button" value="选择分店"/>
+                    <input type="hidden" name="getCar"/>
                 </td>
                 <td>
-                    <input type="text" style="width:150px;" name="returnCar">
+                <input type="text" style="width:150px;" name="returnCarStroreName"/>
+                    <input type="button" value="选择分店"/>
+                    <input type="hidden" name="returnCar"/>
                 </td>
-                <td><input/><input type="button" value="选择保险类型"/></td>
-
+           <td><input type="text" name="insurance"/>
+               <input type="button" value="选择保险类型"/></td>
             </tr>
         </table>
 
