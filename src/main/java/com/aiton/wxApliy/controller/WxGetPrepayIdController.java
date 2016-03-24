@@ -1,6 +1,7 @@
 package com.aiton.wxApliy.controller;
 
 import com.aiton.wxApliy.entity.WxRequest;
+import com.aiton.wxApliy.entity.WxRespon;
 import com.aiton.wxApliy.service.WxConnection;
 import com.aiton.wxApliy.util.MD5Util;
 import com.aiton.wxApliy.util.OrderUtil;
@@ -27,26 +28,32 @@ import java.util.TreeMap;
 public class WxGetPrepayIdController {
     @RequestMapping("/wx/wxpay")
     @ResponseBody
-    public String execute(WxRequest request) throws JDOMException, IOException {
-        request.setNotify_url("http://61.154.229.156:8080/bmpw/wx/notify");
+    public WxRespon execute(WxRequest request) throws JDOMException, IOException {
+        //System.out.println("ooooooooooooooooooooooooooooooooooooooooo");
+        request.setNotify_url("http://120.24.46.15:8080/bmpw/wx/notify");
         WxConnection wxConnection=new WxConnection();
-        String result=wxConnection.reqOrder(request);
-        System.out.println("结果为"+result);
-        Map<String,String> map=XMLUtil.doXMLParse(result);
-        String prepay_id=map.get("prepay_id");
+        String prepay_id=wxConnection.reqOrder(request);
+        System.out.println("结果为"+prepay_id);
         SortedMap<String,String>sortedMap=new TreeMap<String, String>();
-        sortedMap.put("prepay_id",prepay_id);
-        sortedMap.put("appId",request.getAppid());
-        sortedMap.put("partnerId",String .valueOf(1324165801));
-        sortedMap.put("nonceStr", RamCharsUtil.getRamChars());
-        sortedMap.put("timeStamp", OrderUtil.GetTimestamp());
+        sortedMap.put("prepayid",prepay_id);
+        sortedMap.put("appid",request.getAppid());
+        sortedMap.put("partnerid",String .valueOf(1324165801));
+        sortedMap.put("noncestr", RamCharsUtil.getRamChars());
+        sortedMap.put("timestamp", OrderUtil.GetTimestamp());
         sortedMap.put("package","Sign=WXPay");
+        //System.out.println(sortedMap);
         StringBuilder sb=new StringBuilder();
-        for (String key : map.keySet()) {
-            sb.append(key).append("=").append(map.get(key)).append("&");
+        for (String key : sortedMap.keySet()) {
+            //System.out.println(key);
+            sb.append(key).append("=").append(sortedMap.get(key)).append("&");
         }
-        String str=sb.substring(0,sb.length()-1);
-        str= MD5Util.MD5Encode(str, "utf-8").toUpperCase();
-        return str;
+        sb.append("key=" + "o7q16VNoBB7ABPpSHB6dAL0LHAMCYdUp");
+        System.out.println(sb);
+        String str= MD5Util.MD5Encode(sb.toString(), "utf-8").toUpperCase();
+        //System.out.println("返回APP"+str);
+        WxRespon wxRespon=new WxRespon();
+        wxRespon.setMap(sortedMap);
+        wxRespon.setSign(str);
+        return wxRespon;
     }
 }
