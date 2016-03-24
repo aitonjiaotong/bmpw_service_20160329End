@@ -49,10 +49,11 @@ public class WxConnection {
             if (httpEntity != null) {
                 // 打印响应内容
                  result= EntityUtils.toString(httpEntity, "UTF-8");
-                System.out.println(result);
+                System.out.println("返回结果"+result);
                 // 过滤
                 result = result.replaceAll("<![CDATA[|]]>", "");
                 prepay_id= Jsoup.parse(result).select("prepay_id").html();
+                System.out.println("返回值"+result);
                 if (prepay_id != null)
                     return prepay_id;
             }
@@ -61,7 +62,7 @@ public class WxConnection {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return result;
+        return prepay_id;
     }
     public String getPackage(WxRequest request) {
         SortedMap<String,String>map=new TreeMap<String, String>();
