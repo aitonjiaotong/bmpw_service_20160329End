@@ -261,6 +261,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
                 ZcCarPlanOrderAccount carPlanOrderAccount=new ZcCarPlanOrderAccount(car,plan,order,account);
                 list.add(carPlanOrderAccount);
             }
+            dataTables.setData(list);
         }else{
             search="%"+search+"%";
             List<Object>accounts=accountReponstory.findByPhoneLike(search);
