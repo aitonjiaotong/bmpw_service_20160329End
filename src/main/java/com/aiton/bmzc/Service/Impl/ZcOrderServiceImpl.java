@@ -261,4 +261,13 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         carPlan.setPlan(plan);
         return carPlan;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    @Override
+    public ZcOrder addOrderFromPage(ZcOrder zcOrder) {
+        if(zcOrder!=null && zcOrder.getId()==null ) {
+            orderRepository.saveAndFlush(zcOrder);
+            return zcOrder;
+        }
+        return null;
+    }
 }

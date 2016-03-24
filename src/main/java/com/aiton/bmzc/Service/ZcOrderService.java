@@ -22,4 +22,5 @@ public interface ZcOrderService {
     DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length,String search);
     ZcOrder addOrder2(ZcOrderRequest order_request);
     ZcCarAndPlan beforeOrder(Integer lei);
+    ZcOrder addOrderFromPage(ZcOrder zcOrder);
 }
