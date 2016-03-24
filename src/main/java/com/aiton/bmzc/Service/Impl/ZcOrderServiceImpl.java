@@ -302,6 +302,10 @@ public class ZcOrderServiceImpl implements ZcOrderService {
 
     @Override
     public ZcOrder addOrderFromPage(ZcOrder zcOrder) {
+        zcOrder.setFlag(0);
+        ZcCar car=carRespository.findOne(zcOrder.getCarId());
+        car.setStatus(0);
+        carRespository.saveAndFlush(car);
         if(zcOrder!=null && zcOrder.getId()==null ) {
             orderRepository.saveAndFlush(zcOrder);
             return zcOrder;
