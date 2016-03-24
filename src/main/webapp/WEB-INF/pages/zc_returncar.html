@@ -163,12 +163,16 @@
             background-color: #cccccc;
         }
         .tableClass{
+            margin-top: 0;
             overflow:hidden;
             word-break: keep-all;
             white-space:nowrap;
         }
         input[type=text]{
             padding-left:10px;
+        }
+        input:read-only{
+            background:#ddd;
         }
     </style>
 </head>
@@ -178,21 +182,28 @@
 <div class="top3"><div><p><img src="images/huanche.png">还车</p></div></div>
 <div class="mainpage">
     <form>
-        <input type="hidden" name="zuchuDate"/>
-        <input type="hidden" name="timePrice"/>
-        <input type="hidden" name="limitMileage"/>
-        <input type="hidden" name="beforeMileage"/>
-        <input type="hidden" name="outMileagePrice"/>
-        <input type="hidden" name="outTimePrice"/>
-        <input type="hidden" name="advancePayment"/>
-        <input type="hidden" name="planReturnDate" value="2016-03-23 00:00:00"/>
-        <input type="hidden" name="outTimePrice"/>
-        <input type="hidden" name="outTimePrice"/>
-        <input type="hidden" name="planId"/>
+        <!-- 租出时间 -->
+       <!-- <input type="hidden" name="zuchuDate"/>  -->
+        <!-- 计价时间 -->
+      <!--  <input type="hidden" name="jijiatime"/> -->
+        <!-- 计划还车时间-->
+     <!--   <input type="hidden" name="planReturnDate"/> -->
+        <!-- 计时单价 -->
+      <!--  <input type="hidden" name="unitPrice"/> -->
+        <!-- 开始里程数 -->
+     <!--   <input type="hidden" name="beforeMileage"/> -->
+        <!-- 限制里程数 -->
+      <!--  <input type="hidden" name="limitMileage"/> -->
+        <!-- 超时单价 -->
+     <!--   <input type="hidden" name="unitOutTime"/> -->
+        <!-- 超程单价 -->
+     <!--   <input type="hidden" name="unitOutMileage"/>  -->
+
         <input type="hidden" name="orderId"/>
-        <input type="hidden" name="accountId"/>
+
     <div id="loadorders">
-        <p>租出车辆</p>
+        <br>
+        <p style="font-weight:bold;">请选择车辆</p>
         <table id="orders" class="tableClass">
             <thead>
                 <th>车辆</th>
@@ -210,38 +221,58 @@
             </thead>
         </table>
     </div>
+        <div>
+            <table style="margin-left:20px; ">
+                <tr><td>请输入还车时间</td><td><input type="text" style="margin-left: 50px;" name="huancheDate" id="datepicker" readonly/>
+                </td><td><span style="float:right;margin-right: 20px;">车牌号</span></td>
+                    <td><input type="text" class="bo" name="licensePlate" readonly/></td></tr>
+                <tr><td><span>还车时里程数</span></td><td><input style="margin-left: 50px;" type="text"  class="bo" name="afterMileage"/></td>
+                    <td><input type="button" value="还车" style="width: 100px;" onclick="returnCar()"/></td>
+                </tr>
+            </table>
+        </div>
     <div id="others">
         <table>
             <tr>
-                <td><span>车辆</span></td>
-                <td><input type="text" class="bo" name="licensePlate"/></td>
-                <td><span>还车时间</span></td>
-                <td><input type="text"  class="bo" name="huancheDate" id="datepicker" readonly/></td>
-                <td><span>还车时里程数</span></td>
-                <td><input type="text"  class="bo" name="afterMileage"/></td>
+                <td><span>正常约定租金</span></td>
+                <td><input type="text"  class="bo" name="timePrice" readonly/></td>
+                <!-- 正常计时租金 -->
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
-                <td><span>计价时间</span></td>
-                <td><input type="text"  class="bo" name="jijiatime"/></td>
-                <td><span>计时应收租金</span></td>
-                <td><input type="text"  class="bo" name="timePrice"/></td>
+                <!-- 超程租金 -->
                 <td><span>超程租金</span></td>
-                <td><input type="text"  class="bo" name="outMileagePrice"/></td>
+                <td><input type="text"  class="bo" name="outMileagePrice" readonly/></td>
+                <!-- 超时租金 -->
+                <td><span>超时租金</span></td>
+                <td><input type="text"  class="bo" name="outTimePrice" readonly/></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="5"><span>合计应收租金</span><input type="text" style="margin-left: 5px"  class="bo"/></td>
+                <td><span>其他扣款</span></td>
+                <td><input type="text" class="bo" id="penalty"/></td>
+                <td><span>扣款备注</span></td>
+                <td><input type="text" class="bo"/></td>
+            </tr>
+            <tr>
+                <td><span>合计应收租金</span></td><td colspan="4"><input type="text" style="margin-left: 10px"  class="bo" id="price" readonly/></td>
             </tr>
         </table>
         <div id="o">
-            <p style="float: left" >预付款<input type="text" class="bo" name="advancePayment"/></p>
-            <p style="float: left">应退押金<input type="text" readonly style="border: 0px"/></p>
-            <p style="float: left">实收押金<input type="text"  class="bo" name="shouyajin"/></p>
+            <!-- 预收租金 -->
+            <p style="float: left" >预付款<input type="text" class="bo" name="advancePayment" readonly/></p>
+            <p style="float: left">应退押金<input type="text" readonly /></p>
+            <p style="float: left">实收押金<input type="text"  class="bo" name="shouyajin" readonly/></p>
+            <!-- 实收的总金额 -->
             <p style="float: left">结算实收金额<input type="text"  class="bo" name="price"/></p>
             <p style="clear: left"><span style="float:left;margin-right: 10px;">备注</span><textarea class="area" name="note"></textarea></p>
         </div>
     </div>
     <div id="btns">
-         <button onclick="returnCar();">还车</button>
          <button onclick="returnAndBilling();">还车结算</button>
          <button onclick="exitPage();">退出</button>
     </div>
@@ -272,6 +303,7 @@
 <script src="JS/jquery/jquery-ui-timepicker-addon.js"></script>
 <script src="JS/jquery/jquery-ui-timepicker-zh-CN.js"></script>
 <script>
+    var flag = 0;
     $(function(){
         $("#orders").dataTable({
             "serverSide":true,
@@ -300,11 +332,11 @@
                 { "data": "car.licensePlate" },
                 { "data": "order.status" },
                 { "data": "order.zuchuDate"},
-                { "data": "order.timePrice"},
+                { "data": "plan.price"},
                 { "data": "order.limitMileage"},
                 { "data": "order.beforeMileage"},
-                { "data": "order.outMileagePrice"},
-                { "data": "order.outTimePrice"},
+                { "data": "plan.outMileage"},
+                { "data": "plan.outTime"},
                 { "data": "order.advancePayment"},
                 { "data": "order.planReturnDate"},
                 { "data": "account.name"},
@@ -328,44 +360,60 @@
             $(this).addClass("oo");
             $(this).siblings().addClass("oo");
             var data = $("#orders").DataTable().row($(this).parents("tr")).data();
-            $(":input[name=licensePlate]").val(data.licensePlate);
-            $(":input[name=orderId]").val(data.id);
-            $(":input[name=zuchuDate]").val(data.zuchuDate);
-            $(":input[name=timePrice]").val(data.timePrice);
-            $(":input[name=limitMileage]").val(data.limitMileage);
-            $(":input[name=beforeMileage]").val(data.beforeMileage);
-            $(":input[name=outMileagePrice]").val(data.outMileagePrice);
-            $(":input[name=outTimePrice]").val(data.outTimePrice);
-            $(":input[name=advancePayment]").val(data.advancePayment);
-            $(":input[name=planReturnDate]").val(data.planReturnDate);
-            $(":input[name=outTimePrice]").val(data.outTimePrice);
-            $(":input[name=outTimePrice]").val(data.outTimePrice);
-            $(":input[name=accountId]").val(data.accountId);
+            $(":input[name=licensePlate]").val(data.car.licensePlate);
+            $(":input[name=orderId]").val(data.order.id);
+        /*    $(":input[name=jijiatime]").val(data.order.jijiatime);
+            $(":input[name=planReturnDate]").val(data.order.planReturnDate);
+            $(":input[name=unitPrice]").val(data.plan.price);
+            $(":input[name=unitOutTime]").val(data.plan.outTime);
+
+            $(":input[name=limitMileage]").val(data.order.limitMileage);
+            $(":input[name=beforeMileage]").val(data.order.beforeMileage);
+            $(":input[name=unitOutMileage]").val(data.plan.outMileage);  */
+
+            $(":input[name=advancePayment]").val(data.order.advancePayment);
+            $(":input[name=shouyajin]").val(data.order.shouyajin);
+
         });
         $( "#datepicker" ).datetimepicker({
             regional:"zh-CN",
             dateFormat:"yy-mm-dd",
             timeFormat: "hh:mm:ss"
         });
-        $("#datepicker").blur(function (){
-
-        });
+        var date = new Date();
+        var str = date.getFullYear()+"-"+(date.getMonth()+1)
+                +"-"+date.getDate()+" "+date.getHours()
+                +":"+date.getMinutes()+":"+date.getSeconds();
+        $("#datepicker").val(str);
     });
     function returnCar(){
-        var id = $(":input[name=orderId]").val();
-        window.location.href = "/bmpw/zc/order/returnCar?orderId="+id;
+        var orderId = $(":input[name=orderId]").val();
+        var huancheDate = $("#datepicker").val();
+        var afterMileage = $(":input[name=afterMileage]").val();
+        $.ajax({
+            url:"/bmpw/zc/order/returnCar",
+            dataType:"json",
+            type:"post",
+            data:{"id":orderId,"huancheDate":huancheDate,"afterMileage":afterMileage},
+            success:function(data){
+                $(":input[name=timePrice]").val(data.timePrice);
+                $(":input[name=outMileagePrice]").val(data.outMileagePrice);
+                $(":input[name=outTimePrice]").val(data.outTimePrice);
+            },
+            error:function(){
+                alert("还车失败");
+            }
+        });
     }
     function returnAndBilling(){
-        var huancheDate = new Date($("#datepicker").val().replace(/-/g,"/") );
-        var zucheDate = new Date($(":input[name=zuchuDate]").val().replace(/-/g,"/"));
-        var planReturnDate = new Date($(":input[name=planReturnDate]").val().replace(/-/g,"/"));
-
+/*
+       var huancheDate = new Date(("2016-03-05 10:15:00").replace(/-/g,"/") );
+        var planReturnDate = new Date(("2016-03-04 10:15:00").replace(/-/g,"/"));
         var cha = huancheDate.getTime() - planReturnDate.getTime();//时间差的毫秒数
-
         //计算出相差天数
         var days=Math.floor(cha/(24*3600*1000));
         //计算出小时数
-        var leave1=cha3%(24*3600*1000);    //计算天数后剩余的毫秒数
+        var leave1=cha % (24*3600*1000);    //计算天数后剩余的毫秒数
         var hours=Math.floor(leave1/(3600*1000));
         //计算相差分钟数
         var leave2=leave1%(3600*1000);        //计算小时数后剩余的毫秒数
@@ -375,15 +423,20 @@
         //计算分钟数后剩余的毫秒数
         var seconds=Math.round(leave3/1000);
         alert(" 相差 "+days+"天 "+hours+"小时 "+minutes+" 分钟"+seconds+" 秒");
-        if(huancheDate>planReturnDate){
-            alert(huancheDate+ "-" + planReturnDate + "=" + (huancheDate-planReturnDate));
-        }
-
-
+*/
     }
     function billing(){
 
         //var
+    }
+    function startCount(){
+        alert(new Date(parseInt($(":input[name=planReturnDate]").val())));
+        alert($(":input[name=jijiatime]").val());
+        alert($(":input[name=unitPrice]").val());
+        /*计算正常约定的租金（时间没有用完概不退钱）*/
+        $(":input[name=timePrice]").val(($(":input[name=jijiatime]").val())*($(":input[name=unitPrice]").val()))
+
+
     }
 </script>
 </body>
