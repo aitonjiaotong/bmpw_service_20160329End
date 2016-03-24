@@ -25,4 +25,6 @@ public interface AccountReponstory extends JpaRepository<Account,Integer>{
     List<Account> findByPhoneLike(String phone,Pageable pageable);
     @Query("select count(a) from Account as a where a.phone like ?")
     Object CountByPhoneLike(String phone);
+    @Query("select a.id from Account as a where a.phone like ?")
+    List<Object> findByPhoneLike(String phone);
 }
