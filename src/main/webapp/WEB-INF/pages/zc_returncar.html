@@ -185,7 +185,7 @@
         <input type="hidden" name="outMileagePrice"/>
         <input type="hidden" name="outTimePrice"/>
         <input type="hidden" name="advancePayment"/>
-        <input type="hidden" name="planReturnDate"/>
+        <input type="hidden" name="planReturnDate" value="2016-03-23 00:00:00"/>
         <input type="hidden" name="outTimePrice"/>
         <input type="hidden" name="outTimePrice"/>
         <input type="hidden" name="planId"/>
@@ -216,7 +216,7 @@
                 <td><span>车辆</span></td>
                 <td><input type="text" class="bo" name="licensePlate"/></td>
                 <td><span>还车时间</span></td>
-                <td><input type="text"  class="bo" name="huancheDate" id="datepicker"/></td>
+                <td><input type="text"  class="bo" name="huancheDate" id="datepicker" readonly/></td>
                 <td><span>还车时里程数</span></td>
                 <td><input type="text"  class="bo" name="afterMileage"/></td>
             </tr>
@@ -274,6 +274,9 @@
 <script>
     $(function(){
         $("#orders").dataTable({
+            "serverSide":true,
+            "processing": true,
+            "ajax":"/bmpw/zc/order/loadcancompleteorder",
             "scrollY": "200px",
             "scrollCollapse": "true",
             "bSort":false,
@@ -294,24 +297,24 @@
                 "sSearch":"根据车牌号查询"
             },
             "columns":[
-                { "data": "licensePlate" },
-                { "data": "status" },
-                { "data": "zuchuDate"},
-                { "data": "timePrice"},
-                { "data": "limitMileage"},
-                { "data": "beforeMileage"},
-                { "data": "outMileagePrice"},
-                { "data": "outTimePrice"},
-                { "data": "advancePayment"},
-                { "data": "planReturnDate"},
-                { "data": "accountName"},
-                { "data": "phone"}
+                { "data": "car.licensePlate" },
+                { "data": "order.status" },
+                { "data": "order.zuchuDate"},
+                { "data": "order.timePrice"},
+                { "data": "order.limitMileage"},
+                { "data": "order.beforeMileage"},
+                { "data": "order.outMileagePrice"},
+                { "data": "order.outTimePrice"},
+                { "data": "order.advancePayment"},
+                { "data": "order.planReturnDate"},
+                { "data": "account.name"},
+                { "data": "account.phone"}
             ],
             "createdRow": function ( row, data, dataindex ) {
-                if(data.status==0){
+                if(data.order.status==0){
                     $('td', row).eq(1).text("企业租车");
                 }
-                if(data.status==1){
+                if(data.order.status==1){
                     $('td', row).eq(1).text("个人租车");
                 }
             }
@@ -353,13 +356,34 @@
         window.location.href = "/bmpw/zc/order/returnCar?orderId="+id;
     }
     function returnAndBilling(){
-        var str = $("#datepicker").val();
-        str = str.replace(/-/g,"/");
-        var date = new Date(str );
+        var huancheDate = new Date($("#datepicker").val().replace(/-/g,"/") );
+        var zucheDate = new Date($(":input[name=zuchuDate]").val().replace(/-/g,"/"));
+        var planReturnDate = new Date($(":input[name=planReturnDate]").val().replace(/-/g,"/"));
+
+        var cha = huancheDate.getTime() - planReturnDate.getTime();//时间差的毫秒数
+
+        //计算出相差天数
+        var days=Math.floor(cha/(24*3600*1000));
+        //计算出小时数
+        var leave1=cha3%(24*3600*1000);    //计算天数后剩余的毫秒数
+        var hours=Math.floor(leave1/(3600*1000));
+        //计算相差分钟数
+        var leave2=leave1%(3600*1000);        //计算小时数后剩余的毫秒数
+        var minutes=Math.floor(leave2/(60*1000));
+        //计算相差秒数
+        var leave3=leave2%(60*1000);
+        //计算分钟数后剩余的毫秒数
+        var seconds=Math.round(leave3/1000);
+        alert(" 相差 "+days+"天 "+hours+"小时 "+minutes+" 分钟"+seconds+" 秒");
+        if(huancheDate>planReturnDate){
+            alert(huancheDate+ "-" + planReturnDate + "=" + (huancheDate-planReturnDate));
+        }
+
+
     }
     function billing(){
-        var str = "";
-        var
+
+        //var
     }
 </script>
 </body>

@@ -411,7 +411,7 @@ public class ZcOrder {
         * private String date;//下单时间
         * */
         this.zuchuDate = Timestamp.valueOf(page.getZuchuDate());
-        this.huancheDate = Timestamp.valueOf(page.getHuancheDate());
+        this.huancheDate = null;
         this.planReturnDate = Timestamp.valueOf(page.getPlanReturnDate());
         this.limitMileage = page.getLimitMileage();
         this.accountId = page.getAccountId();
@@ -432,7 +432,7 @@ public class ZcOrder {
         this.getCar = page.getGetCar();
         this.returnCar = page.getReturnCar();
         this.advancePayment = page.getAdvancePayment();
-        this.date = Timestamp.valueOf(page.getDate());
+        this.date = new Timestamp(System.currentTimeMillis());
         this.status = page.getStatus();
         this.insurance = page.getInsurance();
         this.sale = page.getSale();
