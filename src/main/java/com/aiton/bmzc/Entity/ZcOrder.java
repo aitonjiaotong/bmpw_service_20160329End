@@ -353,4 +353,89 @@ public class ZcOrder {
                 ", institutionsCode='" + institutionsCode + '\'' +
                 '}';
     }
+    public ZcOrder(){}
+
+    public ZcOrder(Integer id, Integer carId, Integer planId,
+                   Timestamp zuchuDate, Timestamp huancheDate,
+                   Timestamp planReturnDate, Double limitMileage,
+                   Integer accountId, Integer guarantorId,
+                   Double beforeMileage, Double afterMileage,
+                   Integer jijiatime, Double timePrice, Double
+                   outMileagePrice, Double outTimePrice,
+                   Double zuPrice, Double shouyajin, Double price,
+                   String note, Integer flag, Integer driverId,
+                   Integer hasDriver, Integer getCar, Integer returnCar,
+                   Double advancePayment, Timestamp date,
+                   Integer status, Double insurance,
+                   String sale, String institutionsCode) {
+        this.id = id;
+        this.carId = carId;
+        this.planId = planId;
+        this.zuchuDate = zuchuDate;
+        this.huancheDate = huancheDate;
+        this.planReturnDate = planReturnDate;
+        this.limitMileage = limitMileage;
+        this.accountId = accountId;
+        this.guarantorId = guarantorId;
+        this.beforeMileage = beforeMileage;
+        this.afterMileage = afterMileage;
+        this.jijiatime = jijiatime;
+        this.timePrice = timePrice;
+        this.outMileagePrice = outMileagePrice;
+        this.outTimePrice = outTimePrice;
+        this.zuPrice = zuPrice;
+        this.shouyajin = shouyajin;
+        this.price = price;
+        this.note = note;
+        this.flag = flag;
+        this.driverId = driverId;
+        this.hasDriver = hasDriver;
+        this.getCar = getCar;
+        this.returnCar = returnCar;
+        this.advancePayment = advancePayment;
+        this.date = date;
+        this.status = status;
+        this.insurance = insurance;
+        this.sale = sale;
+        this.institutionsCode = institutionsCode;
+    }
+    public ZcOrder(ZcOrderGetFromPage page) {
+        this.id = page.getId();
+        this.carId = page.getCarId();
+        this.planId = page.getPlanId();
+       /*
+        * 类型转换
+        * private String zuchuDate; //租出时间
+        * private String huancheDate; //还车时间
+        * private String planReturnDate;//计划还车时间
+        * private String date;//下单时间
+        * */
+        this.zuchuDate = Timestamp.valueOf(page.getZuchuDate());
+        this.huancheDate = Timestamp.valueOf(page.getHuancheDate());
+        this.planReturnDate = Timestamp.valueOf(page.getPlanReturnDate());
+        this.limitMileage = page.getLimitMileage();
+        this.accountId = page.getAccountId();
+        this.guarantorId = page.getGuarantorId();
+        this.beforeMileage = page.getBeforeMileage();
+        this.afterMileage = page.getAfterMileage();
+        this.jijiatime = page.getJijiatime();
+        this.timePrice = page.getTimePrice();
+        this.outMileagePrice = page.getOutMileagePrice();
+        this.outTimePrice = page.getOutTimePrice();
+        this.zuPrice = page.getZuPrice();
+        this.shouyajin = page.getShouyajin();
+        this.price = page.getPrice();
+        this.note = page.getNote();
+        this.flag = page.getFlag();
+        this.driverId = page.getDriverId();
+        this.hasDriver = page.getHasDriver();
+        this.getCar = page.getGetCar();
+        this.returnCar = page.getReturnCar();
+        this.advancePayment = page.getAdvancePayment();
+        this.date = Timestamp.valueOf(page.getDate());
+        this.status = page.getStatus();
+        this.insurance = page.getInsurance();
+        this.sale = page.getSale();
+        this.institutionsCode = page.getInstitutionsCode();
+    }
 }

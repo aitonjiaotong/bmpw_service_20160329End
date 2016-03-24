@@ -1,7 +1,5 @@
 package com.aiton.bmzc.Entity;
 
-import java.sql.Timestamp;
-
 /**
  * 用于接收添加order页面传过来的值
  * Created by user on 2016/3/23.
@@ -32,7 +30,7 @@ public class ZcOrderGetFromPage {
     private Integer getCar;//取车地点
     private Integer returnCar;//还车地点
     private Double advancePayment;//预付款
-    private Timestamp date;//下单时间
+    private String date;//下单时间
     private Integer status;//0：企业租车 1；个人租车
     private Double insurance;//保险金额
     private String sale;//收款人账号
@@ -238,11 +236,11 @@ public class ZcOrderGetFromPage {
         this.advancePayment = advancePayment;
     }
 
-    public Timestamp getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
