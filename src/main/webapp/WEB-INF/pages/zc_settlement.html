@@ -158,8 +158,14 @@
         #orders{
             text-align: center;
         }
-        input[type=text]{
+        input[type=text],textarea{
             padding-left:10px;
+        }
+        .light{
+            color: red;
+        }
+        .oo{
+            background-color: #cccccc;
         }
     </style>
 </head>
@@ -190,36 +196,41 @@
     <div id="others">
         <table>
             <tr>
-                <td><span>车辆</span></td>
-                <td><input type="text" class="bo"/></td>
+                <td><span>车牌号</span></td>
+                <td><input type="text" class="bo" name="licensePlate"/></td>
                 <td><span>还车时间</span></td>
-                <td><input type="text"  class="bo"/></td>
+                <td><input type="text"  class="bo" name="huancheDate"/></td>
                 <td><span>还车时里程数</span></td>
-                <td><input type="text"  class="bo"/></td>
+                <td><input type="text"  class="bo" name="afterMileage"/></td>
             </tr>
             <tr>
-                <td><span>计价时间</span></td>
-                <td><input type="text"  class="bo"/></td>
-                <td><span>计时应收租金</span></td>
-                <td><input type="text"  class="bo"/></td>
+                <td><span>计时约定租金</span></td>
+                <td><input type="text"  class="bo" name="timePrice"/></td>
+                <td><span>超时租金</span></td>
+                <td><input type="text"  class="bo" name="outTimePrice"/></td>
                 <td><span>超程租金</span></td>
-                <td><input type="text"  class="bo"/></td>
+                <td><input type="text"  class="bo" name="outMileagePrice"/></td>
+            </tr>
+            <tr>
+                <td><span>保险金额</span></td>
+                <td><input type="text" class="bo" name="insurance"></td>
+                <td><span>其他扣款</span></td>
+                <td><input type="text" class="bo"/></td>
             </tr>
             <tr>
                 <td colspan="5"><span>合计应收租金</span><input type="text" style="margin-left: 5px"  class="bo"/></td>
             </tr>
         </table>
         <div id="o">
-            <p style="float: left" >预交押金<input type="text" class="bo"/></p>
+            <p style="float: left" >预付款<input type="text" class="bo" name="advancePayment"/></p>
             <p style="float: left">应退押金<input type="text" readonly style="border: 0px"/></p>
-            <p style="float: left">实收押金<input type="text"  class="bo"/></p>
+            <p style="float: left">实收押金<input type="text"  class="bo" name="shouyajin"/></p>
             <p style="float: left">结算实收金额<input type="text"  class="bo"/></p>
-            <p style="clear: left"><span style="float:left;margin-right: 10px;">备注</span><textarea class="area"></textarea></p>
+            <p style="clear: left"><span style="float:left;margin-right: 10px;">备注</span><textarea class="area" name="note"></textarea></p>
         </div>
     </div>
     <div id="btns">
-         <button>还车</button>
-         <button>还车结算</button>
+         <button>结算</button>
          <button>退出</button>
     </div>
 </div>
@@ -300,6 +311,24 @@
                         +(date2.getMonth()+1)+"-"+date2.getDate()
                         +" "+date2.getHours()+":"+date2.getMinutes());
             }
+        });
+        $("#loadorders").on("click","td",function(){
+            $("tr.light").removeClass("light");
+            $($(this).parent("tr")).addClass("light");
+            $("td.oo").removeClass("oo");
+            $(this).addClass("oo");
+            $(this).siblings().addClass("oo");
+            var data = $("#orders").DataTable().row($(this).parents("tr")).data();
+            $(":input[name=licensePlate]").val(data.car.licensePlate);
+            $(":input[name=huancheDate]").val(data.order.huancheDate);
+            $(":input[name=afterMileage]").val(data.order.afterMileage);
+            $(":input[name=timePrice]").val(data.order.timePrice);
+            $(":input[name=outTimePrice]").val(data.order.outTimePrice);
+            $(":input[name=outMileagePrice]").val(data.order.outMileagePrice);
+            $(":input[name=insurance]").val(data.order.insurance);
+            $(":input[name=advancePayment]").val(data.order.advancePayment);
+            $(":input[name=shouyajin]").val(data.order.shouyajin);
+            $(":input[name=note]").val(data.order.note);
         });
     });
 </script>
