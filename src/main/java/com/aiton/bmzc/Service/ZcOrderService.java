@@ -1,11 +1,13 @@
 package com.aiton.bmzc.Service;
 
 import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Entity.*;
+import com.aiton.bmzc.Entity.ZcCarAndPlan;
+import com.aiton.bmzc.Entity.ZcContainsNum;
+import com.aiton.bmzc.Entity.ZcOrder;
+import com.aiton.bmzc.Entity.ZcOrderRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
-import java.text.ParseException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,12 +20,12 @@ public interface ZcOrderService {
     ZcOrder addDriver(Integer order_id,Integer driver_id);
     ZcOrder addOrder1(ZcOrderRequest order_request);
     Boolean cancelOrder(Integer order_id);
-    ZcOrder loadOrder(Integer order_id,Timestamp huancheDate,Double afterMileage,Double shouyajin);
+    ZcOrder loadOrder(Integer order_id,Timestamp huancheDate,Double afterMileage);
     ZcOrder completeOrder(Integer order_id,Double price,Double shouyajin,String note,String sale);
     ZcContainsNum loadorderByaccount(Integer accountId,Integer page);
     DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length,HttpServletRequest request);
     ZcOrder addOrder2(ZcOrderRequest order_request);
     ZcCarAndPlan beforeOrder(Integer lei);
     ZcOrder addOrderFromPage(ZcOrder zcOrder);
-    ZcOrder returnCarFromPage(Integer id,String huancheDate,Double afterMileage) throws ParseException;
+    DataTables loadCanSettleOrder(Integer draw,Integer start,Integer length,HttpServletRequest request);
 }

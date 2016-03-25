@@ -46,6 +46,7 @@
             width: 79.9%;
             float: right;
             clear: left;
+            padding-top: 20px;;
         }
         .icon{
 
@@ -101,6 +102,7 @@
         .top3 p img{
             margin: 10px;
             float: left;
+            margin-right: 20px;
         }
         #zuo{
             width: 50%;
@@ -116,12 +118,31 @@
             float: right;
         }
         input,textarea{
+            border-radius:3px;border:1px solid #000;
             border-radius: 5px;
+            padding-left:10px;
         }
-        button{
+        button,select{
+            width:100px;
+            height: 25px;;
             clear:right;
             float:left;
-            margin-left: 14%;
+            margin-left: 20px;
+            margin-top: 10px;
+            border-radius:3px;border:1px solid #000;
+        }
+        input[type=text]{
+            border-radius:3px;border:1px solid #000;
+            height: 25px;
+            padding-left:10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .light{
+            color: red;
+        }
+        .oo{
+            background-color: #cccccc;
         }
     </style>
 </head>
@@ -140,39 +161,57 @@
         </table>
     </div>
     <div id="you">
-        <table>
+        <table style="margin-left:20px;">
             <tr>
                 <td>客户证件号</td>
-                <td colspan="3"><input type="text" style="width: 99.2%"/></td>
+                <td colspan="3"><input type="text" style="width: 99.2%" name="idCard"/></td>
             </tr>
             <tr>
                 <td>名称</td>
-                <td><input type="text"/></td>
+                <td><input type="text" name="name"/></td>
                 <td>证件类型</td>
-                <td><input type="text"/></td>
+                <td><!--<input type="text" cardStatus/>-->
+                    <select name="cardStatus">
+                        <option value="0">居民身份证</option>
+                        <option value="1">士兵证</option>
+                        <option value="2">军官证</option>
+                        <option value="3">警官证</option>
+                        <option value="4">护照</option>
+                        <option value="5">其他</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>银行卡号</td>
-                <td><input type="text"/></td>
+                <td><input type="text" name="bankCard"/></td>
                 <td>银行卡类型</td>
-                <td><input type="text"/></td>
+                <td>
+                    <select>
+                        <option value="">工商银行</option>
+                        <option value="">农业银行</option>
+                        <option value="">建设银行</option>
+                        <option value="">交通银行</option>
+                        <option value="">招商银行</option>
+                        <option value="">中国银行</option>
+                    </select>
+                </td>
             </tr>
             <tr>
-                <td>联系方式</td>
-                <td colspan="3"><input type="text" style="width: 99.2%"/></td>
+                <td>电话号码</td>
+                <td colspan="3"><input type="text" style="width: 99.2%" name="phone"/></td>
             </tr>
             <tr>
                 <td>地址</td>
-                <td colspan="3"><input type="text" style="width: 99.2%"/></td>
+                <td colspan="3"><input type="text" style="width: 99.2%" name="address"/></td>
             </tr>
             <tr>
                 <td style="float: left">备注</td>
-                <td colspan="3"><textarea style="width: 98.8%;height: 300px"></textarea></td>
+                <td colspan="3"><textarea style="width: 98.8%;height: 300px" name="note"></textarea></td>
             </tr>
         </table>
         <div id="btns">
-            <button>新增客户</button>
-            <button>保存修改</button>
+            <button style="margin-left: 140px;">新增客户</button>
+            <button >保存修改</button>
             <button>退出</button>
         </div>
     </div>
@@ -186,12 +225,12 @@
         </div>
     </div>
     <div class="op">
-        <p><img class="check" src="images/check.png"><a href="#"><img src="images/chelianxinxi.png">车辆信息</a></p>
+        <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Cheliangxinxi"><img src="images/chelianxinxi.png">车辆信息</a></p>
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_AddCar"><img src="images/chelianxinzeng.png"/>车辆新增</a></p>
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Plans"><img src="images/zulenfangan.png">租赁方案</a></p>
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Zuche"><img src="images/zuche.png">租车</a></p>
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_ReturnCar"><img src="images/huanche.png"/>还车</a></p>
-        <p><img class="check" src="images/check.png"><a href="#"><img src="images/jiesuan.png"/>结算</a></p>
+        <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Settlement"><img src="images/jiesuan.png"/>结算</a></p>
         <p class="c"><img class="check show" src="images/check.png"><a href="#"><img src="images/kehu.png"/>客户</a></p>
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Appointment"><img src="images/yudingdengji.png"/>预定登记</a></p>
     </div>
@@ -201,6 +240,9 @@
 <script>
     $(function(){
        $("#accounts").dataTable({
+           "serverSide":true,
+           "processing": true,
+           "ajax":"/bmpw/zc//account/loadaccounts",
            "bSort":false,
            "bLengthChange":false,
            "bInfo":false,
@@ -217,8 +259,27 @@
                    "sLast": "尾页"
                },
                "sSearch":"根据电话查询"
-
-           }
+           },
+           "columns":[
+               {"data":"idCard"},
+               {"data":"name"},
+               {"data":"phone"}
+           ]
+       });
+       $("#zuo").on("click","td",function(){
+           $("tr.light").removeClass("light");
+           $($(this).parent("tr")).addClass("light");
+           $("td.oo").removeClass("oo");
+           $(this).addClass("oo");
+           $(this).siblings().addClass("oo");
+           var data = $("#accounts").DataTable().row($(this).parents("tr")).data();
+           $(":input[name=idCard]").val(data.idCard);
+           $(":input[name=name]").val(data.name);
+           $(":input[name=cardStatus]").val(data.cardStatus);
+           $(":input[name=bankCard]").val(data.bankCard);
+           $(":input[name=phone]").val(data.phone);
+           $(":input[name=address]").val(data.address);
+           $(":input[name=note]").val(data.note);
        });
     });
 </script>
