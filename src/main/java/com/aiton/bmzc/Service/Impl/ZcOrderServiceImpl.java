@@ -150,15 +150,15 @@ public class ZcOrderServiceImpl implements ZcOrderService {
      * @param order_id
      * @param huancheDate
      * @param afterMileage
-     * @param shouyajin
      * @return
      */
     @Override
-    public ZcOrder loadOrder(Integer order_id, Timestamp huancheDate, Double afterMileage, Double shouyajin) {
+    public ZcOrder loadOrder(Integer order_id, Timestamp huancheDate, Double afterMileage) {
         ZcOrder order=orderRepository.findOne(order_id);
         if(order==null){
            return null;
         }
+        Double shouyajin = order.getShouyajin();
         ZcCar car=carRespository.findOne(order.getCarId());
         car.setStatus(0);
         car.setStore_id(order.getReturnCar());
@@ -168,22 +168,19 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         ZcPlan plan=planRepository.findOne(order.getPlanId());
         //计时应收租金&计价时间
         //计价时间（天）
-        Long time=huancheDate.getTime()-order.getZuchuDate().getTime();
+        Long time=order.getPlanReturnDate().getTime()-order.getZuchuDate().getTime();
         order.setJijiatime((int)StrictMath.ceil(time/86400000));//计价时间按天数显示
         //计时应收租金
-        Long t=order.getPlanReturnDate().getTime()-order.getZuchuDate().getTime();
-        order.setTimePrice(StrictMath.ceil(t/86400000)*plan.getPrice());
-        //限制里程数
-        order.setLimitMileage(plan.getUnitMileage()*order.getJijiatime());
-        //超里程数
+        order.setTimePrice(order.getJijiatime()*plan.getPrice());
+        //总共使用的里程数
         double m=afterMileage-order.getBeforeMileage();
-        //超里程价格
         if(m>order.getLimitMileage()){
             order.setOutMileagePrice((m-order.getLimitMileage())*plan.getOutMileage());
         }
         //超时价格
         //超时时间
-        if(huancheDate.getTime()>order.getPlanReturnDate().getTime()){//超时
+        if(huancheDate.getTime()>order.getPlanReturnDate().getTime()){
+            //超时
             time=huancheDate.getTime()-order.getPlanReturnDate().getTime();
             Integer hour=((int)StrictMath.ceil(time/3600000));//超时小时数
             order.setOutTimePrice(hour*plan.getOutTime());
@@ -307,9 +304,9 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         zcOrder.setFlag(0);
         ZcPlan zcPlan = planRepository.findOne(zcOrder.getPlanId());
         int days = (int)Math.ceil((zcOrder.getPlanReturnDate().getTime()-zcOrder.getZuchuDate().getTime())/(1000*60*60*24));
-        zcOrder.setLimitMileage(zcPlan.getOutMileage()*days);
+        zcOrder.setLimitMileage(zcPlan.getUnitMileage()*days);
         ZcCar car=carRespository.findOne(zcOrder.getCarId());
-        car.setStatus(0);
+        car.setStatus(1);
         carRespository.saveAndFlush(car);
         if(zcOrder!=null && zcOrder.getId()==null ) {
             orderRepository.saveAndFlush(zcOrder);

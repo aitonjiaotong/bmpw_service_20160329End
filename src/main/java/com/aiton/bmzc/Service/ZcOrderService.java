@@ -20,7 +20,7 @@ public interface ZcOrderService {
     ZcOrder addDriver(Integer order_id,Integer driver_id);
     ZcOrder addOrder1(ZcOrderRequest order_request);
     Boolean cancelOrder(Integer order_id);
-    ZcOrder loadOrder(Integer order_id,Timestamp huancheDate,Double afterMileage,Double shouyajin);
+    ZcOrder loadOrder(Integer order_id,Timestamp huancheDate,Double afterMileage);
     ZcOrder completeOrder(Integer order_id,Double price,Double shouyajin,String note,String sale);
     ZcContainsNum loadorderByaccount(Integer accountId,Integer page);
     DataTables loadCanCompleteOrder(Integer draw,Integer start,Integer length,HttpServletRequest request);
