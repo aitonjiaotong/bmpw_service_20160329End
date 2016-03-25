@@ -321,6 +321,14 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         }
         ZcOrder zcOrder = orderRepository.findOne(id);
         ZcPlan zcPlan = planRepository.findOne(zcOrder.getPlanId());
+        if(zcOrder.getFlag() == 3){
+            System.out.println("这个辆车已经还了！不能再进行还车操作！！等待结算中！！！");
+            return null;
+        }else if(zcOrder.getFlag() == 1){
+            System.out.println("这个辆车已经结算完成了！不能再进行还车操作！！");
+        }else if(zcOrder.getFlag() == 2){
+            System.out.println("该订单已经被取消了！不能再进行还车操作！！");
+        }
         zcOrder.setAfterMileage(afterMileage);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = sdf.parse(huancheDate);
@@ -371,6 +379,8 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         }else{
             zcOrder.setOutMileagePrice(0.0);
         }
+        //改变状态，等待结算
+        zcOrder.setFlag(3);
         //写入数据库
         orderRepository.saveAndFlush(zcOrder);
         return zcOrder;

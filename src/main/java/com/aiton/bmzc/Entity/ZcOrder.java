@@ -32,7 +32,7 @@ public class ZcOrder {
     private Double shouyajin;//实收押金
     private Double price;//总价
     private String note;//备注
-    private Integer flag;//订单状态 0:进行中 1：完成 2:取消 3：等待结算
+    private Integer flag;//订单状态 0:进行中 1：完成 2:取消 3：等待结算(已还车)
     private Integer driverId;
     private Integer hasDriver;//是否带司机 0:带司机 1：不带司机
     private Integer getCar;//取车地点
