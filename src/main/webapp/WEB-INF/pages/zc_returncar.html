@@ -208,14 +208,14 @@
             <thead>
                 <th>车辆</th>
                 <th>方式</th>
-                <th>租出日期</th>
                 <th>价格</th>
-                <th>限里程</th>
-                <th>租出时里程</th>
-                <th>超程单价</th>
-                <th>超时小时价（元/小时）</th>
-                <th>预付款</th>
+                <th>租出时间</th>
                 <th>计划还车时间</th>
+                <th>超时小时价（元/小时）</th>
+                <th>租出时里程</th>
+                <th>限里程</th>
+                <th>超程单价</th>
+                <th>预付款</th>
                 <th>客户</th>
                 <th>联系电话</th>
             </thead>
@@ -292,7 +292,7 @@
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Plans"><img src="images/zulenfangan.png">租赁方案</a></p>
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Zuche"><img src="images/zuche.png">租车</a></p>
         <p class="c"><img class="check show" src="images/check.png"><a href="#"><img src="images/huanche.png"/>还车</a></p>
-        <p><img class="check" src="images/check.png"><a href="#"><img src="images/jiesuan.png"/>结算</a></p>
+        <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Settlement"><img src="images/jiesuan.png"/>结算</a></p>
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Account"><img src="images/kehu.png"/>客户</a></p>
         <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Appointment"><img src="images/yudingdengji.png"/>预定登记</a></p>
     </div>
@@ -331,14 +331,14 @@
             "columns":[
                 { "data": "car.licensePlate" },
                 { "data": "order.status" },
-                { "data": "order.zuchuDate"},
                 { "data": "plan.price"},
-                { "data": "order.limitMileage"},
-                { "data": "order.beforeMileage"},
-                { "data": "plan.outMileage"},
-                { "data": "plan.outTime"},
-                { "data": "order.advancePayment"},
+                { "data": "order.zuchuDate"},
                 { "data": "order.planReturnDate"},
+                { "data": "plan.outTime"},
+                { "data": "order.beforeMileage"},
+                { "data": "order.limitMileage"},
+                { "data": "plan.outMileage"},
+                { "data": "order.advancePayment"},
                 { "data": "account.name"},
                 { "data": "account.phone"}
             ],
@@ -351,11 +351,11 @@
                 }
                 var date1 = new Date(data.order.zuchuDate);
                 var date2 = new Date(data.order.planReturnDate);
-                $('td',row).eq(2).text(date1.getFullYear()+"-"
+                $('td',row).eq(3).text(date1.getFullYear()+"-"
                         +(date1.getMonth()+1)+"-"+date1.getDate()
                         +" "+date1.getHours()+":"+date1.getMinutes());
 
-                $('td',row).eq(9).text(date2.getFullYear()+"-"
+                $('td',row).eq(4).text(date2.getFullYear()+"-"
                         +(date2.getMonth()+1)+"-"+date2.getDate()
                         +" "+date2.getHours()+":"+date2.getMinutes());
             }
@@ -413,15 +413,12 @@
             type:"post",
             data:{"id":orderId,"huancheDate":huancheDate,"afterMileage":afterMileage},
             success:function(data){
-                if(data==null){
-                    alert("返回空对象！");
-                }
                 $(":input[name=timePrice]").val(data.timePrice);
                 $(":input[name=outMileagePrice]").val(data.outMileagePrice);
                 $(":input[name=outTimePrice]").val(data.outTimePrice);
             },
             error:function(){
-                alert("还车失败");
+                alert("您要还的车辆不存在，请确认该车辆是否已经还车，建议立即刷新页面重新查看列表！");
             }
         });
     }
