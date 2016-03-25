@@ -227,7 +227,7 @@
                 </td><td><span style="float:right;margin-right: 20px;">车牌号</span></td>
                     <td><input type="text" class="bo" name="licensePlate" readonly/></td></tr>
                 <tr><td><span>还车时里程数</span></td><td><input style="margin-left: 50px;" type="text"  class="bo" name="afterMileage"/></td>
-                    <td><input type="button" value="还车" style="width: 100px;" onclick="returnCar()"/></td>
+                    <td><input id="returnCarButton" type="button" value="还车" style="width: 100px;" onclick="returnCar()"/></td>
                 </tr>
             </table>
         </div>
@@ -371,18 +371,26 @@
             var data = $("#orders").DataTable().row($(this).parents("tr")).data();
             $(":input[name=licensePlate]").val(data.car.licensePlate);
             $(":input[name=orderId]").val(data.order.id);
+            $(":input[name=advancePayment]").val(data.order.advancePayment);
+            $(":input[name=shouyajin]").val(data.order.shouyajin);
+            if(data.order.flag == 3){
+                $("#returnCarButton").attr("disabled",true);
+                $(":input[name=timePrice]").val(data.order.timePrice);
+                $(":input[name=outMileagePrice]").val(data.order.outMileagePrice);
+                $(":input[name=outTimePrice]").val(data.order.outTimePrice);
+            }else{
+                $("#returnCarButton").attr("disabled",false);
+                $(":input[name=timePrice]").val("");
+                $(":input[name=outMileagePrice]").val("");
+                $(":input[name=outTimePrice]").val("");
+            }
         /*    $(":input[name=jijiatime]").val(data.order.jijiatime);
             $(":input[name=planReturnDate]").val(data.order.planReturnDate);
             $(":input[name=unitPrice]").val(data.plan.price);
             $(":input[name=unitOutTime]").val(data.plan.outTime);
-
             $(":input[name=limitMileage]").val(data.order.limitMileage);
             $(":input[name=beforeMileage]").val(data.order.beforeMileage);
             $(":input[name=unitOutMileage]").val(data.plan.outMileage);  */
-
-            $(":input[name=advancePayment]").val(data.order.advancePayment);
-            $(":input[name=shouyajin]").val(data.order.shouyajin);
-
         });
         $( "#datepicker" ).datetimepicker({
             regional:"zh-CN",
