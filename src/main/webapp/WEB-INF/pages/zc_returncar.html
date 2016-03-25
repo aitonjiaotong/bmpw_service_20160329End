@@ -391,11 +391,14 @@
         var huancheDate = $("#datepicker").val();
         var afterMileage = $(":input[name=afterMileage]").val();
         $.ajax({
-            url:"/bmpw/zc/order/returnCar",
+            url:"/bmpw/zc/order/returnCarUpdateOrder",
             dataType:"json",
             type:"post",
             data:{"id":orderId,"huancheDate":huancheDate,"afterMileage":afterMileage},
             success:function(data){
+                if(data==null){
+                    alert("返回空对象！");
+                }
                 $(":input[name=timePrice]").val(data.timePrice);
                 $(":input[name=outMileagePrice]").val(data.outMileagePrice);
                 $(":input[name=outTimePrice]").val(data.outTimePrice);
