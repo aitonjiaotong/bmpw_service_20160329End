@@ -349,6 +349,15 @@
                 if(data.order.status==1){
                     $('td', row).eq(1).text("个人租车");
                 }
+                var date1 = new Date(data.order.zuchuDate);
+                var date2 = new Date(data.order.planReturnDate);
+                $('td',row).eq(2).text(date1.getFullYear()+"-"
+                        +(date1.getMonth()+1)+"-"+date1.getDate()
+                        +" "+date1.getHours()+":"+date1.getMinutes());
+
+                $('td',row).eq(9).text(date2.getFullYear()+"-"
+                        +(date2.getMonth()+1)+"-"+date2.getDate()
+                        +" "+date2.getHours()+":"+date2.getMinutes());
             }
         });
         /*订单数据获取完成*/
