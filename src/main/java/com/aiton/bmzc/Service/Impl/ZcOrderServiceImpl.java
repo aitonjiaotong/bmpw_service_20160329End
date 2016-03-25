@@ -16,9 +16,9 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -319,7 +319,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     }
 
     /** 该方法已经被弃置，不再使用！*/
-    public ZcOrder returnCarFromPage(Integer id, String huancheDate, Double afterMileage) throws ParseException {
+ /*   public ZcOrder returnCarFromPage(Integer id, String huancheDate, Double afterMileage) throws ParseException {
         if( id == null){
             return null;
         }
@@ -346,19 +346,19 @@ public class ZcOrderServiceImpl implements ZcOrderService {
             calendar2.setTime(new Date(zcOrder.getHuancheDate().getTime()));
             Calendar calendar3 = Calendar.getInstance();
             calendar3.setTime(new Date(zcOrder.getZuchuDate().getTime()));
-            /*正常约定的时间（小时）*/
+            //正常约定的时间（小时）
             long time1 = (calendar1.getTimeInMillis() - calendar3.getTimeInMillis())/(60*60*1000);
-            /*天数*/
+            //天数
             int days =(int) Math.ceil(time1/24);
             zcOrder.setJijiatime(days);
-            /*存入正常约定的租金*/
+            //存入正常约定的租金
             zcOrder.setTimePrice((zcPlan.getPrice())*days);
-            /*超过的小时数*/
+            //超过的小时数//
             long time2 = (calendar2.getTimeInMillis() - calendar1.getTimeInMillis())/(60*60*1000);
             int hours = (int) Math.ceil(time2);
-            /*存入超时的租金*/
+            //存入超时的租金
             zcOrder.setOutTimePrice((zcPlan.getOutTime())*hours);
-            /*存入限制的里程总数*/
+            //存入限制的里程总数
             zcOrder.setLimitMileage(zcPlan.getUnitMileage()*days);
         }else{
             //未超过还车时间
@@ -368,17 +368,17 @@ public class ZcOrderServiceImpl implements ZcOrderService {
             calendar3.setTime(new Date(zcOrder.getZuchuDate().getTime()));
             long time = (calendar1.getTimeInMillis() - calendar3.getTimeInMillis())/(60*60*1000);
             int days = (int) Math.ceil(time/24);
-            /*存入正常约定的租金*/
+            //存入正常约定的租金
             zcOrder.setJijiatime(days);
             zcOrder.setOutTimePrice(0.0);//超时租金为0
-            /*存入限制的里程总数*/
+            //存入限制的里程总数
             zcOrder.setLimitMileage(zcPlan.getUnitMileage()*days);
         }
         if((zcOrder.getBeforeMileage()+zcOrder.getLimitMileage())<zcOrder.getAfterMileage()){
             //超出了里程数
             Double outOfMileage = zcOrder.getAfterMileage() -
                     (zcOrder.getBeforeMileage()+zcOrder.getLimitMileage());
-            /*存入超出里程的租金*/
+            //存入超出里程的租金
             zcOrder.setOutMileagePrice(outOfMileage * zcPlan.getOutMileage());
         }else{
             zcOrder.setOutMileagePrice(0.0);
@@ -388,5 +388,5 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         //写入数据库
         orderRepository.saveAndFlush(zcOrder);
         return zcOrder;
-    }
+    }*/
 }
