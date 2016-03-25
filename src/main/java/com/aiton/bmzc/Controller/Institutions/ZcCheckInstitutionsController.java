@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Controller.Institutions;
+package com.aiton.bmzc.controller.Institutions;
 
 import com.aiton.bmzc.Service.ZcInstitutionsService;
 import org.springframework.stereotype.Controller;

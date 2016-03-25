@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Controller.plan;
+package com.aiton.bmzc.controller.plan;
 
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Service.ZcPlanService;
@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,8 +23,8 @@ public class ZcLoadPlansController {
     private ZcPlanService planService;
     @RequestMapping("/zc/plan/loadplan")
     @ResponseBody
-    public DataTables execute(Integer draw,Integer start,Integer length){
-         DataTables dataTables=planService.loadPlans(draw,start,length);
+    public DataTables execute(Integer draw,Integer start,Integer length,HttpServletRequest request) throws UnsupportedEncodingException {
+         DataTables dataTables=planService.loadPlans(draw,start,length,request);
         return dataTables;
     }
 }

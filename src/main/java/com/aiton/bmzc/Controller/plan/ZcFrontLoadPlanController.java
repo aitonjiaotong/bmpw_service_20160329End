@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Controller.plan;
+package com.aiton.bmzc.controller.plan;
 
 import com.aiton.bmzc.Entity.ZcPlan;
 import com.aiton.bmzc.Service.ZcPlanService;

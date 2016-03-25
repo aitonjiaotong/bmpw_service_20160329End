@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Controller;
+package com.aiton.bmzc.controller;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
