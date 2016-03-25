@@ -155,7 +155,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     @Override
     public ZcOrder loadOrder(Integer order_id, Timestamp huancheDate, Double afterMileage) {
         ZcOrder order=orderRepository.findOne(order_id);
-        if(order==null){
+        if(order==null || order.getFlag()==3){
            return null;
         }
         Double shouyajin = order.getShouyajin();
@@ -199,6 +199,9 @@ public class ZcOrderServiceImpl implements ZcOrderService {
 
     @Override
     public ZcOrder completeOrder(Integer order_id, Double price,Double shouyajin,String note,String sale) {
+        if(order_id==null){
+            return null;
+        }
         ZcOrder order=orderRepository.findOne(order_id);
         if(order==null){
             return null;
