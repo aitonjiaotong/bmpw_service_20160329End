@@ -134,7 +134,7 @@
             border-radius:3px;border:1px solid #000;
         }
         #orders{
-            font-size: 10px;
+            font-size: 15px;
         }
         #o input{
             width: 100px;
@@ -155,6 +155,12 @@
         .area{
             border-radius:3px;border:1px solid #000;
         }
+        #orders{
+            text-align: center;
+        }
+        input[type=text]{
+            padding-left:10px;
+        }
     </style>
 </head>
 <body>
@@ -166,19 +172,18 @@
         <p>租出车辆</p>
         <table id="orders">
             <thead>
-                <th>车辆</th>
-                <th>方式</th>
-                <th>价格</th>
-                <th>租出日期</th>
-                <th>还车日期</th>
-                <th>限里程</th>
-                <th>租出时里程</th>
-                <th>还车时里程</th>
-                <th>超程单价</th>
-                <th>超时小时价（元/小时）</th>
-                <th>预付款</th>
-                <th>计划还车时间</th>
-                <th>客户</th>
+            <th>车辆</th>
+            <th>方式</th>
+            <th>价格</th>
+            <th>租出时间</th>
+            <th>计划还车时间</th>
+            <th>超时小时价（元/小时）</th>
+            <th>租出时里程</th>
+            <th>限里程</th>
+            <th>超程单价</th>
+            <th>预付款</th>
+            <th>客户</th>
+            <th>联系电话</th>
             </thead>
         </table>
     </div>
@@ -242,8 +247,10 @@
 <script>
     $(function(){
         $("#orders").dataTable({
+            "serverSide":true,
+            "processing": true,
+            "ajax":"/bmpw/zc/order/loadUnsettleOrder",
             "scrollY": "200px",
-            "scrollX":true,
             "scrollCollapse": "true",
             "bSort":false,
             "bLengthChange":false,
@@ -260,8 +267,38 @@
                     "sNext": "后一页",
                     "sLast": "尾页"
                 },
-                "sSearch":"根据车牌号查询"
+                "sSearch":"根据电话号码查询"
+            },
+            "columns":[
+                { "data": "car.licensePlate" },
+                { "data": "order.status" },
+                { "data": "plan.price"},
+                { "data": "order.zuchuDate"},
+                { "data": "order.planReturnDate"},
+                { "data": "plan.outTime"},
+                { "data": "order.beforeMileage"},
+                { "data": "order.limitMileage"},
+                { "data": "plan.outMileage"},
+                { "data": "order.advancePayment"},
+                { "data": "account.name"},
+                { "data": "account.phone"}
+            ],
+            "createdRow": function ( row, data, dataindex ) {
+                if(data.order.status==0){
+                    $('td', row).eq(1).text("企业租车");
+                }
+                if(data.order.status==1){
+                    $('td', row).eq(1).text("个人租车");
+                }
+                var date1 = new Date(data.order.zuchuDate);
+                var date2 = new Date(data.order.planReturnDate);
+                $('td',row).eq(3).text(date1.getFullYear()+"-"
+                        +(date1.getMonth()+1)+"-"+date1.getDate()
+                        +" "+date1.getHours()+":"+date1.getMinutes());
 
+                $('td',row).eq(4).text(date2.getFullYear()+"-"
+                        +(date2.getMonth()+1)+"-"+date2.getDate()
+                        +" "+date2.getHours()+":"+date2.getMinutes());
             }
         });
     });
