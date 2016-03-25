@@ -302,8 +302,12 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     }
 
     @Override
+    /**页面添加订单*/
     public ZcOrder addOrderFromPage(ZcOrder zcOrder) {
         zcOrder.setFlag(0);
+        ZcPlan zcPlan = planRepository.findOne(zcOrder.getPlanId());
+        int days = (int)Math.ceil((zcOrder.getPlanReturnDate().getTime()-zcOrder.getZuchuDate().getTime())/(1000*60*60*24));
+        zcOrder.setLimitMileage(zcPlan.getOutMileage()*days);
         ZcCar car=carRespository.findOne(zcOrder.getCarId());
         car.setStatus(0);
         carRespository.saveAndFlush(car);
@@ -314,7 +318,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         return null;
     }
 
-    @Override
+    /** 该方法已经被弃置，不再使用！*/
     public ZcOrder returnCarFromPage(Integer id, String huancheDate, Double afterMileage) throws ParseException {
         if( id == null){
             return null;
