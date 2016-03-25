@@ -316,6 +316,9 @@ public class ZcOrderServiceImpl implements ZcOrderService {
 
     @Override
     public ZcOrder returnCarFromPage(Integer id, String huancheDate, Double afterMileage) throws ParseException {
+        if( id == null){
+            return null;
+        }
         ZcOrder zcOrder = orderRepository.findOne(id);
         ZcPlan zcPlan = planRepository.findOne(zcOrder.getPlanId());
         zcOrder.setAfterMileage(afterMileage);
