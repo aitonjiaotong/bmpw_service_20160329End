@@ -27,4 +27,5 @@ public interface ZcOrderService {
     ZcOrder addOrder2(ZcOrderRequest order_request);
     ZcCarAndPlan beforeOrder(Integer lei);
     ZcOrder addOrderFromPage(ZcOrder zcOrder);
+    DataTables loadCanSettleOrder(Integer draw,Integer start,Integer length,HttpServletRequest request);
 }

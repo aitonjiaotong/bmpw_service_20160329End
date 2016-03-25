@@ -286,6 +286,59 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     }
 
     @Override
+    /**加载未结算（已还车）订单*/
+    public DataTables loadCanSettleOrder(Integer draw,Integer start,Integer length,HttpServletRequest request) {
+        String search=request.getParameter("search[value]");
+        Integer page=start/length;
+        DataTables dataTables=new DataTables();
+        dataTables.setDraw(draw);
+        Object l=orderRepository.countUnsettleOrder();
+        List<ZcCarPlanOrderAccount> list=new ArrayList<ZcCarPlanOrderAccount>();
+        if(l==null){
+            dataTables.setRecordsTotal(0l);
+            dataTables.setRecordsFiltered(0l);
+            dataTables.setData(list);
+            return dataTables;
+        }
+        dataTables.setRecordsTotal(Long.valueOf(l.toString()));
+        List<ZcOrder>orders=new ArrayList<ZcOrder>();
+        if("".equals(search)||search==null){
+            dataTables.setRecordsFiltered(Long.valueOf(l.toString()));
+            orders=orderRepository.findUnsettleOrder(new PageRequest(page,length,new Sort(Sort.Direction.ASC,"planReturnDate"))).getContent();
+            for(ZcOrder order:orders){
+                ZcPlan plan=planRepository.findOne(order.getPlanId());
+                ZcCar car=carRespository.findOne(order.getCarId());
+                Account account=accountReponstory.findOne(order.getAccountId());
+                ZcCarPlanOrderAccount carPlanOrderAccount=new ZcCarPlanOrderAccount(car,plan,order,account);
+                list.add(carPlanOrderAccount);
+            }
+            dataTables.setData(list);
+        }else{
+            search="%"+search+"%";
+            List<Object>accounts=accountReponstory.findByPhoneLike(search);
+            orders=orderRepository.findUnsettleOrderByAccount(accounts,new PageRequest(page,length,new Sort(Sort.Direction.ASC,"planReturnDate"))).getContent();
+            for(ZcOrder order:orders){
+                ZcPlan plan=planRepository.findOne(order.getPlanId());
+                ZcCar car=carRespository.findOne(order.getCarId());
+                Account account=accountReponstory.findOne(order.getAccountId());
+                ZcCarPlanOrderAccount carPlanOrderAccount=new ZcCarPlanOrderAccount(car,plan,order,account);
+                list.add(carPlanOrderAccount);
+            }
+            dataTables.setData(list);
+            Object o=orderRepository.countUnsettleOrderByAccount(accounts);
+            if(o==null){
+                dataTables.setRecordsFiltered(0l);
+            }else{
+                dataTables.setRecordsFiltered(Long.valueOf(o.toString()));
+            }
+        }
+        return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+
+
+
+    @Override
     public ZcCarAndPlan beforeOrder(Integer lei) {
         List<ZcCar>cars=carRespository.findCar(lei);
         if(cars.isEmpty()){

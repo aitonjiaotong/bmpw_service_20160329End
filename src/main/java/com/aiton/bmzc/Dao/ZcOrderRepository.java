@@ -23,6 +23,10 @@ public interface ZcOrderRepository extends JpaRepository<ZcOrder,Integer> {
     Object countOrderByAccountId(Integer accountId);
     @Query("select o from ZcOrder as o where flag=0")
     Page<ZcOrder> findIngOrder(Pageable pageable);
+    @Query("select o from ZcOrder as o where flag=3")
+    Page<ZcOrder> findUnsettleOrder(Pageable pageable);
+    @Query("select count(o) from ZcOrder as o where flag=3")
+    Object countUnsettleOrder();
     @Query("select count(o) from ZcOrder as o where flag=0")
     Object CountIngOrder();
     @Query("from ZcOrder where hasDriver=0")
@@ -33,4 +37,8 @@ public interface ZcOrderRepository extends JpaRepository<ZcOrder,Integer> {
     Page<ZcOrder> findIngOrderByAccount(@Param("accounts")List<Object> accounts,Pageable pageable);
     @Query("select count(o) from ZcOrder as o where flag=0 and accountId in (:accounts)")
     Object countIngOrderByAccount(@Param("accounts")List<Object> accounts);
+    @Query("select o from ZcOrder as o where flag=3 and accountId in (:accounts)")
+    Page<ZcOrder> findUnsettleOrderByAccount(@Param("accounts")List<Object> accounts,Pageable pageable);
+    @Query("select count(o) from ZcOrder as o where flag=3 and accountId in (:accounts)")
+    Object countUnsettleOrderByAccount(@Param("accounts")List<Object> accounts);
 }
