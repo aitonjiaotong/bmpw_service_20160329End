@@ -7,6 +7,7 @@ import com.aiton.wxApliy.util.MD5Util;
 import com.aiton.wxApliy.util.OrderUtil;
 import com.aiton.wxApliy.util.RamCharsUtil;
 import com.aiton.wxApliy.util.XMLUtil;
+import net.sf.json.JSONObject;
 import org.jdom2.JDOMException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,9 +32,11 @@ public class WxGetPrepayIdController {
     public WxRespon execute(WxRequest request) throws JDOMException, IOException {
         //System.out.println("ooooooooooooooooooooooooooooooooooooooooo");
         request.setNotify_url("http://120.24.46.15:8080/bmpw/wx/notify");
+        JSONObject jsonObject=JSONObject.fromObject(request);
+        //System.out.println("接收到的数据:"+jsonObject.toString());
         WxConnection wxConnection=new WxConnection();
         String prepay_id=wxConnection.reqOrder(request);
-        System.out.println("结果为"+prepay_id);
+        //System.out.println("结果为"+prepay_id);
         SortedMap<String,String>sortedMap=new TreeMap<String, String>();
         sortedMap.put("prepayid",prepay_id);
         sortedMap.put("appid",request.getAppid());
@@ -48,9 +51,9 @@ public class WxGetPrepayIdController {
             sb.append(key).append("=").append(sortedMap.get(key)).append("&");
         }
         sb.append("key=" + "o7q16VNoBB7ABPpSHB6dAL0LHAMCYdUp");
-        System.out.println(sb);
+        //System.out.println(sb);
         String str= MD5Util.MD5Encode(sb.toString(), "utf-8").toUpperCase();
-        //System.out.println("返回APP"+str);
+        System.out.println("返回APP"+str);
         WxRespon wxRespon=new WxRespon();
         wxRespon.setMap(sortedMap);
         wxRespon.setSign(str);
