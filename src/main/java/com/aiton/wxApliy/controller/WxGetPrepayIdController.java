@@ -13,7 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -33,9 +36,10 @@ public class WxGetPrepayIdController {
         //System.out.println("ooooooooooooooooooooooooooooooooooooooooo");
         request.setNotify_url("http://120.24.46.15:8080/bmpw/wx/notify");
         JSONObject jsonObject=JSONObject.fromObject(request);
-        //System.out.println("接收到的数据:"+jsonObject.toString());
+
+        String prepay_id="";
         WxConnection wxConnection=new WxConnection();
-        String prepay_id=wxConnection.reqOrder(request);
+        prepay_id=wxConnection.reqOrder(request);
         //System.out.println("结果为"+prepay_id);
         SortedMap<String,String>sortedMap=new TreeMap<String, String>();
         sortedMap.put("prepayid",prepay_id);
@@ -57,6 +61,18 @@ public class WxGetPrepayIdController {
         WxRespon wxRespon=new WxRespon();
         wxRespon.setMap(sortedMap);
         wxRespon.setSign(str);
+        System.out.println("接收到的数据:"+jsonObject.toString());
+        String savepath="c:"+ File.separator+"oo.txt";
+        File file=new File(savepath);
+        if(!file.exists()){
+            file.createNewFile();
+        }
+        PrintWriter pw=new PrintWriter(new FileWriter(file));
+        JSONObject jsonObject1=JSONObject.fromObject(wxRespon);
+
+        pw.println("接收到的数据" +jsonObject1.toString());
+        pw.flush();
+        pw.close();
         return wxRespon;
     }
 }
