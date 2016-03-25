@@ -252,7 +252,7 @@
             $(":input[type=radio][value='"+ data.jijia +"']").attr("checked",true);
             $(":input[name=unitMileage]").val(data.unitMileage);
             $(":input[name=outTime]").val(data.outTime);
-            $(":input[name=price]").val(data.price);
+            $(":input[name=unitPrice]").val(data.price);
             $(":input[name=outMileage]").val(data.outMileage);
         });
         /*上面的代码是为了捆绑事件--方案子窗口*/
@@ -590,7 +590,7 @@
 	<td>收押金</td><td><input name="shouyajin"/></td>
         </tr>
 		<tr>
-	<td>单位租金（元）</td><td><input name="price"/></td>
+	<td>单位租金（元）</td><td><input name="unitPrice"/></td>
 	<td>超限程基价（每公里）</td><td><input name="outMileage"/></td>
 	<td>预收租费</td><td><input name="advancePayment"/></td>
 		</tr>

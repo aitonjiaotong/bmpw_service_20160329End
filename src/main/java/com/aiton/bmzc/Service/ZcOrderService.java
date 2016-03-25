@@ -5,6 +5,7 @@ import com.aiton.bmzc.Entity.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
+import java.text.ParseException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,4 +25,5 @@ public interface ZcOrderService {
     ZcOrder addOrder2(ZcOrderRequest order_request);
     ZcCarAndPlan beforeOrder(Integer lei);
     ZcOrder addOrderFromPage(ZcOrder zcOrder);
+    ZcOrder returnCarFromPage(Integer id,String huancheDate,Double afterMileage) throws ParseException;
 }
