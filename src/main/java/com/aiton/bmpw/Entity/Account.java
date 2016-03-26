@@ -127,4 +127,22 @@ public class Account {
     public void setNote(String note) {
         this.note = note;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", sex=" + sex +
+                ", login_id='" + login_id + '\'' +
+                ", idCard='" + idCard + '\'' +
+                ", cardStatus=" + cardStatus +
+                ", bankCard='" + bankCard + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", image='" + image + '\'' +
+                ", note='" + note + '\'' +
+                '}';
+    }
 }
