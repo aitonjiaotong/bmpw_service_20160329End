@@ -29,7 +29,7 @@ public class ZcAppointmentServiceImpl implements ZcAppointmentService {
         dataTables.setRecordsTotal(appointmentRespository.count());
         if(search==null||"".equals(search)){
             dataTables.setRecordsFiltered(appointmentRespository.count());
-            dataTables.setData(appointmentRespository.findAll(new PageRequest(page,length,new Sort(Sort.Direction.DESC,"appointmenttime"))));
+            dataTables.setData(appointmentRespository.findAll(new PageRequest(page,length,new Sort(Sort.Direction.DESC,"appointmenttime"))).getContent());
         }
         else{
             search="%"+search+"%";
