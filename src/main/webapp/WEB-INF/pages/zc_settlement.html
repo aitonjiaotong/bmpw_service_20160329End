@@ -167,6 +167,9 @@
         .oo{
             background-color: #cccccc;
         }
+        input:read-only{
+            background:#ddd;
+        }
     </style>
 </head>
 <body>
@@ -197,23 +200,23 @@
         <table>
             <tr>
                 <td><span>车牌号</span></td>
-                <td><input type="text" class="bo" name="licensePlate"/></td>
+                <td><input type="text" class="bo" name="licensePlate" readonly/></td>
                 <td><span>还车时间</span></td>
-                <td><input type="text"  class="bo" name="huancheDate"/></td>
+                <td><input type="text"  class="bo" name="huancheDate" readonly/></td>
                 <td><span>还车时里程数</span></td>
-                <td><input type="text"  class="bo" name="afterMileage"/></td>
+                <td><input type="text"  class="bo" name="afterMileage" readonly/></td>
             </tr>
             <tr>
                 <td><span>计时约定租金</span></td>
-                <td><input type="text"  class="bo" name="timePrice"/></td>
+                <td><input type="text"  class="bo" name="timePrice" readonly/></td>
                 <td><span>超时租金</span></td>
-                <td><input type="text"  class="bo" name="outTimePrice"/></td>
+                <td><input type="text"  class="bo" name="outTimePrice" readonly/></td>
                 <td><span>超程租金</span></td>
-                <td><input type="text"  class="bo" name="outMileagePrice"/></td>
+                <td><input type="text"  class="bo" name="outMileagePrice" readonly/></td>
             </tr>
             <tr>
                 <td><span>保险金额</span></td>
-                <td><input type="text" class="bo" name="insurance"></td>
+                <td><input type="text" class="bo" name="insurance" readonly></td>
                 <td><span>其他扣款</span></td>
                 <td><input type="text" class="bo"/></td>
             </tr>
@@ -222,9 +225,9 @@
             </tr>
         </table>
         <div id="o">
-            <p style="float: left" >预付款<input type="text" class="bo" name="advancePayment"/></p>
+            <p style="float: left" >预付款<input type="text" class="bo" name="advancePayment" readonly/></p>
             <p style="float: left">应退押金<input type="text" readonly style="border: 0px"/></p>
-            <p style="float: left">实收押金<input type="text"  class="bo" name="shouyajin"/></p>
+            <p style="float: left">实收押金<input type="text"  class="bo" name="shouyajin" readonly/></p>
             <p style="float: left">结算实收金额<input type="text"  class="bo"/></p>
             <p style="clear: left"><span style="float:left;margin-right: 10px;">备注</span><textarea class="area" name="note"></textarea></p>
         </div>

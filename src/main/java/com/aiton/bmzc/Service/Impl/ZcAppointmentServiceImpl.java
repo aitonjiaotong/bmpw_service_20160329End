@@ -2,6 +2,7 @@ package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Dao.ZcAppointmentRespository;
+import com.aiton.bmzc.Entity.ZcAppointment;
 import com.aiton.bmzc.Service.ZcAppointmentService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -36,5 +37,19 @@ public class ZcAppointmentServiceImpl implements ZcAppointmentService {
             dataTables.setData(appointmentRespository.findByNameLike(search,new PageRequest(page,length,new Sort(Sort.Direction.DESC,"appointmenttime"))));
         }
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public boolean addAppointmentFromPage(ZcAppointment appointment) {
+        if(appointment.getId()!=null){
+            return false;
+        }
+        try {
+            appointmentRespository.saveAndFlush(appointment);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }
