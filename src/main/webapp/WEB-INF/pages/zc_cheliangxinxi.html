@@ -193,7 +193,7 @@
                </tr>
                <tr>
                    <td>车辆状态</td>
-                   <td><input type="radio" value="0" name="status"/>空闲<input type="radio" value="1" name="status">出租</td>
+                   <td><input type="radio" value="0" name="status" id="freeCar"/>空闲<input type="radio" value="1" name="status" id="busyCar">出租</td>
                    <td>发动机编号</td>
                    <td><input type="text" name="engineCode"/></td>
                </tr>
@@ -307,7 +307,13 @@
                 $(":input[name=model]").val(data.model);
                 $(":input[name=type]").val(data.type);
                 $(":input[name=inspection]").val(data.inspection);
-                $(":input[name=status]").attr("checked",data.status);
+                if(data.status ==0){
+                    $("#busyCar").prop("checked",false);
+                    $("#freeCar").prop("checked",true);
+                }else if(data.status ==1){
+                    $("#freeCar").prop("checked",false);
+                    $("#busyCar").prop("checked",true);
+                }
                 $(":input[name=engineCode]").val(data.engineCode);
                 $(":input[name=mileage]").val(data.mileage);
                 $(":input[name=deposit]").val(data.deposit);
