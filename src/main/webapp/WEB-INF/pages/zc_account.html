@@ -144,6 +144,9 @@
         .oo{
             background-color: #cccccc;
         }
+        #accounts{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -209,10 +212,11 @@
                 <td colspan="3"><textarea style="width: 98.8%;height: 300px" name="note"></textarea></td>
             </tr>
         </table>
+        <input type="hidden" name="accountId"/>
         <div id="btns">
-            <button style="margin-left: 140px;">新增客户</button>
-            <button >保存修改</button>
-            <button>退出</button>
+            <button style="margin-left: 140px;" onclick="addAccount();">新增客户</button>
+            <button onclick="updateAccount();">保存修改</button>
+            <button onclick="exitPage();">退出</button>
         </div>
     </div>
 </div>
@@ -242,10 +246,11 @@
        $("#accounts").dataTable({
            "serverSide":true,
            "processing": true,
-           "ajax":"/bmpw/zc//account/loadaccounts",
+           "ajax":"/bmpw/zc/account/loadaccounts",
            "bSort":false,
            "bLengthChange":false,
            "bInfo":false,
+           "iDisplayLength" : 15,
            "oLanguage": {
                "sLengthMenu": "每页显示 _MENU_ 条记录",
                "sZeroRecords": "抱歉， 没有找到",
@@ -273,6 +278,7 @@
            $(this).addClass("oo");
            $(this).siblings().addClass("oo");
            var data = $("#accounts").DataTable().row($(this).parents("tr")).data();
+           $(":input[name=accountId]").val(data.id);
            $(":input[name=idCard]").val(data.idCard);
            $(":input[name=name]").val(data.name);
            $(":input[name=cardStatus]").val(data.cardStatus);
@@ -282,6 +288,63 @@
            $(":input[name=note]").val(data.note);
        });
     });
+    function addAccount(){
+        var idCard = $(":input[name=idCard]").val();
+        var name =  $(":input[name=name]").val();
+        var cardStatus =  $(":input[name=cardStatus]").val();
+        var bankCard =  $(":input[name=bankCard]").val();
+        var phone =  $(":input[name=phone]").val();
+        var address = $(":input[name=address]").val();
+        var note = $(":input[name=note]").val();
+        $.ajax({
+            url:"/bmpw/zc/account/addAccountFromPage",
+            dataType:"json",
+            type:"post",
+            data:{"idCard":idCard,"name":name,"cardStatus":cardStatus,
+                "bankCard":bankCard,"phone":phone,
+                "address":address,"note":note},
+            success:function(data){
+                if(data==true){
+                    alert("添加成功！");
+                    location.reload();
+                }else{
+                    alert("添加失败！请检查信息是否有误！");
+                }
+            },
+            error:function(){
+                alert("添加失败！请稍后重试！");
+            }
+        });
+    }
+    function updateAccount() {
+        var idCard = $(":input[name=idCard]").val();
+        var name = $(":input[name=name]").val();
+        var cardStatus = $(":input[name=cardStatus]").val();
+        var bankCard = $(":input[name=bankCard]").val();
+        var phone = $(":input[name=phone]").val();
+        var address = $(":input[name=address]").val();
+        var note = $(":input[name=note]").val();
+        var id = $(":input[name=accountId]").val();
+        $.ajax({
+            url: "/bmpw/zc/account/updateAccountFromPage",
+            dataType: "json",
+            type: "post",
+            data: {"id": id, "idCard": idCard, "name": name, "cardStatus": cardStatus,
+                "bankCard": bankCard, "phone": phone,
+                "address": address, "note": note},
+            success: function (data) {
+                if (data == true) {
+                    alert("更新成功！");
+                    location.reload();
+                } else {
+                    alert("sorry,更新失败！请检查数据是否正确。");
+                }
+            },
+            error: function () {
+                alert("sorry,更新失败！请稍后重试！");
+            }
+        });
+    }
 </script>
 </body>
 </html>
