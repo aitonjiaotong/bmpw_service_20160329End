@@ -1,6 +1,7 @@
 package com.aiton.bmzc.Service.Impl;
 
 import com.aiton.bmpw.Dao.AccountReponstory;
+import com.aiton.bmpw.Entity.Account;
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Service.ZcAccountService;
 import org.springframework.data.domain.PageRequest;
@@ -37,5 +38,35 @@ public class ZcAccountServiceImpl implements ZcAccountService {
         }
         return dataTables;
         //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    /**添加客户信息*/
+    @Override
+    public boolean addAccount(Account account) {
+        if(account.getId()!=null){
+            return false;
+        }
+        try {
+            accountReponstory.saveAndFlush(account);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    /**更新客户信息*/
+    @Override
+    public boolean updateAccount(Account account) {
+        if(account.getId() == null){
+            return false;
+        }
+        try{
+            accountReponstory.saveAndFlush(account);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }
