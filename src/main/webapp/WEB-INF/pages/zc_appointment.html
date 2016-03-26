@@ -229,6 +229,9 @@
             $("#a").addClass("hid");
         });
         $("#appointments").dataTable({
+            "serverSide":true,
+            "processing": true,
+            "ajax":"/bmpw/zc/appointment/loadAppointmentToPage",
             "bSort":false,
             "bLengthChange":false,
             "bInfo":false,
@@ -245,8 +248,12 @@
                     "sLast": "尾页"
                 },
                 "sSearch":"根据联系人名/电话查询"
-
-            }
+            },
+            "columns":[
+                {"data":"user"},
+                {"data":"planzuche"},
+                {"data":"note"}
+            ]
         });
         $(":input[name=planzuche]").datetimepicker({
             regional: "zh-CN",
