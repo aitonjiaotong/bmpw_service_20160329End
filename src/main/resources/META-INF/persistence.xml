@@ -7,14 +7,19 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <!--<property name="hibernate.connection.url" value="jdbc:mysql://rdsu3bdw37vhe0z0c5l4o.mysql.rds.aliyuncs.com:3306/bmcxtickets"/>-->
             <property name="hibernate.connection.url" value="jdbc:mysql://120.24.46.15:3306/bmcxtickets"/>
-            <property name="hibernate.connection.username" value="bmcx"/>
-            <property name="hibernate.connection.password" value="bmcx"/>
+            <!--<property name="hibernate.connection.username" value="bmcx"/>-->
+            <!--<property name="hibernate.connection.password" value="fjbmcx20160106"/>-->
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="aiton8888"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"/>
             <property name="c3p0.timeout" value="5000"/>
             <property name="c3p0.idle_test_period" value="3000"/>
+            <property name="c3p0.max_size" value="50"/>
+            <property name="c3p0.min_size" value="10"/>
         </properties>
     </persistence-unit>
 </persistence>

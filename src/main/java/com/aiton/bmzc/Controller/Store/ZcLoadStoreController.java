@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Controller.Store;
+package com.aiton.bmzc.controller.Store;
 
 import com.aiton.bmzc.Entity.ZcContainsNum;
 import com.aiton.bmzc.Service.ZcStoreService;

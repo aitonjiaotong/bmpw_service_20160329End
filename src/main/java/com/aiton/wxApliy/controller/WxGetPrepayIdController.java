@@ -30,8 +30,9 @@ public class WxGetPrepayIdController {
     @RequestMapping("/wx/wxpay")
     @ResponseBody
     public WxRespon execute(WxRequest request) throws JDOMException, IOException {
+//        request.setNotify_url("http://www.aiton.com.cn:8080/bmpw/wx/notify");
         //System.out.println("ooooooooooooooooooooooooooooooooooooooooo");
-        request.setNotify_url("http://120.24.46.15:8080/bmpw/wx/notify");
+        request.setNotify_url("http://www.bmcxfj.com:8080/bmpw/wx/notify");
         JSONObject jsonObject=JSONObject.fromObject(request);
         //System.out.println("接收到的数据:"+jsonObject.toString());
         WxConnection wxConnection=new WxConnection();
@@ -53,7 +54,7 @@ public class WxGetPrepayIdController {
         sb.append("key=" + "o7q16VNoBB7ABPpSHB6dAL0LHAMCYdUp");
         //System.out.println(sb);
         String str= MD5Util.MD5Encode(sb.toString(), "utf-8").toUpperCase();
-        System.out.println("返回APP"+str);
+        //System.out.println("返回APP"+str);
         WxRespon wxRespon=new WxRespon();
         wxRespon.setMap(sortedMap);
         wxRespon.setSign(str);

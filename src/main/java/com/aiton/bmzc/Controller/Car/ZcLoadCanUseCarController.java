@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Controller.Car;
+package com.aiton.bmzc.controller.car;
 
 import com.aiton.bmzc.Entity.ZcContainsNum;
 import com.aiton.bmzc.Service.ZcCarService;

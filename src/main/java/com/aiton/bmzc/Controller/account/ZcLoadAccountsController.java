@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Controller.account;
+package com.aiton.bmzc.controller.account;
 
 import com.aiton.bmpw.Entity.DataTables;
 import com.aiton.bmzc.Service.ZcAccountService;

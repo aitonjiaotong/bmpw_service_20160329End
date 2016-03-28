@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ToUserController {
     @RequestMapping("/user")
     public String execute(){
-        return "Users";
+        return "gl_users";
     }
 }

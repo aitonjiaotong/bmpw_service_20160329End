@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Controller.PageController;
+package com.aiton.bmzc.controller.PageController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

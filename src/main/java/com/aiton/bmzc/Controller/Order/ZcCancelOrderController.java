@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Controller.Order;
+package com.aiton.bmzc.controller.Order;
 
 import com.aiton.bmzc.Service.ZcOrderService;
 import org.springframework.stereotype.Controller;

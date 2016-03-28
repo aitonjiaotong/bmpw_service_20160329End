@@ -35,7 +35,7 @@ public class ZcOrderGetFromPage {
     private Double insurance;//保险金额
     private String sale;//收款人账号
     private String institutionsCode;//企业账号
-
+    private Integer hasFranchiseFees;//是否包含不计免赔费用
     public Integer getId() {
         return id;
     }
@@ -274,5 +274,13 @@ public class ZcOrderGetFromPage {
 
     public void setInstitutionsCode(String institutionsCode) {
         this.institutionsCode = institutionsCode;
+    }
+
+    public Integer getHasFranchiseFees() {
+        return hasFranchiseFees;
+    }
+
+    public void setHasFranchiseFees(Integer hasFranchiseFees) {
+        this.hasFranchiseFees = hasFranchiseFees;
     }
 }

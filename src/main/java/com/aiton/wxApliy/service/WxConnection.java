@@ -94,6 +94,7 @@ public class WxConnection {
             }
         }
         xml.append("</xml>");
+        //System.out.println("发送给腾讯的数据："+xml.toString());
         return xml.toString();
     }
 }

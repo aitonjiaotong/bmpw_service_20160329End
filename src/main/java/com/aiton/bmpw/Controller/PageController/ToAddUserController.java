@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ToAddUserController {
     @RequestMapping("/adduser")
     public String execute(){
-        return "AddUser";
+        return "gl_adduser";
     }
 }
