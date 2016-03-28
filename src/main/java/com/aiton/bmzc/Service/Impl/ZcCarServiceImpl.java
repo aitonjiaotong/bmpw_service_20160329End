@@ -79,6 +79,7 @@ public class ZcCarServiceImpl implements ZcCarService {
         try{
             car=carRespository.saveAndFlush(car);
         }catch(Exception e){
+            e.printStackTrace();
             return null;
         }
         return car;  //To change body of implemented methods use File | Settings | File Templates.
@@ -130,5 +131,19 @@ public class ZcCarServiceImpl implements ZcCarService {
             dataTables.setData(carRespository.findCanUseCars(new PageRequest(page,length)));
         }
         return dataTables;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public boolean deleteCar(Integer id) {
+        if(id==null){
+            return false;
+        }
+        try {
+            carRespository.delete(id);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }
