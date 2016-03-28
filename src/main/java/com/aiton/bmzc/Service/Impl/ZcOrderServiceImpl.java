@@ -52,7 +52,6 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         order.setZuchuDate(new Timestamp(order_request.getZuchuDate()));
         order.setPlanReturnDate(new Timestamp(order_request.getPlanReturnDate()));
         order.setPrice(order_request.getPrice());
-        order.setInsurance(order_request.getInsurance());
         order.setHasDriver(order_request.getHasDriver());
         ZcCar car=carRespository.findOne(order_request.getCarId());
         order.setBeforeMileage(car.getMileage());
@@ -91,7 +90,6 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         order.setZuchuDate(new Timestamp(order_request.getZuchuDate()));
         order.setPlanReturnDate(new Timestamp(order_request.getPlanReturnDate()));
         order.setPrice(order_request.getPrice());
-        order.setInsurance(order_request.getInsurance());
         order.setHasDriver(order_request.getHasDriver());
         order.setHasFranchiseFees(order_request.getHasFranchiseFees());
         List<ZcCar>cars=carRespository.find(order_request.getModel(), order_request.getType(), order_request.getBox(), order_request.getPailiang(), order_request.getSeat(), order_request.getPlan_id());

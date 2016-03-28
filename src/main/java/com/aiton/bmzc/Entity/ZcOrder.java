@@ -40,7 +40,6 @@ public class ZcOrder {
     private Double advancePayment;//预付款
     private Timestamp date;//下单时间
     private Integer status;//0：企业租车 1；个人租车
-    private Double insurance;//保险金额
     private String sale;//收款人账号
     private String institutionsCode;//企业账号
     private Integer hasFranchiseFees;//是否包含不计免赔费用
@@ -293,15 +292,6 @@ public class ZcOrder {
     }
     @Basic
     @Column
-    public Double getInsurance() {
-        return insurance;
-    }
-
-    public void setInsurance(Double insurance) {
-        this.insurance = insurance;
-    }
-    @Basic
-    @Column
     public String getSale() {
         return sale;
     }
@@ -358,7 +348,6 @@ public class ZcOrder {
                 ", advancePayment=" + advancePayment +
                 ", date=" + date +
                 ", status=" + status +
-                ", insurance=" + insurance +
                 ", sale='" + sale + '\'' +
                 ", institutionsCode='" + institutionsCode + '\'' +
                 ", hasFranchiseFees=" + hasFranchiseFees +
@@ -407,7 +396,6 @@ public class ZcOrder {
         this.advancePayment = advancePayment;
         this.date = date;
         this.status = status;
-        this.insurance = insurance;
         this.sale = sale;
         this.institutionsCode = institutionsCode;
         this.hasFranchiseFees=hasFranchiseFees;
@@ -447,7 +435,6 @@ public class ZcOrder {
         this.advancePayment = page.getAdvancePayment();
         this.date = new Timestamp(System.currentTimeMillis());
         this.status = page.getStatus();
-        this.insurance = page.getInsurance();
         this.sale = page.getSale();
         this.institutionsCode = page.getInstitutionsCode();
         this.hasFranchiseFees=page.getHasFranchiseFees();
