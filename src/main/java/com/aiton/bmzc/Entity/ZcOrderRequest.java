@@ -17,8 +17,8 @@ public class ZcOrderRequest {
     private Integer seat;//乘客数量
     private Integer zidong;//0:自动 1:手动
     private Integer plan_id;//租赁计划id
-    private Timestamp zuchuDate; //租出时间
-    private Timestamp planReturnDate;//计划还车时间
+    private Long zuchuDate; //租出时间
+    private Long planReturnDate;//计划还车时间
     private Double price;//总价
     private Integer status;//0：企业租车 1；个人租车
     private Double insurance;//保险金额
@@ -30,6 +30,15 @@ public class ZcOrderRequest {
     private Integer lei;
     private String institutionsCode;
     private Integer accountId;
+    private Integer hasFranchiseFees;//是否包含不计免赔费用
+
+    public Integer getHasFranchiseFees() {
+        return hasFranchiseFees;
+    }
+
+    public void setHasFranchiseFees(Integer hasFranchiseFees) {
+        this.hasFranchiseFees = hasFranchiseFees;
+    }
 
     public Integer getAccountId() {
         return accountId;
@@ -127,19 +136,19 @@ public class ZcOrderRequest {
         this.plan_id = plan_id;
     }
 
-    public Timestamp getZuchuDate() {
+    public Long getZuchuDate() {
         return zuchuDate;
     }
 
-    public void setZuchuDate(Timestamp zuchuDate) {
+    public void setZuchuDate(Long zuchuDate) {
         this.zuchuDate = zuchuDate;
     }
 
-    public Timestamp getPlanReturnDate() {
+    public Long getPlanReturnDate() {
         return planReturnDate;
     }
 
-    public void setPlanReturnDate(Timestamp planReturnDate) {
+    public void setPlanReturnDate(Long planReturnDate) {
         this.planReturnDate = planReturnDate;
     }
 
@@ -189,5 +198,31 @@ public class ZcOrderRequest {
 
     public void setHasDriver(Integer hasDriver) {
         this.hasDriver = hasDriver;
+    }
+
+    @Override
+    public String toString() {
+        return "ZcOrderRequest{" +
+                "model='" + model + '\'' +
+                ", type='" + type + '\'' +
+                ", box='" + box + '\'' +
+                ", pailiang='" + pailiang + '\'' +
+                ", seat=" + seat +
+                ", zidong=" + zidong +
+                ", plan_id=" + plan_id +
+                ", zuchuDate=" + zuchuDate +
+                ", planReturnDate=" + planReturnDate +
+                ", price=" + price +
+                ", status=" + status +
+                ", insurance=" + insurance +
+                ", getCar=" + getCar +
+                ", returnCar=" + returnCar +
+                ", hasDriver=" + hasDriver +
+                ", driverId=" + driverId +
+                ", carId=" + carId +
+                ", lei=" + lei +
+                ", institutionsCode='" + institutionsCode + '\'' +
+                ", accountId=" + accountId +
+                '}';
     }
 }

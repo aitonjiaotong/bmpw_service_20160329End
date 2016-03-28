@@ -33,7 +33,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     private ZcOrderRepository orderRepository;
     @Resource
     private ZcPlanRepository planRepository;
-    @Resource
+    @Resource(name="zcCarRespository")
     private ZcCarRespository carRespository;
     @Resource(name = "zcDriverRepository")
     private ZcDriverRepository driverRepository;
@@ -49,28 +49,34 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         order.setPlanId(order_request.getPlan_id());
         order.setGetCar(order_request.getGetCar());
         order.setReturnCar(order_request.getReturnCar());
-        order.setZuchuDate(order_request.getZuchuDate());
-        order.setPlanReturnDate(order_request.getPlanReturnDate());
+        order.setZuchuDate(new Timestamp(order_request.getZuchuDate()));
+        order.setPlanReturnDate(new Timestamp(order_request.getPlanReturnDate()));
         order.setPrice(order_request.getPrice());
         order.setInsurance(order_request.getInsurance());
         order.setHasDriver(order_request.getHasDriver());
         ZcCar car=carRespository.findOne(order_request.getCarId());
         order.setBeforeMileage(car.getMileage());
         car.setStatus(1);//车辆被租出
+        carRespository.saveAndFlush(car);
         order.setCarId(car.getId());
         order.setFlag(0);//订单进行中
         order.setDate(new Timestamp(System.currentTimeMillis()));
-        if(order_request.getHasDriver().equals(0)){
-            ZcOrder order1=orderRepository.checkDriver(order.getDriverId());
+        if(0==order.getHasDriver()){
+            ZcOrder order1=orderRepository.checkDriver(order_request.getDriverId());
             if(order1!=null){
                 return null;
             }else{
-                ZcDriver driver=driverRepository.findOne(order.getDriverId());
+                ZcDriver driver=driverRepository.findOne(order_request.getDriverId());
+                order.setDriverId(order_request.getDriverId());
                 driver.setStatus(0);
                 driverRepository.saveAndFlush(driver);
             }
         }
-        order=orderRepository.saveAndFlush(order);
+        try{
+            order=orderRepository.saveAndFlush(order);
+        }catch(Exception e){
+            return null;
+        }
         return order;  //To change body of implemented methods use File | Settings | File Templates.
     }
     //个人租车添加订单
@@ -82,11 +88,12 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         order.setPlanId(order_request.getPlan_id());
         order.setGetCar(order_request.getGetCar());
         order.setReturnCar(order_request.getReturnCar());
-        order.setZuchuDate(order_request.getZuchuDate());
-        order.setPlanReturnDate(order_request.getPlanReturnDate());
+        order.setZuchuDate(new Timestamp(order_request.getZuchuDate()));
+        order.setPlanReturnDate(new Timestamp(order_request.getPlanReturnDate()));
         order.setPrice(order_request.getPrice());
         order.setInsurance(order_request.getInsurance());
         order.setHasDriver(order_request.getHasDriver());
+        order.setHasFranchiseFees(order_request.getHasFranchiseFees());
         List<ZcCar>cars=carRespository.find(order_request.getModel(), order_request.getType(), order_request.getBox(), order_request.getPailiang(), order_request.getSeat(), order_request.getPlan_id());
         if(cars.isEmpty()){
             return null;
@@ -96,20 +103,28 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         ZcCar car=cars.get(s);
         order.setBeforeMileage(car.getMileage());
         car.setStatus(1);//车辆被租出
+        carRespository.saveAndFlush(car);
         order.setCarId(car.getId());
         order.setFlag(0);//订单进行中
-        if(order_request.getHasDriver().equals(0)){
-           ZcOrder order1=orderRepository.checkDriver(order.getDriverId());
+
+        if(0==order.getHasDriver()){
+            ZcOrder order1=orderRepository.checkDriver(order.getDriverId());
+
             if(order1!=null){
                return null;
             }else{
                 ZcDriver driver=driverRepository.findOne(order.getDriverId());
                 driver.setStatus(0);
                 driverRepository.saveAndFlush(driver);
+                order.setDriverId(order_request.getDriverId());
             }
         }
         order.setDate(new Timestamp(System.currentTimeMillis()));
-        order=orderRepository.saveAndFlush(order);
+        try{
+            order=orderRepository.saveAndFlush(order);
+        }catch(Exception e){
+            return null;
+        }
         return order;  //To change body of implemented methods use File | Settings | File Templates.
     }
     //取消订单
@@ -214,6 +229,16 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         order.setShouyajin(shouyajin);
         order.setFlag(1);//订单完成
         orderRepository.saveAndFlush(order);
+        if("0".equals(order.getHasDriver())){
+            try {
+                ZcDriver driver=driverRepository.findOne(order.getDriverId());
+                driver.setStatus(1);
+                driverRepository.saveAndFlush(driver);
+            }catch(Exception e){
+                return null;
+            }
+
+        }
         return order;  //To change body of implemented methods use File | Settings | File Templates.
     }
 

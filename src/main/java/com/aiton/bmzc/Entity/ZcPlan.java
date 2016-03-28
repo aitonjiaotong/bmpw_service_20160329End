@@ -20,13 +20,56 @@ public class ZcPlan {
     private Double outTime;//超时小时价
     private Integer flag;//0：可用 1：删除
     private Integer jijia;//计价方式 0：天 1：小时 2：月（默认天）
+    private Double insurance;//保险
+    private Double hasDriver;//带司机
+    private Double others;//其他费用
+    private Double poundage;//手续费
+    private Double franchiseFees;//不计免赔服务费
+    @Column
+    @Basic
+    public Double getOthers() {
+        return others;
+    }
 
+    public void setOthers(Double others) {
+        this.others = others;
+    }
+    @Column
+    @Basic
+    public Double getPoundage() {
+        return poundage;
+    }
+
+    public void setPoundage(Double poundage) {
+        this.poundage = poundage;
+    }
+    @Basic
+    @Column
+    public Double getFranchiseFees() {
+        return franchiseFees;
+    }
+
+    public void setFranchiseFees(Double franchiseFees) {
+        this.franchiseFees = franchiseFees;
+    }
+
+    @Basic
+    @Column
     public Integer getJijia() {
         return jijia;
     }
 
     public void setJijia(Integer jijia) {
         this.jijia = jijia;
+    }
+    @Basic
+    @Column
+    public Double getHasDriver() {
+        return hasDriver;
+    }
+
+    public void setHasDriver(Double hasDriver) {
+        this.hasDriver = hasDriver;
     }
 
     @Id
@@ -91,6 +134,14 @@ public class ZcPlan {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Double getInsurance() {
+        return insurance;
+    }
+
+    public void setInsurance(Double insurance) {
+        this.insurance = insurance;
     }
 
     @Override

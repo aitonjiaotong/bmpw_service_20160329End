@@ -21,6 +21,7 @@ public class ZcDriver {
     private String image;
     private Double star;
     private Integer status;//0：出车 1：空闲
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
@@ -102,5 +103,20 @@ public class ZcDriver {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "ZcDriver{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", idcard='" + idcard + '\'' +
+                ", sex='" + sex + '\'' +
+                ", drivingYear=" + drivingYear +
+                ", image='" + image + '\'' +
+                ", star=" + star +
+                ", status=" + status +
+                '}';
     }
 }

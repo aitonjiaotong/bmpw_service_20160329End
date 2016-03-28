@@ -43,6 +43,7 @@ public class ZcOrder {
     private Double insurance;//保险金额
     private String sale;//收款人账号
     private String institutionsCode;//企业账号
+    private Integer hasFranchiseFees;//是否包含不计免赔费用
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
@@ -317,6 +318,15 @@ public class ZcOrder {
     public void setInstitutionsCode(String institutionsCode) {
         this.institutionsCode = institutionsCode;
     }
+    @Column
+    @Basic
+    public Integer getHasFranchiseFees() {
+        return hasFranchiseFees;
+    }
+
+    public void setHasFranchiseFees(Integer hasFranchiseFees) {
+        this.hasFranchiseFees = hasFranchiseFees;
+    }
 
     @Override
     public String toString() {
@@ -351,8 +361,10 @@ public class ZcOrder {
                 ", insurance=" + insurance +
                 ", sale='" + sale + '\'' +
                 ", institutionsCode='" + institutionsCode + '\'' +
+                ", hasFranchiseFees=" + hasFranchiseFees +
                 '}';
     }
+
     public ZcOrder(){}
 
     public ZcOrder(Integer id, Integer carId, Integer planId,
@@ -367,7 +379,7 @@ public class ZcOrder {
                    Integer hasDriver, Integer getCar, Integer returnCar,
                    Double advancePayment, Timestamp date,
                    Integer status, Double insurance,
-                   String sale, String institutionsCode) {
+                   String sale, String institutionsCode,Integer hasFranchiseFees) {
         this.id = id;
         this.carId = carId;
         this.planId = planId;
@@ -398,6 +410,7 @@ public class ZcOrder {
         this.insurance = insurance;
         this.sale = sale;
         this.institutionsCode = institutionsCode;
+        this.hasFranchiseFees=hasFranchiseFees;
     }
     public ZcOrder(ZcOrderGetFromPage page) {
         this.id = page.getId();
@@ -437,5 +450,6 @@ public class ZcOrder {
         this.insurance = page.getInsurance();
         this.sale = page.getSale();
         this.institutionsCode = page.getInstitutionsCode();
+        this.hasFranchiseFees=page.getHasFranchiseFees();
     }
 }
