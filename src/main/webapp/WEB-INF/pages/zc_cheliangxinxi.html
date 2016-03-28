@@ -124,6 +124,9 @@
             width: 92%;
             clear:left;
             height: 70px;
+            border:1px solid #000;
+            padding-left:10px;
+            margin-top: 10px;;
         }
         #notetitle{
             float: left;
@@ -247,7 +250,11 @@
            <p><img class="check" src="images/check.png"><a href="/bmpw/toZC_Appointment"><img src="images/yudingdengji.png"/>预定登记</a></p>
        </div>
    </div>
-   <script src="JS/jquery-1.12.0.js"></script>
+   <script type="text/javascript" src="JS/jquery/jquery-1.11.2.min.js"></script>
+   <script type="text/javascript" src="JS/liger/jquery-validation/jquery.validate.min.js"></script>
+   <script type="text/javascript" src="JS/liger/jquery-validation/additional-methods.js"></script>
+   <script type="text/javascript" src="JS/liger/jquery-validation/messages_cn.js"></script>
+   <!--<script src="JS/jquery-1.12.0.js"></script> -->
    <script src="JS/jquery.dataTables.js"></script>
     <script type="text/javascript">
         $(function(){
@@ -322,13 +329,44 @@
                 $(":input[name=note]").val(data.note);
                 $(":input[name=id]").val(data.id);
             });
+
+            /*下面进行页面验证*/
+            $("#updateCar").validate({
+                rules: {
+                    licensePlate: {
+                        pattern:/^[\u4e00-\u9fa5]{1}[A-Z]{1}[A-Z_0-9]{5}$/
+                    }
+                },
+                /* 设置错误信息 */
+                messages: {
+                    licensePlate: {
+                        pattern:"请输入正确的车牌号！"
+                    }
+                }
+            });
         });
         function updateCar(){
             $("#updateCar").submit();
         }
         function deteleCar(){
             var carId = $(":input[name=id]").val();
-            window.location.href = "/bmpw/zc/car/deleteCar?id="+carId;
+            $.ajax({
+                url:"/bmpw/zc/car/deleteCarFromPage",
+                type:"post",
+                dataType:"json",
+                data:{
+                  "id":carId
+                },
+                success:function(data){
+                    if(data==true){
+                        alert("删除成功！");
+                        location.reload();
+                    }else{
+                       alert("删除失败！请确认数据是否正确！建议立即刷新页面重试！");
+                    }
+                }
+            });
+
         }
         function loadPeccancy(){
             window.location.href = "#";
