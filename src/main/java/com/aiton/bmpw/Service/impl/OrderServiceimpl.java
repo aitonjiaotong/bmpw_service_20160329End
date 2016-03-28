@@ -117,6 +117,9 @@ public class OrderServiceimpl implements OrderService {
 
     @Override
     public Bmpw_Order completeOrder(Integer order_id, Integer redEnvelope_id) {
+        if(redEnvelope_id<1){
+           return null;
+        }
         Bmpw_Order order=orderReponsitory.findOne(order_id);
         if(redEnvelope_id!=null){
             RedEnvelope redEnvelope=redEnvelopeReponsitory.findOne(redEnvelope_id);

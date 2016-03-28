@@ -29,6 +29,15 @@ public class ZcOrderRequest {
     private Integer carId;
     private Integer lei;
     private String institutionsCode;
+    private Integer accountId;
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
 
     public Integer getLei() {
         return lei;

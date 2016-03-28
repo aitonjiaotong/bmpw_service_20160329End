@@ -9,7 +9,7 @@ package com.aiton.wxApliy.entity;
  */
 public class WxRequest {
     private String appid;//应用ID
-    private String mach_id;//商户号
+    private String mch_id;//商户号
     private String nonce_str;//随机字符串
     private String sign;//签名
     private String body;//商品描述
@@ -27,12 +27,12 @@ public class WxRequest {
         this.appid = appid;
     }
 
-    public String getMach_id() {
-        return mach_id;
+    public String getMch_id() {
+        return mch_id;
     }
 
-    public void setMach_id(String mach_id) {
-        this.mach_id = mach_id;
+    public void setMch_id(String mch_id) {
+        this.mch_id = mch_id;
     }
 
     public String getNonce_str() {

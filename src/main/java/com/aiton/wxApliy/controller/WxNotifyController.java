@@ -43,13 +43,14 @@ public class WxNotifyController {
         outSteam.close();
         inStream.close();
         String result = new String(outSteam.toByteArray(), "utf-8");
-        System.out.println("oo:"+result);
+        //System.out.println("oo:"+result);
         Map<String, String> map = null;
         try {
             map = XMLUtil.doXMLParse(result);
         } catch (JDOMException e) {
             e.printStackTrace();
         }
+
 //        ServletContext context=request.getServletContext();
 //        String str=context.getRealPath("/");
 //        String savepath=str+"WEB-INF"+File.separator+"pages"+File.separator+"cars"+File.separator+"o.txt";
@@ -61,7 +62,7 @@ public class WxNotifyController {
 //        pw.println("接收到的数据"+map.toString());
 //        pw.flush();
 //        pw.close();
-        System.out.println("map:"+map.toString());
+        //System.out.println("map:"+map.toString());
         WXOrderQuery orderQuery = new WXOrderQuery();
         orderQuery.setAppid(map.get("appid"));
         orderQuery.setMch_id(map.get("mch_id"));
@@ -70,14 +71,14 @@ public class WxNotifyController {
         orderQuery.setNonce_str(map.get("nonce_str"));
         orderQuery.setPartnerKey("o7q16VNoBB7ABPpSHB6dAL0LHAMCYdUp");
         Map<String, String> orderMap = orderQuery.reqOrderquery();
-        System.out.println("orderMap:"+orderMap.toString());
+        //System.out.println("orderMap:"+orderMap.toString());
         if (orderMap.get("return_code") != null && orderMap.get("return_code").equalsIgnoreCase("SUCCESS")) {
             if (orderMap.get("trade_state") != null && orderMap.get("trade_state").equalsIgnoreCase("SUCCESS")) {
                 String total_fee = map.get("total_fee");
                 String order_total_fee = orderMap.get("total_fee");
                 if (Integer.parseInt(order_total_fee) >= Integer.parseInt(total_fee)) {
-                    System.out.println("支付成功");
-                    System.out.println("返回数据为"+orderMap.toString());
+                    //System.out.println("支付成功");
+                    //System.out.println("返回数据为"+orderMap.toString());
                     WxPayResults results=new WxPayResults();
                     results.setSign(orderMap.get("sign"));
                     results.setAppid(orderMap.get("appid"));
@@ -102,8 +103,8 @@ public class WxNotifyController {
                 }
             }
         }else{
-            System.out.println("支付失败");
+            //System.out.println("支付失败");
         }
-        System.out.println(orderMap.toString());
+        //System.out.println(orderMap.toString());
     }
 }

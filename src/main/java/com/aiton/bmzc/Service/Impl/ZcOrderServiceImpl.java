@@ -43,6 +43,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     @Override
     public ZcOrder addOrder1(ZcOrderRequest order_request) {
         ZcOrder order=new ZcOrder();
+        order.setAccountId(order_request.getAccountId());
         order.setStatus(0);
         order.setInstitutionsCode(order_request.getInstitutionsCode());
         order.setPlanId(order_request.getPlan_id());
@@ -76,6 +77,7 @@ public class ZcOrderServiceImpl implements ZcOrderService {
     @Override
     public ZcOrder addOrder2(ZcOrderRequest order_request) {
         ZcOrder order=new ZcOrder();
+        order.setAccountId(order_request.getAccountId());
         order.setStatus(1);
         order.setPlanId(order_request.getPlan_id());
         order.setGetCar(order_request.getGetCar());

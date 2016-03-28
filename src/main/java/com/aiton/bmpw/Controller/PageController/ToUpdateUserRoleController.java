@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ToUpdateUserRoleController{
     @RequestMapping("/updateUserRole")
     public String execute(){
-        return "UpdateUserRole";
+        return "gl_updateuserrole";
     }
 }
