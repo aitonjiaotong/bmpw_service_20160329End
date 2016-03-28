@@ -2,6 +2,8 @@ package com.aiton.bmzc.Entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  * Created with IntelliJ IDEA.
@@ -75,5 +77,29 @@ public class ZcAppointment {
 
     public void setFlag(Integer flag) {
         this.flag = flag;
+    }
+
+    public ZcAppointment(){}
+
+    public ZcAppointment(ZcAppointmentGetFromPage page) throws ParseException {
+        this.id = page.getId();
+        this.flag = page.getFlag();
+        this.user = page.getUser();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.planzuche = new Timestamp(sdf.parse(page.getPlanzuche()).getTime());
+        this.appointmenttime = new Timestamp(sdf.parse(page.getAppointmenttime()).getTime());
+        this.note = page.getNote();
+    }
+
+    @Override
+    public String toString() {
+        return "ZcAppointment{" +
+                "id=" + id +
+                ", user='" + user + '\'' +
+                ", planzuche=" + planzuche +
+                ", note='" + note + '\'' +
+                ", appointmenttime=" + appointmenttime +
+                ", flag=" + flag +
+                '}';
     }
 }

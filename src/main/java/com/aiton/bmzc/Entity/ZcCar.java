@@ -44,6 +44,8 @@ public class ZcCar {
         this.id = id;
     }
 
+    @Column
+    @Basic
     public String getLicensePlate() {
         return licensePlate;
     }
@@ -69,7 +71,8 @@ public class ZcCar {
     public void setBox(String box) {
         this.box = box;
     }
-
+    @Basic
+    @Column
     public String getPailiang() {
         return pailiang;
     }
@@ -225,8 +228,8 @@ public class ZcCar {
 
     @Override
     public String toString() {
-        return "ZcCar{" +
-                "licensePlate='" + licensePlate + '\'' +
+        return "ZcCar{" +"id="+id+'\''+
+                ",licensePlate='" + licensePlate + '\'' +
                 ", model='" + model + '\'' +
                 ", type='" + type + '\'' +
                 ", box='" + box + '\'' +

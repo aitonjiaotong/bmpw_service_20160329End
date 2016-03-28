@@ -1,6 +1,7 @@
 package com.aiton.bmzc.Service;
 
 import com.aiton.bmpw.Entity.DataTables;
+import com.aiton.bmzc.Entity.ZcAppointment;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,4 +12,5 @@ import com.aiton.bmpw.Entity.DataTables;
  */
 public interface ZcAppointmentService {
     DataTables findAppointments(Integer draw,Integer start,Integer length,String search);
+    boolean addAppointmentFromPage(ZcAppointment appointment);
 }

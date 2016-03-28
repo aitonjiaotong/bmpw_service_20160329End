@@ -114,7 +114,7 @@
             display: none;
         }
         .mainpage p button{
-            border: 0;
+            border:0px;
             background-color: #ffffff;
             font-size: 20px;
         }
@@ -125,13 +125,10 @@
             width: 50%;
             height: 100px;
         }
-        #btns{
-            text-align: center;
-        }
         #a p{
             margin-top: 0;
             margin-bottom: 5px;
-            font-size: 15px;
+            font-size: 20px;
         }
         #b{
             text-align: center;
@@ -141,7 +138,22 @@
             width: 97%;
         }
         input[type=text]{
+            height: 25px;
+            border-radius:3px;border:1px solid #000;
             padding-left:10px;
+        }
+        textarea{
+            border-radius:3px;border:1px solid #000;
+            padding-left:10px;
+        }
+        #btns button{
+            clear:right;
+            border-radius:3px;
+            border:1px solid #000;
+            width: 100px;
+            height: 25px;
+            margin-top: 30px;
+            margin-left: 150px;
         }
     </style>
 </head>
@@ -154,17 +166,17 @@
     <div>
         <div id="a">
             <div>
-                <p>预定人</p>
-                <p><input type="text" class="bo"/></p>
+                <p>预定人(电话）</p>
+                <p><input type="text" style="width: 160px" class="bo" name="user"/></p>
                 <p>预约租车时间</p>
-                <p><input type="text" style="width: 70px" class="bo"/>&nbsp<input type="text" style="width: 70px" class="bo"></p>
+                <p><input type="text" style="width: 150px;padding-left: 20px;" class="bo" name="planzuche"/></p>
                 <p>预约事项</p>
-                <p><textarea class="bo"></textarea></p>
+                <p><textarea class="bo" name="note"></textarea></p>
                 <p>预约时间</p>
-                <p><input type="text" style="width: 70px" class="bo"/>&nbsp<input type="text" style="width: 70px" class="bo"></p>
+                <p><input type="text" style="width: 150px;padding-left: 20px;" class="bo" name="appointmenttime"/></p>
             </div>
             <div id="btns">
-                <button>保存</button>
+                <button onclick="addAppointment();">保存</button>
                 <button>退出</button>
             </div>
         </div>
@@ -202,8 +214,10 @@
 </div>
 <script src="JS/jquery-1.12.0.js"></script>
 <script src="JS/jquery-ui.js"></script>
-<script src="JS/jquery.ui.datepicker-zh-cn.js"></script>
+<!--<script src="JS/jquery.ui.datepicker-zh-cn.js"></script> -->
 <script src="JS/jquery.dataTables.js"></script>
+<script src="JS/jquery/jquery-ui-timepicker-addon.js"></script>
+<script src="JS/jquery/jquery-ui-timepicker-zh-CN.js"></script>
 <script>
     $(function(){
          $("#appoint").click(function(){
@@ -215,6 +229,9 @@
             $("#a").addClass("hid");
         });
         $("#appointments").dataTable({
+            "serverSide":true,
+            "processing": true,
+            "ajax":"/bmpw/zc/appointment/loadAppointmentToPage",
             "bSort":false,
             "bLengthChange":false,
             "bInfo":false,
@@ -231,10 +248,49 @@
                     "sLast": "尾页"
                 },
                 "sSearch":"根据联系人名/电话查询"
-
-            }
+            },
+            "columns":[
+                {"data":"user"},
+                {"data":"planzuche"},
+                {"data":"note"}
+            ]
+        });
+        $(":input[name=planzuche]").datetimepicker({
+            regional: "zh-CN",
+            dateFormat: "yy-mm-dd",
+            timeFormat: "hh:mm:ss"
+        });
+        $(":input[name=appointmenttime]").datetimepicker({
+            regional: "zh-CN",
+            dateFormat: "yy-mm-dd",
+            timeFormat: "hh:mm:ss"
         });
     });
+    function addAppointment(){
+        var user = $(":input[name=user]").val();
+        var planzuche = $(":input[name=planzuche]").val();
+        var note = $(":input[name=note]").val();
+        var appointmenttime = $(":input[name=appointmenttime]").val();
+        $.ajax({
+            url:"/bmpw/zc/appointment/addAppointmentFromPage",
+            dataType:"json",
+            data:{
+                "user":user,"planzuche":planzuche,"note":note,"appointmenttime":appointmenttime
+            },
+            type:"post",
+            success:function(data){
+                if(data==true){
+                    alert("预约成功！");
+                    location.reload();
+                }else{
+                    alert("预约失败！请检查数据是否正确。")
+                }
+            },
+            error:function(){
+                alert("预约失败！请稍后重试。");
+            }
+        });
+    }
 </script>
 </body>
 </html>

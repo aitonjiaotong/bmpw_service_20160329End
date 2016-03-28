@@ -20,4 +20,5 @@ public interface ZcCarService {
     Boolean updateCar(ZcCar car);
     ZcCar loadCar(Integer id);
     DataTables loadCanuseCars(Integer draw,Integer start,Integer length,String search);
+    boolean deleteCar(Integer id);
 }
