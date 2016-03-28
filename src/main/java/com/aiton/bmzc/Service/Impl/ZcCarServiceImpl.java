@@ -72,7 +72,8 @@ public class ZcCarServiceImpl implements ZcCarService {
         for(File f:files){
            String name=f.getName();
            String extName=name.substring(name.lastIndexOf("."));
-           if(name.equals(car.getId()+extName)){
+           if(name.equals(car.getLicensePlate()+extName)){
+               System.out.println("已经找到上传的图片了！");
                car.setImage("http://120.55.166.203:8080/bmpw/cars/"+name);
            }
         }
