@@ -199,9 +199,20 @@
         input[type=text]{
             padding-left:10px;
         }
+        #photo{
+            overflow:auto;
+            width:500px;
+            height: 400px;
+            border-radius:3px;border:1px solid #000;
+        }
     </style>
+    <link href="upload/uploadify.css" rel="stylesheet" type="text/css">
     <script src="JS/jquery-1.12.0.js"></script>
     <script src="JS/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="JS/liger/jquery-validation/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="JS/liger/jquery-validation/additional-methods.js"></script>
+    <script type="text/javascript" src="JS/liger/jquery-validation/messages_cn.js"></script>
+    <script src="upload/jquery.uploadify.js"></script>
     <script>
     $(function (){
             $("#childTable").dataTable({
@@ -230,7 +241,7 @@
                     { "data": "price" },
                     { "data": "unitMileage"},
                     { "data": "outMileage"},
-                    { "data": "outTime"},
+                    { "data": "outTime"}
                 ],
                 "createdRow": function (row, data, dataindex) {
                     if (data.flag == 0) {
@@ -264,6 +275,72 @@
           /*  alert("开始提交表单"); */
             $("#form").submit();
         });
+        $("#file").uploadify({
+            uploader:"/bmpw/image",
+            swf:"upload/uploadify.swf",
+            width:100,
+            'cancelImg' : 'upload/uploadify-cancel.png',
+            auto:true,
+            method:'Post',
+            buttonText:"选择上传图片",
+            'onUploadSuccess' : function(file, data, response) {
+                var sum=Math.random();
+                $("#photoImg").attr("src","cars/"+data+"?"+sum);
+            },
+            'onUploadStart':function(){
+                var a = $(":input[name=licensePlate]").val();
+                $("#file").uploadify("settings","formData",{"name":a});
+            }
+        });
+        $("#form").validate({
+            rules: {
+                licensePlate: {
+                    pattern:/^[\u4e00-\u9fa5]{1}[A-Z]{1}[A-Z_0-9]{5}$/
+                },
+                inspection:{
+                    date:true
+                },
+                mileage:{
+                    number:true
+                },
+                deposit:{
+                    number:true
+                },
+                maintenanceMileage:{
+                    number:true
+                },
+                buyDate:{
+                    date:true
+                },
+                seat:{
+                    number:true
+                }
+            },
+            /* 设置错误信息 */
+            messages: {
+                licensePlate: {
+                    pattern:"输入有误！"
+                },
+                inspection:{
+                    date:"输入有误！"
+                },
+                mileage:{
+                    number:"输入有误！"
+                },
+                deposit:{
+                    number:"输入有误！"
+                },
+                maintenanceMileage:{
+                    number:"输入有误！"
+                },
+                buyDate:{
+                    date:"输入有误！"
+                },
+                seat:{
+                    number:"输入有误！"
+                }
+            }
+        });
     });
     function choosePlan(){
         $("#child1").toggle();
@@ -271,6 +348,11 @@
         var y = $("#choose").offset().top;
         $("#child1").css({'left':x-22+'px','top':y+30+'px'});
     }
+        function uploadImg(){
+            alert("现在提交表单");
+            $("#form").submit();
+            alert("提交表单结束");
+        }
     </script>
 </head>
 <body>
@@ -283,15 +365,17 @@
 		<tr>
 			<td>车辆编号（车牌号）</td><td><input type="text" name="licensePlate"/></td><td>当前里程</td>
 			<td><input type="text" name="mileage"/></td><td rowspan="7" valign="bottom">
-				<input id="photo" type="text" readOnly="true"/></td>
+            <label style="margin: 20px;">汽车照片</label>
+				<!--<input id="photo" type="text" readOnly="true"/>--><div id="photo"><img id="photoImg"/></div></td>
 		</tr>
 		<tr>
 			<td>发动机编号</td><td><input type="text" name="engineCode"/></td><td>保养里程</td>
 			<td><input type="text" name="maintenanceMileage"/></td>
 		</tr>
 		<tr>
-			<td>车型</td><td><input type="text" name="type"/></td><td>价位类型</td>
-			<td>经济型:<input type="radio" value="0" name="lei"> 商务型:</input><input type="radio" value="1" name="lei"> 豪华型:</input><input type="radio" value="2" name="lei"></td>
+			<td>车型</td><td><input type="text" name="type"/></td><td>
+            <input id="choose" style="width:100%;" type="button" value="选择租车方案" onclick="choosePlan();"/></td>
+            <td><input type="text" readonly="true" name="planName"/></td>
 		</tr>
         <tr>
             <td>厢数</td><td><input type="text" name="box"/></td>
@@ -310,15 +394,13 @@
 			<td><input type="text" name="buyDate"/></td>
 		</tr>
 		<tr>
-			<td>年检日期</td><td><input type="text" name="inspection"/></td><td>
-            <input id="choose" style="width:100%;" type="button" value="选择租车方案" onclick="choosePlan();"/></td>
-			<td><input type="text" readonly="true" name="planName"/></td>
+			<td>年检日期</td><td><input type="text" name="inspection"/></td>
 		</tr>
 		<tr>
 			<td valign="top">备注</td><td colspan="3"><textarea id="drs" name="note"></textarea></td>
-			<td valign="top">照片	<input id="file" type="file" name="image"/>
-		      	<input class="button" type="button" value="浏览"/>
-				<input class="button" type="text" value="清除" name="text"/></td>
+			<td valign="top"><input id="file" type="file" name="image" style="width:200px;"/>
+                <label>（提示：请确认已经输入了车牌号，我们会将车牌号写入图片名称中，谢谢）</label>
+            </td>
 		</tr>
 	</table>
            <div id="child1" class="childwindow">
@@ -340,6 +422,7 @@
 	</table>
            <input type="hidden" name="planId"/>
        </form>
+       <!--<iframe id="id_iframe" name="id_iframe" style="display:none;"></iframe> -->
    </div>
    <div class="lan1">
        <div class="icon">

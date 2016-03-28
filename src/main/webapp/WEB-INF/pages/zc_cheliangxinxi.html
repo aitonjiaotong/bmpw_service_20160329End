@@ -335,12 +335,42 @@
                 rules: {
                     licensePlate: {
                         pattern:/^[\u4e00-\u9fa5]{1}[A-Z]{1}[A-Z_0-9]{5}$/
+                    },
+                    inspection:{
+                        date:true
+                    },
+                    mileage:{
+                        number:true
+                    },
+                    deposit:{
+                        number:true
+                    },
+                    maintenanceMileage:{
+                        number:true
+                    },
+                    buyDate:{
+                        date:true
                     }
                 },
                 /* 设置错误信息 */
                 messages: {
                     licensePlate: {
-                        pattern:"请输入正确的车牌号！"
+                        pattern:"输入有误！"
+                    },
+                    inspection:{
+                        date:"输入有误！"
+                    },
+                    mileage:{
+                        number:"输入有误！"
+                    },
+                    deposit:{
+                        number:"输入有误！"
+                    },
+                    maintenanceMileage:{
+                        number:"输入有误！"
+                    },
+                    buyDate:{
+                        date:"输入有误！"
                     }
                 }
             });

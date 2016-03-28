@@ -198,6 +198,9 @@
   <!-- <script src="JS/jquery-1.11.3.js"></script> -->
     <script src="JS/jquery-1.12.0.js"></script>
     <script src="JS/jquery-ui.js"></script>
+    <script type="text/javascript" src="JS/liger/jquery-validation/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="JS/liger/jquery-validation/additional-methods.js"></script>
+    <script type="text/javascript" src="JS/liger/jquery-validation/messages_cn.js"></script>
     <script src="JS/jquery.dataTables.js"></script>
     <script src="JS/jquery/jquery-ui-timepicker-addon.js"></script>
     <script src="JS/jquery/jquery-ui-timepicker-zh-CN.js"></script>
@@ -449,7 +452,36 @@
                 $(":input[name=chooseDriver]").attr("disabled",true);
             }
         });
-
+        $("#addPlan").validate({
+            rules:{
+                price:{
+                    number:true
+                },
+                unitMileage:{
+                    number:true
+                },
+                outMileage:{
+                    number:true
+                },
+                outTime:{
+                    number:true
+                }
+            },
+            messages:{
+                price:{
+                    number:"输入有误"
+                },
+                unitMileage:{
+                    number:"输入有误"
+                },
+                outMileage:{
+                    number:"输入有误"
+                },
+                outTime:{
+                    number:"输入有误"
+                }
+            }
+        });
 	 };
 	function choosePlan(){
 	 $("#child1").toggle();
@@ -532,9 +564,9 @@
 
         </div>
         <br>
-        <table style="width:80%;margin-left:20px;margin-bottom:20px;">
+        <!--<table style="width:80%;margin-left:20px;margin-bottom:20px;">
             <tr style="font-weight:bold;">
-                <td>取车地点</td><td>还车地点</td><td>保险费用</td>
+                <td>取车地点</td><td>还车地点</td>
             </tr>
             <tr>
                 <td>
@@ -547,10 +579,8 @@
                     <input type="button" value="选择分店"/>
                     <input type="hidden" name="returnCar"/>
                 </td>
-           <td><input type="text" name="insurance"/>
-               <input type="button" value="选择保险类型"/></td>
             </tr>
-        </table>
+        </table> -->
 
 	<table class="table2">
 	<tr>
@@ -580,6 +610,10 @@
 		  	        <th>单位里程数</th>
                     <th>超里程价格</th>
 	  	  	        <th>超时小时价</th>
+                    <th>保险费</th>
+                    <th>不计免赔服务费</th>
+                    <th>手续费</th>
+                    <th>司机费用</th>
                 </thead>
 	  	   </table>
 		</div>
@@ -590,13 +624,21 @@
             <input type="radio" name="jijia" value="2"/>月</td>
 	<td>单位里程（公里）</td><td><input name="unitMileage"/></td>
 	<td>超时小时价</td><td><input name="outTime"/></td>
-	<td>收押金</td><td><input name="shouyajin"/></td>
         </tr>
 		<tr>
 	<td>单位租金（元）</td><td><input name="unitPrice"/></td>
 	<td>超限程基价（每公里）</td><td><input name="outMileage"/></td>
-	<td>预收租费</td><td><input name="advancePayment"/></td>
+	<td>不计免赔服务费</td><td><input/></td>
 		</tr>
+        <tr>
+            <td>手续费</td><td><input/></td>
+            <td>保险费</td><td><input /></td>
+            <td>司机费用</td><td><input/></td>
+        </tr>
+        <tr>
+            <td>收押金</td><td><input name="shouyajin"/></td>
+            <td>预收租费</td><td><input name="advancePayment"/></td>
+        </tr>
 	</table>
 	<p>备注<input style="margin-left:20px;width:50%" name="note"/></p>
 	</div>
