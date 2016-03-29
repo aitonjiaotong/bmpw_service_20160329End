@@ -1,7 +1,7 @@
 package com.aiton.bmzc.controller.driver;
 
-import com.aiton.bmzc.Entity.ZcContainsNum;
-import com.aiton.bmzc.Service.ZcDriverService;
+import com.aiton.bmzc.entity.ZcContainsNum;
+import com.aiton.bmzc.service.ZcDriverService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

@@ -1,7 +1,7 @@
 package com.aiton.bmzc.controller.car;
 
-import com.aiton.bmzc.Entity.ZcCarAndPlan;
-import com.aiton.bmzc.Service.ZcOrderService;
+import com.aiton.bmzc.entity.ZcCarAndPlan;
+import com.aiton.bmzc.service.ZcOrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
