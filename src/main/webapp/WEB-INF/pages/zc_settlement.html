@@ -177,6 +177,7 @@
 <div class="top2"></div>
 <div class="top3"><div><p><img src="images/jiesuan.png">结算</p></div></div>
 <div class="mainpage">
+    <form id="settlementForm">
     <div id="loadorders">
         <p>租出车辆</p>
         <table id="orders">
@@ -215,20 +216,20 @@
                 <td><input type="text"  class="bo" name="outMileagePrice" readonly/></td>
             </tr>
             <tr>
-                <td><span>保险金额</span></td>
-                <td><input type="text" class="bo" name="insurance" readonly></td>
-                <td><span>其他扣款</span></td>
-                <td><input type="text" class="bo"/></td>
+                <td><span>其他款项</span></td>
+                <td><input type="text" class="bo" name="otherPrice" readonly/></td>
+                <td>(包括保险，手续费，服务费，司机费用等[如果有的话])</td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="5"><span>合计应收租金</span><input type="text" style="margin-left: 5px"  class="bo"/></td>
+                <td colspan="5"><span>合计应收租金</span><input type="text" style="margin-left: 15px"  class="bo" readonly/></td>
             </tr>
         </table>
         <div id="o">
             <p style="float: left" >预付款<input type="text" class="bo" name="advancePayment" readonly/></p>
             <p style="float: left">应退押金<input type="text" readonly style="border: 0px"/></p>
             <p style="float: left">实收押金<input type="text"  class="bo" name="shouyajin" readonly/></p>
-            <p style="float: left">结算实收金额<input type="text"  class="bo"/></p>
+            <p style="float: left">结算实收金额<input type="text"  class="bo" name="price"/></p>
             <p style="clear: left"><span style="float:left;margin-right: 10px;">备注</span><textarea class="area" name="note"></textarea></p>
         </div>
     </div>
@@ -236,6 +237,7 @@
          <button>结算</button>
          <button>退出</button>
     </div>
+    </form>
 </div>
 <div class="lan1">
     <div class="icon">
@@ -257,6 +259,9 @@
     </div>
 </div>
 <script src="JS/jquery-1.12.0.js"></script>
+<script type="text/javascript" src="JS/liger/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="JS/liger/jquery-validation/additional-methods.js"></script>
+<script type="text/javascript" src="JS/liger/jquery-validation/messages_cn.js"></script>
 <script src="JS/jquery.dataTables.js"></script>
 <script>
     $(function(){
@@ -332,6 +337,19 @@
             $(":input[name=advancePayment]").val(data.order.advancePayment);
             $(":input[name=shouyajin]").val(data.order.shouyajin);
             $(":input[name=note]").val(data.order.note);
+        });
+        $("#settlementForm").validate({
+            rules:{
+                price:{
+                    number:true
+                }
+            },
+            messages:{
+
+                price:{
+                    number:"输入有误"
+                }
+            }
         });
     });
 </script>

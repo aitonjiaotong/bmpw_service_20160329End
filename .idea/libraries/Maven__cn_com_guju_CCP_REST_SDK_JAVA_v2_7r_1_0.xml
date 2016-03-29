@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Maven: cn.com.guju:CCP_REST_SDK_JAVA_v2.7r:1.0">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/CCP_REST_SDK_JAVA_v2.7r.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
