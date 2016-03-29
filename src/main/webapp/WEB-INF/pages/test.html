@@ -7,6 +7,7 @@
 </head>
 <body>
     <input type="file" name="uploadify" id="uploadify" accept="image/*">
+    <input type="text" name="name"/>
     <p>
        <img id="img"/>
     </p>
@@ -26,6 +27,10 @@
                     var sum=Math.random();
 //                    alert("cars/"+data+"?"+sum);
                     $("#img").attr("src","cars/"+data+"?"+sum);
+                },
+                'onUploadStart':function(){
+                    var a = $(":input[name=name]").val();
+                    $("#uploadify").uploadify("settings","formData",{"name":a});
                 }
             });
         });

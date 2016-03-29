@@ -268,6 +268,9 @@
 <div id="mengban" style="display:none"><!--这是蒙板--></div>
 </div>
 <script src="JS/jquery-1.12.0.js"></script>
+<script type="text/javascript" src="JS/liger/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="JS/liger/jquery-validation/additional-methods.js"></script>
+<script type="text/javascript" src="JS/liger/jquery-validation/messages_cn.js"></script>
 <script src="JS/jquery.dataTables.js"></script>
 <script>
     $(function(){
@@ -336,6 +339,36 @@
                     alert("修改失败");
                 }
             });
+        });
+        $("#addPlan").validate({
+            rules:{
+                price:{
+                    number:true
+                },
+                unitMileage:{
+                    number:true
+                },
+                outMileage:{
+                    number:true
+                },
+                outTime:{
+                    number:true
+                }
+            },
+            messages:{
+                price:{
+                    number:"输入有误"
+                },
+                unitMileage:{
+                    number:"输入有误"
+                },
+                outMileage:{
+                    number:"输入有误"
+                },
+                outTime:{
+                    number:"输入有误"
+                }
+            }
         });
     });
     function showChild() {

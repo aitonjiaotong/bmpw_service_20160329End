@@ -25,6 +25,7 @@ public class ZcPlan {
     private Double others;//其他费用
     private Double poundage;//手续费
     private Double franchiseFees;//不计免赔服务费
+
     @Column
     @Basic
     public Double getOthers() {
