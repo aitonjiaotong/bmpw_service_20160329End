@@ -181,7 +181,7 @@
 <div class="top2"></div>
 <div class="top3"><div><p><img src="images/huanche.png">还车</p></div></div>
 <div class="mainpage">
-    <form>
+    <form id="returnCarForm">
         <!-- 租出时间 -->
        <!-- <input type="hidden" name="zuchuDate"/>  -->
         <!-- 计价时间 -->
@@ -237,26 +237,20 @@
                 <td><span>正常约定租金</span></td>
                 <td><input type="text"  class="bo" name="timePrice" readonly/></td>
                 <!-- 正常计时租金 -->
-                <td></td>
-                <td></td>
+                <td><span>超程租金</span></td>
+                <td><input type="text"  class="bo" name="outMileagePrice" readonly/></td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <!-- 超程租金 -->
-                <td><span>超程租金</span></td>
-                <td><input type="text"  class="bo" name="outMileagePrice" readonly/></td>
-                <!-- 超时租金 -->
                 <td><span>超时租金</span></td>
                 <td><input type="text"  class="bo" name="outTimePrice" readonly/></td>
+                <!-- 超时租金 -->
+                <td>额外费用</td>
+                <td><input type="text" class="bo" name="otherPrice" readonly/></td>
+                <td>(包括保险、服务费、手续费、司机费用，如果有的话)</td>
                 <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><span>其他扣款</span></td>
-                <td><input type="text" class="bo" id="penalty"/></td>
-                <td><span>扣款备注</span></td>
-                <td><input type="text" class="bo"/></td>
             </tr>
             <tr>
                 <td><span>合计应收租金</span></td><td colspan="4"><input type="text" style="margin-left: 10px"  class="bo" id="price" readonly/></td>
@@ -299,6 +293,9 @@
 </div>
 <script src="JS/jquery-1.12.0.js"></script>
 <script src="JS/jquery-ui.js"></script>
+<script type="text/javascript" src="JS/liger/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="JS/liger/jquery-validation/additional-methods.js"></script>
+<script type="text/javascript" src="JS/liger/jquery-validation/messages_cn.js"></script>
 <script src="JS/jquery.dataTables.js"></script>
 <script src="JS/jquery/jquery-ui-timepicker-addon.js"></script>
 <script src="JS/jquery/jquery-ui-timepicker-zh-CN.js"></script>
@@ -402,6 +399,25 @@
                 +"-"+date.getDate()+" "+date.getHours()
                 +":"+date.getMinutes()+":"+date.getSeconds();
         $("#datepicker").val(str);
+
+        $("#returnCarForm").validate({
+            rules:{
+                afterMileage:{
+                    number:true
+                },
+                price:{
+                    number:true
+                }
+            },
+            messages:{
+                afterMileage:{
+                    number:"输入有误"
+                },
+                price:{
+                    number:"输入有误"
+                }
+            }
+        });
     });
     function returnCar(){
         var orderId = $(":input[name=orderId]").val();
@@ -444,7 +460,6 @@
     }
     function billing(){
 
-
     }
     function startCount(){
         alert(new Date(parseInt($(":input[name=planReturnDate]").val())));
@@ -452,8 +467,6 @@
         alert($(":input[name=unitPrice]").val());
         /*计算正常约定的租金（时间没有用完概不退钱）*/
         $(":input[name=timePrice]").val(($(":input[name=jijiatime]").val())*($(":input[name=unitPrice]").val()))
-
-
     }
 </script>
 </body>
