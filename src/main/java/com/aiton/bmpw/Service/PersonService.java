@@ -1,6 +1,6 @@
-package com.aiton.bmpw.Service;
+package com.aiton.bmpw.service;
 
-import com.aiton.bmpw.Entity.Person;
+import com.aiton.bmpw.entity.Person;
 
 import java.util.List;
 

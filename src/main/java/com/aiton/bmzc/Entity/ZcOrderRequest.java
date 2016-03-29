@@ -1,6 +1,4 @@
-package com.aiton.bmzc.Entity;
-
-import java.sql.Timestamp;
+package com.aiton.bmzc.entity;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,7 +27,7 @@ public class ZcOrderRequest {
     private Integer lei;
     private String institutionsCode;
     private Integer accountId;
-    private Integer hasFranchiseFees;//是否包含不计免赔费用
+    private Integer hasFranchiseFees;//是否包含不计免赔费用（0不包含）
 
     public Integer getHasFranchiseFees() {
         return hasFranchiseFees;

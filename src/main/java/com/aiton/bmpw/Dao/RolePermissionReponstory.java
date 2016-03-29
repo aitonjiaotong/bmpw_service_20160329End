@@ -1,6 +1,6 @@
-package com.aiton.bmpw.Dao;
+package com.aiton.bmpw.dao;
 
-import com.aiton.bmpw.Entity.Model.Role_Permission;
+import com.aiton.bmpw.entity.model.Role_Permission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

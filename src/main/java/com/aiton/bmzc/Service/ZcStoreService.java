@@ -1,7 +1,7 @@
-package com.aiton.bmzc.Service;
+package com.aiton.bmzc.service;
 
-import com.aiton.bmzc.Entity.ZcContainsNum;
-import com.aiton.bmzc.Entity.ZcStore;
+import com.aiton.bmzc.entity.ZcContainsNum;
+import com.aiton.bmzc.entity.ZcStore;
 
 /**
  * Created with IntelliJ IDEA.

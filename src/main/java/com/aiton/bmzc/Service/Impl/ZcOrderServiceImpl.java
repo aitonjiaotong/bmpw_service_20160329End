@@ -1,14 +1,14 @@
-package com.aiton.bmzc.Service.Impl;
+package com.aiton.bmzc.service.impl;
 
-import com.aiton.bmpw.Dao.AccountReponstory;
-import com.aiton.bmpw.Entity.Account;
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Dao.ZcCarRespository;
-import com.aiton.bmzc.Dao.ZcDriverRepository;
-import com.aiton.bmzc.Dao.ZcOrderRepository;
-import com.aiton.bmzc.Dao.ZcPlanRepository;
-import com.aiton.bmzc.Entity.*;
-import com.aiton.bmzc.Service.ZcOrderService;
+import com.aiton.bmpw.dao.AccountReponstory;
+import com.aiton.bmpw.entity.Account;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmzc.dao.ZcCarRespository;
+import com.aiton.bmzc.dao.ZcDriverRepository;
+import com.aiton.bmzc.dao.ZcOrderRepository;
+import com.aiton.bmzc.dao.ZcPlanRepository;
+import com.aiton.bmzc.entity.*;
+import com.aiton.bmzc.service.ZcOrderService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -66,6 +66,9 @@ public class ZcOrderServiceImpl implements ZcOrderService {
                 return null;
             }else{
                 ZcDriver driver=driverRepository.findOne(order_request.getDriverId());
+                if(driver==null){
+                    return null;
+                }
                 order.setDriverId(order_request.getDriverId());
                 driver.setStatus(0);
                 driverRepository.saveAndFlush(driver);
@@ -92,7 +95,8 @@ public class ZcOrderServiceImpl implements ZcOrderService {
         order.setPrice(order_request.getPrice());
         order.setHasDriver(order_request.getHasDriver());
         order.setHasFranchiseFees(order_request.getHasFranchiseFees());
-        List<ZcCar>cars=carRespository.find(order_request.getModel(), order_request.getType(), order_request.getBox(), order_request.getPailiang(), order_request.getSeat(), order_request.getPlan_id());
+        List<ZcCar>cars=carRespository.find(order_request.getModel(), order_request.getType(), order_request.getBox(), order_request.getPailiang(), order_request.getSeat());
+        System.out.println(cars);
         if(cars.isEmpty()){
             return null;
         }

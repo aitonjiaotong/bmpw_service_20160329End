@@ -1,4 +1,4 @@
-package com.aiton.bmpw.Util;
+package com.aiton.bmpw.util;
 
 import java.lang.reflect.Type;
 

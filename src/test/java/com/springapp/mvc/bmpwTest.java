@@ -1,22 +1,10 @@
 package com.springapp.mvc;
 
-import com.aiton.bmpw.Entity.Zone;
-import com.aiton.bmpw.Util.GsonUtils;
-import com.aiton.bmpw.Util.bmpwUtils;
-import com.aiton.bmpw.Webservice.JDTTicketLocator;
-import com.aiton.bmpw.Webservice.JDTTicketSoap_PortType;
-import com.aiton.wxApliy.entity.WxRequest;
-import com.aiton.wxApliy.service.WxConnection;
+import net.sf.json.JSONObject;
 import org.junit.Test;
 
 import javax.xml.rpc.ServiceException;
-import java.io.UnsupportedEncodingException;
 import java.rmi.RemoteException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,8 +16,8 @@ import java.util.UUID;
 public class bmpwTest {
     @Test
     public void test1() throws ServiceException, RemoteException {
-        WxConnection c=new WxConnection();
-        WxRequest request=new WxRequest();
-        System.out.println(c.reqOrder(request));
+        Boolean a=true;
+        JSONObject jsonObject=JSONObject.fromObject(a);
+        System.out.println(jsonObject.toString());
     }
 }

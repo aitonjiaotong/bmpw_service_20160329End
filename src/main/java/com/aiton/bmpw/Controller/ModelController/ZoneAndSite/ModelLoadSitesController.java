@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Controller.ModelController.ZoneAndSite;
+package com.aiton.bmpw.controller.modelController.ZoneAndSite;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Service.SiteService;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.service.SiteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

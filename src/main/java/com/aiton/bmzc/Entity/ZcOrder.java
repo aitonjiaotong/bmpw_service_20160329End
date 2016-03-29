@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Entity;
+package com.aiton.bmzc.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

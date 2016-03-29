@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Controller.FrontController;
+package com.aiton.bmpw.controller.frontController;
 
-import com.aiton.bmpw.Entity.Account;
-import com.aiton.bmpw.Service.LoginService;
+import com.aiton.bmpw.entity.Account;
+import com.aiton.bmpw.service.LoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

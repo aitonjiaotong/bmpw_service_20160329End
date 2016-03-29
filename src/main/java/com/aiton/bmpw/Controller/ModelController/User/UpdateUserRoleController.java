@@ -1,6 +1,6 @@
-package com.aiton.bmpw.Controller.ModelController.User;
+package com.aiton.bmpw.controller.modelController.User;
 
-import com.aiton.bmpw.Service.UserService;
+import com.aiton.bmpw.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.aiton.bmpw.Entity.Show;
+package com.aiton.bmpw.entity.show;
 
 /**
  * Created with IntelliJ IDEA.

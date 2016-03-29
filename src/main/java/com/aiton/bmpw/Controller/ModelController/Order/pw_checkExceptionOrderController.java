@@ -1,6 +1,6 @@
-package com.aiton.bmpw.Controller.ModelController.Order;
+package com.aiton.bmpw.controller.modelController.Order;
 
-import com.aiton.bmpw.Service.OrderService;
+import com.aiton.bmpw.service.OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

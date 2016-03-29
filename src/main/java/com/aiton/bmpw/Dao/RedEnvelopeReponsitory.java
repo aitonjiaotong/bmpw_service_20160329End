@@ -1,6 +1,6 @@
-package com.aiton.bmpw.Dao;
+package com.aiton.bmpw.dao;
 
-import com.aiton.bmpw.Entity.RedEnvelope;
+import com.aiton.bmpw.entity.RedEnvelope;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

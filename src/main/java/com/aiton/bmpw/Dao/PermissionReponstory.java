@@ -1,10 +1,7 @@
-package com.aiton.bmpw.Dao;
+package com.aiton.bmpw.dao;
 
-import com.aiton.bmpw.Entity.Model.Permission;
+import com.aiton.bmpw.entity.model.Permission;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.

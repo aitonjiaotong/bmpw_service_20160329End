@@ -1,4 +1,4 @@
-package com.aiton.bmpw.Controller.PageController;
+package com.aiton.bmpw.controller.pageController;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;

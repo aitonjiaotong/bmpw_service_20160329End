@@ -1,7 +1,7 @@
-package com.aiton.bmzc.Service;
+package com.aiton.bmzc.service;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Entity.ZcAppointment;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmzc.entity.ZcAppointment;
 
 /**
  * Created with IntelliJ IDEA.

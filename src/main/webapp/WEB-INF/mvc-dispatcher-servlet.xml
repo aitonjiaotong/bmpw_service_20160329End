@@ -44,7 +44,7 @@
     <mvc:resources mapping="/icon/**" location="/WEB-INF/pages/icon/"/>
     <mvc:resources mapping="/upload/**" location="/WEB-INF/pages/upload/"/>
     <mvc:resources mapping="/cars/**" location="/WEB-INF/pages/cars/"/>
-    <bean id="shiroRealm" class="com.aiton.bmpw.Realm.ShiroRealm"/>
+    <bean id="shiroRealm" class="com.aiton.bmpw.realm.ShiroRealm"/>
     <bean id="secruityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="shiroRealm"/>
     </bean>

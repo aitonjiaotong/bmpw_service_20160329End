@@ -1,4 +1,4 @@
-package com.aiton.bmzc.Entity;
+package com.aiton.bmzc.entity;
 
 /**
  * 用于接收添加order页面传过来的值

@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Controller.FrontController.RedEnvelope;
+package com.aiton.bmpw.controller.frontController.RedEnvelope;
 
-import com.aiton.bmpw.Entity.RedEnvelope;
-import com.aiton.bmpw.Service.RedEnvelopeService;
+import com.aiton.bmpw.entity.RedEnvelope;
+import com.aiton.bmpw.service.RedEnvelopeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;

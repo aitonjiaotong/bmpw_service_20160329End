@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Util;
+package com.aiton.bmpw.util;
 
-import com.aiton.bmpw.Entity.Show.Zone_Web;
-import com.aiton.bmpw.Entity.Zone;
+import com.aiton.bmpw.entity.show.Zone_Web;
+import com.aiton.bmpw.entity.Zone;
 import com.cloopen.rest.sdk.CCPRestSDK;
 import org.apache.commons.codec.binary.Base64;
 

@@ -1,9 +1,9 @@
-package com.aiton.bmzc.Service.Impl;
+package com.aiton.bmzc.service.impl;
 
-import com.aiton.bmpw.Util.bmpwUtils;
-import com.aiton.bmzc.Dao.ZcInstitutionsRepository;
-import com.aiton.bmzc.Entity.ZcInstitutions;
-import com.aiton.bmzc.Service.ZcInstitutionsService;
+import com.aiton.bmpw.util.bmpwUtils;
+import com.aiton.bmzc.dao.ZcInstitutionsRepository;
+import com.aiton.bmzc.entity.ZcInstitutions;
+import com.aiton.bmzc.service.ZcInstitutionsService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

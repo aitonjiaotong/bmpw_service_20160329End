@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Service;
+package com.aiton.bmpw.service;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Entity.Pw_Refund;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.entity.Pw_Refund;
 
 import javax.servlet.http.HttpServletRequest;
 

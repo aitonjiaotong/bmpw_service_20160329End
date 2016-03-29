@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Realm;
+package com.aiton.bmpw.realm;
 
-import com.aiton.bmpw.Entity.Model.User;
-import com.aiton.bmpw.Service.RealmService;
+import com.aiton.bmpw.entity.model.User;
+import com.aiton.bmpw.service.RealmService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;

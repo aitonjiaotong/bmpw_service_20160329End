@@ -1,6 +1,6 @@
-package com.aiton.bmzc.Service;
+package com.aiton.bmzc.service;
 
-import com.aiton.bmzc.Entity.ZcInstitutions;
+import com.aiton.bmzc.entity.ZcInstitutions;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Controller.ModelController.FeedBack;
+package com.aiton.bmpw.controller.modelController.FeedBack;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Service.FeedBackService;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.service.FeedBackService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

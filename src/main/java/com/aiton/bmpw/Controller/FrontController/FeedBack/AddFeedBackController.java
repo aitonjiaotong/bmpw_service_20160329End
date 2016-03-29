@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Controller.FrontController.FeedBack;
+package com.aiton.bmpw.controller.frontController.FeedBack;
 
-import com.aiton.bmpw.Entity.FeedBack;
-import com.aiton.bmpw.Service.FeedBackService;
+import com.aiton.bmpw.entity.FeedBack;
+import com.aiton.bmpw.service.FeedBackService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;

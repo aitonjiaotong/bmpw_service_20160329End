@@ -1,8 +1,8 @@
-package com.aiton.bmzc.Service;
+package com.aiton.bmzc.service;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Entity.ZcCar;
-import com.aiton.bmzc.Entity.ZcContainsNum;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmzc.entity.ZcCar;
+import com.aiton.bmzc.entity.ZcContainsNum;
 
 import javax.servlet.http.HttpServletRequest;
 

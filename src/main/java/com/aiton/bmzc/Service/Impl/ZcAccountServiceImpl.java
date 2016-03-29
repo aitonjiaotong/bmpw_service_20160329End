@@ -1,9 +1,9 @@
-package com.aiton.bmzc.Service.Impl;
+package com.aiton.bmzc.service.impl;
 
-import com.aiton.bmpw.Dao.AccountReponstory;
-import com.aiton.bmpw.Entity.Account;
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Service.ZcAccountService;
+import com.aiton.bmpw.dao.AccountReponstory;
+import com.aiton.bmpw.entity.Account;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmzc.service.ZcAccountService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 

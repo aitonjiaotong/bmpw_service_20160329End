@@ -1,16 +1,16 @@
-package com.aiton.bmpw.Service.impl;
+package com.aiton.bmpw.service.impl;
 
-import com.aiton.bmpw.Dao.AccountReponstory;
-import com.aiton.bmpw.Dao.OrderReponsitory;
-import com.aiton.bmpw.Dao.RedEnvelopeReponsitory;
-import com.aiton.bmpw.Entity.Account;
-import com.aiton.bmpw.Entity.Bmpw_Order;
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Entity.RedEnvelope;
-import com.aiton.bmpw.Entity.Show.Order_show;
-import com.aiton.bmpw.Entity.Show.pw_Order_show;
-import com.aiton.bmpw.Service.OrderService;
-import com.aiton.bmpw.Util.GsonUtils;
+import com.aiton.bmpw.dao.AccountReponstory;
+import com.aiton.bmpw.dao.OrderReponsitory;
+import com.aiton.bmpw.dao.RedEnvelopeReponsitory;
+import com.aiton.bmpw.entity.Account;
+import com.aiton.bmpw.entity.Bmpw_Order;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.entity.RedEnvelope;
+import com.aiton.bmpw.entity.show.Order_show;
+import com.aiton.bmpw.entity.show.pw_Order_show;
+import com.aiton.bmpw.service.OrderService;
+import com.aiton.bmpw.util.GsonUtils;
 import com.aiton.bmpw.Webservice.JDTTicketLocator;
 import com.aiton.bmpw.Webservice.JDTTicketSoap_PortType;
 import net.sf.json.JSONObject;
@@ -22,12 +22,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.rpc.ServiceException;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -134,7 +131,7 @@ public class OrderServiceimpl implements OrderService {
     @Override
     public Bmpw_Order exceptionOrder(Integer order_id, Integer flag) {
         Bmpw_Order order=orderReponsitory.findOne(order_id);
-        if(flag==1){
+        if(flag.equals(1)||flag==1){
            order.setFlag(0);
         }
         order=orderReponsitory.saveAndFlush(order);

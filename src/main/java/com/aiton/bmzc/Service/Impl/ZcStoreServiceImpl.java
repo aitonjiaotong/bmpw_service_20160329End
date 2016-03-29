@@ -1,9 +1,9 @@
-package com.aiton.bmzc.Service.Impl;
+package com.aiton.bmzc.service.impl;
 
-import com.aiton.bmzc.Dao.ZcStoreRepository;
-import com.aiton.bmzc.Entity.ZcContainsNum;
-import com.aiton.bmzc.Entity.ZcStore;
-import com.aiton.bmzc.Service.ZcStoreService;
+import com.aiton.bmzc.dao.ZcStoreRepository;
+import com.aiton.bmzc.entity.ZcContainsNum;
+import com.aiton.bmzc.entity.ZcStore;
+import com.aiton.bmzc.service.ZcStoreService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 

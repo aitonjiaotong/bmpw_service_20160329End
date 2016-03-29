@@ -1,6 +1,6 @@
-package com.aiton.bmzc.Dao;
+package com.aiton.bmzc.dao;
 
-import com.aiton.bmzc.Entity.ZcStore;
+import com.aiton.bmzc.entity.ZcStore;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

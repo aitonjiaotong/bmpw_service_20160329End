@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Controller.FrontController.ZoneAndSite;
+package com.aiton.bmpw.controller.frontController.ZoneAndSite;
 
-import com.aiton.bmpw.Entity.Show.Zone_Web;
-import com.aiton.bmpw.Service.ZoneService;
+import com.aiton.bmpw.entity.show.Zone_Web;
+import com.aiton.bmpw.service.ZoneService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Controller.FrontController.PictureController;
+package com.aiton.bmpw.controller.frontController.PictureController;
 
-import com.aiton.bmpw.Entity.Picture;
-import com.aiton.bmpw.Service.PictureService;
+import com.aiton.bmpw.entity.Picture;
+import com.aiton.bmpw.service.PictureService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

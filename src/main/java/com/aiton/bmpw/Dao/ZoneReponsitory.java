@@ -1,6 +1,6 @@
-package com.aiton.bmpw.Dao;
+package com.aiton.bmpw.dao;
 
-import com.aiton.bmpw.Entity.Zone;
+import com.aiton.bmpw.entity.Zone;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

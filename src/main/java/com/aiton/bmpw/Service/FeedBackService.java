@@ -1,10 +1,9 @@
-package com.aiton.bmpw.Service;
+package com.aiton.bmpw.service;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Entity.FeedBack;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.entity.FeedBack;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.

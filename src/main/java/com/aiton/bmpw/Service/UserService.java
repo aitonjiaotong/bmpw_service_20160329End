@@ -1,4 +1,4 @@
-package com.aiton.bmpw.Service;
+package com.aiton.bmpw.service;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,9 +8,9 @@ package com.aiton.bmpw.Service;
  * To change this template use File | Settings | File Templates.
  */
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Entity.Model.Role;
-import com.aiton.bmpw.Entity.Model.User;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.entity.model.Role;
+import com.aiton.bmpw.entity.model.User;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

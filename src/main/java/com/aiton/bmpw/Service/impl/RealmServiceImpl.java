@@ -1,14 +1,14 @@
-package com.aiton.bmpw.Service.impl;
+package com.aiton.bmpw.service.impl;
 
-import com.aiton.bmpw.Dao.PermissionReponstory;
-import com.aiton.bmpw.Dao.RolePermissionReponstory;
-import com.aiton.bmpw.Dao.UserReponstory;
-import com.aiton.bmpw.Dao.UserRoleReponstory;
-import com.aiton.bmpw.Entity.Model.Permission;
-import com.aiton.bmpw.Entity.Model.Role_Permission;
-import com.aiton.bmpw.Entity.Model.User;
-import com.aiton.bmpw.Entity.Model.User_Role;
-import com.aiton.bmpw.Service.RealmService;
+import com.aiton.bmpw.dao.PermissionReponstory;
+import com.aiton.bmpw.dao.RolePermissionReponstory;
+import com.aiton.bmpw.dao.UserReponstory;
+import com.aiton.bmpw.dao.UserRoleReponstory;
+import com.aiton.bmpw.entity.model.Permission;
+import com.aiton.bmpw.entity.model.Role_Permission;
+import com.aiton.bmpw.entity.model.User;
+import com.aiton.bmpw.entity.model.User_Role;
+import com.aiton.bmpw.service.RealmService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

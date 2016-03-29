@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Controller.ModelController.RedEnvelope;
+package com.aiton.bmpw.controller.modelController.RedEnvelope;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Service.RedEnvelopeService;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.service.RedEnvelopeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

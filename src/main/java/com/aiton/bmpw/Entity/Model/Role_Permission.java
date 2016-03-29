@@ -1,4 +1,4 @@
-package com.aiton.bmpw.Entity.Model;
+package com.aiton.bmpw.entity.model;
 
 import javax.persistence.*;
 

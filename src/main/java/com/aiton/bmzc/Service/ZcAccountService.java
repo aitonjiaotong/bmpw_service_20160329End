@@ -1,7 +1,7 @@
-package com.aiton.bmzc.Service;
+package com.aiton.bmzc.service;
 
-import com.aiton.bmpw.Entity.Account;
-import com.aiton.bmpw.Entity.DataTables;
+import com.aiton.bmpw.entity.Account;
+import com.aiton.bmpw.entity.DataTables;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,6 +1,6 @@
-package com.aiton.bmpw.Service;
+package com.aiton.bmpw.service;
 
-import com.aiton.bmpw.Entity.Picture;
+import com.aiton.bmpw.entity.Picture;
 
 import java.util.List;
 

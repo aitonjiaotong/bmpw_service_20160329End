@@ -1,6 +1,6 @@
-package com.aiton.bmpw.Entity.Show;
+package com.aiton.bmpw.entity.show;
 
-import com.aiton.bmpw.Entity.Bmpw_Order;
+import com.aiton.bmpw.entity.Bmpw_Order;
 
 import java.util.List;
 

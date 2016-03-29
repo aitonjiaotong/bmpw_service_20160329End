@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Service;
+package com.aiton.bmpw.service;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Entity.RedEnvelope;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.entity.RedEnvelope;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;

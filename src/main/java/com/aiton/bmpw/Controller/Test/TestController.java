@@ -1,15 +1,15 @@
-package com.aiton.bmpw.Controller.Test;
+package com.aiton.bmpw.controller.test;
 
-import com.aiton.bmpw.Dao.AccountReponstory;
-import com.aiton.bmpw.Dao.UserReponstory;
-import com.aiton.bmpw.Dao.ZoneReponsitory;
-import com.aiton.bmpw.Entity.Account;
-import com.aiton.bmpw.Entity.Model.User;
-import com.aiton.bmpw.Entity.Site;
-import com.aiton.bmpw.Entity.Zone;
-import com.aiton.bmpw.Service.SiteService;
-import com.aiton.bmpw.Service.ZoneService;
-import com.aiton.bmzc.Service.ZcOrderService;
+import com.aiton.bmpw.dao.AccountReponstory;
+import com.aiton.bmpw.dao.UserReponstory;
+import com.aiton.bmpw.dao.ZoneReponsitory;
+import com.aiton.bmpw.entity.Account;
+import com.aiton.bmpw.entity.model.User;
+import com.aiton.bmpw.entity.Site;
+import com.aiton.bmpw.entity.Zone;
+import com.aiton.bmpw.service.SiteService;
+import com.aiton.bmpw.service.ZoneService;
+import com.aiton.bmzc.service.ZcOrderService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -77,5 +77,10 @@ public class TestController {
     @RequestMapping("/testpage")
     public String exe9(){
         return "test";
+    }
+    @RequestMapping("/test10")
+    @ResponseBody
+    public String exe10(){
+       return null;
     }
 }

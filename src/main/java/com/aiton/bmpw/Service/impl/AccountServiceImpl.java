@@ -1,8 +1,8 @@
-package com.aiton.bmpw.Service.impl;
+package com.aiton.bmpw.service.impl;
 
-import com.aiton.bmpw.Dao.AccountReponstory;
-import com.aiton.bmpw.Entity.Account;
-import com.aiton.bmpw.Service.AccountService;
+import com.aiton.bmpw.dao.AccountReponstory;
+import com.aiton.bmpw.entity.Account;
+import com.aiton.bmpw.service.AccountService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

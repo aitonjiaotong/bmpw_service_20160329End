@@ -1,6 +1,6 @@
-package com.aiton.bmzc.Dao;
+package com.aiton.bmzc.dao;
 
-import com.aiton.bmpw.Entity.Account;
+import com.aiton.bmpw.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

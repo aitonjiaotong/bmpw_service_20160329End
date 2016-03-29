@@ -1,6 +1,6 @@
-package com.aiton.bmpw.Service;
+package com.aiton.bmpw.service;
 
-import com.aiton.bmpw.Entity.Account;
+import com.aiton.bmpw.entity.Account;
 
 /**
  * Created with IntelliJ IDEA.

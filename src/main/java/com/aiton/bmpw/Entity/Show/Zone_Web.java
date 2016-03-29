@@ -1,6 +1,5 @@
-package com.aiton.bmpw.Entity.Show;
+package com.aiton.bmpw.entity.show;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

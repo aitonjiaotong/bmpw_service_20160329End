@@ -1,10 +1,8 @@
-package com.aiton.bmpw.Service;
+package com.aiton.bmpw.service;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Entity.Show.Zone_Web;
-import com.aiton.bmpw.Entity.Zone;
+import com.aiton.bmpw.entity.show.Zone_Web;
+import com.aiton.bmpw.entity.Zone;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.xml.rpc.ServiceException;
 import java.io.UnsupportedEncodingException;
 import java.rmi.RemoteException;

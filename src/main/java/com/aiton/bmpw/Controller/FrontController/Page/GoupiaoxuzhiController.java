@@ -1,4 +1,4 @@
-package com.aiton.bmpw.Controller.FrontController.Page;
+package com.aiton.bmpw.controller.frontController.Page;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

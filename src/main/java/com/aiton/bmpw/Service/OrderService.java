@@ -1,15 +1,12 @@
-package com.aiton.bmpw.Service;
+package com.aiton.bmpw.service;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Entity.Bmpw_Order;
-import com.aiton.bmpw.Entity.Show.pw_Order_show;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.entity.Bmpw_Order;
+import com.aiton.bmpw.entity.show.pw_Order_show;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.rpc.ServiceException;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.rmi.RemoteException;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.

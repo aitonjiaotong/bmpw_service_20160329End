@@ -1,7 +1,7 @@
-package com.aiton.bmpw.Controller.FrontController.Person;
+package com.aiton.bmpw.controller.frontController.Person;
 
-import com.aiton.bmpw.Entity.Person;
-import com.aiton.bmpw.Service.PersonService;
+import com.aiton.bmpw.entity.Person;
+import com.aiton.bmpw.service.PersonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;

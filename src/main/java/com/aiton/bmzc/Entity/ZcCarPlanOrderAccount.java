@@ -1,6 +1,6 @@
-package com.aiton.bmzc.Entity;
+package com.aiton.bmzc.entity;
 
-import com.aiton.bmpw.Entity.Account;
+import com.aiton.bmpw.entity.Account;
 
 /**
  * Created with IntelliJ IDEA.

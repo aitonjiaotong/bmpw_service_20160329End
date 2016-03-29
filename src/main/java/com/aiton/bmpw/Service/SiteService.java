@@ -1,8 +1,7 @@
-package com.aiton.bmpw.Service;
+package com.aiton.bmpw.service;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Entity.Show.Site_Web;
-import com.aiton.bmpw.Entity.Site;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.entity.Site;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.rpc.ServiceException;

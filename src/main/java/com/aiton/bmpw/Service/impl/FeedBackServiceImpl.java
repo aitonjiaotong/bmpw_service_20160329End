@@ -1,11 +1,11 @@
-package com.aiton.bmpw.Service.impl;
+package com.aiton.bmpw.service.impl;
 
-import com.aiton.bmpw.Dao.AccountReponstory;
-import com.aiton.bmpw.Dao.FeedBackReponstroy;
-import com.aiton.bmpw.Entity.Account;
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmpw.Entity.FeedBack;
-import com.aiton.bmpw.Service.FeedBackService;
+import com.aiton.bmpw.dao.AccountReponstory;
+import com.aiton.bmpw.dao.FeedBackReponstroy;
+import com.aiton.bmpw.entity.Account;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmpw.entity.FeedBack;
+import com.aiton.bmpw.service.FeedBackService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

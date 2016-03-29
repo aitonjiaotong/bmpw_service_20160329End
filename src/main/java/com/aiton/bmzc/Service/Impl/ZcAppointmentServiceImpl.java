@@ -1,9 +1,9 @@
-package com.aiton.bmzc.Service.Impl;
+package com.aiton.bmzc.service.impl;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Dao.ZcAppointmentRespository;
-import com.aiton.bmzc.Entity.ZcAppointment;
-import com.aiton.bmzc.Service.ZcAppointmentService;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmzc.dao.ZcAppointmentRespository;
+import com.aiton.bmzc.entity.ZcAppointment;
+import com.aiton.bmzc.service.ZcAppointmentService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

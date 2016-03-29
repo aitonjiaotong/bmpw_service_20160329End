@@ -1,6 +1,6 @@
-package com.aiton.bmzc.Dao;
+package com.aiton.bmzc.dao;
 
-import com.aiton.bmzc.Entity.ZcInstitutions;
+import com.aiton.bmzc.entity.ZcInstitutions;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
