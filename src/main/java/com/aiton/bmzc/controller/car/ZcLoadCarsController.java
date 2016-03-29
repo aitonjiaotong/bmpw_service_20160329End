@@ -1,7 +1,7 @@
 package com.aiton.bmzc.controller.car;
 
-import com.aiton.bmpw.Entity.DataTables;
-import com.aiton.bmzc.Service.ZcCarService;
+import com.aiton.bmpw.entity.DataTables;
+import com.aiton.bmzc.service.ZcCarService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

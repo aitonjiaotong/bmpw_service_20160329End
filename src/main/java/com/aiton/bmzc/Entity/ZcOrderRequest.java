@@ -21,7 +21,6 @@ public class ZcOrderRequest {
     private Long planReturnDate;//计划还车时间
     private Double price;//总价
     private Integer status;//0：企业租车 1；个人租车
-    private Double insurance;//保险金额
     private Integer getCar;//取车地点
     private Integer returnCar;//还车地点
     private Integer hasDriver;//0:带 1：不带
@@ -168,14 +167,6 @@ public class ZcOrderRequest {
         this.status = status;
     }
 
-    public Double getInsurance() {
-        return insurance;
-    }
-
-    public void setInsurance(Double insurance) {
-        this.insurance = insurance;
-    }
-
     public Integer getGetCar() {
         return getCar;
     }
@@ -213,8 +204,7 @@ public class ZcOrderRequest {
                 ", zuchuDate=" + zuchuDate +
                 ", planReturnDate=" + planReturnDate +
                 ", price=" + price +
-                ", status=" + status +
-                ", insurance=" + insurance +
+                ", status=" + status  +
                 ", getCar=" + getCar +
                 ", returnCar=" + returnCar +
                 ", hasDriver=" + hasDriver +

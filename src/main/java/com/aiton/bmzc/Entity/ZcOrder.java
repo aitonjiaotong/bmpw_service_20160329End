@@ -290,7 +290,6 @@ public class ZcOrder {
     public void setStatus(Integer status) {
         this.status = status;
     }
-
     @Basic
     @Column
     public String getSale() {
